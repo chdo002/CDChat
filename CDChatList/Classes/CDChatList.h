@@ -9,4 +9,6 @@
 
 @interface CDChatList : UITableView
 
+@property(nonatomic, copy) NSArray* msgArr;
+
 @end

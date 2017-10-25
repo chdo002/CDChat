@@ -18,10 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    
+
     CDChatList *listView = [[CDChatList alloc] initWithFrame:self.view.bounds];
+    listView.msgArr = @[@"1", @"2"];
     [self.view addSubview:listView];
     
 }
