@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CDChatList_Example' do
+  pod 'CDChatList', :path => '../'
+
+  target 'CDChatList_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
