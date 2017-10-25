@@ -7,6 +7,7 @@
 //
 
 #import "CDViewController.h"
+#import <CDChatList/CDChatList.h>
 
 @interface CDViewController ()
 
@@ -18,6 +19,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+    CDChatList *listView = [[CDChatList alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:listView];
+    
 }
 
 - (void)didReceiveMemoryWarning

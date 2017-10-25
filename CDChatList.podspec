@@ -32,11 +32,11 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'CDChatList/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'CDChatList' => ['CDChatList/Assets/*.png']
-  # }
+  s.resource_bundles = {
+     'CDChatList' => ['CDChatList/Assets/*.png']
+  }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
