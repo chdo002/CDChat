@@ -34,6 +34,11 @@
  */
 @property (retain,nonatomic) NSString *messageId;
 
+/**
+ cell 高度
+ */
+@property (assign, nonatomic) CGFloat cellHeight;
+
 @end
 
 

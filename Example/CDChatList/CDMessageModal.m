@@ -20,6 +20,6 @@
 
 @synthesize createTime;
 
-
+@synthesize cellHeight;
 
 @end

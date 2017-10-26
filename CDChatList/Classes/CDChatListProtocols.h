@@ -34,15 +34,8 @@
 /**
  cell高度，缓存用
  */
-@property (assign, nonatomic) CGFloat *cellHeight;
+@property (assign, nonatomic) CGFloat cellHeight;
 
-
-/**
- 计算cell高度
- 
- @return cell高度
- */
-+(CGFloat)heightForMessage;
 
 @end
 
@@ -55,21 +48,6 @@
  @param data 消息模型
  */
 -(void)configCellByData:(id<MessageModalProtocal>)data;
-
-/**
- 获取cell高度，可能从modal中的缓存中拿，否则cell计算，并缓存在modal中
- 
- @return cell高度
- */
--(CGFloat)fetchCellHeight;
-
-/**
- 针对不同的cell，计算cell高度
-
- @param data 消息模型
- @return cell高度
- */
--(CGFloat)caculateCellHeight:(id<MessageModalProtocal>)data;
 
 @end
 

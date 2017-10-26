@@ -10,6 +10,6 @@
 
 @interface CDChatList : UITableView
 
-@property(nonatomic, copy) NSArray* msgArr;
+@property(nonatomic, copy) NSArray<id<MessageModalProtocal>>* msgArr;
 
 @end

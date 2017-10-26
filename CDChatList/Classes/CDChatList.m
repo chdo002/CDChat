@@ -8,6 +8,8 @@
 #import "CDChatList.h"
 #import "CDTextTableViewCell.h"
 
+#import "CellCaculator.h"
+
 #import "CDChatMacro.h"
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
@@ -69,8 +71,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    return [cell fetchCellHeight];
+    return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
 }
 
 

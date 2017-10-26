@@ -14,7 +14,6 @@
 #import "CDChatListProtocols.h"
 #import "CDChatMacro.h"
 #import "CDTextTableViewCell.h"
-#import "MessageModal.h"
 
 FOUNDATION_EXPORT double CDChatListVersionNumber;
 FOUNDATION_EXPORT const unsigned char CDChatListVersionString[];

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		22554065FA07F1BFE5308A685394CB12 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 351F8E59854BCD39585AB8A055AC2F52 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23E711F9E8D0C2DCC9AE84F40568AA09 /* MessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9043AD06ADF3869C9CB159165B9F9CB7 /* MessageModal.m */; };
 		2A8A354B47D3EFAC457ED18E32C92436 /* CDChatList.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C850E787A29EBC0BD5F61B8003B9FE7 /* CDChatList.bundle */; };
 		37F097E2269EF1BD238AD7449D796445 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = ED48C0E1AA39302CCDD55032B7544B36 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		3E43906B70EB01C06F3AE17008B853B9 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F1F546D17BEE96A3AC80F5733BACB23C /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -17,7 +16,6 @@
 		6E7737423C3C359126C1CA37A12D9A66 /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4797FCD938EEE3E7564B3B6CD5DCB4 /* CDTextTableViewCell.m */; };
 		72563ADE99DC9E753B27D48B16AA3654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		7527C960FB2DC4CAB3228353989CEB07 /* Pods-CDChatList_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B02886F835D6A6781CE76191F82862 /* Pods-CDChatList_Example-dummy.m */; };
-		8438BA54030950176530385DBD7F0AA3 /* MessageModal.h in Headers */ = {isa = PBXBuildFile; fileRef = D084F51AB1740B497BC31D4BCEB10EAA /* MessageModal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		87ECA447DB887426665260651B7F147E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF62A1F971FFFC84C36F474CF296297 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		96E70B43FC04BC99AED1BBD4FB1D7581 /* FMDB-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 774678108D22A09213789D973E2051AC /* FMDB-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99110651E80533711054A45F8527D26A /* CDChatListProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8770C2DACF4656D5451C242B0CF933 /* CDChatListProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +31,8 @@
 		C605A44DF96E7FCACF7D6E37B62F795D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D2F8382360C935E0097F1CB2E26820 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		CCB74062CE0F4B8E5B7483599BC398DA /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 73E08DD3F409CC910BDF9AAC0E1BEB35 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5991941DC41DDDDDACAE0B5D47A4639 /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5085BA3C5279C337F6D921E5CAFB1FC /* FMDB-dummy.m */; };
+		E99CD0B21FA19BE60045783B /* CellCaculator.h in Headers */ = {isa = PBXBuildFile; fileRef = E99CD0B01FA19BE60045783B /* CellCaculator.h */; };
+		E99CD0B31FA19BE60045783B /* CellCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0B11FA19BE60045783B /* CellCaculator.m */; };
 		EE77961C93625502A6A5D344544FE031 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		F11FAB91014130EE233A3429439D38D7 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CFEEF64A76609C0E88017B38B7E12DA /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F7C795CE90E8FC6C9B3FDE4ED5D0925B /* CDTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E904AB4A9AA5232C2A617A24395AD57B /* CDTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,7 +87,6 @@
 		85A42F9022C749786EDA6EC6E7E78B3B /* Pods-CDChatList_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-resources.sh"; sourceTree = "<group>"; };
 		8DF62A1F971FFFC84C36F474CF296297 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		8FD9F01B2F99D4EE5368A24E9EBADD34 /* Pods-CDChatList_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9043AD06ADF3869C9CB159165B9F9CB7 /* MessageModal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MessageModal.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9A2BDD9FB07D6782FED8F867EC579E77 /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E155A74D3D9843005776179F5B0FC7E /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,12 +101,13 @@
 		C4BBD76359D36C69E5804A290D1C5ED2 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		C6FB8E041D4ADADC4A7DC01A4CDF7AB3 /* CDChatList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatList.h; path = CDChatList/Classes/CDChatList.h; sourceTree = "<group>"; };
 		C80DA57F8CD6FA6C1FE9516FC1FCBB41 /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
-		D084F51AB1740B497BC31D4BCEB10EAA /* MessageModal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MessageModal.h; sourceTree = "<group>"; };
 		D5085BA3C5279C337F6D921E5CAFB1FC /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
 		D75F4126B9D563A00437AAD98E2A4788 /* CDChatList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDChatList.xcconfig; sourceTree = "<group>"; };
 		E3643C1EBA15EEBEA8A703EC81DFBF4E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
 		E904AB4A9AA5232C2A617A24395AD57B /* CDTextTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
+		E99CD0B01FA19BE60045783B /* CellCaculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellCaculator.h; sourceTree = "<group>"; };
+		E99CD0B11FA19BE60045783B /* CellCaculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellCaculator.m; sourceTree = "<group>"; };
 		ED48C0E1AA39302CCDD55032B7544B36 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 		F1F546D17BEE96A3AC80F5733BACB23C /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		F9BF6C7CB28C8A88ED44A18248CD6CA0 /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,12 +222,13 @@
 		6FDA9442086A4CB19DB54A4320601855 /* CDChatList */ = {
 			isa = PBXGroup;
 			children = (
-				4B8770C2DACF4656D5451C242B0CF933 /* CDChatListProtocols.h */,
-				7AEAAD2C010DC3BE672A69F84E68237B /* CDChatMacro.h */,
 				C6FB8E041D4ADADC4A7DC01A4CDF7AB3 /* CDChatList.h */,
 				1F17713D00CFFE3857B3AB1422F79692 /* CDChatList.m */,
+				4B8770C2DACF4656D5451C242B0CF933 /* CDChatListProtocols.h */,
+				7AEAAD2C010DC3BE672A69F84E68237B /* CDChatMacro.h */,
+				E99CD0B01FA19BE60045783B /* CellCaculator.h */,
+				E99CD0B11FA19BE60045783B /* CellCaculator.m */,
 				5B205BAC1DBA509713A614E3DBE6B7E4 /* MessageCell */,
-				D861E424E77571798ADC9FDEAE9880E5 /* MessageModel */,
 				22A691286BEEB2697782E6AF8AF42650 /* Support Files */,
 			);
 			name = CDChatList;
@@ -292,16 +293,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		D861E424E77571798ADC9FDEAE9880E5 /* MessageModel */ = {
-			isa = PBXGroup;
-			children = (
-				D084F51AB1740B497BC31D4BCEB10EAA /* MessageModal.h */,
-				9043AD06ADF3869C9CB159165B9F9CB7 /* MessageModal.m */,
-			);
-			name = MessageModel;
-			path = CDChatList/Classes/MessageModel;
-			sourceTree = "<group>";
-		};
 		F6DE655E75ADFE1AA964C216FFC0DF35 /* standard */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,7 +345,7 @@
 				99110651E80533711054A45F8527D26A /* CDChatListProtocols.h in Headers */,
 				9C7C1C77ADCE061E74A6332E16813163 /* CDChatMacro.h in Headers */,
 				F7C795CE90E8FC6C9B3FDE4ED5D0925B /* CDTextTableViewCell.h in Headers */,
-				8438BA54030950176530385DBD7F0AA3 /* MessageModal.h in Headers */,
+				E99CD0B21FA19BE60045783B /* CellCaculator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,10 +476,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99CD0B31FA19BE60045783B /* CellCaculator.m in Sources */,
 				A048EF04F71D9CE142067E32AE87649A /* CDChatList-dummy.m in Sources */,
 				9F4E6931F016738E82EB53E405C204B0 /* CDChatList.m in Sources */,
 				6E7737423C3C359126C1CA37A12D9A66 /* CDTextTableViewCell.m in Sources */,
-				23E711F9E8D0C2DCC9AE84F40568AA09 /* MessageModal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

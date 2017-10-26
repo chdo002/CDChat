@@ -10,7 +10,7 @@
 
 @interface CDTextTableViewCell()
 
-@property(nonatomic, strong)id<MessageModalProtocal> *msgModal;
+@property(nonatomic, strong) id<MessageModalProtocal> msgModal;
 
 @end
 
@@ -23,19 +23,7 @@
     return self;
 }
 
--(CGFloat)fetchCellHeight{
-    if (self.msgModal.cellHeight) {
-        return self.msgModal.cellHeight;
-    }
-    return [self caculateCellHeight:self.msgModal];
-}
-
 #pragma mark MessageCellDelegate
-
-- (CGFloat)caculateCellHeight:(id<MessageModalProtocal>)data {
-//    ....    
-    return 50.f;
-}
 
 - (void)configCellByData:(id<MessageModalProtocal>)data {
     self.msgModal = data;
