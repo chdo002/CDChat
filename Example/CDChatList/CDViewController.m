@@ -24,7 +24,7 @@
     
     //  初始化消息
     NSMutableArray *items = [NSMutableArray array];
-    for (int i = 0; i < 1000000; i++) {
+    for (int i = 0; i < 1000; i++) {
         CDMessageModal *modal = [[CDMessageModal alloc] init];
         modal.msg = [NSString stringWithFormat:@"%d",i];
         modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
