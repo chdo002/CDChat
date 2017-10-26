@@ -23,12 +23,10 @@
 
     
     //  初始化消息
-    self.msgArr = [NSMutableArray arrayWithObjects:@"1",@"2", nil];
-    
-    NSMutableArray *arr = [NSMutableArray array];
-    for (NSString *msg in self.msgArr) {
+    NSMutableArray *items = [NSMutableArray array];
+    for (int i = 0; i < 1000000; i++) {
         CDMessageModal *modal = [[CDMessageModal alloc] init];
-        modal.msg = msg;
+        modal.msg = [NSString stringWithFormat:@"%d",i];
         modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
         modal.msgType = @"text";
         
@@ -38,16 +36,15 @@
             number = [number stringByAppendingString:[NSString stringWithFormat:@"%i",x]];
         }
         modal.messageId = number;
-        [arr addObject:modal];
+        [items addObject:modal];
     }
-    self.msgArr = [arr mutableCopy];
+    self.msgArr = [items mutableCopy];
     
     // 创建ListView
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
     self.listView = list;
     self.listView.msgArr = self.msgArr;
     [self.view addSubview:self.listView];
-    
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
     [self.navigationItem setRightBarButtonItem: item];
