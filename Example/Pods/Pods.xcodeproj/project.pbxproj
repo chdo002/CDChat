@@ -20,6 +20,7 @@
 		B4A707CFC0799F3F1997D658A833D554 /* Pods-CDChatList_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B02886F835D6A6781CE76191F82862 /* Pods-CDChatList_Example-dummy.m */; };
 		B66889AC2D8C7688DE38AB24BDC2415C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		D6014070A89EFF59A79B8113701AE736 /* CDTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E4878C5C082CA7643DE71DB416C2EEE /* CDTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E99CD0A51FA178F60045783B /* CDChatListProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = E99CD0A41FA178F60045783B /* CDChatListProtocols.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02D78E80E47D6B411808A796FCFF351F /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CDChatList.modulemap; sourceTree = "<group>"; };
+		02D78E80E47D6B411808A796FCFF351F /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CDChatList.modulemap; sourceTree = "<group>"; };
 		086F9A79508B48B1A355735DF53E9240 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09C5B88B0135F3E521C301F9F23A61A2 /* CDChatList.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CDChatList.bundle; path = CDChatList.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C5B88B0135F3E521C301F9F23A61A2 /* CDChatList.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDChatList.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1BF482E6C952B35F0BA0EEE3CAE3AF /* Pods-CDChatList_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.release.xcconfig"; sourceTree = "<group>"; };
 		1E4878C5C082CA7643DE71DB416C2EEE /* CDTextTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
 		1EA2DCDE9453B072FDA3A178EEE4A875 /* ResourceBundle-CDChatList-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CDChatList-Info.plist"; sourceTree = "<group>"; };
@@ -57,17 +58,18 @@
 		6CA022DDED4EFA38B54180A3B9FFA176 /* MessageModal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MessageModal.m; sourceTree = "<group>"; };
 		758E930F7E126E81140392C824F81548 /* Pods-CDChatList_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CDChatList_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		77BE2644DCBA2EFC7E99C18DFBB23921 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C02B19B36D261F076148870CDD73F03 /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
+		7C02B19B36D261F076148870CDD73F03 /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
 		85A42F9022C749786EDA6EC6E7E78B3B /* Pods-CDChatList_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-resources.sh"; sourceTree = "<group>"; };
-		867E7E2A8AC6ECF801E7513CF0479DEE /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CDChatList_Example.framework; path = "Pods-CDChatList_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		867E7E2A8AC6ECF801E7513CF0479DEE /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD9F01B2F99D4EE5368A24E9EBADD34 /* Pods-CDChatList_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B9A6B8449A7EFDD5499FAF8DFEC4BB12 /* Pods-CDChatList_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-frameworks.sh"; sourceTree = "<group>"; };
 		CCCBAF4390B71E17B399D8EEDCC039C1 /* CDChatList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-prefix.pch"; sourceTree = "<group>"; };
 		CEBE908CDD659BC598E7A115BFB4C060 /* CDChatList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDChatList.xcconfig; sourceTree = "<group>"; };
 		DD34D1D75FA3366C40BB8B92DBF4E030 /* CDTextTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
 		E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
-		E62FD83AA601F731CF392A07864771FA /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CDChatList.framework; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E62FD83AA601F731CF392A07864771FA /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99CD0A41FA178F60045783B /* CDChatListProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDChatListProtocols.h; path = CDChatList/Classes/CDChatListProtocols.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				291FD7B2FED80217356C2C728B293F18 /* CDChatList.h */,
 				25BF85BE6D8220A75232DFB0847BFC96 /* CDChatList.m */,
+				E99CD0A41FA178F60045783B /* CDChatListProtocols.h */,
 				CE1C75A6D145B7FB9774A70303FDD5D7 /* MessageCell */,
 				9A87D2F571F92D87C206CE461D87F9DF /* MessageModel */,
 				1A5C29547656C13AAD33832A2EB578D0 /* Support Files */,
@@ -227,6 +230,7 @@
 				9C0762D37817E1BD4AAFD19844E3720B /* CDChatList.h in Headers */,
 				D6014070A89EFF59A79B8113701AE736 /* CDTextTableViewCell.h in Headers */,
 				31ACF5925979E08391B2571D8F38ADA6 /* MessageModal.h in Headers */,
+				E99CD0A51FA178F60045783B /* CDChatListProtocols.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
