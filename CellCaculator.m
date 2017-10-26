@@ -19,6 +19,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         caculator = [[CellCaculator alloc]init];
+        caculator->caculatQueue = dispatch_queue_create("calqueue", DISPATCH_QUEUE_CONCURRENT);
     });
     return caculator;
 }

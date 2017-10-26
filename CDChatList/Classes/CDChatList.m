@@ -41,12 +41,13 @@
 
 
 
+
 /**
  监听数据源改变
 
  @param msgArr 数据源
  */
--(void)setMsgArr:(NSArray *)msgArr {
+-(void)setMsgArr:(NSArray<id<MessageModalProtocal>> *)msgArr{
     
     _msgArr = msgArr;
 
@@ -54,6 +55,7 @@
     if (msgArr.count == 0) {
         return;
     }
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:msgArr.count - 1  inSection:0];
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
