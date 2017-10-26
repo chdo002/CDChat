@@ -6,13 +6,14 @@
 //
 
 #import "CDTextTableViewCell.h"
+#import "CDChatMacro.h"
 
 @implementation CDTextTableViewCell
 
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.backgroundColor = CRMHexColor(0x808080);
+    self.backgroundColor = CRMRadomColor(0x808080);
     return self;
 }
 

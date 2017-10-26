@@ -37,7 +37,9 @@
     NSMutableArray *newArr = [NSMutableArray arrayWithArray:arrr];
     [newArr addObject:@"haha"];
     
-   self.listView.msgArr = newArr;
+//   self.listView.msgArr = newArr;
+    
+    [self.listView setMsgArr:newArr];
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,6 +11,8 @@
 #endif
 
 #import "CDChatList.h"
+#import "CDChatListProtocols.h"
+#import "CDChatMacro.h"
 #import "CDTextTableViewCell.h"
 #import "MessageModal.h"
 
