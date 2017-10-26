@@ -50,6 +50,8 @@
 -(void)setMsgArr:(NSArray<id<MessageModalProtocal>> *)msgArr{
     
     _msgArr = msgArr;
+    
+    
 
     [self reloadData];
     if (msgArr.count == 0) {

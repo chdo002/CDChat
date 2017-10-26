@@ -24,6 +24,7 @@
     return caculator;
 }
 
+//TODO: 获取cell的高度方式
 +(CGFloat)fetchCellHeight:(id<MessageModalProtocal>)data{
     
     if (data.cellHeight) {

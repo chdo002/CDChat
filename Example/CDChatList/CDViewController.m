@@ -21,6 +21,8 @@
 {
     [super viewDidLoad];
 
+    
+    //  初始化消息
     self.msgArr = [NSMutableArray arrayWithObjects:@"1",@"2", nil];
     
     NSMutableArray *arr = [NSMutableArray array];
@@ -38,13 +40,13 @@
         modal.messageId = number;
         [arr addObject:modal];
     }
-    
     self.msgArr = [arr mutableCopy];
+    
+    // 创建ListView
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
     self.listView = list;
     self.listView.msgArr = self.msgArr;
     [self.view addSubview:self.listView];
-    
     
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
