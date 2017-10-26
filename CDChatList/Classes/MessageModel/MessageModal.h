@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MessageModalProtocal.h"
+#import "CDChatListProtocols.h"
+
 @interface MessageModal : NSObject<MessageModalProtocal>
 
 @end

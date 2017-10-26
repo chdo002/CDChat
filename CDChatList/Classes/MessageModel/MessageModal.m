@@ -18,6 +18,11 @@
 
 @synthesize msg;
 
-
+-(instancetype)init{
+    if (!self) {
+        self = [super init];
+    }
+    return self;
+}
 
 @end

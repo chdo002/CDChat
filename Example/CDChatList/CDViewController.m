@@ -10,7 +10,7 @@
 #import <CDChatList/CDChatList.h>
 
 @interface CDViewController ()
-
+@property(nonatomic, weak)CDChatList *listView;
 @end
 
 @implementation CDViewController
@@ -19,10 +19,25 @@
 {
     [super viewDidLoad];
 
-    CDChatList *listView = [[CDChatList alloc] initWithFrame:self.view.bounds];
-    listView.msgArr = @[@"1", @"2"];
-    [self.view addSubview:listView];
+    CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+    self.listView = list;
+    self.listView.msgArr = @[@"1", @"2"];
+    [self.view addSubview:self.listView];
     
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+    [self.navigationItem setRightBarButtonItem: item];
+}
+
+/**
+ 刷新界面
+ */
+-(void)refresh{
+    NSArray *arrr =  self.listView.msgArr;
+    
+    NSMutableArray *newArr = [NSMutableArray arrayWithArray:arrr];
+    [newArr addObject:@"haha"];
+    
+   self.listView.msgArr = newArr;
 }
 
 - (void)didReceiveMemoryWarning

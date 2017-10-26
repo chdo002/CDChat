@@ -39,6 +39,9 @@
     _msgArr = msgArr;
     
     [self reloadData];
+    
+    NSIndexPath *index = [NSIndexPath indexPathForRow:msgArr.count - 1  inSection:0];
+    [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 

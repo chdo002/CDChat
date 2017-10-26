@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MessageCellProtocal.h"
+#import "CDChatListProtocols.h"
 
 @interface CDTextTableViewCell : UITableViewCell<MessageCellProtocal>
 
