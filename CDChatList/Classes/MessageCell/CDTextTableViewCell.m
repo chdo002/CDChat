@@ -8,6 +8,12 @@
 #import "CDTextTableViewCell.h"
 #import "CDChatMacro.h"
 
+@interface CDTextTableViewCell()
+
+@property(nonatomic, strong)id<MessageModalProtocal> *msgModal;
+
+@end
+
 @implementation CDTextTableViewCell
 
 
@@ -17,16 +23,22 @@
     return self;
 }
 
-#pragma mark MessageCellDelegate
-
-/**
- 计算cell高度
- @return cell高度
- */
-+(CGFloat)heightForMessage{
-    return 50.0f;
+-(CGFloat)fetchCellHeight{
+    if (self.msgModal.cellHeight) {
+        return self.msgModal.cellHeight;
+    }
+    return [self caculateCellHeight:self.msgModal];
 }
 
+#pragma mark MessageCellDelegate
 
+- (CGFloat)caculateCellHeight:(id<MessageModalProtocal>)data {
+//    ....    
+    return 50.f;
+}
+
+- (void)configCellByData:(id<MessageModalProtocal>)data {
+    self.msgModal = data;
+}
 
 @end

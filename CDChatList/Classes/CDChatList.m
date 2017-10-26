@@ -12,6 +12,10 @@
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
 
+{
+//    dispatch_queue_t tableViewUpateQueue;
+}
+
 @end
 
 @implementation CDChatList
@@ -20,12 +24,16 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
+//    tableViewUpateQueue = dispatch_queue_create("viewUpate", DISPATCH_QUEUE_SERIAL);
     
-    self.backgroundColor = CRMHexColor(0xC0C0C0);
+//    self.backgroundColor = CRMHexColor(0xC0C0C0);
+    
+    self.backgroundColor = [UIColor whiteColor];
     self.dataSource = self;
     self.delegate = self;
     self.msgArr = [NSArray array];
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
+    
     return self;
 }
 
@@ -44,7 +52,6 @@
     if (msgArr.count == 0) {
         return;
     }
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:msgArr.count - 1  inSection:0];
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -61,8 +68,9 @@
     return _msgArr.count;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [CDTextTableViewCell heightForMessage];
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    return [cell fetchCellHeight];
 }
 
 

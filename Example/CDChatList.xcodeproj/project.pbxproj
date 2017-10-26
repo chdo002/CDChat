@@ -23,6 +23,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B6954DFC369378779E81DABA /* Pods_CDChatList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */; };
+		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB16BFC8B517E192E61FBA43 /* Pods_CDChatList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99CD0AD1FA185B90045783B /* CDMessageModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
+		E99CD0AE1FA185B90045783B /* CDMessageModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
 		F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +136,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CDViewController.h */,
 				6003F5A6195388D20070C39A /* CDViewController.m */,
+				E99CD0AD1FA185B90045783B /* CDMessageModal.h */,
+				E99CD0AE1FA185B90045783B /* CDMessageModal.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -351,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */,
 				6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CDViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

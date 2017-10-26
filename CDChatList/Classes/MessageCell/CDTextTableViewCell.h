@@ -10,4 +10,6 @@
 
 @interface CDTextTableViewCell : UITableViewCell<MessageCellProtocal>
 
+
+
 @end
