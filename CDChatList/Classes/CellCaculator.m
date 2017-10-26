@@ -42,10 +42,11 @@
 //TODO: 获取cell的高度方式
 +(CGFloat)fetchCellHeight:(id<MessageModalProtocal>)data{
     
+    // 返回缓存中的高度
     if (data.cellHeight) {
         return data.cellHeight;
     }
-    
+    // 计算高度
     CGFloat height = [[CellCaculator shareInstance] caculateCellHeight:data];
     data.cellHeight = height;
     return height;
@@ -58,7 +59,7 @@
  @return cell高度
  */
 -(CGFloat)caculateCellHeight:(id<MessageModalProtocal>)data{
-    CGFloat rand = (CGFloat)arc4random_uniform(15);
+    CGFloat rand = (CGFloat)arc4random_uniform(5);
     
     // ..
     return 50.f + rand;

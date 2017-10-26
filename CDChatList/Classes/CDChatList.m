@@ -11,12 +11,11 @@
 #import "CellCaculator.h"
 
 #import "CDChatMacro.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
 
-{
-
-}
+@property (nonatomic, weak)UIActivityIndicatorView *loadingIndicator;
 
 @end
 
@@ -31,13 +30,30 @@
     self.backgroundColor = [UIColor whiteColor];
     self.dataSource = self;
     self.delegate = self;
-    self.msgArr = [NSArray array];
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
+
     
     return self;
 }
 
+-(UIActivityIndicatorView *)loadingIndicator{
+    if (!_loadingIndicator) {
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _loadingIndicator = indicator;
+    }
+    return _loadingIndicator;
+}
 
+
+-(void)didMoveToSuperview{
+        dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD showHUDAddedTo:self animated:YES];
+        });
+    [self layoutSubviews];
+//    self.loadingIndicator.frame = self.bounds;
+//    [self addSubview:self.loadingIndicator];
+//    [self.loadingIndicator startAnimating];
+}
 
 
 /**
@@ -46,20 +62,28 @@
  @param msgArr 数据源
  */
 -(void)setMsgArr:(NSArray<id<MessageModalProtocal>> *)msgArr{
-    
-    _msgArr = msgArr;
-    
-    [CellCaculator caculatorAllCellHeight:msgArr callBack:^{
+   
+    if (msgArr.count == 0) {
+        _msgArr = msgArr;
         [self reloadData];
-        if (msgArr.count == 0) {
-            return;
-        }
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSIndexPath *index = [NSIndexPath indexPathForRow:msgArr.count - 1  inSection:0];
-            [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    } else {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            [CellCaculator caculatorAllCellHeight:msgArr callBack:^{
+                _msgArr = msgArr;
+                [self reloadData];
+                [MBProgressHUD hideHUDForView:self animated:YES];
+                if (msgArr.count == 0) {
+                    return;
+                }
+                // 异步让tableview滚到最底部
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSIndexPath *index = [NSIndexPath indexPathForRow:msgArr.count - 1  inSection:0];
+                    [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                });
+            }];
         });
-    }];
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
