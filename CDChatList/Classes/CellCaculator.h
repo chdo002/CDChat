@@ -16,7 +16,7 @@
 
  @param msgArr 消息数组
  */
-+(void)caculatorAllCellHeight:(NSArray<id<MessageModalProtocal>> *)msgArr callBack:(void(^)(void))completeBlock;
++(void)caculatorAllCellHeight:(NSArray<id<MessageModalProtocal>> *)msgArr callBackOnMainThread:(void(^)(void))completeBlock;
 
 /**
  获取单个cell高度，优先从modal中的缓存获取，否则计算cell高度，并缓存在modal中

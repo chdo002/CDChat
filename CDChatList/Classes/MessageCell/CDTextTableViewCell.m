@@ -27,6 +27,7 @@
 
 - (void)configCellByData:(id<MessageModalProtocal>)data {
     self.msgModal = data;
+    self.textLabel.text = data.msg;
 }
 
 @end

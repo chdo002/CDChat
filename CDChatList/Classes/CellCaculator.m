@@ -26,7 +26,7 @@
 }
 
 
-+(void)caculatorAllCellHeight:(NSArray<id<MessageModalProtocal>> *)msgArr callBack:(void(^)(void))completeBlock{
++(void)caculatorAllCellHeight:(NSArray<id<MessageModalProtocal>> *)msgArr callBackOnMainThread:(void(^)(void))completeBlock{
     
     dispatch_group_t group = dispatch_group_create();
     for (id<MessageModalProtocal> msg in msgArr) {

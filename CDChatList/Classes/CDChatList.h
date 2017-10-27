@@ -12,4 +12,11 @@
 
 @property(nonatomic, copy) NSArray<id<MessageModalProtocal>>* msgArr;
 
+/**
+ 添加新的数据到底部
+
+ @param newBottomMsgArr 新的消息数组
+ */
+-(void)addMessagesToBottom: (NSArray<id<MessageModalProtocal>> *)newBottomMsgArr;
+
 @end

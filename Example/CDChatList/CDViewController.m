@@ -36,7 +36,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         //  初始化消息
         NSMutableArray *items = [NSMutableArray array];
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 20000; i++) {
             CDMessageModal *modal = [[CDMessageModal alloc] init];
             modal.msg = [NSString stringWithFormat:@"%d",i];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
@@ -73,11 +73,12 @@
     }
     modal.messageId = number;
     
+//    NSMutableArray *tempArr = [NSMutableArray arrayWithArray:self.msgArr];
+//    [tempArr addObject:modal];
+//    self.msgArr = tempArr;
+//    self.listView.msgArr = self.msgArr;
     
-    NSMutableArray *tempArr = [NSMutableArray arrayWithArray:self.msgArr];
-    [tempArr addObject:modal];
-    self.msgArr = tempArr;
-    self.listView.msgArr = self.msgArr;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{

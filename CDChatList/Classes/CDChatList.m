@@ -15,8 +15,6 @@
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak)UIActivityIndicatorView *loadingIndicator;
-
 @end
 
 @implementation CDChatList
@@ -31,30 +29,40 @@
     self.dataSource = self;
     self.delegate = self;
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
-
-    
     return self;
 }
 
--(UIActivityIndicatorView *)loadingIndicator{
-    if (!_loadingIndicator) {
-        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _loadingIndicator = indicator;
-    }
-    return _loadingIndicator;
-}
-
-
 -(void)didMoveToSuperview{
-        dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD showHUDAddedTo:self animated:YES];
-        });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
+    });
     [self layoutSubviews];
-//    self.loadingIndicator.frame = self.bounds;
-//    [self addSubview:self.loadingIndicator];
-//    [self.loadingIndicator startAnimating];
 }
 
+
+/**
+ 更新tableData数据，计算所有cell高度，并reloadData
+
+ @param msgArr 新的消息数组
+ @param callBack 完成回调
+ */
+-(void)configTableData:(NSArray<id<MessageModalProtocal>> *)msgArr completeBlock:(void(^)(void))callBack{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (msgArr.count == 0) {
+            _msgArr = msgArr;
+            [self reloadData];
+            callBack();
+        } else {
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                [CellCaculator caculatorAllCellHeight:msgArr callBackOnMainThread:^{
+                    _msgArr = msgArr;
+                    [self reloadData];
+                    callBack();
+                }];
+            });
+        }
+    });
+}
 
 /**
  监听数据源改变
@@ -62,33 +70,51 @@
  @param msgArr 数据源
  */
 -(void)setMsgArr:(NSArray<id<MessageModalProtocal>> *)msgArr{
-   
-    if (msgArr.count == 0) {
-        _msgArr = msgArr;
-        [self reloadData];
-    } else {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            
-            [CellCaculator caculatorAllCellHeight:msgArr callBack:^{
-                _msgArr = msgArr;
-                [self reloadData];
-                [MBProgressHUD hideHUDForView:self animated:YES];
-                if (msgArr.count == 0) {
-                    return;
-                }
-                // 异步让tableview滚到最底部
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSIndexPath *index = [NSIndexPath indexPathForRow:msgArr.count - 1  inSection:0];
-                    [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-                });
-            }];
-        });
-    }
+    [self addMessagesToBottom:msgArr];
 }
+
+
+/**
+ 添加数据到顶部
+ */
+-(void)addMessagesToTop: (NSArray<id<MessageModalProtocal>> *)newTopMsgArr{
+    
+}
+
+/**
+ 添加新的数据到底部
+ */
+-(void)addMessagesToBottom: (NSArray<id<MessageModalProtocal>> *)newBottomMsgArr{
+    
+    if (!self.msgArr) {
+        _msgArr = [NSMutableArray array];
+    }
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:self.msgArr];
+    [arr addObjectsFromArray:newBottomMsgArr];
+    _msgArr = [arr copy];
+    
+    
+    [self configTableData:self.msgArr completeBlock:^{
+        [MBProgressHUD hideHUDForView:self animated:YES];
+        if (self.msgArr.count == 0) {
+            return;
+        }
+        // 异步让tableview滚到最底部
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
+            [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+        });
+    }];
+}
+
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    id<MessageModalProtocal> data = self.msgArr[indexPath.row];
+    [cell configCellByData:data];
     return cell;
 }
 
