@@ -29,6 +29,7 @@
     self.dataSource = self;
     self.delegate = self;
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
+        
     return self;
 }
 
@@ -70,7 +71,12 @@
  @param msgArr 数据源
  */
 -(void)setMsgArr:(NSArray<id<MessageModalProtocal>> *)msgArr{
-    [self addMessagesToBottom:msgArr];
+//    [self addMessagesToBottom:msgArr];
+    
+    [self configTableData:msgArr completeBlock:^{
+        [MBProgressHUD hideHUDForView:self animated:YES];
+        [self relayoutTable:NO];
+    }];
 }
 
 
@@ -89,22 +95,25 @@
     if (!self.msgArr) {
         _msgArr = [NSMutableArray array];
     }
+    
     NSMutableArray *arr = [NSMutableArray arrayWithArray:self.msgArr];
     [arr addObjectsFromArray:newBottomMsgArr];
-    _msgArr = [arr copy];
     
-    
-    [self configTableData:self.msgArr completeBlock:^{
+    [self configTableData:arr completeBlock:^{
         [MBProgressHUD hideHUDForView:self animated:YES];
-        if (self.msgArr.count == 0) {
-            return;
-        }
-        // 异步让tableview滚到最底部
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
-            [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-        });
+        [self relayoutTable:YES];
     }];
+}
+
+-(void)relayoutTable:(BOOL)animated{
+    if (self.msgArr.count == 0) {
+        return;
+    }
+    // 异步让tableview滚到最底部
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
+        [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+    });
 }
 
 

@@ -29,14 +29,14 @@
     
     [self.view addSubview:self.listView];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"添加新的消息" style:UIBarButtonItemStyleDone target:self action:@selector(refresh)];
     [self.navigationItem setRightBarButtonItem: item];
     
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         //  初始化消息
         NSMutableArray *items = [NSMutableArray array];
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 0; i < 40; i++) {
             CDMessageModal *modal = [[CDMessageModal alloc] init];
             modal.msg = [NSString stringWithFormat:@"%d",i];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
@@ -78,7 +78,7 @@
 //    self.msgArr = tempArr;
 //    self.listView.msgArr = self.msgArr;
     
-    
+    [self.listView addMessagesToBottom:@[modal]];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

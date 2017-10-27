@@ -25,4 +25,7 @@
  */
 +(CGFloat)fetchCellHeight:(id<MessageModalProtocal>)data;
 
+
++(void)logTimeWhit:(NSString *)tag;
+
 @end
