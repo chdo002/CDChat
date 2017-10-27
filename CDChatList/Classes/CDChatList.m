@@ -14,7 +14,9 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
-
+{
+    BOOL isLoadingMore; // 是否正在下拉加载状态中
+}
 @end
 
 @implementation CDChatList
@@ -28,8 +30,11 @@
     self.backgroundColor = [UIColor whiteColor];
     self.dataSource = self;
     self.delegate = self;
+    
+    isLoadingMore = false;
+    
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
-        
+    
     return self;
 }
 
@@ -115,8 +120,6 @@
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
     });
 }
-
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
