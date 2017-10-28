@@ -11,7 +11,6 @@
 @interface CellCaculator()
 {
     dispatch_queue_t caculatQueue;
-    NSDateFormatter *dateFormatter;
 }
 
 @end
@@ -25,46 +24,43 @@
         // 计算所有cell高度的队列
         caculator->caculatQueue = dispatch_queue_create("calqueue", DISPATCH_QUEUE_CONCURRENT);
         
-        caculator->dateFormatter = [[NSDateFormatter alloc] init];
-        [caculator->dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [caculator->dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-        [caculator->dateFormatter setDateFormat:@"mm分ss秒：SSS毫秒"];
-        
     });
     return caculator;
 }
 
 +(void)caculatorAllCellHeight:(NSArray<id<MessageModalProtocal>> *)msgArr callBackOnMainThread:(void(^)(void))completeBlock{
     
-    NSLog(@"开始计算");
+//    NSLog(@"开始计算");
     dispatch_group_t group = dispatch_group_create();
     
+    dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
+    
     for (id<MessageModalProtocal> msg in msgArr) {
-        dispatch_group_async(group, [CellCaculator shareInstance]->caculatQueue, ^{
-            if (!msg.cellHeight) {
-                msg.cellHeight = 50;
-            }
-//           msg.cellHeight = [self fetchCellHeight:msg];
+        dispatch_group_async(group, caculatorQueue, ^{
+           msg.cellHeight = [self fetchCellHeight:msg];
         });
     }
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        NSLog(@"计算完成");
+//        NSLog(@"计算完成");
         completeBlock();
     });
 }
 
 //TODO: 获取cell的高度方式
 +(CGFloat)fetchCellHeight:(id<MessageModalProtocal>)data{
-    NSLog(@"计算中");
+    
+//    NSLog(@"计算中%@",data.msg);
     // 返回缓存中的高度
     if (data.cellHeight) {
-        NSLog(@"直接返回%@",data.msg);
+//        NSLog(@"直接返回%@",data.msg);
+//        return 150;
         return data.cellHeight;
     }
-    // 计算高度
-    CGFloat height = [[CellCaculator shareInstance] caculateCellHeight:data];
+    
+//     计算高度
+    CGFloat height = [self caculateCellHeight:data];
     data.cellHeight = height;
-    NSLog(@"计算后返回%@",data.msg);
+//    NSLog(@"计算后返回%@",data.msg);
     return height;
 }
 
@@ -74,11 +70,11 @@
  @param data 消息模型
  @return cell高度
  */
--(CGFloat)caculateCellHeight:(id<MessageModalProtocal>)data{
-//    CGFloat rand = (CGFloat)arc4random_uniform(15);
-    
++(CGFloat)caculateCellHeight:(id<MessageModalProtocal>)data{
+//    return 50;
+    CGFloat rand = (CGFloat)arc4random_uniform(15);
     // ..
-    return 50.f;
+    return 50.f + rand;
 }
 
 @end

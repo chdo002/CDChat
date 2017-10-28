@@ -25,14 +25,17 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = CRMHexColor(0x808080);
     self.dataSource = self;
     self.delegate = self;
     
     isLoadingMore = false;
     
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
-    
+    CGRect rect = CGRectMake(0, -50, scrnW, 50);
+    UIActivityIndicatorView *indicatro = [[UIActivityIndicatorView alloc] initWithFrame:rect];
+    [self addSubview:indicatro];
+    [indicatro startAnimating];
     return self;
 }
 
@@ -74,7 +77,8 @@
  @param msgArr 数据源
  */
 -(void)setMsgArr:(NSArray<id<MessageModalProtocal>> *)msgArr{
-//    [self addMessagesToBottom:msgArr];
+
+    
     
     [self configTableData:msgArr completeBlock:^{
         [MBProgressHUD hideHUDForView:self animated:YES];
@@ -120,6 +124,16 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+        
+//        for (id<MessageModalProtocal>data in self.msgArr) {
+//
+//        }
+//        CGFloat newOffset = self.contentSize.height - self.frame.size.height;
+//        NSLog(@"到底%d",newOffset);
+//        if (newOffset > 0) {
+//
+//            [self setContentOffset:CGPointMake(0, newOffset) animated:animated];
+//        }
     });
 }
 
@@ -136,6 +150,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 50;
     return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
 }
 

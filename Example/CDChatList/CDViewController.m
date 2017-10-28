@@ -36,7 +36,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         //  初始化消息
         NSMutableArray *items = [NSMutableArray array];
-        for (int i = 0; i < 40000; i++) {
+        for (int i = 0; i < 12; i++) {
             CDMessageModal *modal = [[CDMessageModal alloc] init];
             modal.msg = [NSString stringWithFormat:@"%d",i];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
@@ -56,7 +56,7 @@
 }
 
 /**
- 刷新界面
+ add more
  */
 -(void)refresh{
 
@@ -71,6 +71,7 @@
         int x = arc4random() % 10;
         number = [number stringByAppendingString:[NSString stringWithFormat:@"%i",x]];
     }
+    
     modal.messageId = number;
     
     [self.listView addMessagesToBottom:@[modal]];
