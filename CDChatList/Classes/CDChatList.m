@@ -25,8 +25,6 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-//    self.backgroundColor = CRMHexColor(0xC0C0C0);
-    
     self.backgroundColor = [UIColor whiteColor];
     self.dataSource = self;
     self.delegate = self;
@@ -114,6 +112,10 @@
     if (self.msgArr.count == 0) {
         return;
     }
+    //
+    if (self.tracking) {
+        return;
+    }
     // 异步让tableview滚到最底部
     dispatch_async(dispatch_get_main_queue(), ^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
@@ -124,7 +126,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
     id<MessageModalProtocal> data = self.msgArr[indexPath.row];
     [cell configCellByData:data];
     return cell;
