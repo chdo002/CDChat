@@ -30,7 +30,6 @@
 
 +(void)caculatorAllCellHeight:(NSArray<id<MessageModalProtocal>> *)msgArr callBackOnMainThread:(void(^)(void))completeBlock{
     
-//    NSLog(@"开始计算");
     dispatch_group_t group = dispatch_group_create();
     
     dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
@@ -41,26 +40,20 @@
         });
     }
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-//        NSLog(@"计算完成");
         completeBlock();
     });
 }
 
 //TODO: 获取cell的高度方式
 +(CGFloat)fetchCellHeight:(id<MessageModalProtocal>)data{
-    
-//    NSLog(@"计算中%@",data.msg);
     // 返回缓存中的高度
     if (data.cellHeight) {
-//        NSLog(@"直接返回%@",data.msg);
-//        return 150;
         return data.cellHeight;
     }
     
 //     计算高度
     CGFloat height = [self caculateCellHeight:data];
     data.cellHeight = height;
-//    NSLog(@"计算后返回%@",data.msg);
     return height;
 }
 
