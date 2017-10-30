@@ -19,7 +19,7 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.backgroundColor = CRMRadomColor(0x808080);
+    self.backgroundColor = [UIColor whiteColor];
     return self;
 }
 
@@ -28,6 +28,8 @@
 - (void)configCellByData:(id<MessageModalProtocal>)data {
     self.msgModal = data;
     self.textLabel.text = data.msg;
+    UIColor *color = data.modalInfo[@"color"];
+    self.backgroundColor = color;
 }
 
 @end

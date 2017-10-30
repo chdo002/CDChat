@@ -10,13 +10,15 @@
 
 @interface CDChatList : UITableView
 
-@property(nonatomic, copy) NSArray<id<MessageModalProtocal>>* msgArr;
+
+@property(weak, nonatomic) id<ChatListProtocol> msgDelegate;
+@property(nonatomic, copy) CDChatMessageArray msgArr;
 
 /**
  添加新的数据到底部
 
  @param newBottomMsgArr 新的消息数组
  */
--(void)addMessagesToBottom: (NSArray<id<MessageModalProtocal>> *)newBottomMsgArr;
+-(void)addMessagesToBottom: (CDChatMessageArray)newBottomMsgArr;
 
 @end

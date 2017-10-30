@@ -28,24 +28,30 @@
     return caculator;
 }
 
-+(void)caculatorAllCellHeight:(NSArray<id<MessageModalProtocal>> *)msgArr callBackOnMainThread:(void(^)(void))completeBlock{
++(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
+         callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
     dispatch_group_t group = dispatch_group_create();
     
     dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
-    
-    for (id<MessageModalProtocal> msg in msgArr) {
+
+    for (CDChatMessage msg in msgArr) {
         dispatch_group_async(group, caculatorQueue, ^{
            msg.cellHeight = [self fetchCellHeight:msg];
+           
         });
     }
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        completeBlock();
+        CGFloat totalHeight = 0.0f;
+        for (CDChatMessage msg in msgArr) {
+            totalHeight = totalHeight + msg.cellHeight;
+        }
+        completeBlock(totalHeight);
     });
 }
 
 //TODO: 获取cell的高度方式
-+(CGFloat)fetchCellHeight:(id<MessageModalProtocal>)data{
++(CGFloat)fetchCellHeight:(CDChatMessage)data{
     // 返回缓存中的高度
     if (data.cellHeight) {
         return data.cellHeight;
@@ -63,7 +69,7 @@
  @param data 消息模型
  @return cell高度
  */
-+(CGFloat)caculateCellHeight:(id<MessageModalProtocal>)data{
++(CGFloat)caculateCellHeight:(CDChatMessage)data{
 //    return 50;
     CGFloat rand = (CGFloat)arc4random_uniform(15);
     // ..
@@ -71,3 +77,8 @@
 }
 
 @end
+
+
+
+
+

@@ -23,6 +23,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B6954DFC369378779E81DABA /* Pods_CDChatList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */; };
+		E949D4F91FA6C5E800094E5E /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E949D4F81FA6C5E800094E5E /* msgList.json */; };
 		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +45,7 @@
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F595195388D20070C39A /* CDChatList-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CDChatList-Info.plist"; sourceTree = "<group>"; };
+		6003F595195388D20070C39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* CDChatList-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDChatList-Prefix.pch"; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB16BFC8B517E192E61FBA43 /* Pods_CDChatList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E949D4F81FA6C5E800094E5E /* msgList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList.json; sourceTree = "<group>"; };
 		E99CD0AD1FA185B90045783B /* CDMessageModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
 		E99CD0AE1FA185B90045783B /* CDMessageModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
 		F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				6003F5A6195388D20070C39A /* CDViewController.m */,
 				E99CD0AD1FA185B90045783B /* CDMessageModal.h */,
 				E99CD0AE1FA185B90045783B /* CDMessageModal.m */,
+				E949D4F81FA6C5E800094E5E /* msgList.json */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -149,7 +152,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F595195388D20070C39A /* CDChatList-Info.plist */,
+				6003F595195388D20070C39A /* Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* CDChatList-Prefix.pch */,
@@ -247,7 +250,7 @@
 				ORGANIZATIONNAME = chdo002;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = 62N6ZZKK9A;
+						DevelopmentTeam = 56W7P8272X;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -280,6 +283,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				E949D4F91FA6C5E800094E5E /* msgList.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -303,12 +307,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/CDChatList/CDChatList.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDChatList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -511,10 +517,10 @@
 			baseConfigurationReference = 6F200D1A835BDC5DFECFDDAE /* Pods-CDChatList_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 62N6ZZKK9A;
+				DEVELOPMENT_TEAM = 56W7P8272X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDChatList/CDChatList-Prefix.pch";
-				INFOPLIST_FILE = "CDChatList/CDChatList-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CDChatList/Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.CDChatList-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -527,10 +533,10 @@
 			baseConfigurationReference = 291E4F11EC968AF0DBC53694 /* Pods-CDChatList_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 62N6ZZKK9A;
+				DEVELOPMENT_TEAM = 56W7P8272X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDChatList/CDChatList-Prefix.pch";
-				INFOPLIST_FILE = "CDChatList/CDChatList-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CDChatList/Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.CDChatList-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";

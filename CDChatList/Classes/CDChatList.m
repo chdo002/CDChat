@@ -13,21 +13,20 @@
 #import "CDChatMacro.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
+typedef enum : NSUInteger {
+    CDHeaderLoadStateInitializting, // 界面初始化中
+    CDHeaderLoadStateNoraml,        // 等待下拉加载
+    CDHeaderLoadStateLoading,       // 加载中
+    CDHeaderLoadStateFinished,      // 加载结束
+} CDHeaderLoadState;
+
 #define LoadingH  50
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
 {
-    BOOL isLoadingMore; // 是否正在下拉加载状态中
+    CGFloat originTopInsert;
 }
-
-/**
- 是否可以下拉加载
- 
- 默认不可以，
- 数据加载完成后可以
- 
- */
-@property(assign, nonatomic) BOOL canloadMore;
+@property(assign, nonatomic) CDHeaderLoadState loadHeaderState;
 
 @end
 
@@ -41,8 +40,7 @@
     self.dataSource = self;
     self.delegate = self;
     
-    self.canloadMore = false;
-    isLoadingMore = false;
+    self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
     
@@ -62,6 +60,20 @@
     [self layoutSubviews];
 }
 
+#pragma mark 原始TopInsert
+-(void)configOriginTopInsert: (CGFloat)topInsert{
+    if (!originTopInsert) {
+        originTopInsert = topInsert;
+    }
+}
+
+-(CGFloat)fetchOriginTopInsert{
+    if (originTopInsert) {
+        return originTopInsert;
+    } else {
+        return 0;
+    }
+}
 
 #pragma mark 数据源变动
 
@@ -70,29 +82,49 @@
  
  @param msgArr 数据源
  */
--(void)setMsgArr:(NSArray<id<MessageModalProtocal>> *)msgArr{
+-(void)setMsgArr:(CDChatMessageArray)msgArr{
     
-    [self configTableData:msgArr completeBlock:^{
+    [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
+        
         [MBProgressHUD hideHUDForView:self animated:YES];
+        
         [self relayoutTable:NO];
+        
+        // 小于tableview高度时，不出现loading，不可下拉加载
+        if (self.bounds.size.height >= totalHeight) {
+            self.loadHeaderState = CDHeaderLoadStateFinished;
+        } else {
+            self.loadHeaderState = CDHeaderLoadStateNoraml;
+            CGFloat newTopInset = self.contentInset.top + LoadingH;
+            CGFloat left = self.contentInset.left;
+            CGFloat right = self.contentInset.right;
+            CGFloat bottom = self.contentInset.bottom;
+            [self setContentInset:UIEdgeInsetsMake(newTopInset, left, right, bottom)];
+        }
     }];
 }
-
-
-/**
- 添加数据到顶部
- */
--(void)addMessagesToTop: (NSArray<id<MessageModalProtocal>> *)newTopMsgArr{
-    // 新消息有10个 则有可能还有新消息，否则就不可以加载了
-    self.canloadMore = newTopMsgArr.count == 10;
-    
-    
-}
+//
+///**
+// 添加数据到顶部
+// */
+//-(void)addMessagesToTop: (CDChatMessageArray)newTopMsgArr {
+//
+//    if (!self.msgArr) {
+//        _msgArr = [NSMutableArray array];
+//    }
+//
+//    NSMutableArray *arr = [NSMutableArray arrayWithArray:newTopMsgArr];
+//    [arr addObjectsFromArray:self.msgArr];
+//
+//    [self configTableData:arr completeBlock:^(CGFloat totalHeight){
+//       [MBProgressHUD hideHUDForView:self animated:YES];
+//    }];
+//}
 
 /**
  添加新的数据到底部
  */
--(void)addMessagesToBottom: (NSArray<id<MessageModalProtocal>> *)newBottomMsgArr{
+-(void)addMessagesToBottom: (CDChatMessageArray)newBottomMsgArr{
     
     if (!self.msgArr) {
         _msgArr = [NSMutableArray array];
@@ -101,12 +133,11 @@
     NSMutableArray *arr = [NSMutableArray arrayWithArray:self.msgArr];
     [arr addObjectsFromArray:newBottomMsgArr];
     
-    [self configTableData:arr completeBlock:^{
+    [self configTableData:arr completeBlock:^(CGFloat totalHeight){
         [MBProgressHUD hideHUDForView:self animated:YES];
         [self relayoutTable:YES];
     }];
 }
-
 
 /**
  所有table数据源修改，最终都会走这里
@@ -115,30 +146,36 @@
  @param msgArr 新的消息数组
  @param callBack 完成回调
  */
--(void)configTableData:(NSArray<id<MessageModalProtocal>> *)msgArr completeBlock:(void(^)(void))callBack{
+-(void)configTableData: (CDChatMessageArray)msgArr
+         completeBlock: (void(^)(CGFloat))callBack{
     
-    self.canloadMore = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (msgArr.count == 0) {
             _msgArr = msgArr;
             [self reloadData];
-            callBack();
+            callBack(0);
         } else {
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                [CellCaculator caculatorAllCellHeight:msgArr callBackOnMainThread:^{
+                [CellCaculator caculatorAllCellHeight:msgArr callBackOnMainThread:^(CGFloat totalHeight) {
                     _msgArr = msgArr;
                     [self reloadData];
-                    callBack();
+                    callBack(totalHeight);
                 }];
             });
         }
     });
 }
 
--(void)setCanloadMore:(BOOL)canloadMore{
-    _canloadMore = canloadMore;
-    CGFloat newTopInsert = canloadMore ? self.contentInset.top + LoadingH : self.contentInset.top;
-    [self setContentInset:UIEdgeInsetsMake(newTopInsert, 0, 0, 0)];
+-(void)setLoadHeaderState:(CDHeaderLoadState)loadHeaderState{
+    
+    if (loadHeaderState == CDHeaderLoadStateFinished) {
+        CGFloat newTopInset = self.contentInset.top - LoadingH;
+        CGFloat left = self.contentInset.left;
+        CGFloat right = self.contentInset.right;
+        CGFloat bottom = self.contentInset.bottom;
+        [self setContentInset:UIEdgeInsetsMake(newTopInset, left, right, bottom)];
+    }
+    _loadHeaderState = loadHeaderState;
 }
 
 #pragma mark UI变动
@@ -160,14 +197,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
-        
-//        for (id<MessageModalProtocal>data in self.msgArr) {
-//        }
-//        CGFloat newOffset = self.contentSize.height - self.frame.size.height;
-//        NSLog(@"到底%d",newOffset);
-//        if (newOffset > 0) {
-//            [self setContentOffset:CGPointMake(0, newOffset) animated:animated];
-//        }
     });
 }
 
@@ -177,9 +206,54 @@
     CGFloat insetTop = self.contentInset.top;
     
     CGFloat minus = insetTop + offsetY;
+    if (minus > LoadingH) {
+        return;
+    }
     
-    if (minus < LoadingH) {
-        NSLog(@"keyil");
+//    if (self.dragging) {
+//        return;
+//    }
+    
+    if (self.loadHeaderState == CDHeaderLoadStateNoraml) {
+        self.loadHeaderState = CDHeaderLoadStateLoading;
+        
+        CDChatMessage lastMsg = self.msgArr.lastObject;
+        
+        [self.msgDelegate loadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
+            if (newMessages.count < 10) {
+                self.loadHeaderState = CDHeaderLoadStateFinished;
+            } else {
+                self.loadHeaderState = CDHeaderLoadStateNoraml;
+            }
+            
+            if (!self.msgArr) {
+                _msgArr = [NSMutableArray array];
+            }
+        
+            NSMutableArray *arr = [NSMutableArray arrayWithArray:newMessages];
+            [arr addObjectsFromArray:self.msgArr];
+            
+            [self configTableData:arr completeBlock:^(CGFloat totalHeight){
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    NSIndexPath *index = [NSIndexPath indexPathForRow:newMessages.count inSection:0];
+//                    [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:NO];
+//                });
+                
+                [CellCaculator caculatorAllCellHeight:arr callBackOnMainThread:^(CGFloat totalHeight) {
+//                    _msgArr = msgArr;
+//                    [self reloadData];
+//                    callBack(totalHeight);
+                    self.msgArr = arr;
+                    NSMutableArray *newIndexs = [NSMutableArray array];
+                    for (int i = 0; i < newMessages.count;  i++) {
+                        NSIndexPath *idx = [NSIndexPath indexPathForRow:i inSection:0];
+                        [newIndexs addObject:idx];
+                    }
+                    [self insertRowsAtIndexPaths:[newIndexs copy] withRowAnimation:UITableViewRowAnimationBottom];
+                }];
+            }];
+            
+        }];
     }
 }
 
@@ -187,7 +261,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    id<MessageModalProtocal> data = self.msgArr[indexPath.row];
+    CDChatMessage data = self.msgArr[indexPath.row];
     [cell configCellByData:data];
     return cell;
 }

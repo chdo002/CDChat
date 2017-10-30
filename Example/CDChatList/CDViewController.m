@@ -10,8 +10,9 @@
 #import <CDChatList/CDChatList.h>
 #import "CDMessageModal.h"
 
+#import <AFNetworking/AFNetworking.h>
 
-@interface CDViewController ()
+@interface CDViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
 @property(nonatomic, copy)NSMutableArray *msgArr;
 @end
@@ -22,9 +23,9 @@
 {
     [super viewDidLoad];
 
-    
     // 创建ListView
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+    list.msgDelegate = self;
     self.listView = list;
     
     [self.view addSubview:self.listView];
@@ -41,12 +42,15 @@
             modal.msg = [NSString stringWithFormat:@"%d",i];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
             modal.msgType = @"text";
-            modal.cellHeight = 60;
+//            modal.cellHeight = 60;
             NSString *number = @"";
             for (int i = 1; i <= 5; i ++) {
                 int x = arc4random() % 10;
                 number = [number stringByAppendingString:[NSString stringWithFormat:@"%i",x]];
             }
+            
+           UIColor *color = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+            modal.modalInfo = @{@"color": color};
             modal.messageId = number;
             [items addObject:modal];
         }
@@ -71,10 +75,37 @@
         int x = arc4random() % 10;
         number = [number stringByAppendingString:[NSString stringWithFormat:@"%i",x]];
     }
-    
     modal.messageId = number;
-    
+    UIColor *color = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+    modal.modalInfo = @{@"color": color};
     [self.listView addMessagesToBottom:@[modal]];
+}
+
+-(void)loadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished{
+    
+    NSMutableArray *items = [NSMutableArray array];
+    for (int i = 0; i < 12; i++) {
+        CDMessageModal *modal = [[CDMessageModal alloc] init];
+        modal.msg = [NSString stringWithFormat:@"%d",i];
+        modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
+        modal.msg = [NSString stringWithFormat:@"新消息%@",modal.createTime];
+        //            modal.cellHeight = 60;
+        NSString *number = @"";
+        for (int i = 1; i <= 5; i ++) {
+            int x = arc4random() % 10;
+            number = [number stringByAppendingString:[NSString stringWithFormat:@"%i",x]];
+        }
+        modal.messageId = number;
+        
+        UIColor *color = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+        modal.modalInfo = @{@"color": color};
+        [items addObject:modal];
+    }
+    NSArray *newMesgs = [items mutableCopy];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+       finnished(newMesgs);
+    });
 }
 
 -(void)viewDidAppear:(BOOL)animated{
