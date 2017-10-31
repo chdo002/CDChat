@@ -25,9 +25,10 @@ typedef enum : NSUInteger {
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
 {
     CGFloat originTopInsert;
+    CGFloat pullToLoadMark; // 下拉距离超过这个，则开始计入加载方法
 }
 @property(assign, nonatomic) CDHeaderLoadState loadHeaderState;
-
+@property(weak,   nonatomic) UIActivityIndicatorView *indicatro;
 @end
 
 @implementation CDChatList
@@ -39,35 +40,64 @@ typedef enum : NSUInteger {
     self.backgroundColor = CRMHexColor(0x808080);
     self.dataSource = self;
     self.delegate = self;
-    
+
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
     
     // 下拉loading视图
     CGRect rect = CGRectMake(0, -LoadingH, scrnW, LoadingH);
-    UIActivityIndicatorView *indicatro = [[UIActivityIndicatorView alloc] initWithFrame:rect];
-    [self addSubview:indicatro];
-    [indicatro startAnimating];
-    
+    UIActivityIndicatorView *indicatr = [[UIActivityIndicatorView alloc] initWithFrame:rect];
+    [self addSubview:indicatr];
+    [indicatr startAnimating];
+    self.indicatro = indicatr;
     return self;
 }
 
+-(void)setViewController:(UIViewController *)viewController {
+    
+    _viewController = viewController;
+    
+    
+    if(self.viewController.navigationController) {
+        pullToLoadMark = -NaviH;
+    } else {
+        pullToLoadMark = 0;
+    }
+    
+    if (@available(iOS 11, *)) {
+        // iOS 11中，无论 automaticallyAdjustsScrollViewInsets如何，inset.top都是0
+        // 需根据 contentInsetAdjustmentBehavior 判断tableview下沉情况
+        [self configOriginTopInset:0];
+        
+    } else {
+        if(self.viewController.automaticallyAdjustsScrollViewInsets && self.viewController.navigationController)
+        {
+            [self configOriginTopInset:NaviH];
+        } else {
+            [self configOriginTopInset:0];
+        }
+    }
+}
+
 -(void)didMoveToSuperview{
-    dispatch_async(dispatch_get_main_queue(), ^{
+    
+    NSAssert(self.viewController, @"CDChatList: 一定要传ViewController进来");
+    
+    [self mainAsyQueue:^{
         [MBProgressHUD showHUDAddedTo:self animated:YES];
-    });
+    }];
     [self layoutSubviews];
 }
 
 #pragma mark 原始TopInsert
--(void)configOriginTopInsert: (CGFloat)topInsert{
+-(void)configOriginTopInset: (CGFloat)topInsert{
     if (!originTopInsert) {
         originTopInsert = topInsert;
     }
 }
 
--(CGFloat)fetchOriginTopInsert{
+-(CGFloat)fetchOriginTopInset{
     if (originTopInsert) {
         return originTopInsert;
     } else {
@@ -95,7 +125,7 @@ typedef enum : NSUInteger {
             self.loadHeaderState = CDHeaderLoadStateFinished;
         } else {
             self.loadHeaderState = CDHeaderLoadStateNoraml;
-            CGFloat newTopInset = self.contentInset.top + LoadingH;
+            CGFloat newTopInset = [self fetchOriginTopInset] + LoadingH;
             CGFloat left = self.contentInset.left;
             CGFloat right = self.contentInset.right;
             CGFloat bottom = self.contentInset.bottom;
@@ -103,23 +133,6 @@ typedef enum : NSUInteger {
         }
     }];
 }
-//
-///**
-// 添加数据到顶部
-// */
-//-(void)addMessagesToTop: (CDChatMessageArray)newTopMsgArr {
-//
-//    if (!self.msgArr) {
-//        _msgArr = [NSMutableArray array];
-//    }
-//
-//    NSMutableArray *arr = [NSMutableArray arrayWithArray:newTopMsgArr];
-//    [arr addObjectsFromArray:self.msgArr];
-//
-//    [self configTableData:arr completeBlock:^(CGFloat totalHeight){
-//       [MBProgressHUD hideHUDForView:self animated:YES];
-//    }];
-//}
 
 /**
  添加新的数据到底部
@@ -148,8 +161,7 @@ typedef enum : NSUInteger {
  */
 -(void)configTableData: (CDChatMessageArray)msgArr
          completeBlock: (void(^)(CGFloat))callBack{
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [self mainAsyQueue:^{
         if (msgArr.count == 0) {
             _msgArr = msgArr;
             [self reloadData];
@@ -163,17 +175,19 @@ typedef enum : NSUInteger {
                 }];
             });
         }
-    });
+    }];
 }
 
 -(void)setLoadHeaderState:(CDHeaderLoadState)loadHeaderState{
     
     if (loadHeaderState == CDHeaderLoadStateFinished) {
-        CGFloat newTopInset = self.contentInset.top - LoadingH;
+        
+        CGFloat newTopInset = [self fetchOriginTopInset];
         CGFloat left = self.contentInset.left;
         CGFloat right = self.contentInset.right;
         CGFloat bottom = self.contentInset.bottom;
         [self setContentInset:UIEdgeInsetsMake(newTopInset, left, right, bottom)];
+        [self.indicatro stopAnimating];
     }
     _loadHeaderState = loadHeaderState;
 }
@@ -194,65 +208,66 @@ typedef enum : NSUInteger {
         return;
     }
     // 异步让tableview滚到最底部
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [self mainAsyQueue:^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
-    });
+    }];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGFloat offsetY = self.contentOffset.y;
-    CGFloat insetTop = self.contentInset.top;
-    
-    CGFloat minus = insetTop + offsetY;
-    if (minus > LoadingH) {
+
+    if (offsetY > pullToLoadMark) {
         return;
     }
     
-//    if (self.dragging) {
-//        return;
-//    }
-    
+    //  判断在普通状态，则进入加载更多方法
     if (self.loadHeaderState == CDHeaderLoadStateNoraml) {
+        // 将当前状态设为加载中
         self.loadHeaderState = CDHeaderLoadStateLoading;
         
-        CDChatMessage lastMsg = self.msgArr.lastObject;
-        
+        // 当前最旧消息传给代理，调用获取上一段旧消息的方法
+        CDChatMessage lastMsg = self.msgArr.firstObject;
         [self.msgDelegate loadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
-            if (newMessages.count < 10) {
-                self.loadHeaderState = CDHeaderLoadStateFinished;
-            } else {
-                self.loadHeaderState = CDHeaderLoadStateNoraml;
-            }
-            
+           
             if (!self.msgArr) {
                 _msgArr = [NSMutableArray array];
             }
-        
+            // 将旧消息加入当前消息数据中
             NSMutableArray *arr = [NSMutableArray arrayWithArray:newMessages];
             [arr addObjectsFromArray:self.msgArr];
-            
-            [self configTableData:arr completeBlock:^(CGFloat totalHeight){
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    NSIndexPath *index = [NSIndexPath indexPathForRow:newMessages.count inSection:0];
-//                    [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:NO];
-//                });
+            // 计算消息高度
+            [CellCaculator caculatorAllCellHeight:arr callBackOnMainThread:^(CGFloat totalHeight)
+            {
+                // 全部消息重新赋值
+                _msgArr = arr;
                 
-                [CellCaculator caculatorAllCellHeight:arr callBackOnMainThread:^(CGFloat totalHeight) {
-//                    _msgArr = msgArr;
-//                    [self reloadData];
-//                    callBack(totalHeight);
-                    self.msgArr = arr;
-                    NSMutableArray *newIndexs = [NSMutableArray array];
-                    for (int i = 0; i < newMessages.count;  i++) {
-                        NSIndexPath *idx = [NSIndexPath indexPathForRow:i inSection:0];
-                        [newIndexs addObject:idx];
+                // 记录刷新table前的contentoffset.y
+                CGFloat oldOffsetY = self.contentOffset.y;
+                
+                //刷新table
+                [self reloadData];
+                
+                // 新消息的总高度
+                CGFloat newMessageTotalHeight = 0.0f;
+                for (int i = 0; i < newMessages.count; i++) {
+                    newMessageTotalHeight = newMessageTotalHeight + _msgArr[i].cellHeight;
+                }
+                // 重新回到当前看的消息位置(把loading过程中，table的offset计算在中)
+                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
+
+//                [self setContentOffset:CGPointZero];
+                // 异步调用
+                [self mainAsyQueue:^{
+                    // 判断是否要结束下拉加载功能
+                    if (newMessages.count < 10) {
+                        self.loadHeaderState = CDHeaderLoadStateFinished;
+                    } else {
+                        self.loadHeaderState = CDHeaderLoadStateNoraml;
                     }
-                    [self insertRowsAtIndexPaths:[newIndexs copy] withRowAnimation:UITableViewRowAnimationBottom];
                 }];
             }];
-            
         }];
     }
 }
@@ -275,5 +290,9 @@ typedef enum : NSUInteger {
     return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
 }
 
-
+-(void)mainAsyQueue:(dispatch_block_t)block{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        block();
+    });
+}
 @end

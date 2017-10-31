@@ -19,5 +19,6 @@
 #define scrnW [UIScreen mainScreen].bounds.size.width
 #define scrnH [UIScreen mainScreen].bounds.size.height
 
+#define NaviH        (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)   // 导航栏高度
 
 #endif /* CDChatMacro_h */

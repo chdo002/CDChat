@@ -10,7 +10,7 @@
 
 @interface CDChatList : UITableView
 
-
+@property(weak, nonatomic) UIViewController *viewController;
 @property(weak, nonatomic) id<ChatListProtocol> msgDelegate;
 @property(nonatomic, copy) CDChatMessageArray msgArr;
 

@@ -9,7 +9,6 @@
 #import "CDViewController.h"
 #import <CDChatList/CDChatList.h>
 #import "CDMessageModal.h"
-
 #import <AFNetworking/AFNetworking.h>
 
 @interface CDViewController ()<ChatListProtocol>
@@ -22,22 +21,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // 创建ListView
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+//    CDChatList *list = [[CDChatList alloc] initWithFrame:CGRectMake(0, 64,
+//                                                                    self.view.bounds.size.width,
+//                                                                    self.view.bounds.size.height - 64)];
     list.msgDelegate = self;
+    list.viewController = self;
     self.listView = list;
+    
+    
     
     [self.view addSubview:self.listView];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"添加新的消息" style:UIBarButtonItemStyleDone target:self action:@selector(refresh)];
     [self.navigationItem setRightBarButtonItem: item];
     
-    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         //  初始化消息
         NSMutableArray *items = [NSMutableArray array];
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 15; i++) {
             CDMessageModal *modal = [[CDMessageModal alloc] init];
             modal.msg = [NSString stringWithFormat:@"%d",i];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
@@ -84,11 +89,11 @@
 -(void)loadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished{
     
     NSMutableArray *items = [NSMutableArray array];
-    for (int i = 0; i < 12; i++) {
+    for (int i = 0; i < 15; i++) {
         CDMessageModal *modal = [[CDMessageModal alloc] init];
         modal.msg = [NSString stringWithFormat:@"%d",i];
         modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
-        modal.msg = [NSString stringWithFormat:@"新消息%@",modal.createTime];
+        modal.msg = [NSString stringWithFormat:@"新消息%d",i];
         //            modal.cellHeight = 60;
         NSString *number = @"";
         for (int i = 1; i <= 5; i ++) {
@@ -103,7 +108,7 @@
     }
     NSArray *newMesgs = [items mutableCopy];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
        finnished(newMesgs);
     });
 }
