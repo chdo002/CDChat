@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
 {
-    CGFloat coverTopInsert; // table顶部，导航栏导致的下沉距离
+    CGFloat originInset;
     CGFloat pullToLoadMark; // 下拉距离超过这个，则开始计入加载方法
 }
 @property(assign, nonatomic) CDHeaderLoadState loadHeaderState;
@@ -58,33 +58,18 @@ typedef enum : NSUInteger {
     
     _viewController = viewController;
     
-    
-    if(self.viewController.navigationController) {
-        pullToLoadMark = -NaviH;
-    } else {
-        pullToLoadMark = 0;
+    //
+    viewController.automaticallyAdjustsScrollViewInsets = NO;
+    //适配
+    if (@available(iOS 11, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
-    //设置
-    if (@available(iOS 11, *)) {
-        // iOS 11中，无论 automaticallyAdjustsScrollViewInsets如何，inset.top都是0
-        // 需根据 contentInsetAdjustmentBehavior 判断tableview下沉情况
-
-        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        if (self.viewController.navigationController && self.frame.origin.y == 0) {
-            [self setContentInset:UIEdgeInsetsMake(NaviH, 0, 0, 0)];
-            [self configCovernTopInset:NaviH];
-        } else {
-            [self configCovernTopInset:0];
-        }
+    pullToLoadMark = -LoadingH;
+    if (viewController.navigationController) {
+        originInset = NaviH - self.frame.origin.y;
     } else {
-        
-        if(self.viewController.automaticallyAdjustsScrollViewInsets && self.viewController.navigationController)
-        {
-            [self configCovernTopInset:NaviH];
-        } else {
-            [self configCovernTopInset:0];
-        }
+        originInset = 0;
     }
 }
 
@@ -97,22 +82,6 @@ typedef enum : NSUInteger {
     }];
     [self layoutSubviews];
 }
-
-#pragma mark 导航栏侵入table的TopInsert
--(void)configCovernTopInset: (CGFloat)topInsert{
-    if (!coverTopInsert) {
-        coverTopInsert = topInsert;
-    }
-}
-
--(CGFloat)fetchCoverTopInset{
-    if (coverTopInsert) {
-        return coverTopInsert;
-    } else {
-        return 0;
-    }
-}
-
 #pragma mark 数据源变动
 
 /**
@@ -135,7 +104,7 @@ typedef enum : NSUInteger {
             self.loadHeaderState = CDHeaderLoadStateFinished;
         } else {
             self.loadHeaderState = CDHeaderLoadStateNoraml;
-            CGFloat newTopInset = [self fetchCoverTopInset] + LoadingH;
+            CGFloat newTopInset = LoadingH + originInset;
             CGFloat left = self.contentInset.left;
             CGFloat right = self.contentInset.right;
             CGFloat bottom = self.contentInset.bottom;
@@ -191,12 +160,8 @@ typedef enum : NSUInteger {
 -(void)setLoadHeaderState:(CDHeaderLoadState)loadHeaderState{
     
     if (loadHeaderState == CDHeaderLoadStateFinished) {
-        
-        CGFloat newTopInset = [self fetchCoverTopInset];
-        CGFloat left = self.contentInset.left;
-        CGFloat right = self.contentInset.right;
-        CGFloat bottom = self.contentInset.bottom;
-        [self setContentInset:UIEdgeInsetsMake(newTopInset, left, right, bottom)];
+        UIEdgeInsets inset = UIEdgeInsetsMake(originInset, 0, 0, 0);
+        [self setContentInset:inset];
         [self.indicatro stopAnimating];
     }
     _loadHeaderState = loadHeaderState;
@@ -228,7 +193,7 @@ typedef enum : NSUInteger {
     
     CGFloat offsetY = self.contentOffset.y;
 
-    if (offsetY > pullToLoadMark) {
+    if (offsetY >= pullToLoadMark) {
         return;
     }
     
@@ -267,9 +232,7 @@ typedef enum : NSUInteger {
                 }
                 
                 // 重新回到当前看的消息位置(把loading过程中，table的offset计算在中)
-//                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
-                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
-                
+                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY - 34 - 50)];
                 // 异步调用
                 [self mainAsyQueue:^{
                     // 判断是否要结束下拉加载功能
@@ -298,7 +261,6 @@ typedef enum : NSUInteger {
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 50;
     return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
 }
 

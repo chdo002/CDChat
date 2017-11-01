@@ -38,6 +38,6 @@ TODO: Add long description of the pod here.
 
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'MBProgressHUD'
-#s.dependency 'MJRefresh'
+# s.dependency 'MBProgressHUD'
+# s.dependency 'MJRefresh'
 end
