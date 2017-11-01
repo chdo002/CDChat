@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 
 @interface CDChatList()<UITableViewDelegate, UITableViewDataSource>
 {
-    CGFloat originTopInsert;
+    CGFloat coverTopInsert; // table顶部，导航栏导致的下沉距离
     CGFloat pullToLoadMark; // 下拉距离超过这个，则开始计入加载方法
 }
 @property(assign, nonatomic) CDHeaderLoadState loadHeaderState;
@@ -65,17 +65,25 @@ typedef enum : NSUInteger {
         pullToLoadMark = 0;
     }
     
+    //设置
     if (@available(iOS 11, *)) {
         // iOS 11中，无论 automaticallyAdjustsScrollViewInsets如何，inset.top都是0
         // 需根据 contentInsetAdjustmentBehavior 判断tableview下沉情况
-        [self configOriginTopInset:0];
-        
+
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        if (self.viewController.navigationController && self.frame.origin.y == 0) {
+            [self setContentInset:UIEdgeInsetsMake(NaviH, 0, 0, 0)];
+            [self configCovernTopInset:NaviH];
+        } else {
+            [self configCovernTopInset:0];
+        }
     } else {
+        
         if(self.viewController.automaticallyAdjustsScrollViewInsets && self.viewController.navigationController)
         {
-            [self configOriginTopInset:NaviH];
+            [self configCovernTopInset:NaviH];
         } else {
-            [self configOriginTopInset:0];
+            [self configCovernTopInset:0];
         }
     }
 }
@@ -90,16 +98,16 @@ typedef enum : NSUInteger {
     [self layoutSubviews];
 }
 
-#pragma mark 原始TopInsert
--(void)configOriginTopInset: (CGFloat)topInsert{
-    if (!originTopInsert) {
-        originTopInsert = topInsert;
+#pragma mark 导航栏侵入table的TopInsert
+-(void)configCovernTopInset: (CGFloat)topInsert{
+    if (!coverTopInsert) {
+        coverTopInsert = topInsert;
     }
 }
 
--(CGFloat)fetchOriginTopInset{
-    if (originTopInsert) {
-        return originTopInsert;
+-(CGFloat)fetchCoverTopInset{
+    if (coverTopInsert) {
+        return coverTopInsert;
     } else {
         return 0;
     }
@@ -121,11 +129,13 @@ typedef enum : NSUInteger {
         [self relayoutTable:NO];
         
         // 小于tableview高度时，不出现loading，不可下拉加载
+//        CGFloat visualHeight = self.bounds.size.height;
+        
         if (self.bounds.size.height >= totalHeight) {
             self.loadHeaderState = CDHeaderLoadStateFinished;
         } else {
             self.loadHeaderState = CDHeaderLoadStateNoraml;
-            CGFloat newTopInset = [self fetchOriginTopInset] + LoadingH;
+            CGFloat newTopInset = [self fetchCoverTopInset] + LoadingH;
             CGFloat left = self.contentInset.left;
             CGFloat right = self.contentInset.right;
             CGFloat bottom = self.contentInset.bottom;
@@ -182,7 +192,7 @@ typedef enum : NSUInteger {
     
     if (loadHeaderState == CDHeaderLoadStateFinished) {
         
-        CGFloat newTopInset = [self fetchOriginTopInset];
+        CGFloat newTopInset = [self fetchCoverTopInset];
         CGFloat left = self.contentInset.left;
         CGFloat right = self.contentInset.right;
         CGFloat bottom = self.contentInset.bottom;
@@ -234,6 +244,7 @@ typedef enum : NSUInteger {
             if (!self.msgArr) {
                 _msgArr = [NSMutableArray array];
             }
+            
             // 将旧消息加入当前消息数据中
             NSMutableArray *arr = [NSMutableArray arrayWithArray:newMessages];
             [arr addObjectsFromArray:self.msgArr];
@@ -254,10 +265,11 @@ typedef enum : NSUInteger {
                 for (int i = 0; i < newMessages.count; i++) {
                     newMessageTotalHeight = newMessageTotalHeight + _msgArr[i].cellHeight;
                 }
+                
                 // 重新回到当前看的消息位置(把loading过程中，table的offset计算在中)
+//                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
                 [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
-
-//                [self setContentOffset:CGPointZero];
+                
                 // 异步调用
                 [self mainAsyQueue:^{
                     // 判断是否要结束下拉加载功能
