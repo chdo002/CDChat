@@ -27,15 +27,3 @@
 +(CGFloat)fetchCellHeight: (CDChatMessage)data;
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,7 +11,7 @@
 #import "CellCaculator.h"
 
 #import "CDChatMacro.h"
-#import <MBProgressHUD/MBProgressHUD.h>
+//#import <MBProgressHUD/MBProgressHUD.h>
 
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
@@ -40,7 +40,9 @@ typedef enum : NSUInteger {
     self.backgroundColor = CRMHexColor(0x808080);
     self.dataSource = self;
     self.delegate = self;
-
+    self.estimatedRowHeight = 0;
+    self.estimatedSectionHeaderHeight = 0;
+    self.estimatedSectionFooterHeight = 0;
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -78,7 +80,7 @@ typedef enum : NSUInteger {
     NSAssert(self.viewController, @"CDChatList: 一定要传ViewController进来");
     
     [self mainAsyQueue:^{
-        [MBProgressHUD showHUDAddedTo:self animated:YES];
+//        [MBProgressHUD showHUDAddedTo:self animated:YES];
     }];
     [self layoutSubviews];
 }
@@ -93,7 +95,7 @@ typedef enum : NSUInteger {
     
     [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
         
-        [MBProgressHUD hideHUDForView:self animated:YES];
+//        [MBProgressHUD hideHUDForView:self animated:YES];
         
         [self relayoutTable:NO];
         
@@ -126,7 +128,7 @@ typedef enum : NSUInteger {
     [arr addObjectsFromArray:newBottomMsgArr];
     
     [self configTableData:arr completeBlock:^(CGFloat totalHeight){
-        [MBProgressHUD hideHUDForView:self animated:YES];
+//        [MBProgressHUD hideHUDForView:self animated:YES];
         [self relayoutTable:YES];
     }];
 }
@@ -232,7 +234,8 @@ typedef enum : NSUInteger {
                 }
                 
                 // 重新回到当前看的消息位置(把loading过程中，table的offset计算在中)
-                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY - 34 - 50)];
+                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
+                
                 // 异步调用
                 [self mainAsyQueue:^{
                     // 判断是否要结束下拉加载功能

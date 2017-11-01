@@ -70,10 +70,10 @@
  @return cell高度
  */
 +(CGFloat)caculateCellHeight:(CDChatMessage)data{
-    return 50;
-//    CGFloat rand = (CGFloat)arc4random_uniform(15);
+//    return 50;
+    CGFloat rand = (CGFloat)arc4random_uniform(15);
 //    // ..
-//    return 50.f + rand;
+    return 50.f + rand;
 }
 
 @end

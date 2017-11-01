@@ -25,10 +25,5 @@
     ]
   },
   "public_header_files": "Pod/Classes/**/*.h",
-  "frameworks": "UIKit",
-  "dependencies": {
-    "MBProgressHUD": [
-
-    ]
-  }
+  "frameworks": "UIKit"
 }
