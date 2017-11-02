@@ -40,7 +40,10 @@ typedef enum : NSUInteger {
     self.backgroundColor = CRMHexColor(0x808080);
     self.dataSource = self;
     self.delegate = self;
-
+    self.estimatedRowHeight = 0;
+    self.estimatedSectionHeaderHeight = 0;
+    self.estimatedSectionFooterHeight = 0;
+    
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -267,7 +270,6 @@ typedef enum : NSUInteger {
                 }
                 
                 // 重新回到当前看的消息位置(把loading过程中，table的offset计算在中)
-//                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
                 [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
                 
                 // 异步调用
@@ -299,7 +301,8 @@ typedef enum : NSUInteger {
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return 50;
-    return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
+//    return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
+    return [CellCaculator fetchCellHeight:indexPath.row of:_msgArr];
 }
 
 -(void)mainAsyQueue:(dispatch_block_t)block{

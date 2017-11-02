@@ -8,93 +8,90 @@
 
 /* Begin PBXBuildFile section */
 		00C05031BBA5BA48A00FE41348F41BDA /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 152A2ACFF7E8B1B9DBD43732BA717ACC /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		03EBF6FE8A1F703170B3E4510D417F44 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E2996CC0541CDA6411D8499728A2A0A5 /* MBProgressHUD.m */; };
+		028B8C4955B72B75360371618012EDAA /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D8218346D70C9C238C085623856803 /* MBProgressHUD.framework */; };
+		03D05C0A8936447CEAE95F06840825AB /* right_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99ECA276101DDB8801086665707F5060 /* right_box@2x.png */; };
+		04ED36F76CF6EA320EDB1BF35DB4B2E0 /* CDChatList.h in Headers */ = {isa = PBXBuildFile; fileRef = 303A555238C087C6A657DE34661BE5EB /* CDChatList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06F869965464C47C5F12627A066ECFBE /* MBProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D88D837B3761FCC191454AC8A5371F7 /* MBProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D1FFD30267C0776FD3E88EFF51E312F /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C7FADD2EB87A0D22FB1F4EFCC68CDC /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0F28B7141D8DFB99A0AE17730667F30C /* CellCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AD37D8C8F44784CDF71825659F9DBA /* CellCaculator.m */; };
-		0FA534546B47686F1486F58B4C19CCD9 /* CDChatList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B67FE19F7540CFD60D0EF5A5D8BCAD /* CDChatList-dummy.m */; };
 		140F458AB7312414FC423FEED70A3733 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00188330237B0862CE75D8AC4CF1C7 /* UIActivityIndicatorView+AFNetworking.m */; };
 		14B62C12FC6357FDB69FC3FD0CD38A55 /* Pods-CDChatList_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		185A9511F5A3AA235019ECB133604B2B /* CDChatMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 11A3B8EA499888031CF83EB555C520CB /* CDChatMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1BD2D9C4FDE5EFC68CE103725224042F /* CDChatListProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = A37B8FC407E0F7A7328A26ACB57FEE70 /* CDChatListProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E2A6D057E20BE8F5ED3E594F7B8C286 /* AFNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2773DD265295550611965A75B2E947E2 /* AFNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F4F1CF631FCA91AC3BEC938A3AB8FD8 /* MBProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D88D837B3761FCC191454AC8A5371F7 /* MBProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22554065FA07F1BFE5308A685394CB12 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 4212BEB355A1AC6B91E17602338E6A4E /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		27219F009FEECC02C6EAC5D024E3713E /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D8218346D70C9C238C085623856803 /* MBProgressHUD.framework */; };
+		24C5634DBE53BA1E7DE8E71510567CD7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E2996CC0541CDA6411D8499728A2A0A5 /* MBProgressHUD.m */; };
+		254BE81596AD9A6F8ECC64F37353607F /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = E03B593CE9C68DF3DB711EA83EA0C098 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29476636EA86BEFC4CB833D3BB7A52D7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC058D8C6DF9A5A3471C06F358AA3E3 /* AFURLRequestSerialization.m */; };
-		294C1661D56917A968923D26A2D38CED /* CDChatList-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC57560BE938B8A678CD55DEBF691E92 /* CDChatList-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B0705CC26A4CBEE32A5A60284AED35B /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 47C7880CF840F5AF729AD2B1B0FD7261 /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30F0BAE1DBB79BBB6CBD957EA8B89E4B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F947B5B19DC72749BC9F674782F2D0D /* MobileCoreServices.framework */; };
 		32076D3DD644045CF79DFFEBB6BFF3F2 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CA09DEB6272764D0FB441E6B7EF095CD /* UIButton+AFNetworking.m */; };
+		33B6E7D3296CBB1F67833EC21E0D9BD2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */; };
 		34C88657FE7ABE9F833623F94952D253 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 030D75685332250E5072A6399C632A39 /* UIProgressView+AFNetworking.m */; };
 		35CBB7B255FD8D412AFCECBC4311A847 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 35CCCEF4E42F09A8968B168015B1C81E /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		365A6C4DC8DC75C975C402FD026164F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4136FAAC5C15C0464610C555542F9F /* UIKit.framework */; };
 		37F097E2269EF1BD238AD7449D796445 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CCB5A9708C1CA87D29CE0C6ECC7FB9 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		3E43906B70EB01C06F3AE17008B853B9 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C925D2AEA3DAD9AFE3540B07F7CA9970 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F899487BDF429DFD4CC5581974E8173 /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12712A07EB120F9132D52D398A1E1E26 /* CDTextTableViewCell.m */; };
 		42AF1BB1ED090CC9E588A463441D09E3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9E3069B027A6E1D1E1D5535C6327FB /* SystemConfiguration.framework */; };
 		4442D8453D210EFC13CFE2CAF862ED1D /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ADC8C55F529658B549D45FECDCF926D /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45F802D04B3BE0CAEC586C2F3016027B /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E9074F3DE6B73509085FF7ED3F7FC6BC /* UIActivityIndicatorView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47F04CBDF6C54B220F6AEECEF15264D5 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D2376B87544F7D23EEB2C8E3BB17FA /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B068F7C08907FBBFBD5BE31C06E1E67 /* Pods-CDChatList_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B02886F835D6A6781CE76191F82862 /* Pods-CDChatList_Example-dummy.m */; };
 		51047C1945103943F70BEADE83725630 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F08842A8195BC11F3D9D120CA4795E /* UIWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		553CC95C4CA79051F48947332739DE75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */; };
+		530109E83B48EE1F8FFD4186AF447B33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4136FAAC5C15C0464610C555542F9F /* UIKit.framework */; };
+		546063707D4F6090EFA2FB4D969ABB55 /* CDChatList.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BD9244D0C7CDD35BE9BF590CE2E2189 /* CDChatList.bundle */; };
 		5A1D34D104D42B1EE399E23BCD7935A0 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B37C0FB8FAFD8F2BCF4F2A0634ECD344 /* AFURLResponseSerialization.m */; };
-		5BEC71C6754D725F0F7DF9AD454BBCFB /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 815996B7439887BE05133CAE1961433B /* CDTextTableViewCell.m */; };
-		5C6A7CA31ECA445E909E6C0EA3FDC0AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */; };
+		6042A669A5EBC605AB90B2895E243A8A /* CDChatList-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A43156C18259AD81FCF0C99072B971A /* CDChatList-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		649E78B5EA450FABDF5201E31F265FAB /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 299031D72EB26B8B6C3EE00456975A73 /* AFNetworkActivityIndicatorManager.m */; };
 		6573AF9ABA59AC8D1F52B07088197F71 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1180F18BE02E38EBEA6677DC4013553B /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		680EED16D93CCC8D97D776462285C4CA /* CDTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D604964BCC4EAA3B672F9C0322050B4 /* CDTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69A4511D38BFCE49707D3C7E50A2491E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */; };
 		72563ADE99DC9E753B27D48B16AA3654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */; };
-		7629F05156423A2AEF586732E9ED4A7A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E62E2C49F3AE7C53E3C87818B0C9BE /* QuartzCore.framework */; };
 		789D749690B308852115FF20CD982A69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB87F50B2066DEFD89C36DC4862062B0 /* CoreGraphics.framework */; };
 		7A112C0F21A62CB6F1AA8D917A6EEA6C /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BCD55564610FD544A570F589B91CE0EE /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CE16B1BF75DF396768A0A3CFD968DB1 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 039777BB758A61DA590FAC8D52E10161 /* UIWebView+AFNetworking.m */; };
 		82D554EC9FB9A62D935B6555325F5898 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F48B9B03447F24BE3F3B74CFC3575F /* Security.framework */; };
-		875D82A3E3FA536B91B7C1BD658618A5 /* CDChatList.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB327046943E3F7D3FFCA4EF276FE84 /* CDChatList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		875CE30D62B8658B6C81EFE79F151D90 /* CDBaseMsgCell.h in Headers */ = {isa = PBXBuildFile; fileRef = ED58E232791F2B74A080F985D1372ADD /* CDBaseMsgCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		87ECA447DB887426665260651B7F147E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D02AF73026E0D5DA87B11D7ABF458B /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8B3AC8159F8B4B148F832D1A8F60B31D /* CDChatListProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D9186C358C45A5B9BD46881A524EC7 /* CDChatListProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9264BD69AFA8EE74F0D7F0EBD74F762F /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = C714B075B6B065A930DB605AE53D864B /* UIImage+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93DFC0CC12E763AE770017349EE009D1 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 113D60BEB8DA10603352CE42F2E8C425 /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		948458DC0A9308A2D8C018C37FB7BBDD /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 7181DDC0AA012276F4CFB2C67E68A383 /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96E70B43FC04BC99AED1BBD4FB1D7581 /* FMDB-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DD3CBC1A5F9892B10B97F639523D9DC /* FMDB-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B8D84996694C541CD3434386E0A081A /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FCD7AD17035C487FDC3005709439D35 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9BDC530B425B052E7A05B5D1FB04B7B3 /* CellCaculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 634CFC4A7423D05BB500AEF64A1EBBCB /* CellCaculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C11A290C9C5866A185A54F1EC04E2BB /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6366D17E9FE5E96E0C2729C826FEDD61 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		A0EA3DECECEDA3A8DDA5EEE6D664412A /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3ADE88B7E292ABA79A1EAC796BDC03 /* MBProgressHUD-dummy.m */; };
+		9CC2259F381C054322A4041A27D172FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E62E2C49F3AE7C53E3C87818B0C9BE /* QuartzCore.framework */; };
 		A1B5D80A8998311B8C9043E6942925E6 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCBACB90EC6393EA574154BFFC9B0A /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		A3591DEDA776B48C026E7F9144981E58 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9BF75546C3ABE356B9FE3BC6A170F9 /* AFAutoPurgingImageCache.m */; };
 		A398D63C8DED664D99A864D79881A13C /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E80BEA5C36C9941389A292A3E230DD33 /* AFImageDownloader.m */; };
 		A548833BE5FAD40830428F36E77D0F52 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ADA74C69C9FF6CE7A9E88A2068A65429 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A747FF85815491DE24A08B8548070693 /* CDChatList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E46F51BCF3EDC62F6EEA00DA62BD234 /* CDChatList-dummy.m */; };
+		A8B22AA77353352B396E88322C454F29 /* left_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBFFC85A50B75F81581AEDE81DD8DFB /* left_box@2x.png */; };
 		A8C297643282E0CF5E7DF9CB6E23A0D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */; };
 		AE976B0E8E3DD81E4F49DBEF19D3C0AD /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DDF8A7BEEEC9AD9A0BD7DEC9CE519DB5 /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16A078FC7FBC172A266A336AEF7F673 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E935DFFA086E1C4DBC9E5EB99AA266C1 /* UIRefreshControl+AFNetworking.m */; };
-		B57F2173BF9A65DB1638936ABE02511F /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = E03B593CE9C68DF3DB711EA83EA0C098 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3EC2C2F0E949D6297DDC3FDC48100C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB87F50B2066DEFD89C36DC4862062B0 /* CoreGraphics.framework */; };
+		B50D6A3709616392E94A029C755A898E /* CellCaculator.h in Headers */ = {isa = PBXBuildFile; fileRef = C292DC1A7B396BB9BA7595318AA44345 /* CellCaculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C543BE2A1F833F7A1212F0FEE04CBB51 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3ADE88B7E292ABA79A1EAC796BDC03 /* MBProgressHUD-dummy.m */; };
 		C605A44DF96E7FCACF7D6E37B62F795D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CE9FE85F4B8982D0040C1377A6F24B /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		C6E79EBC59CBB1C1910E2E4247B335A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */; };
 		CCB74062CE0F4B8E5B7483599BC398DA /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 878F906502AE5560FBE33CBBFE58069D /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEB2F0E229EF841D92C780C3FFDF1BEA /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67039F2187748331AD7723BF91815846 /* AFSecurityPolicy.m */; };
 		CF287829627F26B2EB4382B897D06A0E /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CE68603358B93B36D932FE26D444CA /* AFNetworking-dummy.m */; };
-		CF493A878DCE629BFA40C3ED2BA5AF86 /* CDChatList.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BD9244D0C7CDD35BE9BF590CE2E2189 /* CDChatList.bundle */; };
 		D4E80BD7EAAB83200183110578A80591 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F65D28CBF7ACECACC17430E836BD6 /* AFURLSessionManager.m */; };
 		D5991941DC41DDDDDACAE0B5D47A4639 /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1ACB3B94CD37C0028ABFDEB2EEF022 /* FMDB-dummy.m */; };
+		DA0379A176C7E5BDD400EAD75ECA3E54 /* CDChatMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 2138C4D246C9C43FB44AE86369EC568A /* CDChatMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA449B35917C4E4BE3CE8F6BC6B4A26B /* CDTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F279BEDCD382579A123E4A21D57D20A /* CDTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD887A93A200A87A51B3D00BD1B80D20 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5839F2882C83BDBA48B086CA11BD921F /* AFNetworkReachabilityManager.m */; };
-		DDB9969D5281BE82875E8A73DCF50AAC /* CDChatList.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB55B1228762179A83307868DF0518C /* CDChatList.m */; };
 		E23B9A6F533461CB33C0FA6FB59E3AB2 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 86CCB6384978D8730FB4B529C1A3A469 /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E37D09B40B9D36D41C05D98F1EBDE19B /* CDBaseMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA95F0547B847AEF17ADD7997C64C18 /* CDBaseMsgCell.m */; };
+		E88B0AE960DDB4DEBFDBD7EE5526583A /* CellCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAC9C4D0A1656E54702A093531B387A /* CellCaculator.m */; };
 		EAF16633DB3C992CF975BE4A2932D41C /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0E6C8C247C8C133F1433A9A7198E04 /* AFHTTPSessionManager.m */; };
+		F0EC8D5A7443FFD32CB2FF7A78931010 /* CDChatList.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFF878B2A2A5C9948715DA70D0972DE /* CDChatList.m */; };
 		F11FAB91014130EE233A3429439D38D7 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = D8A0733C9D2A982244D01178D8EAF477 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1CAA2EBDDFF558DEF98684F2479A7AF /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE46A0394F74C0B158AE7E6374C4A5B /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2D899C7AA0D7FC20160091BB9D31CF3 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B145AB4056F6811FE62DBB71C3A575E9 /* UIImageView+AFNetworking.m */; };
-		F53C7C38785246A93CD6879B66DD658B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB87F50B2066DEFD89C36DC4862062B0 /* CoreGraphics.framework */; };
 		F84DD74BB7F612DE372F8C051420DF72 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 9435A59E7BF689B567A19AAF19E14F11 /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEF6EACE962EAE70E2EAC5F3C83EF7C8 /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B16C7081D05D5A617E45BEB13FF5FDA /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		02885733D90AA085AFBD9164E41E9E2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7EB47D7680F3E6E0BF23DC58D8A057E3;
-			remoteInfo = MBProgressHUD;
-		};
 		6E0560BCF12555F4501EA427463917CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -102,25 +99,32 @@
 			remoteGlobalIDString = 251BAD17812F7EBF6532EACF66F941C3;
 			remoteInfo = FMDB;
 		};
-		B3EC7A0C9B8BEDF9E6A17BE1CCF1009E /* PBXContainerItemProxy */ = {
+		868C44C7DFD29AE65203DFCBDEE31D56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D6EAF4B92474986E33882ACB23F195C2;
+			remoteGlobalIDString = 896847652344D7AF27579A81CD0C3748;
+			remoteInfo = MBProgressHUD;
+		};
+		881FC333CDED3E9CDB776F07A1E82E43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 190DB9124A56B583A83D952CD1339A07;
 			remoteInfo = "CDChatList-CDChatList";
 		};
 		B9B4FCCACC63CBF20BB0157543931C2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 426B57FBA3A46FDC1BCADA5692EB67F1;
+			remoteGlobalIDString = F631E8FC498F9F347BFF8F135E0D1AD0;
 			remoteInfo = CDChatList;
 		};
 		DB41A72A49B827FEF7C13F8A30E56BB8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7EB47D7680F3E6E0BF23DC58D8A057E3;
+			remoteGlobalIDString = 896847652344D7AF27579A81CD0C3748;
 			remoteInfo = MBProgressHUD;
 		};
 		E633BAF72B0F94CDF1B5A8F51748AD83 /* PBXContainerItemProxy */ = {
@@ -134,20 +138,21 @@
 
 /* Begin PBXFileReference section */
 		016F65D28CBF7ACECACC17430E836BD6 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
-		02B67FE19F7540CFD60D0EF5A5D8BCAD /* CDChatList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CDChatList-dummy.m"; sourceTree = "<group>"; };
 		030D75685332250E5072A6399C632A39 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		039777BB758A61DA590FAC8D52E10161 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		0863AB4511854859D79D24072935F7FA /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0863AB4511854859D79D24072935F7FA /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMDB.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		086F9A79508B48B1A355735DF53E9240 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3ADE88B7E292ABA79A1EAC796BDC03 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		0D1BF482E6C952B35F0BA0EEE3CAE3AF /* Pods-CDChatList_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.release.xcconfig"; sourceTree = "<group>"; };
-		0FD710C130DD1F8A38BE2D66D9660E6B /* MBProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MBProgressHUD.modulemap; sourceTree = "<group>"; };
+		0FD710C130DD1F8A38BE2D66D9660E6B /* MBProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MBProgressHUD.modulemap; sourceTree = "<group>"; };
 		113D60BEB8DA10603352CE42F2E8C425 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		1180F18BE02E38EBEA6677DC4013553B /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
-		11A3B8EA499888031CF83EB555C520CB /* CDChatMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatMacro.h; path = CDChatList/Classes/CDChatMacro.h; sourceTree = "<group>"; };
+		12712A07EB120F9132D52D398A1E1E26 /* CDTextTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
 		152A2ACFF7E8B1B9DBD43732BA717ACC /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		1BA95F0547B847AEF17ADD7997C64C18 /* CDBaseMsgCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDBaseMsgCell.m; sourceTree = "<group>"; };
 		1DD3CBC1A5F9892B10B97F639523D9DC /* FMDB-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-umbrella.h"; sourceTree = "<group>"; };
 		1F273D9178A350B19C6D397E09BE8A32 /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		2138C4D246C9C43FB44AE86369EC568A /* CDChatMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatMacro.h; path = CDChatList/Classes/CDChatMacro.h; sourceTree = "<group>"; };
 		21D2376B87544F7D23EEB2C8E3BB17FA /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		23B02886F835D6A6781CE76191F82862 /* Pods-CDChatList_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CDChatList_Example-dummy.m"; sourceTree = "<group>"; };
 		24CE68603358B93B36D932FE26D444CA /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
@@ -155,115 +160,101 @@
 		27E62E2C49F3AE7C53E3C87818B0C9BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		299031D72EB26B8B6C3EE00456975A73 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		2D88D837B3761FCC191454AC8A5371F7 /* MBProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		303A555238C087C6A657DE34661BE5EB /* CDChatList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatList.h; path = CDChatList/Classes/CDChatList.h; sourceTree = "<group>"; };
 		35CCCEF4E42F09A8968B168015B1C81E /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		3A1D4F89511CA5A4BE569007FA7ECE14 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
 		3C10AB87F0E8428943B6FACFAB185E29 /* Pods-CDChatList_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CDChatList_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		3CE0A0F20D68B08DDFCE7C6631376374 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3F279BEDCD382579A123E4A21D57D20A /* CDTextTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
 		40CE9FE85F4B8982D0040C1377A6F24B /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 		4212BEB355A1AC6B91E17602338E6A4E /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		44B8CB4EEB5F8E8B70712D5268CCCB4F /* CDChatList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-prefix.pch"; sourceTree = "<group>"; };
 		47C7880CF840F5AF729AD2B1B0FD7261 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		4C7DA49CBF7BEBB0A6DF7A1D37918FCA /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
-		55AD37D8C8F44784CDF71825659F9DBA /* CellCaculator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CellCaculator.m; path = CDChatList/Classes/CellCaculator.m; sourceTree = "<group>"; };
 		5839F2882C83BDBA48B086CA11BD921F /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		5FCD7AD17035C487FDC3005709439D35 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
-		634CFC4A7423D05BB500AEF64A1EBBCB /* CellCaculator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CellCaculator.h; path = CDChatList/Classes/CellCaculator.h; sourceTree = "<group>"; };
 		6366D17E9FE5E96E0C2729C826FEDD61 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		66F6D7A31BFE070BA1FDB3F12E1E49CF /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
 		67039F2187748331AD7723BF91815846 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
 		6ADC8C55F529658B549D45FECDCF926D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		6B16C7081D05D5A617E45BEB13FF5FDA /* AFImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFImageDownloader.h; path = "UIKit+AFNetworking/AFImageDownloader.h"; sourceTree = "<group>"; };
-		6D604964BCC4EAA3B672F9C0322050B4 /* CDTextTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
 		6F947B5B19DC72749BC9F674782F2D0D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		7181DDC0AA012276F4CFB2C67E68A383 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		758E930F7E126E81140392C824F81548 /* Pods-CDChatList_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CDChatList_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		781719436E9F0BB641CC89F5AC79BD1B /* ResourceBundle-CDChatList-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CDChatList-Info.plist"; sourceTree = "<group>"; };
-		7C02B19B36D261F076148870CDD73F03 /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
+		7C02B19B36D261F076148870CDD73F03 /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
 		7C0E6C8C247C8C133F1433A9A7198E04 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		7E9E3069B027A6E1D1E1D5535C6327FB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		815996B7439887BE05133CAE1961433B /* CDTextTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
 		85A42F9022C749786EDA6EC6E7E78B3B /* Pods-CDChatList_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-resources.sh"; sourceTree = "<group>"; };
 		86CCB6384978D8730FB4B529C1A3A469 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		878F906502AE5560FBE33CBBFE58069D /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
 		88540C921EC616AE6D83275DFCDEA711 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E46F51BCF3EDC62F6EEA00DA62BD234 /* CDChatList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CDChatList-dummy.m"; sourceTree = "<group>"; };
 		8FD9F01B2F99D4EE5368A24E9EBADD34 /* Pods-CDChatList_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		90A8E9E58F4A75C524E0D0697DFE3905 /* ResourceBundle-CDChatList-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CDChatList-Info.plist"; sourceTree = "<group>"; };
 		92CCB5A9708C1CA87D29CE0C6ECC7FB9 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9435A59E7BF689B567A19AAF19E14F11 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
 		9493F6D772397665E36BE3548977E887 /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
 		97D8218346D70C9C238C085623856803 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99ECA276101DDB8801086665707F5060 /* right_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "right_box@2x.png"; path = "CDChatList/Assets/right_box@2x.png"; sourceTree = "<group>"; };
 		9A00188330237B0862CE75D8AC4CF1C7 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		9A43156C18259AD81FCF0C99072B971A /* CDChatList-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-umbrella.h"; sourceTree = "<group>"; };
 		9ADCBACB90EC6393EA574154BFFC9B0A /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
 		9BA97275AED8B8B4F8D171042AFC9748 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BD9244D0C7CDD35BE9BF590CE2E2189 /* CDChatList.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDChatList.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		A37B8FC407E0F7A7328A26ACB57FEE70 /* CDChatListProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatListProtocols.h; path = CDChatList/Classes/CDChatListProtocols.h; sourceTree = "<group>"; };
+		9BD9244D0C7CDD35BE9BF590CE2E2189 /* CDChatList.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CDChatList.bundle; path = CDChatList.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EBC053714681513FC3EA461F17F82AA /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CDChatList.modulemap; sourceTree = "<group>"; };
+		A2D9186C358C45A5B9BD46881A524EC7 /* CDChatListProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatListProtocols.h; path = CDChatList/Classes/CDChatListProtocols.h; sourceTree = "<group>"; };
 		A47085A38DC3BC6752609D1EB2E1CFDC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5EB7C55D01117B4C05E2B8784C8256D /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
 		AB4136FAAC5C15C0464610C555542F9F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		ADA74C69C9FF6CE7A9E88A2068A65429 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		B113344D93DD714138B8A0EFFF8FFE2F /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B113344D93DD714138B8A0EFFF8FFE2F /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CDChatList_Example.framework; path = "Pods-CDChatList_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B145AB4056F6811FE62DBB71C3A575E9 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		B2470C8C98B2D2993AA9FF8ED1E1F1AC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C7FADD2EB87A0D22FB1F4EFCC68CDC /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		B37C0FB8FAFD8F2BCF4F2A0634ECD344 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		B9A6B8449A7EFDD5499FAF8DFEC4BB12 /* Pods-CDChatList_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-frameworks.sh"; sourceTree = "<group>"; };
-		BCB55B1228762179A83307868DF0518C /* CDChatList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CDChatList.m; path = CDChatList/Classes/CDChatList.m; sourceTree = "<group>"; };
 		BCD55564610FD544A570F589B91CE0EE /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
-		BD13583242F4DBBA900CF519B32F05C3 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AFNetworking.modulemap; sourceTree = "<group>"; };
-		BEB327046943E3F7D3FFCA4EF276FE84 /* CDChatList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatList.h; path = CDChatList/Classes/CDChatList.h; sourceTree = "<group>"; };
+		BD13583242F4DBBA900CF519B32F05C3 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AFNetworking.modulemap; sourceTree = "<group>"; };
 		BF9BF75546C3ABE356B9FE3BC6A170F9 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
+		C292DC1A7B396BB9BA7595318AA44345 /* CellCaculator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CellCaculator.h; path = CDChatList/Classes/CellCaculator.h; sourceTree = "<group>"; };
 		C714B075B6B065A930DB605AE53D864B /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
 		C925D2AEA3DAD9AFE3540B07F7CA9970 /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		CA09DEB6272764D0FB441E6B7EF095CD /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
-		CC57560BE938B8A678CD55DEBF691E92 /* CDChatList-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-umbrella.h"; sourceTree = "<group>"; };
 		D1F08842A8195BC11F3D9D120CA4795E /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		D66DA32622B470329FD18A161BD99036 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66DA32622B470329FD18A161BD99036 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBProgressHUD.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D02AF73026E0D5DA87B11D7ABF458B /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		D8A0733C9D2A982244D01178D8EAF477 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
 		DDF8A7BEEEC9AD9A0BD7DEC9CE519DB5 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
-		DE05D640F42DC3678B901F197EA244F7 /* FMDB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FMDB.modulemap; sourceTree = "<group>"; };
+		DE05D640F42DC3678B901F197EA244F7 /* FMDB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FMDB.modulemap; sourceTree = "<group>"; };
+		DEBFFC85A50B75F81581AEDE81DD8DFB /* left_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "left_box@2x.png"; path = "CDChatList/Assets/left_box@2x.png"; sourceTree = "<group>"; };
+		DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDChatList.xcconfig; sourceTree = "<group>"; };
 		E03B593CE9C68DF3DB711EA83EA0C098 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		E07DFCFF1D0DD66983C71F2E24EB64A9 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E07DFCFF1D0DD66983C71F2E24EB64A9 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2996CC0541CDA6411D8499728A2A0A5 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E3F48B9B03447F24BE3F3B74CFC3575F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
 		E80BEA5C36C9941389A292A3E230DD33 /* AFImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFImageDownloader.m; path = "UIKit+AFNetworking/AFImageDownloader.m"; sourceTree = "<group>"; };
 		E9074F3DE6B73509085FF7ED3F7FC6BC /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		E935DFFA086E1C4DBC9E5EB99AA266C1 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
-		EA3F9C06721AD1BDEE32BFC820B0CEE8 /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CDChatList.modulemap; sourceTree = "<group>"; };
+		EAAC9C4D0A1656E54702A093531B387A /* CellCaculator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CellCaculator.m; path = CDChatList/Classes/CellCaculator.m; sourceTree = "<group>"; };
 		EB87F50B2066DEFD89C36DC4862062B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		EBC058D8C6DF9A5A3471C06F358AA3E3 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		F069BC817FB40DCD18D4BE0C75DBE013 /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F966B5983F5469BE2C545C0014CE85A5 /* CDChatList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-prefix.pch"; sourceTree = "<group>"; };
-		FA86A5980EFACE43F2D7E995185C21DE /* CDChatList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDChatList.xcconfig; sourceTree = "<group>"; };
-		FAF633419B56A1C1E659F1803500D4D5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED58E232791F2B74A080F985D1372ADD /* CDBaseMsgCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDBaseMsgCell.h; sourceTree = "<group>"; };
+		EEFF878B2A2A5C9948715DA70D0972DE /* CDChatList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CDChatList.m; path = CDChatList/Classes/CDChatList.m; sourceTree = "<group>"; };
+		F069BC817FB40DCD18D4BE0C75DBE013 /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CDChatList.framework; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1ACB3B94CD37C0028ABFDEB2EEF022 /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
 		FCE46A0394F74C0B158AE7E6374C4A5B /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0D6E0D51DD23EE207714A9FC991103A7 /* Frameworks */ = {
+		1B4052DAD0EBD2BD8382B9B3D5D7D3D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C6A7CA31ECA445E909E6C0EA3FDC0AA /* Foundation.framework in Frameworks */,
-				27219F009FEECC02C6EAC5D024E3713E /* MBProgressHUD.framework in Frameworks */,
-				365A6C4DC8DC75C975C402FD026164F3 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16BEA60C67A7B26CF4EC56B6291B5742 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		29B582BBAA05DA83C9A495B67D31FEDC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F53C7C38785246A93CD6879B66DD658B /* CoreGraphics.framework in Frameworks */,
-				553CC95C4CA79051F48947332739DE75 /* Foundation.framework in Frameworks */,
-				7629F05156423A2AEF586732E9ED4A7A /* QuartzCore.framework in Frameworks */,
+				69A4511D38BFCE49707D3C7E50A2491E /* Foundation.framework in Frameworks */,
+				028B8C4955B72B75360371618012EDAA /* MBProgressHUD.framework in Frameworks */,
+				530109E83B48EE1F8FFD4186AF447B33 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +275,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E79EBC59CBB1C1910E2E4247B335A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA42AB27C1C9136C0F118FE1408C6B79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBEFEB15FA0175C1FB1FD9A848206FBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3EC2C2F0E949D6297DDC3FDC48100C8 /* CoreGraphics.framework in Frameworks */,
+				33B6E7D3296CBB1F67833EC21E0D9BD2 /* Foundation.framework in Frameworks */,
+				9CC2259F381C054322A4041A27D172FB /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +332,30 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FMDB";
+			sourceTree = "<group>";
+		};
+		1758373C72E501B2B0898963AB01E0EE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DEBFFC85A50B75F81581AEDE81DD8DFB /* left_box@2x.png */,
+				99ECA276101DDB8801086665707F5060 /* right_box@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		22F19DF13AC14F7083DB61883875377A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EBC053714681513FC3EA461F17F82AA /* CDChatList.modulemap */,
+				DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */,
+				8E46F51BCF3EDC62F6EEA00DA62BD234 /* CDChatList-dummy.m */,
+				44B8CB4EEB5F8E8B70712D5268CCCB4F /* CDChatList-prefix.pch */,
+				9A43156C18259AD81FCF0C99072B971A /* CDChatList-umbrella.h */,
+				B2470C8C98B2D2993AA9FF8ED1E1F1AC /* Info.plist */,
+				90A8E9E58F4A75C524E0D0697DFE3905 /* ResourceBundle-CDChatList-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/CDChatList";
 			sourceTree = "<group>";
 		};
 		249AC4340AFE3C988BFF9FF4384F9CB1 /* Support Files */ = {
@@ -402,19 +434,11 @@
 			name = standard;
 			sourceTree = "<group>";
 		};
-		7167CBE66D70C4F9E9FC5C5EBF4CCE47 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BBF01AC6D41C59AFC00965BFD222A58B /* CDChatList */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				7167CBE66D70C4F9E9FC5C5EBF4CCE47 /* Development Pods */,
+				B4B851C527F9D384E830BC9541EDF6A1 /* Development Pods */,
 				33C035B38FB7E87A920FFB37357BBDFF /* Frameworks */,
 				7EA5A9949F35422119B22A1832D2FB42 /* Pods */,
 				F9F1A18A22ABF9B0E1AB8B4CCF088CC0 /* Products */,
@@ -457,6 +481,7 @@
 				8630D2181D390CD34E5FE65B6F58AD4C /* Support Files */,
 				F26712895EE469AA7E11B1EBF93DB744 /* UIKit */,
 			);
+			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -467,22 +492,25 @@
 				E2996CC0541CDA6411D8499728A2A0A5 /* MBProgressHUD.m */,
 				249AC4340AFE3C988BFF9FF4384F9CB1 /* Support Files */,
 			);
+			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		B2486981FEEB195C9261688668FA0969 /* Support Files */ = {
+		A68815F823FCA274FAD6202687A3C4A9 /* CDChatList */ = {
 			isa = PBXGroup;
 			children = (
-				EA3F9C06721AD1BDEE32BFC820B0CEE8 /* CDChatList.modulemap */,
-				FA86A5980EFACE43F2D7E995185C21DE /* CDChatList.xcconfig */,
-				02B67FE19F7540CFD60D0EF5A5D8BCAD /* CDChatList-dummy.m */,
-				F966B5983F5469BE2C545C0014CE85A5 /* CDChatList-prefix.pch */,
-				CC57560BE938B8A678CD55DEBF691E92 /* CDChatList-umbrella.h */,
-				FAF633419B56A1C1E659F1803500D4D5 /* Info.plist */,
-				781719436E9F0BB641CC89F5AC79BD1B /* ResourceBundle-CDChatList-Info.plist */,
+				303A555238C087C6A657DE34661BE5EB /* CDChatList.h */,
+				EEFF878B2A2A5C9948715DA70D0972DE /* CDChatList.m */,
+				A2D9186C358C45A5B9BD46881A524EC7 /* CDChatListProtocols.h */,
+				2138C4D246C9C43FB44AE86369EC568A /* CDChatMacro.h */,
+				C292DC1A7B396BB9BA7595318AA44345 /* CellCaculator.h */,
+				EAAC9C4D0A1656E54702A093531B387A /* CellCaculator.m */,
+				D417491500EC601EDE83F815C08C3E49 /* MessageCell */,
+				1758373C72E501B2B0898963AB01E0EE /* Resources */,
+				22F19DF13AC14F7083DB61883875377A /* Support Files */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/CDChatList";
+			name = CDChatList;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		B3B1667290C4C20D4B5694BDA33440B3 /* Serialization */ = {
@@ -496,6 +524,14 @@
 			name = Serialization;
 			sourceTree = "<group>";
 		};
+		B4B851C527F9D384E830BC9541EDF6A1 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A68815F823FCA274FAD6202687A3C4A9 /* CDChatList */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
 		B9320AACCEF4B3FC5B18C4CEB16C46E2 /* NSURLSession */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,20 +543,16 @@
 			name = NSURLSession;
 			sourceTree = "<group>";
 		};
-		BBF01AC6D41C59AFC00965BFD222A58B /* CDChatList */ = {
+		D417491500EC601EDE83F815C08C3E49 /* MessageCell */ = {
 			isa = PBXGroup;
 			children = (
-				BEB327046943E3F7D3FFCA4EF276FE84 /* CDChatList.h */,
-				BCB55B1228762179A83307868DF0518C /* CDChatList.m */,
-				A37B8FC407E0F7A7328A26ACB57FEE70 /* CDChatListProtocols.h */,
-				11A3B8EA499888031CF83EB555C520CB /* CDChatMacro.h */,
-				634CFC4A7423D05BB500AEF64A1EBBCB /* CellCaculator.h */,
-				55AD37D8C8F44784CDF71825659F9DBA /* CellCaculator.m */,
-				FFA63EDD63D923A30354040473D711BA /* MessageCell */,
-				B2486981FEEB195C9261688668FA0969 /* Support Files */,
+				ED58E232791F2B74A080F985D1372ADD /* CDBaseMsgCell.h */,
+				1BA95F0547B847AEF17ADD7997C64C18 /* CDBaseMsgCell.m */,
+				3F279BEDCD382579A123E4A21D57D20A /* CDTextTableViewCell.h */,
+				12712A07EB120F9132D52D398A1E1E26 /* CDTextTableViewCell.m */,
 			);
-			name = CDChatList;
-			path = ../..;
+			name = MessageCell;
+			path = CDChatList/Classes/MessageCell;
 			sourceTree = "<group>";
 		};
 		F26712895EE469AA7E11B1EBF93DB744 /* UIKit */ = {
@@ -565,6 +597,7 @@
 				68EEB3110F552A40CBFB29AD69DBF2C4 /* standard */,
 				10C4A53C9B69C609590C0A186BCCA2FF /* Support Files */,
 			);
+			name = FMDB;
 			path = FMDB;
 			sourceTree = "<group>";
 		};
@@ -579,16 +612,6 @@
 				B113344D93DD714138B8A0EFFF8FFE2F /* Pods_CDChatList_Example.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		FFA63EDD63D923A30354040473D711BA /* MessageCell */ = {
-			isa = PBXGroup;
-			children = (
-				6D604964BCC4EAA3B672F9C0322050B4 /* CDTextTableViewCell.h */,
-				815996B7439887BE05133CAE1961433B /* CDTextTableViewCell.m */,
-			);
-			name = MessageCell;
-			path = CDChatList/Classes/MessageCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,12 +639,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C00698B5544788900EB3CC769A73F57 /* Headers */ = {
+		879AD8813BEAE0CA49B53685AF7F0D7E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F4F1CF631FCA91AC3BEC938A3AB8FD8 /* MBProgressHUD-umbrella.h in Headers */,
-				B57F2173BF9A65DB1638936ABE02511F /* MBProgressHUD.h in Headers */,
+				875CE30D62B8658B6C81EFE79F151D90 /* CDBaseMsgCell.h in Headers */,
+				6042A669A5EBC605AB90B2895E243A8A /* CDChatList-umbrella.h in Headers */,
+				04ED36F76CF6EA320EDB1BF35DB4B2E0 /* CDChatList.h in Headers */,
+				8B3AC8159F8B4B148F832D1A8F60B31D /* CDChatListProtocols.h in Headers */,
+				DA0379A176C7E5BDD400EAD75ECA3E54 /* CDChatMacro.h in Headers */,
+				DA449B35917C4E4BE3CE8F6BC6B4A26B /* CDTextTableViewCell.h in Headers */,
+				B50D6A3709616392E94A029C755A898E /* CellCaculator.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B76853637F9A736FF2CCE82B5AC415 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06F869965464C47C5F12627A066ECFBE /* MBProgressHUD-umbrella.h in Headers */,
+				254BE81596AD9A6F8ECC64F37353607F /* MBProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,22 +688,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C40226CBA39E92A814420720BD902595 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				294C1661D56917A968923D26A2D38CED /* CDChatList-umbrella.h in Headers */,
-				875D82A3E3FA536B91B7C1BD658618A5 /* CDChatList.h in Headers */,
-				1BD2D9C4FDE5EFC68CE103725224042F /* CDChatListProtocols.h in Headers */,
-				185A9511F5A3AA235019ECB133604B2B /* CDChatMacro.h in Headers */,
-				680EED16D93CCC8D97D776462285C4CA /* CDTextTableViewCell.h in Headers */,
-				9BDC530B425B052E7A05B5D1FB04B7B3 /* CellCaculator.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		190DB9124A56B583A83D952CD1339A07 /* CDChatList-CDChatList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0A481E194C0B757A64CE8BED405D34C /* Build configuration list for PBXNativeTarget "CDChatList-CDChatList" */;
+			buildPhases = (
+				FDCF51D53B7CE573A93E737138ECD463 /* Sources */,
+				BA42AB27C1C9136C0F118FE1408C6B79 /* Frameworks */,
+				8F24686CD431156BF9A35CAA5308B1F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CDChatList-CDChatList";
+			productName = "CDChatList-CDChatList";
+			productReference = 9BD9244D0C7CDD35BE9BF590CE2E2189 /* CDChatList.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		251BAD17812F7EBF6532EACF66F941C3 /* FMDB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B0566FF0CE681AC326D316CEC45A8CF /* Build configuration list for PBXNativeTarget "FMDB" */;
@@ -682,26 +723,6 @@
 			name = FMDB;
 			productName = FMDB;
 			productReference = 0863AB4511854859D79D24072935F7FA /* FMDB.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		426B57FBA3A46FDC1BCADA5692EB67F1 /* CDChatList */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9E85D6BA614BF9FCB63282DE8B19B043 /* Build configuration list for PBXNativeTarget "CDChatList" */;
-			buildPhases = (
-				311F6B945ECC4555BE8A8F4B3D2AA061 /* Sources */,
-				0D6E0D51DD23EE207714A9FC991103A7 /* Frameworks */,
-				5B6F77D88D4BDBD0FB37F1EEABC143F7 /* Resources */,
-				C40226CBA39E92A814420720BD902595 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1B2CA6E7D20772686EBB7DDA5054EB36 /* PBXTargetDependency */,
-				C94799634C0F4F35A8C19D863A5A06B5 /* PBXTargetDependency */,
-			);
-			name = CDChatList;
-			productName = CDChatList;
-			productReference = F069BC817FB40DCD18D4BE0C75DBE013 /* CDChatList.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		587D014B237B7C0C7D8949AC138E4F6C /* Pods-CDChatList_Example */ = {
@@ -725,13 +746,13 @@
 			productReference = B113344D93DD714138B8A0EFFF8FFE2F /* Pods_CDChatList_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7EB47D7680F3E6E0BF23DC58D8A057E3 /* MBProgressHUD */ = {
+		896847652344D7AF27579A81CD0C3748 /* MBProgressHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50BBC328292C0D8DAB36A4F99622F478 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
+			buildConfigurationList = 83394F013B241EC5E127314AC505FD7B /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
 			buildPhases = (
-				70FAEFC6907D131D6AD5D0D012D61D49 /* Sources */,
-				29B582BBAA05DA83C9A495B67D31FEDC /* Frameworks */,
-				7C00698B5544788900EB3CC769A73F57 /* Headers */,
+				53863D73C16F099454AAD6DD389E1FED /* Sources */,
+				EBEFEB15FA0175C1FB1FD9A848206FBE /* Frameworks */,
+				B4B76853637F9A736FF2CCE82B5AC415 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -759,22 +780,25 @@
 			productReference = E07DFCFF1D0DD66983C71F2E24EB64A9 /* AFNetworking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D6EAF4B92474986E33882ACB23F195C2 /* CDChatList-CDChatList */ = {
+		F631E8FC498F9F347BFF8F135E0D1AD0 /* CDChatList */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3810BE52B8B203C01FE1D9B6893FFBB7 /* Build configuration list for PBXNativeTarget "CDChatList-CDChatList" */;
+			buildConfigurationList = 0BCA1E37A1C894C035BC7C13204691BF /* Build configuration list for PBXNativeTarget "CDChatList" */;
 			buildPhases = (
-				A8CFAF863A89B37B07AD776881EA59DB /* Sources */,
-				16BEA60C67A7B26CF4EC56B6291B5742 /* Frameworks */,
-				DC3499D77CA34B626B51A97196090E8E /* Resources */,
+				1F6EC4EF14FF833CFFACF13FD120BA44 /* Sources */,
+				1B4052DAD0EBD2BD8382B9B3D5D7D3D8 /* Frameworks */,
+				41E28656D1692CDF1622951AC8D5BBE9 /* Resources */,
+				879AD8813BEAE0CA49B53685AF7F0D7E /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				94E23A250C900B09E477DBCCF52E1FB5 /* PBXTargetDependency */,
+				67FE2548CF3EFC7BE2C4432BB98580DF /* PBXTargetDependency */,
 			);
-			name = "CDChatList-CDChatList";
-			productName = "CDChatList-CDChatList";
-			productReference = 9BD9244D0C7CDD35BE9BF590CE2E2189 /* CDChatList.bundle */;
-			productType = "com.apple.product-type.bundle";
+			name = CDChatList;
+			productName = CDChatList;
+			productReference = F069BC817FB40DCD18D4BE0C75DBE013 /* CDChatList.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -783,7 +807,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -798,28 +822,30 @@
 			projectRoot = "";
 			targets = (
 				CF671F7E57B92905F1CC91D036D6B4A7 /* AFNetworking */,
-				426B57FBA3A46FDC1BCADA5692EB67F1 /* CDChatList */,
-				D6EAF4B92474986E33882ACB23F195C2 /* CDChatList-CDChatList */,
+				F631E8FC498F9F347BFF8F135E0D1AD0 /* CDChatList */,
+				190DB9124A56B583A83D952CD1339A07 /* CDChatList-CDChatList */,
 				251BAD17812F7EBF6532EACF66F941C3 /* FMDB */,
-				7EB47D7680F3E6E0BF23DC58D8A057E3 /* MBProgressHUD */,
+				896847652344D7AF27579A81CD0C3748 /* MBProgressHUD */,
 				587D014B237B7C0C7D8949AC138E4F6C /* Pods-CDChatList_Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5B6F77D88D4BDBD0FB37F1EEABC143F7 /* Resources */ = {
+		41E28656D1692CDF1622951AC8D5BBE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF493A878DCE629BFA40C3ED2BA5AF86 /* CDChatList.bundle in Resources */,
+				546063707D4F6090EFA2FB4D969ABB55 /* CDChatList.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC3499D77CA34B626B51A97196090E8E /* Resources */ = {
+		8F24686CD431156BF9A35CAA5308B1F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8B22AA77353352B396E88322C454F29 /* left_box@2x.png in Resources */,
+				03D05C0A8936447CEAE95F06840825AB /* right_box@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,14 +860,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		311F6B945ECC4555BE8A8F4B3D2AA061 /* Sources */ = {
+		1F6EC4EF14FF833CFFACF13FD120BA44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FA534546B47686F1486F58B4C19CCD9 /* CDChatList-dummy.m in Sources */,
-				DDB9969D5281BE82875E8A73DCF50AAC /* CDChatList.m in Sources */,
-				5BEC71C6754D725F0F7DF9AD454BBCFB /* CDTextTableViewCell.m in Sources */,
-				0F28B7141D8DFB99A0AE17730667F30C /* CellCaculator.m in Sources */,
+				E37D09B40B9D36D41C05D98F1EBDE19B /* CDBaseMsgCell.m in Sources */,
+				A747FF85815491DE24A08B8548070693 /* CDChatList-dummy.m in Sources */,
+				F0EC8D5A7443FFD32CB2FF7A78931010 /* CDChatList.m in Sources */,
+				3F899487BDF429DFD4CC5581974E8173 /* CDTextTableViewCell.m in Sources */,
+				E88B0AE960DDB4DEBFDBD7EE5526583A /* CellCaculator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53863D73C16F099454AAD6DD389E1FED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C543BE2A1F833F7A1212F0FEE04CBB51 /* MBProgressHUD-dummy.m in Sources */,
+				24C5634DBE53BA1E7DE8E71510567CD7 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,15 +904,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		70FAEFC6907D131D6AD5D0D012D61D49 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A0EA3DECECEDA3A8DDA5EEE6D664412A /* MBProgressHUD-dummy.m in Sources */,
-				03EBF6FE8A1F703170B3E4510D417F44 /* MBProgressHUD.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8FE0D4B503A94502F3431DC0DCB58040 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -890,7 +917,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A8CFAF863A89B37B07AD776881EA59DB /* Sources */ = {
+		FDCF51D53B7CE573A93E737138ECD463 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -906,22 +933,22 @@
 			target = CF671F7E57B92905F1CC91D036D6B4A7 /* AFNetworking */;
 			targetProxy = E633BAF72B0F94CDF1B5A8F51748AD83 /* PBXContainerItemProxy */;
 		};
-		1B2CA6E7D20772686EBB7DDA5054EB36 /* PBXTargetDependency */ = {
+		67FE2548CF3EFC7BE2C4432BB98580DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "CDChatList-CDChatList";
-			target = D6EAF4B92474986E33882ACB23F195C2 /* CDChatList-CDChatList */;
-			targetProxy = B3EC7A0C9B8BEDF9E6A17BE1CCF1009E /* PBXContainerItemProxy */;
+			name = MBProgressHUD;
+			target = 896847652344D7AF27579A81CD0C3748 /* MBProgressHUD */;
+			targetProxy = 868C44C7DFD29AE65203DFCBDEE31D56 /* PBXContainerItemProxy */;
 		};
 		68C9340B8D794A763CC0C064029F2CFD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CDChatList;
-			target = 426B57FBA3A46FDC1BCADA5692EB67F1 /* CDChatList */;
+			target = F631E8FC498F9F347BFF8F135E0D1AD0 /* CDChatList */;
 			targetProxy = B9B4FCCACC63CBF20BB0157543931C2F /* PBXContainerItemProxy */;
 		};
 		6E547E5F6801A0224A53DF55589F531E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MBProgressHUD;
-			target = 7EB47D7680F3E6E0BF23DC58D8A057E3 /* MBProgressHUD */;
+			target = 896847652344D7AF27579A81CD0C3748 /* MBProgressHUD */;
 			targetProxy = DB41A72A49B827FEF7C13F8A30E56BB8 /* PBXContainerItemProxy */;
 		};
 		8C96F62790C69C44CE0DA5E0C59EF258 /* PBXTargetDependency */ = {
@@ -930,11 +957,11 @@
 			target = 251BAD17812F7EBF6532EACF66F941C3 /* FMDB */;
 			targetProxy = 6E0560BCF12555F4501EA427463917CC /* PBXContainerItemProxy */;
 		};
-		C94799634C0F4F35A8C19D863A5A06B5 /* PBXTargetDependency */ = {
+		94E23A250C900B09E477DBCCF52E1FB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MBProgressHUD;
-			target = 7EB47D7680F3E6E0BF23DC58D8A057E3 /* MBProgressHUD */;
-			targetProxy = 02885733D90AA085AFBD9164E41E9E2B /* PBXContainerItemProxy */;
+			name = "CDChatList-CDChatList";
+			target = 190DB9124A56B583A83D952CD1339A07 /* CDChatList-CDChatList */;
+			targetProxy = 881FC333CDED3E9CDB776F07A1E82E43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -949,9 +976,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -959,20 +984,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -988,6 +1007,39 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25B16017F4C400AD393A0F25E782B811 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CDChatList/CDChatList-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CDChatList/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CDChatList/CDChatList.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = CDChatList;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1023,6 +1075,23 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		2F5E4162BD2B28947E3E1091B5B18204 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDChatList";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/CDChatList/ResourceBundle-CDChatList-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = CDChatList;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 		2FD84B34C6A6B061CD59D3300272107D /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1096,90 +1165,7 @@
 			};
 			name = Debug;
 		};
-		4C469841FCCA3E6988CB1961CACF0025 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA86A5980EFACE43F2D7E995185C21DE /* CDChatList.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDChatList";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/CDChatList/ResourceBundle-CDChatList-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = CDChatList;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		554D1961D036335229786D8742350E8A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA86A5980EFACE43F2D7E995185C21DE /* CDChatList.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CDChatList/CDChatList-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CDChatList/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CDChatList/CDChatList.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = CDChatList;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5CD1DF047E7EDE7E40A2A943DAEE6125 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA86A5980EFACE43F2D7E995185C21DE /* CDChatList.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CDChatList/CDChatList-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CDChatList/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CDChatList/CDChatList.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = CDChatList;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9B81BC8EF824272584D1AF960177924D /* Debug */ = {
+		9C6DECA645F97C8A697F02B11A7EDBD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9493F6D772397665E36BE3548977E887 /* MBProgressHUD.xcconfig */;
 			buildSettings = {
@@ -1212,6 +1198,39 @@
 			};
 			name = Debug;
 		};
+		9EAF3966710B90D2ACDFA9E242AB9B0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9493F6D772397665E36BE3548977E887 /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MBProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MBProgressHUD/MBProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MBProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		C086F16852743EB2E20363736A6F5B5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5EB7C55D01117B4C05E2B8784C8256D /* FMDB.xcconfig */;
@@ -1242,23 +1261,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C351F464C3A5833402FBEAFFB7B7C353 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA86A5980EFACE43F2D7E995185C21DE /* CDChatList.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDChatList";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/CDChatList/ResourceBundle-CDChatList-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = CDChatList;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1328,6 +1330,56 @@
 			};
 			name = Release;
 		};
+		D1A2231F91339F4F3114905E340C0107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDChatList";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/CDChatList/ResourceBundle-CDChatList-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = CDChatList;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E103111BC3016154D5A5CC5AAE2F84AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CDChatList/CDChatList-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CDChatList/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CDChatList/CDChatList.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = CDChatList;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		EED546DBB23FC32035C9BDC4E22B30BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1338,9 +1390,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1348,21 +1398,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -1385,42 +1429,18 @@
 			};
 			name = Debug;
 		};
-		FED4F12F001C81367185D7DF3CFB3F8C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9493F6D772397665E36BE3548977E887 /* MBProgressHUD.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MBProgressHUD/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MBProgressHUD/MBProgressHUD.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MBProgressHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0BCA1E37A1C894C035BC7C13204691BF /* Build configuration list for PBXNativeTarget "CDChatList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E103111BC3016154D5A5CC5AAE2F84AC /* Debug */,
+				25B16017F4C400AD393A0F25E782B811 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1439,24 +1459,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3810BE52B8B203C01FE1D9B6893FFBB7 /* Build configuration list for PBXNativeTarget "CDChatList-CDChatList" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4C469841FCCA3E6988CB1961CACF0025 /* Debug */,
-				C351F464C3A5833402FBEAFFB7B7C353 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		50BBC328292C0D8DAB36A4F99622F478 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9B81BC8EF824272584D1AF960177924D /* Debug */,
-				FED4F12F001C81367185D7DF3CFB3F8C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5B0566FF0CE681AC326D316CEC45A8CF /* Build configuration list for PBXNativeTarget "FMDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1466,11 +1468,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E85D6BA614BF9FCB63282DE8B19B043 /* Build configuration list for PBXNativeTarget "CDChatList" */ = {
+		83394F013B241EC5E127314AC505FD7B /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5CD1DF047E7EDE7E40A2A943DAEE6125 /* Debug */,
-				554D1961D036335229786D8742350E8A /* Release */,
+				9C6DECA645F97C8A697F02B11A7EDBD0 /* Debug */,
+				9EAF3966710B90D2ACDFA9E242AB9B0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1480,6 +1482,15 @@
 			buildConfigurations = (
 				33A9713E847055BC7FE41EB44B438645 /* Debug */,
 				2FD84B34C6A6B061CD59D3300272107D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0A481E194C0B757A64CE8BED405D34C /* Build configuration list for PBXNativeTarget "CDChatList-CDChatList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1A2231F91339F4F3114905E340C0107 /* Debug */,
+				2F5E4162BD2B28947E3E1091B5B18204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

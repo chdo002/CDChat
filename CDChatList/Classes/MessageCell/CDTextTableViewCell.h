@@ -7,9 +7,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CDChatListProtocols.h"
-
-@interface CDTextTableViewCell : UITableViewCell<MessageCellProtocal>
-
+#import "CDBaseMsgCell.h"
 
 
+@interface CDTextTableViewCell : CDBaseMsgCell<MessageCellProtocal>
+
+- (void)configCellByData:(id<MessageModalProtocal>)data;
 @end

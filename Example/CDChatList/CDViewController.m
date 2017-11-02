@@ -28,6 +28,9 @@
 //    CDChatList *list = [[CDChatList alloc] initWithFrame:CGRectMake(0, 64,
 //                                                                    self.view.bounds.size.width,
 //                                                                    self.view.bounds.size.height - 64)];
+    
+    
+    
     list.msgDelegate = self;
     list.viewController = self;
     self.listView = list;

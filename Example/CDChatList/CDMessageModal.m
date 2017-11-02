@@ -11,8 +11,6 @@
 
 @implementation CDMessageModal
 
-
-
 @synthesize msg;
 
 @synthesize msgType;
@@ -24,5 +22,7 @@
 @synthesize cellHeight;
 
 @synthesize modalInfo;
+
+@synthesize willDisplayTime;
 
 @end
