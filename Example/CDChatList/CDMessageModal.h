@@ -12,4 +12,7 @@
 
 @interface CDMessageModal : NSObject<MessageModalProtocal>
 
++(CDMessageModal *)initWithDic:(NSDictionary *)dic;
+
+
 @end

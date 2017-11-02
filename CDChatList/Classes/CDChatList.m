@@ -77,13 +77,15 @@ typedef enum : NSUInteger {
 }
 
 -(void)didMoveToSuperview{
-    
+    if (!self.superview) {
+        return;
+    }
     NSAssert(self.viewController, @"CDChatList: 一定要传ViewController进来");
     
     [self mainAsyQueue:^{
 //        [MBProgressHUD showHUDAddedTo:self animated:YES];
     }];
-    [self layoutSubviews];
+//    [self layoutSubviews];
 }
 #pragma mark 数据源变动
 

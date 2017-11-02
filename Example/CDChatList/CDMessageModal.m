@@ -25,4 +25,15 @@
 
 @synthesize willDisplayTime;
 
+
++(CDMessageModal *)initWithDic:(NSDictionary *)dic {
+    CDMessageModal*modal = [[CDMessageModal alloc] init];
+    
+    modal.msg = dic[@"msg"];
+    modal.createTime = dic[@"createTime"];
+//    modal.cellHeight = dic[@"cellHeight"];
+    return modal;
+}
+
+
 @end

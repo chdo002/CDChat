@@ -3,6 +3,6 @@ use_frameworks!
 
 target 'CDChatList_Example' do
   pod 'CDChatList', :path => '../'
-  pod 'AFNetworking'
-  pod 'FMDB'
+#  pod 'AFNetworking'
+#  pod 'FMDB'
 end

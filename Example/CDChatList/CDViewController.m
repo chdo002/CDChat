@@ -9,7 +9,6 @@
 #import "CDViewController.h"
 #import <CDChatList/CDChatList.h>
 #import "CDMessageModal.h"
-#import <AFNetworking/AFNetworking.h>
 
 @interface CDViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
@@ -27,9 +26,6 @@
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
-//    CDChatList *list = [[CDChatList alloc] initWithFrame:CGRectMake(0, 64,
-//                                                                    self.view.bounds.size.width,
-//                                                                    self.view.bounds.size.height - 64)];
     
     list.msgDelegate = self;
     list.viewController = self;

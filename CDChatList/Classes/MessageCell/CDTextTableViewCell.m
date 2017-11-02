@@ -29,7 +29,7 @@
 - (void)configCellByData:(id<MessageModalProtocal>)data {
     self.msgModal = data;
     self.textLabel.text = data.msg;
-    UIColor *color = data.modalInfo[@"color"];
+//    UIColor *color = data.modalInfo[@"color"];
     self.backgroundColor = [UIColor whiteColor];
 
 }
