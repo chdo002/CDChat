@@ -32,7 +32,6 @@
     self.listView = list;
     
     
-    
     [self.view addSubview:self.listView];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"添加新的消息" style:UIBarButtonItemStyleDone target:self action:@selector(refresh)];
