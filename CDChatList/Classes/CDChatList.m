@@ -43,6 +43,7 @@ typedef enum : NSUInteger {
     self.estimatedRowHeight = 0;
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
+
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -264,7 +265,9 @@ typedef enum : NSUInteger {
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
+//    return 50;
+//    return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
+    return [CellCaculator fetchCellHeight:indexPath.row of:_msgArr];
 }
 
 -(void)mainAsyQueue:(dispatch_block_t)block{

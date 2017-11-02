@@ -25,7 +25,11 @@
     // 创建ListView
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
+
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+//    CDChatList *list = [[CDChatList alloc] initWithFrame:CGRectMake(0, 64,
+//                                                                    self.view.bounds.size.width,
+//                                                                    self.view.bounds.size.height - 64)];
     
     list.msgDelegate = self;
     list.viewController = self;

@@ -27,6 +27,10 @@
 @property (copy,nonatomic) NSString *createTime;
 
 /**
+ 是否显示时间
+ */
+@property (assign,nonatomic) BOOL willDisplayTime;
+/**
  消息类型
  */
 @property (copy,nonatomic) NSString *msgType;
@@ -45,6 +49,8 @@
  模型其他信息
  */
 @property (copy, nonatomic) NSDictionary *modalInfo;
+
+
 
 
 @end
