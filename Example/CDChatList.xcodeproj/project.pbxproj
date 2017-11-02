@@ -25,6 +25,7 @@
 		B6954DFC369378779E81DABA /* Pods_CDChatList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */; };
 		E949D4F91FA6C5E800094E5E /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E949D4F81FA6C5E800094E5E /* msgList.json */; };
 		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
+		E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E949D4F81FA6C5E800094E5E /* msgList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList.json; sourceTree = "<group>"; };
 		E99CD0AD1FA185B90045783B /* CDMessageModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
 		E99CD0AE1FA185B90045783B /* CDMessageModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
+		E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chatlist.plist; sourceTree = "<group>"; };
 		F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			children = (
 				6003F59C195388D20070C39A /* CDAppDelegate.h */,
 				6003F59D195388D20070C39A /* CDAppDelegate.m */,
+				E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CDViewController.h */,
 				6003F5A6195388D20070C39A /* CDViewController.m */,
@@ -285,6 +288,7 @@
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E949D4F91FA6C5E800094E5E /* msgList.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
