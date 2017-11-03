@@ -29,7 +29,6 @@
 
 // cell
 
-#define MsgTimeH  50
-#define MsgBackGroundColor CRMHexColor(0xEBEBEB) // cell背景色
+#define MsgTimeH  50 // cell中消息中时间视图的高度（如果显示）
 
 #endif /* CDChatMacro_h */

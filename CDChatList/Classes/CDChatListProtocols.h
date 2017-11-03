@@ -41,6 +41,11 @@
 @property (copy,nonatomic) NSString *messageId;
 
 /**
+ 气泡宽度，缓存用
+ */
+@property (assign, nonatomic) CGFloat bubbleWidth;
+
+/**
  cell高度，缓存用
  */
 @property (assign, nonatomic) CGFloat cellHeight;

@@ -61,7 +61,7 @@
     
 //     计算高度
     
-    // cell是否显示时间
+    // 和上一条信息对比判断cell上是否显示时间label
     if (index > 0) {
         CDChatMessage previousData = msgArr[index - 1];
         NSInteger lastTime = [previousData.createTime integerValue];
@@ -69,10 +69,14 @@
         data.willDisplayTime = ((currentTime - lastTime) > 180000);
     }
     
-    CGFloat height = [self caculateCellHeight:data];
+    CGSize res = [self caculateCellHeightAndBubleWidth:data];
     
+    CGFloat height = res.height;
+    
+    data.bubbleWidth = res.width;
     // 加上可能显示的时间视图高度
     data.cellHeight = height + (data.willDisplayTime ? MsgTimeH : 0);
+    
     return height;
 }
 
@@ -82,16 +86,11 @@
  @param data 消息模型
  @return cell高度
  */
-+(CGFloat)caculateCellHeight:(CDChatMessage)data{
-//    return 50;
-    CGFloat rand = (CGFloat)arc4random_uniform(15);
-//    // ..
-    return 50.f + rand;
++(CGSize)caculateCellHeightAndBubleWidth:(CDChatMessage)data{
+//    return CGSizeMake(150, 170);
+    CGFloat randwidth = (CGFloat)arc4random_uniform(15);
+    CGFloat randHeight = (CGFloat)arc4random_uniform(15);
+    return CGSizeMake(randwidth + 150, randHeight + 179);
 }
 
 @end
-
-
-
-
-

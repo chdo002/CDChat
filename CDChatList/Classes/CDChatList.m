@@ -29,6 +29,7 @@ typedef enum : NSUInteger {
 }
 @property(assign, nonatomic) CDHeaderLoadState loadHeaderState;
 @property(weak,   nonatomic) UIActivityIndicatorView *indicatro;
+
 @end
 
 @implementation CDChatList
@@ -37,13 +38,14 @@ typedef enum : NSUInteger {
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-    self.backgroundColor = CRMHexColor(0x808080);
-    self.dataSource = self;
     self.delegate = self;
+    self.dataSource = self;
     self.estimatedRowHeight = 0;
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
-
+    self.backgroundColor = CRMHexColor(0x808080);
+    self.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];

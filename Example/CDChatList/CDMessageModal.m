@@ -36,4 +36,6 @@
 }
 
 
+@synthesize bubbleWidth;
+
 @end

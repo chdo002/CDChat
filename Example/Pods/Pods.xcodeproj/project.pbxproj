@@ -7,26 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0009048E26A842D37B386473DAE59053 /* CDChatList.h in Headers */ = {isa = PBXBuildFile; fileRef = 303A555238C087C6A657DE34661BE5EB /* CDChatList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		04BF74BF48F0968DA2D58C384814E6B8 /* CDBaseMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA95F0547B847AEF17ADD7997C64C18 /* CDBaseMsgCell.m */; };
-		1D0B5C71F8BB0A0663E6F67780079DC5 /* CDChatList-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A43156C18259AD81FCF0C99072B971A /* CDChatList-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D105E8494D6BDC5FDB424CC2832A01B /* CellCaculator.h in Headers */ = {isa = PBXBuildFile; fileRef = C292DC1A7B396BB9BA7595318AA44345 /* CellCaculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E0D1375D5ADB7F726EC512CDB3C42CE /* CDChatMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 2138C4D246C9C43FB44AE86369EC568A /* CDChatMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23114FE19EC15F76A822FBFBC445F35D /* CDTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F279BEDCD382579A123E4A21D57D20A /* CDTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0009048E26A842D37B386473DAE59053 /* CDChatList.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EA0C21798B8B2DCCFC5891256F3ED6E /* CDChatList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04BF74BF48F0968DA2D58C384814E6B8 /* CDBaseMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA539C1FE8BE8C31563D858079124334 /* CDBaseMsgCell.m */; };
+		058D7320F61510EF1456DF5D19593ECB /* left_box@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB98B3FA53C14119290A4464ACDD678E /* left_box@3x.png */; };
+		19C6BCA571E6AE2F5DCAF3027CBE1E4C /* bg_mask_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F0CE199B4AF8C3C80B6F9824E4201B3 /* bg_mask_left@2x.png */; };
+		1A924E083D207CF79B205FDBEB3A29BB /* left_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B13FF3367AE7F5D466546DC42AB0690F /* left_box@2x.png */; };
+		1D0B5C71F8BB0A0663E6F67780079DC5 /* CDChatList-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 29EB000131CA30CD02853594ACCAAA70 /* CDChatList-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D105E8494D6BDC5FDB424CC2832A01B /* CellCaculator.h in Headers */ = {isa = PBXBuildFile; fileRef = E3B4A587813D0594F5C17852C7BE5C24 /* CellCaculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E0D1375D5ADB7F726EC512CDB3C42CE /* CDChatMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A0CA9A6E100B0C18C450595E9696ECC /* CDChatMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23114FE19EC15F76A822FBFBC445F35D /* CDTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C5315E172E10E0E802B7FC494025A821 /* CDTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23EF8D8775D7B8F54E2CF6D8637257F1 /* bg_mask_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDD29D56124B4BBCF3E02FBA689BB3 /* bg_mask_right@2x.png */; };
+		2650EE613A3AB914060E81961C8435D4 /* right_box@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C35F51B74E041CDF4428E38441273E /* right_box@3x.png */; };
 		2F561444358BE11C4DAEE01CD7A2103B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		4A3496B6895EF995C5BA87B2E1F3C8FE /* icon_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8736BB447F7E4687417016C6905A2413 /* icon_head@2x.png */; };
+		4B12F5A88BACC009B668FA7D49DF5FFC /* bg_mask_left@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2A65506C382E9B361E48C755664452B /* bg_mask_left@3x.png */; };
 		4F0A4664254DC273239CFA34AC943E2E /* Pods-CDChatList_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5140C1C34202D868DC9D57DF020F4F86 /* CDChatListProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D9186C358C45A5B9BD46881A524EC7 /* CDChatListProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5140C1C34202D868DC9D57DF020F4F86 /* CDChatListProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 59ADB1200EB9A79CD3BF578103670CF2 /* CDChatListProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C1F7FAF157385900C3B88B7F302DB32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		8116BB96FD01C8060A2DAE3BE32DB785 /* CDBaseMsgCell.h in Headers */ = {isa = PBXBuildFile; fileRef = ED58E232791F2B74A080F985D1372ADD /* CDBaseMsgCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		907FC002354F46545B91C37DCBB28009 /* CDChatList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E46F51BCF3EDC62F6EEA00DA62BD234 /* CDChatList-dummy.m */; };
+		8116BB96FD01C8060A2DAE3BE32DB785 /* CDBaseMsgCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D46252378381216B7340E133DB7F6CD5 /* CDBaseMsgCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		907FC002354F46545B91C37DCBB28009 /* CDChatList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FEC59E30F0B273CDAA516904799AC4 /* CDChatList-dummy.m */; };
 		95DA84FF713FFBF49E49925F1B815A9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
-		98D5A62277DB494FC6D2A549B55B08F2 /* left_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBFFC85A50B75F81581AEDE81DD8DFB /* left_box@2x.png */; };
-		A7C60864F0DCB6A8C86C2D4996AC9953 /* right_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99ECA276101DDB8801086665707F5060 /* right_box@2x.png */; };
-		B117F44FB8D146291130F53EECAF7DAB /* CDChatList.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFF878B2A2A5C9948715DA70D0972DE /* CDChatList.m */; };
+		9D6B2B6904C8E6BC347696516F84C48A /* bg_mask_right@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8A1E7D28B925B20EA48318C0E29C52 /* bg_mask_right@3x.png */; };
+		B117F44FB8D146291130F53EECAF7DAB /* CDChatList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B30DC555EC1A8EA2D3E979788C5449A /* CDChatList.m */; };
 		B4A707CFC0799F3F1997D658A833D554 /* Pods-CDChatList_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B02886F835D6A6781CE76191F82862 /* Pods-CDChatList_Example-dummy.m */; };
 		C2BD0AEFEA05FA74A0A2FD8C0C27BB54 /* CDChatList.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09C5B88B0135F3E521C301F9F23A61A2 /* CDChatList.bundle */; };
-		CE36549E6D2851784EEF1FC898D8F793 /* CellCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAC9C4D0A1656E54702A093531B387A /* CellCaculator.m */; };
-		FB8C3D6C3B605F775518F8C3D5BBAA23 /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12712A07EB120F9132D52D398A1E1E26 /* CDTextTableViewCell.m */; };
+		CE36549E6D2851784EEF1FC898D8F793 /* CellCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = AD85588B2805EC88DEB00233EEFF0459 /* CellCaculator.m */; };
+		F142C39435EC099FA35A7EC6F47DF563 /* right_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EF538603A8E7ECAAC95E9614FA0DBB3 /* right_box@2x.png */; };
+		FB8C3D6C3B605F775518F8C3D5BBAA23 /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86A5BDBAF125C2C28D9C153A7EC366B /* CDTextTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,38 +57,45 @@
 		086F9A79508B48B1A355735DF53E9240 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09C5B88B0135F3E521C301F9F23A61A2 /* CDChatList.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDChatList.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1BF482E6C952B35F0BA0EEE3CAE3AF /* Pods-CDChatList_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.release.xcconfig"; sourceTree = "<group>"; };
-		12712A07EB120F9132D52D398A1E1E26 /* CDTextTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
-		1BA95F0547B847AEF17ADD7997C64C18 /* CDBaseMsgCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDBaseMsgCell.m; sourceTree = "<group>"; };
-		2138C4D246C9C43FB44AE86369EC568A /* CDChatMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatMacro.h; path = CDChatList/Classes/CDChatMacro.h; sourceTree = "<group>"; };
+		16FEC59E30F0B273CDAA516904799AC4 /* CDChatList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CDChatList-dummy.m"; sourceTree = "<group>"; };
 		23B02886F835D6A6781CE76191F82862 /* Pods-CDChatList_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CDChatList_Example-dummy.m"; sourceTree = "<group>"; };
-		303A555238C087C6A657DE34661BE5EB /* CDChatList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatList.h; path = CDChatList/Classes/CDChatList.h; sourceTree = "<group>"; };
+		29EB000131CA30CD02853594ACCAAA70 /* CDChatList-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-umbrella.h"; sourceTree = "<group>"; };
+		2EF538603A8E7ECAAC95E9614FA0DBB3 /* right_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "right_box@2x.png"; path = "CDChatList/Assets/right_box@2x.png"; sourceTree = "<group>"; };
 		3C10AB87F0E8428943B6FACFAB185E29 /* Pods-CDChatList_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CDChatList_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3F279BEDCD382579A123E4A21D57D20A /* CDTextTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
-		44B8CB4EEB5F8E8B70712D5268CCCB4F /* CDChatList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-prefix.pch"; sourceTree = "<group>"; };
+		3EDDD29D56124B4BBCF3E02FBA689BB3 /* bg_mask_right@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bg_mask_right@2x.png"; path = "CDChatList/Assets/bg_mask_right@2x.png"; sourceTree = "<group>"; };
+		47FD9034BC01A0DD1670F3FFB708298F /* CDChatList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-prefix.pch"; sourceTree = "<group>"; };
+		4A0CA9A6E100B0C18C450595E9696ECC /* CDChatMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatMacro.h; path = CDChatList/Classes/CDChatMacro.h; sourceTree = "<group>"; };
+		59ADB1200EB9A79CD3BF578103670CF2 /* CDChatListProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatListProtocols.h; path = CDChatList/Classes/CDChatListProtocols.h; sourceTree = "<group>"; };
+		5EA0C21798B8B2DCCFC5891256F3ED6E /* CDChatList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatList.h; path = CDChatList/Classes/CDChatList.h; sourceTree = "<group>"; };
+		686F991CB16447B0E2F4FEE03DBF9DEC /* CDChatList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDChatList.xcconfig; sourceTree = "<group>"; };
+		6D247773459D86E28C19E992B996D20B /* ResourceBundle-CDChatList-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CDChatList-Info.plist"; sourceTree = "<group>"; };
 		758E930F7E126E81140392C824F81548 /* Pods-CDChatList_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CDChatList_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7B30DC555EC1A8EA2D3E979788C5449A /* CDChatList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CDChatList.m; path = CDChatList/Classes/CDChatList.m; sourceTree = "<group>"; };
+		7B8A1E7D28B925B20EA48318C0E29C52 /* bg_mask_right@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bg_mask_right@3x.png"; path = "CDChatList/Assets/bg_mask_right@3x.png"; sourceTree = "<group>"; };
 		7C02B19B36D261F076148870CDD73F03 /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
 		85A42F9022C749786EDA6EC6E7E78B3B /* Pods-CDChatList_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-resources.sh"; sourceTree = "<group>"; };
 		867E7E2A8AC6ECF801E7513CF0479DEE /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E46F51BCF3EDC62F6EEA00DA62BD234 /* CDChatList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CDChatList-dummy.m"; sourceTree = "<group>"; };
+		8736BB447F7E4687417016C6905A2413 /* icon_head@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "icon_head@2x.png"; path = "CDChatList/Assets/icon_head@2x.png"; sourceTree = "<group>"; };
+		8F0CE199B4AF8C3C80B6F9824E4201B3 /* bg_mask_left@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bg_mask_left@2x.png"; path = "CDChatList/Assets/bg_mask_left@2x.png"; sourceTree = "<group>"; };
 		8FD9F01B2F99D4EE5368A24E9EBADD34 /* Pods-CDChatList_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		90A8E9E58F4A75C524E0D0697DFE3905 /* ResourceBundle-CDChatList-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CDChatList-Info.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		99ECA276101DDB8801086665707F5060 /* right_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "right_box@2x.png"; path = "CDChatList/Assets/right_box@2x.png"; sourceTree = "<group>"; };
-		9A43156C18259AD81FCF0C99072B971A /* CDChatList-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDChatList-umbrella.h"; sourceTree = "<group>"; };
-		9EBC053714681513FC3EA461F17F82AA /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CDChatList.modulemap; sourceTree = "<group>"; };
-		A2D9186C358C45A5B9BD46881A524EC7 /* CDChatListProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatListProtocols.h; path = CDChatList/Classes/CDChatListProtocols.h; sourceTree = "<group>"; };
-		B2470C8C98B2D2993AA9FF8ED1E1F1AC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA539C1FE8BE8C31563D858079124334 /* CDBaseMsgCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDBaseMsgCell.m; sourceTree = "<group>"; };
+		AD85588B2805EC88DEB00233EEFF0459 /* CellCaculator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CellCaculator.m; path = CDChatList/Classes/CellCaculator.m; sourceTree = "<group>"; };
+		B13FF3367AE7F5D466546DC42AB0690F /* left_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "left_box@2x.png"; path = "CDChatList/Assets/left_box@2x.png"; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B9A6B8449A7EFDD5499FAF8DFEC4BB12 /* Pods-CDChatList_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-frameworks.sh"; sourceTree = "<group>"; };
-		C292DC1A7B396BB9BA7595318AA44345 /* CellCaculator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CellCaculator.h; path = CDChatList/Classes/CellCaculator.h; sourceTree = "<group>"; };
+		BB98B3FA53C14119290A4464ACDD678E /* left_box@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "left_box@3x.png"; path = "CDChatList/Assets/left_box@3x.png"; sourceTree = "<group>"; };
+		C5315E172E10E0E802B7FC494025A821 /* CDTextTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
+		D2A65506C382E9B361E48C755664452B /* bg_mask_left@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bg_mask_left@3x.png"; path = "CDChatList/Assets/bg_mask_left@3x.png"; sourceTree = "<group>"; };
+		D46252378381216B7340E133DB7F6CD5 /* CDBaseMsgCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDBaseMsgCell.h; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DEBFFC85A50B75F81581AEDE81DD8DFB /* left_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "left_box@2x.png"; path = "CDChatList/Assets/left_box@2x.png"; sourceTree = "<group>"; };
-		DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDChatList.xcconfig; sourceTree = "<group>"; };
+		E2C35F51B74E041CDF4428E38441273E /* right_box@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "right_box@3x.png"; path = "CDChatList/Assets/right_box@3x.png"; sourceTree = "<group>"; };
+		E3B4A587813D0594F5C17852C7BE5C24 /* CellCaculator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CellCaculator.h; path = CDChatList/Classes/CellCaculator.h; sourceTree = "<group>"; };
 		E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
 		E62FD83AA601F731CF392A07864771FA /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAAC9C4D0A1656E54702A093531B387A /* CellCaculator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CellCaculator.m; path = CDChatList/Classes/CellCaculator.m; sourceTree = "<group>"; };
-		ED58E232791F2B74A080F985D1372ADD /* CDBaseMsgCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDBaseMsgCell.h; sourceTree = "<group>"; };
-		EEFF878B2A2A5C9948715DA70D0972DE /* CDChatList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CDChatList.m; path = CDChatList/Classes/CDChatList.m; sourceTree = "<group>"; };
+		ECBE714A26F02B7E28032F818ECA1D50 /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CDChatList.modulemap; sourceTree = "<group>"; };
+		F77FA9E670603EACF9770EEFB0B5182A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F86A5BDBAF125C2C28D9C153A7EC366B /* CDTextTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,28 +126,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1758373C72E501B2B0898963AB01E0EE /* Resources */ = {
+		25A6BE7F304734902E09AEF4E0C5E145 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DEBFFC85A50B75F81581AEDE81DD8DFB /* left_box@2x.png */,
-				99ECA276101DDB8801086665707F5060 /* right_box@2x.png */,
+				8F0CE199B4AF8C3C80B6F9824E4201B3 /* bg_mask_left@2x.png */,
+				D2A65506C382E9B361E48C755664452B /* bg_mask_left@3x.png */,
+				3EDDD29D56124B4BBCF3E02FBA689BB3 /* bg_mask_right@2x.png */,
+				7B8A1E7D28B925B20EA48318C0E29C52 /* bg_mask_right@3x.png */,
+				8736BB447F7E4687417016C6905A2413 /* icon_head@2x.png */,
+				B13FF3367AE7F5D466546DC42AB0690F /* left_box@2x.png */,
+				BB98B3FA53C14119290A4464ACDD678E /* left_box@3x.png */,
+				2EF538603A8E7ECAAC95E9614FA0DBB3 /* right_box@2x.png */,
+				E2C35F51B74E041CDF4428E38441273E /* right_box@3x.png */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		22F19DF13AC14F7083DB61883875377A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9EBC053714681513FC3EA461F17F82AA /* CDChatList.modulemap */,
-				DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */,
-				8E46F51BCF3EDC62F6EEA00DA62BD234 /* CDChatList-dummy.m */,
-				44B8CB4EEB5F8E8B70712D5268CCCB4F /* CDChatList-prefix.pch */,
-				9A43156C18259AD81FCF0C99072B971A /* CDChatList-umbrella.h */,
-				B2470C8C98B2D2993AA9FF8ED1E1F1AC /* Info.plist */,
-				90A8E9E58F4A75C524E0D0697DFE3905 /* ResourceBundle-CDChatList-Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/CDChatList";
 			sourceTree = "<group>";
 		};
 		3EFD853D5F676E0982FC5F7DDA395B8E /* Pods-CDChatList_Example */ = {
@@ -190,41 +196,39 @@
 			);
 			sourceTree = "<group>";
 		};
-		A68815F823FCA274FAD6202687A3C4A9 /* CDChatList */ = {
-			isa = PBXGroup;
-			children = (
-				303A555238C087C6A657DE34661BE5EB /* CDChatList.h */,
-				EEFF878B2A2A5C9948715DA70D0972DE /* CDChatList.m */,
-				A2D9186C358C45A5B9BD46881A524EC7 /* CDChatListProtocols.h */,
-				2138C4D246C9C43FB44AE86369EC568A /* CDChatMacro.h */,
-				C292DC1A7B396BB9BA7595318AA44345 /* CellCaculator.h */,
-				EAAC9C4D0A1656E54702A093531B387A /* CellCaculator.m */,
-				D417491500EC601EDE83F815C08C3E49 /* MessageCell */,
-				1758373C72E501B2B0898963AB01E0EE /* Resources */,
-				22F19DF13AC14F7083DB61883875377A /* Support Files */,
-			);
-			name = CDChatList;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		B4B851C527F9D384E830BC9541EDF6A1 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A68815F823FCA274FAD6202687A3C4A9 /* CDChatList */,
+				DF2884EBFDAE30330DFEE2A7986564A0 /* CDChatList */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		D417491500EC601EDE83F815C08C3E49 /* MessageCell */ = {
+		BDCF256D4415D4E42C5F8A3F18078465 /* MessageCell */ = {
 			isa = PBXGroup;
 			children = (
-				ED58E232791F2B74A080F985D1372ADD /* CDBaseMsgCell.h */,
-				1BA95F0547B847AEF17ADD7997C64C18 /* CDBaseMsgCell.m */,
-				3F279BEDCD382579A123E4A21D57D20A /* CDTextTableViewCell.h */,
-				12712A07EB120F9132D52D398A1E1E26 /* CDTextTableViewCell.m */,
+				D46252378381216B7340E133DB7F6CD5 /* CDBaseMsgCell.h */,
+				AA539C1FE8BE8C31563D858079124334 /* CDBaseMsgCell.m */,
+				C5315E172E10E0E802B7FC494025A821 /* CDTextTableViewCell.h */,
+				F86A5BDBAF125C2C28D9C153A7EC366B /* CDTextTableViewCell.m */,
 			);
 			name = MessageCell;
 			path = CDChatList/Classes/MessageCell;
+			sourceTree = "<group>";
+		};
+		D835AC6EB4ADF85DD27E85136B133A55 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE714A26F02B7E28032F818ECA1D50 /* CDChatList.modulemap */,
+				686F991CB16447B0E2F4FEE03DBF9DEC /* CDChatList.xcconfig */,
+				16FEC59E30F0B273CDAA516904799AC4 /* CDChatList-dummy.m */,
+				47FD9034BC01A0DD1670F3FFB708298F /* CDChatList-prefix.pch */,
+				29EB000131CA30CD02853594ACCAAA70 /* CDChatList-umbrella.h */,
+				F77FA9E670603EACF9770EEFB0B5182A /* Info.plist */,
+				6D247773459D86E28C19E992B996D20B /* ResourceBundle-CDChatList-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/CDChatList";
 			sourceTree = "<group>";
 		};
 		D913C01D408CA21007A4D20E0504DA87 /* Products */ = {
@@ -235,6 +239,23 @@
 				867E7E2A8AC6ECF801E7513CF0479DEE /* Pods_CDChatList_Example.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DF2884EBFDAE30330DFEE2A7986564A0 /* CDChatList */ = {
+			isa = PBXGroup;
+			children = (
+				5EA0C21798B8B2DCCFC5891256F3ED6E /* CDChatList.h */,
+				7B30DC555EC1A8EA2D3E979788C5449A /* CDChatList.m */,
+				59ADB1200EB9A79CD3BF578103670CF2 /* CDChatListProtocols.h */,
+				4A0CA9A6E100B0C18C450595E9696ECC /* CDChatMacro.h */,
+				E3B4A587813D0594F5C17852C7BE5C24 /* CellCaculator.h */,
+				AD85588B2805EC88DEB00233EEFF0459 /* CellCaculator.m */,
+				BDCF256D4415D4E42C5F8A3F18078465 /* MessageCell */,
+				25A6BE7F304734902E09AEF4E0C5E145 /* Resources */,
+				D835AC6EB4ADF85DD27E85136B133A55 /* Support Files */,
+			);
+			name = CDChatList;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +292,7 @@
 			buildPhases = (
 				1CD39D5FC6074E167EAAFA074A8B7018 /* Sources */,
 				D0CB2B6C15FD9278453AD373C4F283A5 /* Frameworks */,
-				7D9257219713F4C4F3067F08A16466D6 /* Resources */,
+				49A3F297861C90BC9E85EF471A5E0909 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -326,7 +347,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0900;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -348,12 +369,19 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7D9257219713F4C4F3067F08A16466D6 /* Resources */ = {
+		49A3F297861C90BC9E85EF471A5E0909 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98D5A62277DB494FC6D2A549B55B08F2 /* left_box@2x.png in Resources */,
-				A7C60864F0DCB6A8C86C2D4996AC9953 /* right_box@2x.png in Resources */,
+				19C6BCA571E6AE2F5DCAF3027CBE1E4C /* bg_mask_left@2x.png in Resources */,
+				4B12F5A88BACC009B668FA7D49DF5FFC /* bg_mask_left@3x.png in Resources */,
+				23EF8D8775D7B8F54E2CF6D8637257F1 /* bg_mask_right@2x.png in Resources */,
+				9D6B2B6904C8E6BC347696516F84C48A /* bg_mask_right@3x.png in Resources */,
+				4A3496B6895EF995C5BA87B2E1F3C8FE /* icon_head@2x.png in Resources */,
+				1A924E083D207CF79B205FDBEB3A29BB /* left_box@2x.png in Resources */,
+				058D7320F61510EF1456DF5D19593ECB /* left_box@3x.png in Resources */,
+				F142C39435EC099FA35A7EC6F47DF563 /* right_box@2x.png in Resources */,
+				2650EE613A3AB914060E81961C8435D4 /* right_box@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +495,7 @@
 		};
 		574A5292A341E7C8F878309CBDC8311F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			baseConfigurationReference = 686F991CB16447B0E2F4FEE03DBF9DEC /* CDChatList.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -500,7 +528,7 @@
 		};
 		803090ECA7C17FC51FDEE412A7395E5F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			baseConfigurationReference = 686F991CB16447B0E2F4FEE03DBF9DEC /* CDChatList.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -533,7 +561,7 @@
 		};
 		83B3BF95EBAD5955D57C0ADBECB846F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			baseConfigurationReference = 686F991CB16447B0E2F4FEE03DBF9DEC /* CDChatList.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDChatList";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -586,7 +614,7 @@
 		};
 		EC6D37D8188286C8777552298DAE4794 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF81452C024472C074BC22DA6DE50BAE /* CDChatList.xcconfig */;
+			baseConfigurationReference = 686F991CB16447B0E2F4FEE03DBF9DEC /* CDChatList.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDChatList";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
