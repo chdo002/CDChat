@@ -68,7 +68,6 @@
 -(void)refresh{
 
     CDMessageModal *modal = [[CDMessageModal alloc] init];
-    
     modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
     modal.msg = [NSString stringWithFormat:@"新消息%@",modal.createTime];
     modal.msgType = @"text";
