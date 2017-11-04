@@ -10,6 +10,8 @@
 #import "CDMessageModal.h"
 
 @interface JSONViewController ()
+@property(nonatomic, weak)CDChatList *listView;
+@property(nonatomic, copy)NSMutableArray *msgArr;
 
 @end
 
@@ -17,6 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+//    list.msgDelegate = self;
+    list.viewController = self;
+    self.listView = list;
+    [self.view addSubview:self.listView];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
@@ -29,5 +41,6 @@
         CDMessageModal *modal = [CDMessageModal initWithDic:dic];
         [msgArr addObject:modal];
     }
+    self.listView.msgArr = msgArr;
 }
 @end

@@ -211,6 +211,11 @@ typedef enum : NSUInteger {
         
         // 当前最旧消息传给代理，调用获取上一段旧消息的方法
         CDChatMessage lastMsg = self.msgArr.firstObject;
+        if (![self.msgDelegate respondsToSelector:@selector(loadMoreMsg: callback:)]) {
+            
+            return;
+        }
+        
         [self.msgDelegate loadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
            
             if (!self.msgArr) {

@@ -77,7 +77,7 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 
 @end
 
-@protocol ChatListProtocol
+@protocol ChatListProtocol <NSObject>
 
 
 /**
