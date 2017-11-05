@@ -11,7 +11,8 @@
 
 @interface CDTextTableViewCell()
 
-@property(nonatomic, strong) UILabel *msgContent;
+@property(nonatomic, strong) UILabel *textContent_left;
+@property(nonatomic, strong) UILabel *textContent_right;
 
 @end
 
@@ -21,7 +22,15 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    // 左侧气泡中添加label
+    self.textContent_left = [[UILabel alloc] init];
+    self.textContent_left.backgroundColor = [UIColor redColor];
+    [self.bubbleImage_left addSubview:self.textContent_left];
     
+    // 右侧气泡中添加label
+    self.textContent_right = [[UILabel alloc] init];
+    self.textContent_right.backgroundColor = [UIColor redColor];
+    [self.bubbleImage_right addSubview:self.textContent_right];
     
     return self;
 }

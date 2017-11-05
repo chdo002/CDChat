@@ -44,7 +44,7 @@ typedef enum : NSUInteger {
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
     self.backgroundColor = CRMHexColor(0x808080);
-    self.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     

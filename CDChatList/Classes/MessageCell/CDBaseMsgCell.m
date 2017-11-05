@@ -32,11 +32,11 @@
     _timeLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_timeLabel];
     
-    // 2 左边 消息内容初始化
+    // 2 左边 消息内容初始化  头像  气泡
     [self initLeftMessageContent];
     //    _msgContent_left.hidden = YES;
     
-    // 3 右边 消息内容初始化
+    // 3 右边 消息内容初始化  头像  气泡
     [self initRightMessageContent];
     _msgContent_right.hidden = YES;
     
@@ -68,6 +68,7 @@
     _bubbleImage_left.frame = CGRectMake(MessagePadding * 2 + HeadSideLength,
                                          MessagePadding, BubbleMaxWidth, HeadSideLength);
     [_msgContent_left addSubview:_bubbleImage_left];
+    
 }
 
 -(void)initRightMessageContent{
