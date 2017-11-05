@@ -34,11 +34,11 @@
     
     // 2 左边 消息内容初始化  头像  气泡
     [self initLeftMessageContent];
-    //    _msgContent_left.hidden = YES;
+    _msgContent_left.hidden = YES;
     
     // 3 右边 消息内容初始化  头像  气泡
     [self initRightMessageContent];
-    _msgContent_right.hidden = YES;
+    //    _msgContent_right.hidden = YES;
     
     
     return self;
@@ -60,7 +60,8 @@
     
     // 气泡
     UIImage *left_box = BundleImage(@"left_box");
-    UIEdgeInsets inset_left = UIEdgeInsetsMake(25, 11, 5, 5);
+    UIEdgeInsets inset_left = UIEdgeInsetsMake(BubbleSharpAngleHeighInset, BubbleSharpAnglehorizInset,
+                                               BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
     //    UIImage *left_box = BundleImage(@"bg_mask_left");
     
     left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
@@ -86,7 +87,8 @@
     
     // 气泡
     UIImage *right_box = BundleImage(@"right_box");
-    UIEdgeInsets inset_right = UIEdgeInsetsMake(40, 20, 40, 40);
+    UIEdgeInsets inset_right = UIEdgeInsetsMake(BubbleSharpAngleHeighInset, BubbleRoundAnglehorizInset,
+                                                BubbleRoundAnglehorizInset, BubbleSharpAnglehorizInset);
     right_box = [right_box resizableImageWithCapInsets:inset_right resizingMode:UIImageResizingModeStretch];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
     _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessagePadding * 2 + HeadSideLength),

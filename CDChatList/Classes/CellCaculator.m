@@ -90,7 +90,7 @@
 //    return CGSizeMake(150, 170);
     CGFloat randwidth = (CGFloat)arc4random_uniform(15);
     CGFloat randHeight = (CGFloat)arc4random_uniform(15);
-    NSString *msgContent = data.msg;
+//    NSString *msgContent = data.msg;
     
 //    msgContent sizeWithAttributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#>
     return CGSizeMake(randwidth + 150, randHeight + 179);
