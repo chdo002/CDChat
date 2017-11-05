@@ -6,7 +6,7 @@
 //
 
 #import "CDBaseMsgCell.h"
-
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 @interface CDBaseMsgCell()
 

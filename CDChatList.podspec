@@ -38,6 +38,7 @@ TODO: Add long description of the pod here.
 
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
+  s.dependency 'TTTAttributedLabel'
 # s.dependency 'MBProgressHUD'
 # s.dependency 'MJRefresh'
 end

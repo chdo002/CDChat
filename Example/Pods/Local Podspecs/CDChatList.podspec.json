@@ -25,5 +25,10 @@
     ]
   },
   "public_header_files": "Pod/Classes/**/*.h",
-  "frameworks": "UIKit"
+  "frameworks": "UIKit",
+  "dependencies": {
+    "TTTAttributedLabel": [
+
+    ]
+  }
 }

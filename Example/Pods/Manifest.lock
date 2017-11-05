@@ -1,5 +1,7 @@
 PODS:
-  - CDChatList (0.1.0)
+  - CDChatList (0.1.0):
+    - TTTAttributedLabel
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - CDChatList (from `../`)
@@ -9,7 +11,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CDChatList: cd52b5ceeff8ed0e33511bc75b6585f71cb7af01
+  CDChatList: 1a60f0fb7709723eeb6c06dc637300585acb9e70
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: 2d2717e5a89f22dd0502e208a97b24511ec6cb5a
 
