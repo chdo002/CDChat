@@ -38,18 +38,20 @@
 @property(nonatomic,strong) UIView *msgContent_left;
 @property(nonatomic,strong) UIImageView *bubbleImage_left;
 @property(nonatomic,strong) UIImageView *headImage_left;
+@property(nonatomic,strong) UIActivityIndicatorView *indicator_left;
 
 // 右侧 消息内容视图
 @property(nonatomic,strong) UIView *msgContent_right;
 @property(nonatomic,strong) UIImageView *bubbleImage_right;
 @property(nonatomic,strong) UIImageView *headImage_right;
-
+@property(nonatomic,strong) UIActivityIndicatorView *indicator_right;
 
 /**
  根据消息中缓存的消息高度，气泡宽度重新设置msgContent_left的frame
 
  @param data 消息内容
  */
+
 -(CGRect)updateMsgContentFrame_left:(CDChatMessage) data;
 
 

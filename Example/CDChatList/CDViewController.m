@@ -45,7 +45,7 @@
             CDMessageModal *modal = [[CDMessageModal alloc] init];
             modal.msg = [NSString stringWithFormat:@"%d",i];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
-            modal.msgType = @"text";
+            modal.msgType = CDMessageTypeText;
 //            modal.cellHeight = 60;
             NSString *number = @"";
             for (int i = 1; i <= 5; i ++) {
@@ -73,7 +73,7 @@
     CDMessageModal *modal = [[CDMessageModal alloc] init];
     modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
     modal.msg = [NSString stringWithFormat:@"新消息%@",modal.createTime];
-    modal.msgType = @"text";
+    modal.msgType = CDMessageTypeText;
     
     NSString *number = @"";
     for (int i = 1; i <= 5; i ++) {

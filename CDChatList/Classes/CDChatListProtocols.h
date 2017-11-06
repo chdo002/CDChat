@@ -18,6 +18,12 @@ typedef enum : NSUInteger {
     CDMessageTypeSystemInfo // 系统信息类型
 } CDMessageType; // 消息类型
 
+typedef enum : NSUInteger {
+    CDMessageStateNormal,
+    CDMessageStateSending,     // 发送中，图片消息上传中，文字消息发送中
+    CDMessageStateDownloading, // 下载中， 图片消息下载中
+    CDMessageStateFaild        // 消息发送失败
+} CDMessageState;
 
 /**
  消息模型
@@ -38,10 +44,11 @@ typedef enum : NSUInteger {
  是否显示时间
  */
 @property (assign,nonatomic) BOOL willDisplayTime;
+
 /**
  消息类型
  */
-@property (copy,nonatomic) NSString *msgType;
+@property (assign,nonatomic) CDMessageType msgType;
 
 /**
  消息ID
@@ -62,7 +69,6 @@ typedef enum : NSUInteger {
  模型其他信息
  */
 @property (copy, nonatomic) NSDictionary *modalInfo;
-
 
 
 

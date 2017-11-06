@@ -6,11 +6,12 @@
 //
 
 #import "CDBaseMsgCell.h"
-#import <TTTAttributedLabel/TTTAttributedLabel.h>
+//#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 @interface CDBaseMsgCell()
 
 @end
+
 @implementation CDBaseMsgCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -42,6 +43,7 @@
 }
 
 -(void)initLeftMessageContent {
+    
     _msgContent_left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
     //    _msgContent_left.backgroundColor = MsgBackGroundColor;
     _msgContent_left.backgroundColor = [UIColor blueColor];
@@ -59,16 +61,27 @@
     UIImage *left_box = BundleImage(@"left_box");
     UIEdgeInsets inset_left = UIEdgeInsetsMake(BubbleSharpAngleHeighInset, BubbleSharpAnglehorizInset,
                                                BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
-    
     left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
+    
     _bubbleImage_left.frame = CGRectMake(MessagePadding * 2 + HeadSideLength,
                                          MessagePadding, BubbleMaxWidth, HeadSideLength);
     [_msgContent_left addSubview:_bubbleImage_left];
     
+    //发送中的菊花loading
+
+    _indicator_left = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _indicator_left.frame = CGRectMake(0, 0, 100, 100);
+    _indicator_left.center = CGPointMake(_bubbleImage_left.frame.origin.x + _bubbleImage_left.frame.size.width + 20,
+                                         _bubbleImage_left.center.y);
+    [_msgContent_left addSubview:_indicator_left];
+    [_indicator_left startAnimating];
+    
+    
 }
 
 -(void)initRightMessageContent{
+    
     _msgContent_right = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
     _msgContent_right.backgroundColor = MsgBackGroundColor;
     [self addSubview:_msgContent_right];
@@ -90,6 +103,11 @@
     _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessagePadding * 2 + HeadSideLength),
                                           MessagePadding, BubbleMaxWidth, HeadSideLength);
     [_msgContent_right addSubview:_bubbleImage_right];
+    
+    //发送中的菊花loading
+    
+    
+    
 }
 
 

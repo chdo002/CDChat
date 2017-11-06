@@ -77,22 +77,21 @@
     [self.msgContent_left setHidden:NO];
     [self.msgContent_right setHidden:YES];
     
-    
     // 左侧
     // 设置消息内容的总高度
     [self configImage_Left:data];
     
     // 右侧
     // 设置消息内容的总高度
-    [self configImage_Right:data];
-    
+    [self configImage_Right:data];    
 }
+
 -(void)configImage_Left:(CDChatMessage)data {
     CGRect bubbleRec = [super updateMsgContentFrame_left:data];
     self.imageContent_left.frame = bubbleRec;
 }
 
--(void)configImage_Right:(CDChatMessage)data{
+-(void)configImage_Right:(CDChatMessage)data {
     CGRect bubbleRec = [super updateMsgContentFrame_right:data];
     self.imageContent_right.frame  =bubbleRec;
 }

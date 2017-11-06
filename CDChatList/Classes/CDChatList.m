@@ -268,8 +268,8 @@ typedef enum : NSUInteger {
 #pragma mark table 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"imagecell"];
-    
+//    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"imagecell"];
+    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"textcell"];
     CDChatMessage data = self.msgArr[indexPath.row];
     
     [cell configCellByData:data];
