@@ -9,6 +9,7 @@
 #import "CDViewController.h"
 #import <CDChatList/CDChatList.h>
 #import "CDMessageModal.h"
+#import "UIImageView+WebCache.h"
 
 @interface CDViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
@@ -60,6 +61,8 @@
         self.msgArr = [items mutableCopy];
         self.listView.msgArr = self.msgArr;
     });
+    
+    
 }
 
 /**

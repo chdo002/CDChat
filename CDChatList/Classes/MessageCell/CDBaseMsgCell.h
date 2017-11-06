@@ -32,7 +32,7 @@
 
 @property(nonatomic,strong) UILabel *timeLabel; //消息时间视图
 
-@property(nonatomic, strong) id<MessageModalProtocal> msgModal;
+@property(nonatomic, strong) CDChatMessage msgModal;
 
 // 左侧 消息内容视图
 @property(nonatomic,strong) UIView *msgContent_left;
@@ -45,5 +45,24 @@
 @property(nonatomic,strong) UIImageView *headImage_right;
 
 
+/**
+ 根据消息中缓存的消息高度，气泡宽度重新设置msgContent_left的frame
+
+ @param data 消息内容
+ */
+-(CGRect)updateMsgContentFrame_left:(CDChatMessage) data;
+
+
+
+/**
+ 根据消息中缓存的消息高度，气泡宽度重新设置msgContent_right的frame
+ 
+ @param data 消息内容
+ */
+-(CGRect)updateMsgContentFrame_right:(CDChatMessage) data;
+
+
+
+- (void)configCellByData:(CDChatMessage)data;
 
 @end

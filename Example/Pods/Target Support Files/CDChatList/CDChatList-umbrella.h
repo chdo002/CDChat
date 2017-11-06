@@ -15,6 +15,7 @@
 #import "CDChatMacro.h"
 #import "CellCaculator.h"
 #import "CDBaseMsgCell.h"
+#import "CDImageTableViewCell.h"
 #import "CDTextTableViewCell.h"
 
 FOUNDATION_EXPORT double CDChatListVersionNumber;

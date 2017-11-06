@@ -12,6 +12,4 @@
 
 @interface CDTextTableViewCell : CDBaseMsgCell<MessageCellProtocal>
 
-- (void)configCellByData:(id<MessageModalProtocal>)data;
-
 @end

@@ -27,6 +27,7 @@
 		E951A2FC1FAB60B80053CE5B /* JSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E951A2FB1FAB60B80053CE5B /* JSONViewController.m */; };
 		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
 		E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */; };
+		E9C9995E1FB011C3000B4E3E /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C9995D1FB011C3000B4E3E /* imageList.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		E99CD0AD1FA185B90045783B /* CDMessageModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
 		E99CD0AE1FA185B90045783B /* CDMessageModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
 		E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chatlist.plist; sourceTree = "<group>"; };
+		E9C9995D1FB011C3000B4E3E /* imageList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = imageList.json; sourceTree = "<group>"; };
 		F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				E99CD0AD1FA185B90045783B /* CDMessageModal.h */,
 				E99CD0AE1FA185B90045783B /* CDMessageModal.m */,
 				E949D4F81FA6C5E800094E5E /* msgList.json */,
+				E9C9995D1FB011C3000B4E3E /* imageList.json */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -294,6 +297,7 @@
 				E949D4F91FA6C5E800094E5E /* msgList.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */,
+				E9C9995E1FB011C3000B4E3E /* imageList.json in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,11 +321,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CDChatList/CDChatList.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDChatList.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

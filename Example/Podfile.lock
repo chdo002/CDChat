@@ -1,19 +1,25 @@
 PODS:
   - CDChatList (0.1.0):
+    - SDWebImage
     - TTTAttributedLabel
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - CDChatList (from `../`)
+  - SDWebImage
 
 EXTERNAL SOURCES:
   CDChatList:
     :path: ../
 
 SPEC CHECKSUMS:
-  CDChatList: 1a60f0fb7709723eeb6c06dc637300585acb9e70
+  CDChatList: ec215ff14fe1562468257894a906e5cdc5b9805e
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 2d2717e5a89f22dd0502e208a97b24511ec6cb5a
+PODFILE CHECKSUM: 16e08dd7d53cb2fbdff15d816552b1898b92d965
 
 COCOAPODS: 1.3.1

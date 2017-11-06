@@ -10,11 +10,19 @@
 #ifndef CDChatListProtocols_h
 #define CDChatListProtocols_h
 
+
+
+typedef enum : NSUInteger {
+    CDMessageTypeText,      // 文字类型
+    CDMessageTypeImage,     // 图片类型
+    CDMessageTypeSystemInfo // 系统信息类型
+} CDMessageType; // 消息类型
+
+
 /**
  消息模型
  */
 @protocol MessageModalProtocal
-
 
 /**
  消息内容

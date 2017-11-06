@@ -34,12 +34,9 @@
     
     // 2 左边 消息内容初始化  头像  气泡
     [self initLeftMessageContent];
-    _msgContent_left.hidden = YES;
     
     // 3 右边 消息内容初始化  头像  气泡
     [self initRightMessageContent];
-    //    _msgContent_right.hidden = YES;
-    
     
     return self;
 }
@@ -62,7 +59,6 @@
     UIImage *left_box = BundleImage(@"left_box");
     UIEdgeInsets inset_left = UIEdgeInsetsMake(BubbleSharpAngleHeighInset, BubbleSharpAnglehorizInset,
                                                BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
-    //    UIImage *left_box = BundleImage(@"bg_mask_left");
     
     left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
@@ -97,8 +93,43 @@
 }
 
 
--(void)configmsgContentFrame: (CDChatMessage)data{
+-(CGRect)updateMsgContentFrame_left:(CDChatMessage) data{
+    // 左侧
+    // 设置消息内容的总高度
+    CGRect msgRect = self.msgContent_left.frame;
+    msgRect.size.height = data.cellHeight;
+    self.msgContent_left.frame = msgRect;
+    // 设置气泡的高度和宽度
+    CGRect bubbleRec = self.bubbleImage_left.frame;
+    bubbleRec.size.width = data.bubbleWidth;
+    bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
+    self.bubbleImage_left.frame = bubbleRec;
     
+    return bubbleRec;
+}
+
+
+-(CGRect)updateMsgContentFrame_right:(CDChatMessage) data{
+    
+    // 左侧
+    // 设置消息内容的总高度
+    CGRect msgRect = self.msgContent_right.frame;
+    msgRect.size.height = data.cellHeight;
+    self.msgContent_right.frame = msgRect;
+    
+    // 设置气泡的高度和宽度
+    CGRect bubbleRec = self.bubbleImage_right.frame;
+    bubbleRec.size.width = data.bubbleWidth;
+    bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
+    bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessagePadding * 2 + HeadSideLength);
+    self.bubbleImage_right.frame = bubbleRec;
+
+    return bubbleRec;
+}
+
+
+- (void)configCellByData:(CDChatMessage)data{
+    self.msgModal = data;
 }
 
 @end

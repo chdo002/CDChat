@@ -11,7 +11,14 @@
 
 @interface CDTextTableViewCell()
 
+/**
+ 左侧文字label
+ */
 @property(nonatomic, strong) UILabel *textContent_left;
+
+/**
+ 右侧文字label
+ */
 @property(nonatomic, strong) UILabel *textContent_right;
 
 @end
@@ -31,7 +38,7 @@
     // 右侧气泡中添加label
     self.textContent_right = [[UILabel alloc] init];
     self.textContent_right.backgroundColor = [UIColor redColor];
-    self.textContent_right.frame = CGRectMake(BubbleSharpAnglehorizInset, BubbleRoundAnglehorizInset, 0, 0);
+    self.textContent_right.frame = CGRectMake(BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset, 0, 0);
     [self.bubbleImage_right addSubview:self.textContent_right];
     
     return self;
@@ -39,39 +46,39 @@
 
 #pragma mark MessageCellDelegate
 
-- (void)configCellByData:(id<MessageModalProtocal>)data {
+- (void)configCellByData:(CDChatMessage)data {
+    [super configCellByData:data];
     
-    self.msgModal = data;
+    [self.msgContent_left setHidden:NO];
+    [self.msgContent_right setHidden:YES];
     
-    self.textLabel.text = data.msg;
+    // 左侧
+//     设置消息内容的总高度
+    [self configText_Left:data];
     
+    // 右侧
     // 设置消息内容的总高度
-    CGRect msgRect = self.msgContent_left.frame;
-    msgRect.size.height = data.cellHeight;
-    self.msgContent_left.frame = msgRect;
-    
-    // 设置气泡的高度和宽度
-    
-//    CGRect bubbleRec = self.bubbleImage_left.frame;
-//    bubbleRec.size.width = data.bubbleWidth;
-//    bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
-//    self.bubbleImage_left.frame = bubbleRec;
-//
-//    // 文字内容
-//    self.textContent_left.text = data.msg;
-//    CGRect textRect = self.textContent_left.frame;
-//    textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
-//    textRect.size.height = bubbleRec.size.height - BubbleRoundAnglehorizInset * 2;
-//    self.textContent_left.frame = textRect;
-    
-    CGRect bubbleRec = self.bubbleImage_right.frame;
-    bubbleRec.size.width = data.bubbleWidth;
-    bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
-    
-    
-    
-//    UIColor *color = data.modalInfo[@"color"];
-//    self.backgroundColor = [UIColor whiteColor];
+    [self configText_Right:data];
 }
 
+-(void)configText_Left:(CDChatMessage)data{
+
+    CGRect bubbleRec = [super updateMsgContentFrame_left:data];
+    // 文字内容
+    self.textContent_left.text = data.msg;
+    CGRect textRect = self.textContent_left.frame;
+    textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
+    textRect.size.height = bubbleRec.size.height - BubbleRoundAnglehorizInset * 2;
+    self.textContent_left.frame = textRect;
+}
+
+-(void)configText_Right:(CDChatMessage)data{
+    CGRect bubbleRec = [super updateMsgContentFrame_right:data];
+    //    // 文字内容
+    self.textContent_right.text = data.msg;
+    CGRect textRect = self.textContent_right.frame;
+    textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
+    textRect.size.height = bubbleRec.size.height - BubbleRoundAnglehorizInset * 2;
+    self.textContent_right.frame = textRect;
+}
 @end

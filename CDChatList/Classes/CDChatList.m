@@ -6,12 +6,16 @@
 //
 
 #import "CDChatList.h"
+
 #import "CDTextTableViewCell.h"
+#import "CDImageTableViewCell.h"
+
 
 #import "CellCaculator.h"
 
 #import "CDChatMacro.h"
 //#import <MBProgressHUD/MBProgressHUD.h>
+
 
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
@@ -37,6 +41,7 @@ typedef enum : NSUInteger {
 #pragma mark 生命周期
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
+
     
     self.delegate = self;
     self.dataSource = self;
@@ -45,10 +50,10 @@ typedef enum : NSUInteger {
     self.estimatedSectionFooterHeight = 0;
     self.backgroundColor = CRMHexColor(0x808080);
 //    self.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
-    [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"textcell"];
+    [self registerClass:[CDImageTableViewCell class] forCellReuseIdentifier:@"imagecell"];
     
     // 下拉loading视图
     CGRect rect = CGRectMake(0, -LoadingH, scrnW, LoadingH);
@@ -263,8 +268,10 @@ typedef enum : NSUInteger {
 #pragma mark table 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"imagecell"];
+    
     CDChatMessage data = self.msgArr[indexPath.row];
+    
     [cell configCellByData:data];
     return cell;
 }
