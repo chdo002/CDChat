@@ -6,6 +6,7 @@
 //
 
 #import "CDImageTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface CDImageTableViewCell()
 
@@ -83,16 +84,23 @@
     
     // 右侧
     // 设置消息内容的总高度
-    [self configImage_Right:data];    
+    [self configImage_Right:data];
 }
 
 -(void)configImage_Left:(CDChatMessage)data {
     CGRect bubbleRec = [super updateMsgContentFrame_left:data];
     self.imageContent_left.frame = bubbleRec;
+    
+    [self.imageContent_left sd_setImageWithURL:[NSURL URLWithString:data.msg] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+    }];
 }
 
 -(void)configImage_Right:(CDChatMessage)data {
     CGRect bubbleRec = [super updateMsgContentFrame_right:data];
     self.imageContent_right.frame  =bubbleRec;
+    [self.imageContent_right sd_setImageWithURL:[NSURL URLWithString:data.msg] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+    }];
 }
 @end

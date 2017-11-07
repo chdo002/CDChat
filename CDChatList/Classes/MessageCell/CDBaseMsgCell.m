@@ -136,7 +136,13 @@
     bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
     self.bubbleImage_left.frame = bubbleRec;
     
-    [_indicator_left startAnimating];
+    
+    if (data.msgState == CDMessageStateNormal) {
+        [_indicator_left stopAnimating];
+    } else {
+        [_indicator_left startAnimating];
+    }
+    
     return bubbleRec;
 }
 
@@ -155,8 +161,12 @@
     bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
     bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessagePadding * 2 + HeadSideLength);
     self.bubbleImage_right.frame = bubbleRec;
-
-    [_indicator_right startAnimating];
+    
+    if (data.msgState == CDMessageStateNormal) {
+        [_indicator_right stopAnimating];
+    } else {
+        [_indicator_right startAnimating];
+    }
     
     
     return bubbleRec;

@@ -12,7 +12,7 @@
 
 @interface JSONViewController ()
 @property(nonatomic, weak)CDChatList *listView;
-@property(nonatomic, copy)NSMutableArray *msgArr;
+@property(nonatomic, strong)NSMutableArray<CDChatMessage> *msgArr;
 
 @end
 
@@ -21,13 +21,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
 //    list.msgDelegate = self;
     list.viewController = self;
     self.listView = list;
     [self.view addSubview:self.listView];
     
+    
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithTitle:@"动作1" style:UIBarButtonItemStyleDone target:self action:@selector(action1)];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"动作2" style:UIBarButtonItemStyleDone target:self action:@selector(action2)];
+    UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"动作3" style:UIBarButtonItemStyleDone target:self action:@selector(action3)];
+    [self.navigationItem setRightBarButtonItems:@[item1, item2, item3]];
 }
+
+-(void)action1{
+    
+    
+    CDChatMessage msg = self.msgArr.lastObject;
+    msg.msgState = CDMessageStateNormal;
+//    [self.msgArr replaceObjectAtIndex:_msgArr.count - 1 withObject:msg];
+    [self.listView updateMessage:msg];
+}
+
+-(void)action2{
+    
+}
+
+-(void)action3{
+    
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -43,5 +67,7 @@
         [msgArr addObject:modal];
     }
     self.listView.msgArr = msgArr;
+    self.msgArr = msgArr;
 }
+
 @end

@@ -25,17 +25,23 @@
 
 @synthesize willDisplayTime;
 
+@synthesize bubbleWidth;
+
+@synthesize msgState;
+
 
 +(CDMessageModal *)initWithDic:(NSDictionary *)dic {
+    
     CDMessageModal*modal = [[CDMessageModal alloc] init];
     
     modal.msg = dic[@"msg"];
+    modal.messageId = dic[@"messageId"];
     modal.createTime = dic[@"createTime"];
-//    modal.cellHeight = dic[@"cellHeight"];
+    modal.msgType = [dic[@"msgType"] integerValue];
+    modal.msgState = [dic[@"msgState"] integerValue];
+    
+    
     return modal;
 }
-
-
-@synthesize bubbleWidth;
 
 @end

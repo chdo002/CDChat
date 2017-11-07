@@ -27,6 +27,7 @@
 		E951A2FC1FAB60B80053CE5B /* JSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E951A2FB1FAB60B80053CE5B /* JSONViewController.m */; };
 		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
 		E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */; };
+		E9C6945C1FB1BCB400E076D6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C6945B1FB1BCB400E076D6 /* MainViewController.m */; };
 		E9C9995E1FB011C3000B4E3E /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C9995D1FB011C3000B4E3E /* imageList.json */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		E99CD0AD1FA185B90045783B /* CDMessageModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
 		E99CD0AE1FA185B90045783B /* CDMessageModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
 		E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chatlist.plist; sourceTree = "<group>"; };
+		E9C6945A1FB1BCB400E076D6 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E9C6945B1FB1BCB400E076D6 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E9C9995D1FB011C3000B4E3E /* imageList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = imageList.json; sourceTree = "<group>"; };
 		F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,6 +147,8 @@
 				6003F59D195388D20070C39A /* CDAppDelegate.m */,
 				E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				E9C6945A1FB1BCB400E076D6 /* MainViewController.h */,
+				E9C6945B1FB1BCB400E076D6 /* MainViewController.m */,
 				6003F5A5195388D20070C39A /* CDViewController.h */,
 				6003F5A6195388D20070C39A /* CDViewController.m */,
 				E951A2FA1FAB60B80053CE5B /* JSONViewController.h */,
@@ -376,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */,
+				E9C6945C1FB1BCB400E076D6 /* MainViewController.m in Sources */,
 				E951A2FC1FAB60B80053CE5B /* JSONViewController.m in Sources */,
 				6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CDViewController.m in Sources */,

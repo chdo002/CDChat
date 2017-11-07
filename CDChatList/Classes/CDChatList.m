@@ -125,21 +125,26 @@ typedef enum : NSUInteger {
     }];
 }
 
+/**
+ 更新数据源中的某条消息
+ 
+ @param message 消息
+ */
 -(void)updateMessage:(CDChatMessage)message{
-    NSUInteger msgIndex;
+    
+    NSUInteger msgIndex = 0;
+
     for (int i = 0; i < self.msgArr.count; i++) {
         if ([message.messageId isEqualToString:self.msgArr[i].messageId]) {
             msgIndex = i;
             break;
         }
     }
-    
-    if (msgIndex) {
-        NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:self.msgArr];
-        [mutableMsgArr replaceObjectAtIndex:msgIndex withObject:message];
-        self.msgArr = [mutableMsgArr copy];
-        [self reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:msgIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-    }
+
+    NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:self.msgArr];
+    [mutableMsgArr replaceObjectAtIndex:msgIndex withObject:message];
+    self.msgArr = [mutableMsgArr copy];
+    [self reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:msgIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 /**
@@ -285,11 +290,23 @@ typedef enum : NSUInteger {
 #pragma mark table 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"imagecell"];
-    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier:@"textcell"];
     CDChatMessage data = self.msgArr[indexPath.row];
+    NSString *cellType = @"textcell";
+    switch (data.msgType) {
+        case CDMessageTypeImage:
+            cellType = @"imagecell";
+            break;
+        case CDMessageTypeSystemInfo:
+            cellType = @"syscell";
+            break;
+        default:
+            cellType = @"textcell";
+            break;
+    }
     
+    UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier: cellType];
     [cell configCellByData:data];
+    
     return cell;
 }
 

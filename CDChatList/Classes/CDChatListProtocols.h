@@ -51,6 +51,11 @@ typedef enum : NSUInteger {
 @property (assign,nonatomic) CDMessageType msgType;
 
 /**
+ 消息状态
+ */
+@property (assign,nonatomic) CDMessageState msgState;
+
+/**
  消息ID
  */
 @property (copy,nonatomic) NSString *messageId;
