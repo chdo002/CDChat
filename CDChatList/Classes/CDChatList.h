@@ -21,4 +21,11 @@
  */
 -(void)addMessagesToBottom: (CDChatMessageArray)newBottomMsgArr;
 
+/**
+ 更新数据源中的某条消息
+
+ @param message 消息
+ */
+-(void)updateMessage:(CDChatMessage)message;
+
 @end

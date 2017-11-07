@@ -137,7 +137,6 @@
     self.bubbleImage_left.frame = bubbleRec;
     
     [_indicator_left startAnimating];
-    
     return bubbleRec;
 }
 

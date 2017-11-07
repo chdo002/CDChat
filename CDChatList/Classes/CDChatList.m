@@ -125,6 +125,23 @@ typedef enum : NSUInteger {
     }];
 }
 
+-(void)updateMessage:(CDChatMessage)message{
+    NSUInteger msgIndex;
+    for (int i = 0; i < self.msgArr.count; i++) {
+        if ([message.messageId isEqualToString:self.msgArr[i].messageId]) {
+            msgIndex = i;
+            break;
+        }
+    }
+    
+    if (msgIndex) {
+        NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:self.msgArr];
+        [mutableMsgArr replaceObjectAtIndex:msgIndex withObject:message];
+        self.msgArr = [mutableMsgArr copy];
+        [self reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:msgIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 /**
  添加新的数据到底部
  */

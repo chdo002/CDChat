@@ -20,25 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//
-//    UIView *red = [[UIView alloc] init];
-//    red.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:red];
-//
-//    UIView *blue = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
-//    blue.backgroundColor = [UIColor blackColor];
-//    [self.view addSubview:blue];
-//
-//    [red mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(@70);
-//        make.height.equalTo(@20);
-//
-//        make.leading.equalTo(blue.mas_trailing).offset(100);
-//        make.centerY.equalTo(blue);
-//    }];
-//
-//    return;
- 
+
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
 //    list.msgDelegate = self;
     list.viewController = self;
