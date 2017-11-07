@@ -91,16 +91,29 @@
     CGRect bubbleRec = [super updateMsgContentFrame_left:data];
     self.imageContent_left.frame = bubbleRec;
     
-    [self.imageContent_left sd_setImageWithURL:[NSURL URLWithString:data.msg] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        
-    }];
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
+    if (image) {
+        self.imageContent_left.image = image;
+    } else {
+        [self.imageContent_left sd_setImageWithURL:[NSURL URLWithString:data.msg] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [[SDImageCache sharedImageCache] storeImage:image forKey:data.messageId completion:nil];
+        }];
+    }
 }
 
 -(void)configImage_Right:(CDChatMessage)data {
+    
     CGRect bubbleRec = [super updateMsgContentFrame_right:data];
+    
     self.imageContent_right.frame  =bubbleRec;
-    [self.imageContent_right sd_setImageWithURL:[NSURL URLWithString:data.msg] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        
-    }];
+    
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
+    if (image) {
+        self.imageContent_right.image = image;
+    } else {
+        [self.imageContent_right sd_setImageWithURL:[NSURL URLWithString:data.msg] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [[SDImageCache sharedImageCache] storeImage:image forKey:data.messageId completion:nil];
+        }];
+    }
 }
 @end

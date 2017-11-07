@@ -7,6 +7,8 @@
 
 #import "CellCaculator.h"
 #import "CDChatMacro.h"
+#import "SDImageCache.h"
+#import "CDBaseMsgCell.h"
 
 @interface CellCaculator()
 {
@@ -23,7 +25,6 @@
         caculator = [[CellCaculator alloc]init];
         // 计算所有cell高度的队列
         caculator->caculatQueue = dispatch_queue_create("calqueue", DISPATCH_QUEUE_CONCURRENT);
-        
     });
     return caculator;
 }
@@ -34,13 +35,13 @@
     dispatch_group_t group = dispatch_group_create();
     
     dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
-    
-//    for (CDChatMessage msg in msgArr) {
+
     for (int i = 0; i < msgArr.count; i++) {    
         dispatch_group_async(group, caculatorQueue, ^{
            [self fetchCellHeight:i of:msgArr];
         });
     }
+    
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         CGFloat totalHeight = 0.0f;
         for (CDChatMessage msg in msgArr) {
@@ -96,7 +97,7 @@
             randwidth = 12;
             return CGSizeMake(randwidth + 150, randHeight + 179);
         case CDMessageTypeImage:
-            return CGSizeMake(randwidth + 150, randHeight + 179);
+            return [self sizeForImageMessage:data];
         case CDMessageTypeSystemInfo:
             return CGSizeMake(randwidth + 150, randHeight + 179);
         default:
@@ -104,6 +105,34 @@
     }
 }
 
++(CGSize)sizeForImageMessage: (CDChatMessage)data{
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
+    if (image) {
+        
+        // 图片将被限制在140*140的区域内，按比例显示
+        CGFloat width = image.size.width;
+        CGFloat height = image.size.height;
+        
+        CGFloat maxSide = MAX(width, height);
+        CGFloat miniSide = MIN(width, height);
 
+        // 按比例缩小后的小边边长
+        CGFloat actuallMiniSide = 140 * miniSide / maxSide;
+        
+        // 防止长图，宽图，限制最小边 下限
+        if (actuallMiniSide < 45) {
+            actuallMiniSide = 45;
+        }
+        
+        if (maxSide == width) {
+            return CGSizeMake(140, actuallMiniSide + MessagePadding * 2);
+        } else {
+            return CGSizeMake(actuallMiniSide, 140 + MessagePadding * 2);
+        }
+    
+    } else {
+        return CGSizeMake(140, 140);
+    }
+}
 
 @end

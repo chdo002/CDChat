@@ -4,34 +4,48 @@
         "messageId": "1230",
         "createTime": "1509634535123",
         "msgType" : 0,
-        "msgState" : 1
+        "msgState" : 0
     },
     {
         "msg": "http://c.hiphotos.baidu.com/image/h%3D300/sign=c65fb3f010d8bc3ed90800cab289a6c8/e7cd7b899e510fb3a5fa715dd033c895d0430c1c.jpg",
         "messageId": "1231",
-        "createTime": "1509674535123",
+        "createTime": "1509634535123",
         "msgType" : 1,
         "msgState" : 0
     },
     {
         "msg": "21341234123asdfsdfoijsdfoi阿斯蒂芬撒低价",
         "messageId": "1232",
-        "createTime": "1509675535123",
+        "createTime": "1509634535123",
         "msgType" : 0,
-        "msgState" : 1
+        "msgState" : 0
     },
     {
         "msg": "21341234123asdfsdfoijsdfoi阿斯蒂阿斯蒂芬奇偶及价格芬撒低价",
         "messageId": "1233",
-        "createTime": "1509774535123",
+        "createTime": "1509634535123",
         "msgType" : 0,
         "msgState" : 0
      },
      {
         "msg": "http://f.hiphotos.baidu.com/image/h%3D300/sign=3426a2a89122720e64cee4fa4bc90a3a/4a36acaf2edda3cc4108bfea08e93901203f920f.jpg",
         "messageId": "1234",
-        "createTime": "1509674535123",
+        "createTime": "1509634535123",
         "msgType" : 1,
-        "msgState": 1
-     }
+        "msgState": 0
+ },
+ {
+ "msg": "http://f.hiphotos.baidu.com/image/h%3D300/sign=3426a2a89122720e64cee4fa4bc90a3a/4a36acaf2edda3cc4108bfea08e93901203f920f.jpg",
+ "messageId": "1235",
+ "createTime": "1509634535123",
+ "msgType" : 1,
+ "msgState": 0
+ },
+ {
+ "msg": "http://f.hiphotos.baidu.com/image/h%3D300/sign=3426a2a89122720e64cee4fa4bc90a3a/4a36acaf2edda3cc4108bfea08e93901203f920f.jpg",
+ "messageId": "1236",
+ "createTime": "1509634535123",
+ "msgType" : 1,
+ "msgState": 0
+ }
  ]
