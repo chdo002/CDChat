@@ -47,10 +47,11 @@
 #pragma mark MessageCellDelegate
 
 - (void)configCellByData:(CDChatMessage)data {
+    
     [super configCellByData:data];
     
-    [self.msgContent_left setHidden:NO];
-    [self.msgContent_right setHidden:YES];
+    [self.msgContent_left setHidden:YES];
+    [self.msgContent_right setHidden:NO];
     
     // 左侧
 //     设置消息内容的总高度

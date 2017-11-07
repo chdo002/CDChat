@@ -1,12 +1,15 @@
 PODS:
   - CDChatList (0.1.0):
+    - Masonry
     - SDWebImage
+  - Masonry (1.1.0)
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
 
 DEPENDENCIES:
   - CDChatList (from `../`)
+  - Masonry
   - SDWebImage
 
 EXTERNAL SOURCES:
@@ -14,9 +17,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CDChatList: 69a9ee3db200024107d514c23d52a86121e9038f
+  CDChatList: 01ca01472ce100722cedc9316562a2916a663c6b
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
 
-PODFILE CHECKSUM: 16e08dd7d53cb2fbdff15d816552b1898b92d965
+PODFILE CHECKSUM: daa7138cdbb06f8aa3f0a7b40378162b11fd9486
 
 COCOAPODS: 1.3.1

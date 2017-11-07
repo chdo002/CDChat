@@ -40,7 +40,8 @@ TODO: Add long description of the pod here.
   s.frameworks = 'UIKit'
 
   s.dependency 'SDWebImage'
+  s.dependency 'Masonry'
 # s.dependency 'TTTAttributedLabel'
 # s.dependency 'MBProgressHUD'
-# s.dependency 'MJRefresh'
+
 end

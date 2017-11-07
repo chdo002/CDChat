@@ -6,6 +6,8 @@
 //
 
 #import "CDBaseMsgCell.h"
+#import <Masonry/Masonry.h>
+
 //#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 @interface CDBaseMsgCell()
@@ -63,20 +65,21 @@
                                                BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
     left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
-    
     _bubbleImage_left.frame = CGRectMake(MessagePadding * 2 + HeadSideLength,
                                          MessagePadding, BubbleMaxWidth, HeadSideLength);
     [_msgContent_left addSubview:_bubbleImage_left];
     
     //发送中的菊花loading
-
-    _indicator_left = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _indicator_left.frame = CGRectMake(0, 0, 100, 100);
-    _indicator_left.center = CGPointMake(_bubbleImage_left.frame.origin.x + _bubbleImage_left.frame.size.width + 20,
-                                         _bubbleImage_left.center.y);
+    _indicator_left = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [_msgContent_left addSubview:_indicator_left];
     [_indicator_left startAnimating];
     
+    [_indicator_left mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+        make.leading.equalTo(_bubbleImage_left.mas_trailing).offset(20);
+        make.centerY.equalTo(_bubbleImage_left);
+    }];
     
 }
 
@@ -107,9 +110,19 @@
     //发送中的菊花loading
     
     
+    _indicator_right = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [_msgContent_right addSubview:_indicator_right];
+    [_indicator_right startAnimating];
+    
+    [_indicator_right mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+        make.trailing.equalTo(_bubbleImage_right.mas_leading).offset(-20);
+        make.centerY.equalTo(_bubbleImage_right);
+    }];
+    
     
 }
-
 
 -(CGRect)updateMsgContentFrame_left:(CDChatMessage) data{
     // 左侧
@@ -122,6 +135,8 @@
     bubbleRec.size.width = data.bubbleWidth;
     bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
     self.bubbleImage_left.frame = bubbleRec;
+    
+    [_indicator_left startAnimating];
     
     return bubbleRec;
 }
@@ -142,6 +157,9 @@
     bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessagePadding * 2 + HeadSideLength);
     self.bubbleImage_right.frame = bubbleRec;
 
+    [_indicator_right startAnimating];
+    
+    
     return bubbleRec;
 }
 
