@@ -33,6 +33,10 @@
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"动作2" style:UIBarButtonItemStyleDone target:self action:@selector(action2)];
     UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"动作3" style:UIBarButtonItemStyleDone target:self action:@selector(action3)];
     [self.navigationItem setRightBarButtonItems:@[item1, item2, item3]];
+    
+    
+    
+    
 }
 
 -(void)action1{
@@ -45,6 +49,10 @@
 }
 
 -(void)action2{
+    
+}
+
+-(void)listen{
     
 }
 

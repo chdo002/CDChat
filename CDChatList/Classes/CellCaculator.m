@@ -9,33 +9,34 @@
 #import "CDChatMacro.h"
 #import "SDImageCache.h"
 #import "CDBaseMsgCell.h"
-#import "ImageDownLoader.h"
+#import "SDWebImageDownloader.h"
 
 @interface CellCaculator()
-{
-    dispatch_queue_t caculatQueue;
-}
+//{
+//    dispatch_queue_t caculatQueue;
+//}
 
 @end
 @implementation CellCaculator
 
-+(CellCaculator *)shareInstance{
-    static CellCaculator *caculator = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        caculator = [[CellCaculator alloc]init];
-        // 计算所有cell高度的队列
-        caculator->caculatQueue = dispatch_queue_create("calqueue", DISPATCH_QUEUE_CONCURRENT);
-    });
-    return caculator;
-}
+//+(CellCaculator *)shareInstance{
+//    static CellCaculator *caculator = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        caculator = [[CellCaculator alloc]init];
+//        // 计算所有cell高度的队列
+//        caculator->caculatQueue = dispatch_queue_create("calqueue", DISPATCH_QUEUE_CONCURRENT);
+//    });
+//    return caculator;
+//}
 
 +(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
     dispatch_group_t group = dispatch_group_create();
     
-    dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
+//    dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
+    dispatch_queue_t caculatorQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
     for (int i = 0; i < msgArr.count; i++) {    
         dispatch_group_async(group, caculatorQueue, ^{
@@ -73,10 +74,11 @@
     
     CGSize res = [self caculateCellHeightAndBubleWidth:data];
     
-    CGFloat height = res.height;
-    
+    // 记录 缓存
     data.bubbleWidth = res.width;
+    
     // 加上可能显示的时间视图高度
+    CGFloat height = res.height;
     data.cellHeight = height + (data.willDisplayTime ? MsgTimeH : 0);
     
     return height;
@@ -106,37 +108,64 @@
     }
 }
 
-+(CGSize) sizeForImageMessage: (CDChatMessage)data {
-    
-    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
-    if (image) {
-        
-        // 图片将被限制在140*140的区域内，按比例显示
-        CGFloat width = image.size.width;
-        CGFloat height = image.size.height;
-        
-        CGFloat maxSide = MAX(width, height);
-        CGFloat miniSide = MIN(width, height);
 
-        // 按比例缩小后的小边边长
-        CGFloat actuallMiniSide = 140 * miniSide / maxSide;
-        
-        // 防止长图，宽图，限制最小边 下限
-        if (actuallMiniSide < 45) {
-            actuallMiniSide = 45;
-        }
-        
-        // 返回的高度是图片高度，需加上消息内边距边成消息体高度
-        if (maxSide == width) {
-            return CGSizeMake(140, actuallMiniSide + MessagePadding * 2);
-        } else {
-            return CGSizeMake(actuallMiniSide, 140 + MessagePadding * 2);
-        }
+
+static CGSize caculateImageSize140By140(UIImage *image) {
+    // 图片将被限制在140*140的区域内，按比例显示
+    CGFloat width = image.size.width;
+    CGFloat height = image.size.height;
     
+    CGFloat maxSide = MAX(width, height);
+    CGFloat miniSide = MIN(width, height);
+    
+    // 按比例缩小后的小边边长
+    CGFloat actuallMiniSide = 140 * miniSide / maxSide;
+    
+    // 防止长图，宽图，限制最小边 下限
+    if (actuallMiniSide < 45) {
+        actuallMiniSide = 45;
+    }
+    
+    // 返回的高度是图片高度，需加上消息内边距边成消息体高度
+    if (maxSide == width) {
+        return CGSizeMake(140, actuallMiniSide + MessagePadding * 2);
     } else {
+        return CGSizeMake(actuallMiniSide, 140 + MessagePadding * 2);
+    }
+}
+
++(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
+    
+    
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.messageId];
+    
+    if (image) {
+        return caculateImageSize140By140(image);
+    } else {
+        
+        
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+        } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+            if(error){
+                
+            } else {
+                CGSize size = caculateImageSize140By140(image);
+                [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.messageId completion:nil];
+                
+                //// 记录 缓存 这里写法有待商榷
+                msgData.bubbleWidth = size.width;
+                // 加上可能显示的时间视图高度
+                CGFloat height = size.height;
+                msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
+                [[NSNotificationCenter defaultCenter] postNotificationName:DOWNLOADLISTFINISH object:msgData userInfo:nil];
+            }
+        }];
         
         return CGSizeMake(140, 140);
     }
 }
+
+
 
 @end

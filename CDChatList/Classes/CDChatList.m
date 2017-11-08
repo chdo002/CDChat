@@ -52,6 +52,7 @@ typedef enum : NSUInteger {
 //    self.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
+    // 注册cell类
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"textcell"];
     [self registerClass:[CDImageTableViewCell class] forCellReuseIdentifier:@"imagecell"];
     
@@ -61,6 +62,10 @@ typedef enum : NSUInteger {
     [self addSubview:indicatr];
     [indicatr startAnimating];
     self.indicatro = indicatr;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImageFinished:) name:DOWNLOADLISTFINISH object:nil];
+    
+    
     return self;
 }
 
@@ -94,6 +99,12 @@ typedef enum : NSUInteger {
     }];
 //    [self layoutSubviews];
 }
+
+-(void)downloadImageFinished:(NSNotification *)noti{
+    CDChatMessage msgData = noti.object;
+    [self updateMessage:msgData];
+}
+
 #pragma mark 数据源变动
 
 /**
@@ -144,7 +155,10 @@ typedef enum : NSUInteger {
     NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:self.msgArr];
     [mutableMsgArr replaceObjectAtIndex:msgIndex withObject:message];
     self.msgArr = [mutableMsgArr copy];
-    [self reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:msgIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    
+    
+//    [self reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:msgIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self reloadData];
 }
 
 /**
@@ -324,5 +338,9 @@ typedef enum : NSUInteger {
     dispatch_async(dispatch_get_main_queue(), ^{
         block();
     });
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
