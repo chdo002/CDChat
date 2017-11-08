@@ -95,6 +95,8 @@
 		DEE57E7D35092F8CB10807F48DCA1689 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F7B2F0D44AF1629D9AEC7522C1F89C7 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E03A8C51E68D30477F8A2885A0BE5FE5 /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 03C71C24299D778DB2C31AFBFC8C9CAA /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E45CA9E69AF5F5C648606A4FF83AF4C6 /* icon_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 634E1C9216E7692C7643893024AFCE7D /* icon_head@2x.png */; };
+		E9FDD2911FB30B7000BFD689 /* ImageDownLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = E9FDD28F1FB30B7000BFD689 /* ImageDownLoader.h */; };
+		E9FDD2921FB30B7000BFD689 /* ImageDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FDD2901FB30B7000BFD689 /* ImageDownLoader.m */; };
 		EC44F0B9006F7C0F49089DA17C629D9B /* bg_mask_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 586D39C73F9185091FC5893B6CAFDC45 /* bg_mask_right@2x.png */; };
 		ED7C43DB412D153DDBAA4384476881A9 /* CDChatList.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B4B0B01AB3EF92C4B7BF439EFAE95BE /* CDChatList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFB7BB73C4515530391111281039E02E /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A9FCBFB4E1BC7494CAA98E4FB95F64E6 /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -154,7 +156,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		018E94534D3F7E97703F3AE7153DA07E /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		018E94534D3F7E97703F3AE7153DA07E /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01BF54862EA4E3C251F19AA32CAD8B9B /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		02F35F52CF4E25BCBC6B0FA5DD8088D1 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		031095E570D7312D29283ECB68579BF2 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
@@ -178,9 +180,9 @@
 		23B02886F835D6A6781CE76191F82862 /* Pods-CDChatList_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CDChatList_Example-dummy.m"; sourceTree = "<group>"; };
 		2771A1C73249F247180CEE80C1E20CAE /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		2A821ED7A15B74C72C9B31C0522D4DF1 /* CDChatMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatMacro.h; path = CDChatList/Classes/CDChatMacro.h; sourceTree = "<group>"; };
-		3099DB2EA42181A9F88BFA7992AF4460 /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CDChatList.framework; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3099DB2EA42181A9F88BFA7992AF4460 /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30CD3372048FB733C30196AD24DBFEB6 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
-		3294F574420491B25E055A3E390A9BAE /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Masonry.modulemap; sourceTree = "<group>"; };
+		3294F574420491B25E055A3E390A9BAE /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Masonry.modulemap; sourceTree = "<group>"; };
 		367BAE5A18866388F66BD55CF8A29621 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		3A676F1347C80B0281095DFE2ECE4281 /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		3C10AB87F0E8428943B6FACFAB185E29 /* Pods-CDChatList_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CDChatList_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -199,14 +201,14 @@
 		55EC1C7544DE114C779E350EC41C23A2 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
 		586D39C73F9185091FC5893B6CAFDC45 /* bg_mask_right@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bg_mask_right@2x.png"; path = "CDChatList/Assets/bg_mask_right@2x.png"; sourceTree = "<group>"; };
 		5E9E4A22D541846975E520557050CD7E /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
-		62330D564F53B5056F9D991E2905189B /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CDChatList.modulemap; sourceTree = "<group>"; };
-		62FD185E7DFA6E07B0E3FD6073864719 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SDWebImage.modulemap; sourceTree = "<group>"; };
+		62330D564F53B5056F9D991E2905189B /* CDChatList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CDChatList.modulemap; sourceTree = "<group>"; };
+		62FD185E7DFA6E07B0E3FD6073864719 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		634E1C9216E7692C7643893024AFCE7D /* icon_head@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "icon_head@2x.png"; path = "CDChatList/Assets/icon_head@2x.png"; sourceTree = "<group>"; };
 		643B7E64E25E7C8F9FBB333142523E7F /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		67308647536EA7845CB5445C79C4849D /* ResourceBundle-CDChatList-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CDChatList-Info.plist"; sourceTree = "<group>"; };
 		6AE47192A03672BA09920C2A10602743 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		6E2412C897D11CDA421EE8973F808683 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
-		7000A6A2F96571839AE6CBAE91C0F740 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7000A6A2F96571839AE6CBAE91C0F740 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AB191A46AF9273AE8D30F3C91758EA /* CDBaseMsgCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDBaseMsgCell.h; sourceTree = "<group>"; };
 		7440CE9AA6FE26367AF3EB214FADA6DD /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
 		758E930F7E126E81140392C824F81548 /* Pods-CDChatList_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CDChatList_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -214,7 +216,7 @@
 		77E44E83A4FF2E6BCA10A2E37CB955C1 /* left_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "left_box@2x.png"; path = "CDChatList/Assets/left_box@2x.png"; sourceTree = "<group>"; };
 		7815D084B5199FF8298F9EAEAFF598FC /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		7BDD411EDDB78BD9FD29AB9AF77752A5 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
-		7C02B19B36D261F076148870CDD73F03 /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
+		7C02B19B36D261F076148870CDD73F03 /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
 		7F0494E9B99237766F5C7B0C97068A05 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
 		85A42F9022C749786EDA6EC6E7E78B3B /* Pods-CDChatList_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-resources.sh"; sourceTree = "<group>"; };
 		88AC56A4B1579C3076F74B6E6C19215E /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
@@ -225,7 +227,7 @@
 		8F219ECF8AD597839967A488045A9065 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F27E629E59E4EFD9CD986353C747637 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		8FD9F01B2F99D4EE5368A24E9EBADD34 /* Pods-CDChatList_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96CE9CB7E5021BF9CEC4F350CC348F7B /* CDImageTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDImageTableViewCell.h; sourceTree = "<group>"; };
 		98030C4028AA997F8071501AAACE31D7 /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
 		9A7BF4B79F7B25667E194BACF84AF2AF /* NSImage+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSImage+WebCache.h"; path = "SDWebImage/NSImage+WebCache.h"; sourceTree = "<group>"; };
@@ -255,10 +257,12 @@
 		D3B37A4FB43036AA75D3455DD8561805 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		DACE4288ADE9CC8A39EE9FA15EE6CD5E /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		DD5AD20A9278D6A1B880C6387C96C5E7 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
-		DE4B11D584A0299EEEFA3349DEB545BD /* CDChatList.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CDChatList.bundle; path = CDChatList.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE4B11D584A0299EEEFA3349DEB545BD /* CDChatList.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDChatList.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
-		E662839695393C363B5E8E345EC1D6C9 /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CDChatList_Example.framework; path = "Pods-CDChatList_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662839695393C363B5E8E345EC1D6C9 /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E840EA721DDFF6DF526F3942C5C8D944 /* bg_mask_right@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bg_mask_right@3x.png"; path = "CDChatList/Assets/bg_mask_right@3x.png"; sourceTree = "<group>"; };
+		E9FDD28F1FB30B7000BFD689 /* ImageDownLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImageDownLoader.h; path = CDChatList/Classes/ImageDownLoader.h; sourceTree = "<group>"; };
+		E9FDD2901FB30B7000BFD689 /* ImageDownLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ImageDownLoader.m; path = CDChatList/Classes/ImageDownLoader.m; sourceTree = "<group>"; };
 		EA59A3B4BE8B8D4ED610AACD2A0CA592 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		EC482078B303D632CA534A35BB4DA0DE /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
 		EC6E273F52A6F07155072D63B87AEAC8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -331,7 +335,6 @@
 				F196F9446BFB274E19A85DB066BFACB1 /* Core */,
 				CB3A2BC85EA1D410603451908EA3EF66 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -365,7 +368,6 @@
 				367BAE5A18866388F66BD55CF8A29621 /* ViewController+MASAdditions.m */,
 				B725F61977F5CB2196A263192A92F04A /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -447,6 +449,8 @@
 				2A821ED7A15B74C72C9B31C0522D4DF1 /* CDChatMacro.h */,
 				8D1323C58B2FB8CBC066C85875989496 /* CellCaculator.h */,
 				A27C22EBAEDCBCD1DBF4B160D46168E1 /* CellCaculator.m */,
+				E9FDD28F1FB30B7000BFD689 /* ImageDownLoader.h */,
+				E9FDD2901FB30B7000BFD689 /* ImageDownLoader.m */,
 				A82AE126F49D8347E16EF23C5C940DB4 /* MessageCell */,
 				EAF20EFC7A7217024713945D4583CC05 /* Resources */,
 				B23062BB4B06896A3C4D12FE98097235 /* Support Files */,
@@ -618,6 +622,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FDD2911FB30B7000BFD689 /* ImageDownLoader.h in Headers */,
 				B263CE954F7B16E23D09188E688C2CB6 /* CDBaseMsgCell.h in Headers */,
 				C63862864E3EAF16489D5F480F2A2DA2 /* CDChatList-umbrella.h in Headers */,
 				ED7C43DB412D153DDBAA4384476881A9 /* CDChatList.h in Headers */,
@@ -874,6 +879,7 @@
 				5AD816D683D39E27D14E6B29E83FB8F1 /* CDChatList-dummy.m in Sources */,
 				8A021019CB5BFDCE95301F9235332C1A /* CDChatList.m in Sources */,
 				54B517C9051A72B45B6C416AF3FC7CEE /* CDImageTableViewCell.m in Sources */,
+				E9FDD2921FB30B7000BFD689 /* ImageDownLoader.m in Sources */,
 				53152104441C1E15BFCED7DC5A278CD4 /* CDTextTableViewCell.m in Sources */,
 				F35292E81EEE01E4C6087D8097F3B290 /* CellCaculator.m in Sources */,
 			);

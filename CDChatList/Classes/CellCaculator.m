@@ -9,6 +9,7 @@
 #import "CDChatMacro.h"
 #import "SDImageCache.h"
 #import "CDBaseMsgCell.h"
+#import "ImageDownLoader.h"
 
 @interface CellCaculator()
 {
@@ -105,7 +106,7 @@
     }
 }
 
-+(CGSize)sizeForImageMessage: (CDChatMessage)data {
++(CGSize) sizeForImageMessage: (CDChatMessage)data {
     
     UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
     if (image) {
