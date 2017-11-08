@@ -105,7 +105,8 @@
     }
 }
 
-+(CGSize)sizeForImageMessage: (CDChatMessage)data{
++(CGSize)sizeForImageMessage: (CDChatMessage)data {
+    
     UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
     if (image) {
         
@@ -124,6 +125,7 @@
             actuallMiniSide = 45;
         }
         
+        // 返回的高度是图片高度，需加上消息内边距边成消息体高度
         if (maxSide == width) {
             return CGSizeMake(140, actuallMiniSide + MessagePadding * 2);
         } else {
@@ -131,6 +133,7 @@
         }
     
     } else {
+        
         return CGSizeMake(140, 140);
     }
 }
