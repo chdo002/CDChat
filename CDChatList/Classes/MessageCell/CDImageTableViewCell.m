@@ -49,7 +49,7 @@
     // 在气泡图下面添加信息图片
     self.imageContent_left = [[UIImageView alloc] initWithFrame:self.bubbleImage_left.frame];
     self.imageContent_left.contentMode = UIViewContentModeScaleAspectFit;
-    self.imageContent_left.backgroundColor = [UIColor brownColor];
+    self.imageContent_left.backgroundColor = [UIColor lightGrayColor];
     [self.msgContent_left insertSubview:self.imageContent_left belowSubview:self.bubbleImage_left];
 }
 
@@ -75,8 +75,8 @@
 -(void)configCellByData:(CDChatMessage)data{
     [super configCellByData:data];
     
-    [self.msgContent_left setHidden:NO];
-    [self.msgContent_right setHidden:YES];
+    [self.msgContent_left setHidden:YES];
+    [self.msgContent_right setHidden:NO];
     
     // 左侧
     // 设置消息内容的总高度

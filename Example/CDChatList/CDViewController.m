@@ -11,8 +11,7 @@
 #import "CDMessageModal.h"
 #import "UIImageView+WebCache.h"
 
-@interface CDViewController ()<ChatListProtocol>
-@property(nonatomic, weak)CDChatList *listView;
+@interface CDViewController ()<ChatListProtocol>@property(nonatomic, weak)CDChatList *listView;
 @property(nonatomic, copy)NSMutableArray *msgArr;
 @end
 
@@ -47,7 +46,9 @@
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
             modal.msgType = CDMessageTypeText;
 //            modal.cellHeight = 60;
+            
             NSString *number = @"";
+            
             for (int i = 1; i <= 5; i ++) {
                 int x = arc4random() % 10;
                 number = [number stringByAppendingString:[NSString stringWithFormat:@"%i",x]];
@@ -58,8 +59,10 @@
             modal.messageId = number;
             [items addObject:modal];
         }
+        
         self.msgArr = [items mutableCopy];
         self.listView.msgArr = self.msgArr;
+        
     });
     
     

@@ -140,16 +140,17 @@ static CGSize caculateImageSize140By140(UIImage *image) {
     UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.messageId];
     
     if (image) {
+        msgData.msgState = CDMessageStateNormal;
         return caculateImageSize140By140(image);
     } else {
-        
-        
+        msgData.msgState = CDMessageStateDownloading;
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
                 
             } else {
+                
                 CGSize size = caculateImageSize140By140(image);
                 [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.messageId completion:nil];
                 
@@ -158,6 +159,8 @@ static CGSize caculateImageSize140By140(UIImage *image) {
                 // 加上可能显示的时间视图高度
                 CGFloat height = size.height;
                 msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
+                
+                msgData.msgState = CDMessageStateNormal;
                 [[NSNotificationCenter defaultCenter] postNotificationName:DOWNLOADLISTFINISH object:msgData userInfo:nil];
             }
         }];
