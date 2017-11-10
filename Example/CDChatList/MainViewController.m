@@ -18,6 +18,20 @@
     [super viewDidLoad];
     
 
+    NSString *str= @"哈速度发货速度回复";
+    
+    CGFloat BubbleMaxWidth = [UIScreen mainScreen].bounds.size.width;
+    
+    NSDictionary *attri = @{NSFontAttributeName: [UIFont systemFontOfSize:16]};
+    //NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+    // 计算的高度 = boundingRectWithSize计算出来的高度 + \n\r转义字符出现的个数 * 单行文本的高度。
+    CGRect rec = [str boundingRectWithSize:CGSizeMake(BubbleMaxWidth, CGFLOAT_MAX) options:NSStringDrawingUsesDeviceMetrics attributes:attri context:nil];
+    
+//    UILabel *label = [[UILabel alloc] initWithFrame:rec];
+    
+    //    ceilf
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

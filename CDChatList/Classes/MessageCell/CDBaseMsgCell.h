@@ -27,6 +27,8 @@
 
 #define BubbleMaxWidth scrnW * 0.64 // 气泡最大边长
 
+#define MessageFont  [UIFont systemFontOfSize:16]
+
 @interface CDBaseMsgCell : UITableViewCell
 
 

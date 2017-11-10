@@ -85,7 +85,7 @@
 }
 
 /**
- 针对不同的cell，计算cell高度
+ 针对不同的cell，计算cell高度及气泡宽度
  
  @param data 消息模型
  @return cell高度
@@ -108,8 +108,26 @@
     }
 }
 
++(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
+    
+    NSDictionary *attri = @{NSFontAttributeName: MessageFont};
+    //NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+    // 计算的高度 = boundingRectWithSize计算出来的高度 + \n\r转义字符出现的个数 * 单行文本的高度。
+    [msgData.msg boundingRectWithSize:CGSizeMake(BubbleMaxWidth, CGFLOAT_MAX) options:NSStringDrawingUsesDeviceMetrics attributes:attri context:nil].size;
+    
+//    ceilf
+    
+    return CGSizeZero;
+}
 
+#pragma mark 计算图片消息尺寸方法
 
+/**
+ <#Description#>
+
+ @param image <#image description#>
+ @return <#return value description#>
+ */
 static CGSize caculateImageSize140By140(UIImage *image) {
     // 图片将被限制在140*140的区域内，按比例显示
     CGFloat width = image.size.width;
@@ -136,13 +154,15 @@ static CGSize caculateImageSize140By140(UIImage *image) {
 
 +(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
     
+    // 获得本地缓存的图片
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.msg];
     
-    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.messageId];
-    
+    // 如果本地存在图片，则通过图片计算
     if (image) {
         msgData.msgState = CDMessageStateNormal;
         return caculateImageSize140By140(image);
     } else {
+        // 若不存在，则返回占位图大小，并下载
         msgData.msgState = CDMessageStateDownloading;
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
@@ -152,9 +172,10 @@ static CGSize caculateImageSize140By140(UIImage *image) {
             } else {
                 
                 CGSize size = caculateImageSize140By140(image);
-                [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.messageId completion:nil];
+                [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
                 
-                //// 记录 缓存 这里写法有待商榷
+                #warning 记录 缓存 这里写法有待商榷
+                
                 msgData.bubbleWidth = size.width;
                 // 加上可能显示的时间视图高度
                 CGFloat height = size.height;
