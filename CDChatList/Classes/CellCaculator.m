@@ -133,9 +133,6 @@
 
 /**
  根据图片大小计算气泡宽度和cell高度
-
- @param image <#image description#>
- @return <#return value description#>
  */
 static CGSize caculateImageSize140By140(UIImage *image) {
     // 图片将被限制在140*140的区域内，按比例显示
