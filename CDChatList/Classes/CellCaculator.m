@@ -97,8 +97,7 @@
 
     switch (data.msgType) {
         case CDMessageTypeText:
-            randwidth = 12;
-            return CGSizeMake(randwidth + 150, randHeight + 179);
+            return [self sizeForTextMessage:data];
         case CDMessageTypeImage:
             return [self sizeForImageMessage:data];
         case CDMessageTypeSystemInfo:
@@ -111,19 +110,25 @@
 +(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
     NSDictionary *attri = @{NSFontAttributeName: MessageFont};
+    
     //NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
     // 计算的高度 = boundingRectWithSize计算出来的高度 + \n\r转义字符出现的个数 * 单行文本的高度。
-    [msgData.msg boundingRectWithSize:CGSizeMake(BubbleMaxWidth, CGFLOAT_MAX) options:NSStringDrawingUsesDeviceMetrics attributes:attri context:nil].size;
     
-//    ceilf
+    // 文字的限制区域，红色部分
+    CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset, CGFLOAT_MAX);
     
-    return CGSizeZero;
+    CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
+                                                        options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                                     attributes:attri context:nil].size;
+    
+    return CGSizeMake(ceilf(caculateTextSize.width) + BubbleRoundAnglehorizInset + BubbleRoundAnglehorizInset,
+                      ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessagePadding * 2);;
 }
 
 #pragma mark 计算图片消息尺寸方法
 
 /**
- <#Description#>
+ 根据图片大小计算气泡宽度和cell高度
 
  @param image <#image description#>
  @return <#return value description#>
@@ -144,7 +149,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
         actuallMiniSide = 45;
     }
     
-    // 返回的高度是图片高度，需加上消息内边距边成消息体高度
+    // 返回的高度是图片高度，需加上消息内边距变成消息体高度
     if (maxSide == width) {
         return CGSizeMake(140, actuallMiniSide + MessagePadding * 2);
     } else {

@@ -45,8 +45,6 @@
             modal.msg = [NSString stringWithFormat:@"%d",i];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
             modal.msgType = CDMessageTypeText;
-//            modal.cellHeight = 60;
-            
             NSString *number = @"";
             
             for (int i = 1; i <= 5; i ++) {
@@ -97,7 +95,6 @@
         modal.msg = [NSString stringWithFormat:@"%d",i];
         modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
         modal.msg = [NSString stringWithFormat:@"新消息%d",i];
-        //            modal.cellHeight = 60;
         NSString *number = @"";
         for (int i = 1; i <= 5; i ++) {
             int x = arc4random() % 10;

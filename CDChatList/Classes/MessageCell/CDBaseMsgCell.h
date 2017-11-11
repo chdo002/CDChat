@@ -25,7 +25,7 @@
 #define BubbleSharpAnglehorizInset 11
 #define BubbleRoundAnglehorizInset 5
 
-#define BubbleMaxWidth scrnW * 0.64 // 气泡最大边长
+#define BubbleMaxWidth scrnW * 0.64 // 气泡最大边长   从尖角到另一边
 
 #define MessageFont  [UIFont systemFontOfSize:16]
 
