@@ -115,14 +115,18 @@
     // 计算的高度 = boundingRectWithSize计算出来的高度 + \n\r转义字符出现的个数 * 单行文本的高度。
     
     // 文字的限制区域，红色部分
-    CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset, CGFLOAT_MAX);
+    CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
+                                    CGFLOAT_MAX);
     
     CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
                                                         options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                      attributes:attri context:nil].size;
-    
-    return CGSizeMake(ceilf(caculateTextSize.width) + BubbleRoundAnglehorizInset + BubbleRoundAnglehorizInset,
-                      ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessagePadding * 2);;
+    CGFloat bubbleWidth = ceilf(caculateTextSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
+    CGFloat cellheight = ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessagePadding * 2;
+    if (cellheight < (MessagePadding * 2 + HeadSideLength)) {
+        cellheight = MessagePadding * 2 + HeadSideLength;
+    }
+    return CGSizeMake(bubbleWidth, cellheight);
 }
 
 #pragma mark 计算图片消息尺寸方法
