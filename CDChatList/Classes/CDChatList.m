@@ -233,10 +233,10 @@ typedef enum : NSUInteger {
         return;
     }
     // 异步让tableview滚到最底部
-    [self mainAsyQueue:^{
+//    [self mainAsyQueue:^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
-    }];
+//    }];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -331,9 +331,9 @@ typedef enum : NSUInteger {
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 50;
-//    return [CellCaculator fetchCellHeight:_msgArr[indexPath.row]];
-    return [CellCaculator fetchCellHeight:indexPath.row of:_msgArr];
+
+    CGFloat height = [CellCaculator fetchCellHeight:indexPath.row of:_msgArr];
+    return height;
 }
 
 -(void)mainAsyQueue:(dispatch_block_t)block{

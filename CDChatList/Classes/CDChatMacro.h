@@ -28,11 +28,11 @@
 #define scrnW [UIScreen mainScreen].bounds.size.width
 #define scrnH [UIScreen mainScreen].bounds.size.height
 
-#define NaviH        (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)   // 导航栏高度
+#define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)   // 导航栏高度
 
 // cell
 
-#define MsgTimeH  50 // cell中消息中时间视图的高度（如果显示）
+#define MsgTimeH  30 // cell中消息中时间视图的高度（如果显示）
 
 #define DOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
 

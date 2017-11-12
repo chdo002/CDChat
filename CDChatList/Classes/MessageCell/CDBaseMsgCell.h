@@ -13,9 +13,10 @@
 
 // cell
 
-#define MsgBackGroundColor (isChatListDebug ? CRMHexColor(0x9E7777) : CRMHexColor(0xEBEBEB))           // cell背景色
+#define MsgBackGroundColor (isChatListDebug ? CRMHexColor(0xB5E7E1) : CRMHexColor(0xEBEBEB))           // cell背景色
+#define MsgContentBackGroundColor (isChatListDebug ? CRMHexColor(0x9E7777) : CRMHexColor(0xEBEBEB))       // 消息容器背景色
 #define HeadBackGroundColor (isChatListDebug ? [UIColor redColor] : CRMHexColor(0xEBEBEB))             // 头像背景色
-#define MsgContentBackGroundColor (isChatListDebug ? [UIColor redColor] : CRMHexColor(0xF5F5F5))       // 文字背景色
+#define MsgTextContentBackGroundColor (isChatListDebug ? [UIColor redColor] : CRMHexColor(0xF5F5F5))       // 文字背景色
 
 #define HeadSideLength  40 // 头像边长
 #define MessageMargin  10  // 头像外边距

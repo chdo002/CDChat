@@ -81,7 +81,7 @@
     CGFloat height = res.height;
     data.cellHeight = height + (data.willDisplayTime ? MsgTimeH : 0);
     
-    return height;
+    return data.cellHeight;
 }
 
 /**

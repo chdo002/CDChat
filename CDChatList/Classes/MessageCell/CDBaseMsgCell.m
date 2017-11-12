@@ -26,12 +26,12 @@
     _timeLabel = [[UILabel alloc] init];
     [_timeLabel setFrame:CGRectMake(0, 0, 100, 25)];
     _timeLabel.center = CGPointMake(scrnW / 2, MsgTimeH / 2);
-    _timeLabel.text = @"昨天 下午 2:38";
+    _timeLabel.text = @"星期一 下午 2:38";
     _timeLabel.textColor = [UIColor whiteColor];
     _timeLabel.backgroundColor = CRMHexColor(0xCECECE);
     _timeLabel.layer.cornerRadius = 5;
     _timeLabel.clipsToBounds = YES;
-    _timeLabel.font = [UIFont systemFontOfSize:14];
+    _timeLabel.font = [UIFont systemFontOfSize:12];
     _timeLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_timeLabel];
     
@@ -47,7 +47,7 @@
 -(void)initLeftMessageContent {
     
     _msgContent_left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
-    _msgContent_left.backgroundColor = MsgBackGroundColor;
+    _msgContent_left.backgroundColor = MsgContentBackGroundColor;
     [self addSubview:_msgContent_left];
     // 头像
     UIImage *left_head = BundleImage(@"icon_head");
@@ -85,7 +85,7 @@
 -(void)initRightMessageContent{
     
     _msgContent_right = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
-    _msgContent_right.backgroundColor = MsgBackGroundColor;
+    _msgContent_right.backgroundColor = MsgContentBackGroundColor;
     [self addSubview:_msgContent_right];
     // 头像
     UIImage *right_head = BundleImage(@"icon_head");
@@ -127,15 +127,23 @@
     // 左侧
     // 设置消息内容的总高度
     CGRect msgRect = self.msgContent_left.frame;
-    msgRect.size.height = data.cellHeight;
+    CGFloat msgContentHeight = data.cellHeight;
+    if (data.willDisplayTime) {
+        msgRect.origin = CGPointMake(msgRect.origin.x, MsgTimeH);
+        msgContentHeight = msgContentHeight - MsgTimeH; //
+    } else {
+        msgRect.origin = CGPointMake(msgRect.origin.x, 0);
+    }
+    msgRect.size.height = msgContentHeight;
     self.msgContent_left.frame = msgRect;
+    
     // 设置气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_left.frame;
     bubbleRec.size.width = data.bubbleWidth;
-    bubbleRec.size.height = data.cellHeight - MessageMargin * 2;
+    bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
     self.bubbleImage_left.frame = bubbleRec;
     
-    
+    // 更新动画状态
     if (data.msgState == CDMessageStateNormal) {
         [_indicator_left stopAnimating];
     } else {
@@ -147,26 +155,32 @@
 
 
 -(CGRect)updateMsgContentFrame_right:(CDChatMessage) data{
-    
-    // 左侧
+    // 右侧
     // 设置消息内容的总高度
     CGRect msgRect = self.msgContent_right.frame;
-    msgRect.size.height = data.cellHeight;
+    CGFloat msgContentHeight = data.cellHeight;
+    if (data.willDisplayTime) {
+        msgRect.origin = CGPointMake(msgRect.origin.x, MsgTimeH);
+        msgContentHeight = msgContentHeight - MsgTimeH; //
+    } else {
+        msgRect.origin = CGPointMake(msgRect.origin.x, 0);
+    }
+    msgRect.size.height = msgContentHeight;
     self.msgContent_right.frame = msgRect;
     
     // 设置气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_right.frame;
     bubbleRec.size.width = data.bubbleWidth;
-    bubbleRec.size.height = data.cellHeight - MessageMargin * 2;
+    bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
     bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth;
     self.bubbleImage_right.frame = bubbleRec;
     
+    // 更新动画状态
     if (data.msgState == CDMessageStateNormal) {
         [_indicator_right stopAnimating];
     } else {
         [_indicator_right startAnimating];
     }
-    
     
     return bubbleRec;
 }
