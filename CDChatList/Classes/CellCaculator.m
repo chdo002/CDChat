@@ -123,8 +123,8 @@
                                                      attributes:attri context:nil].size;
     CGFloat bubbleWidth = ceilf(caculateTextSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
     CGFloat cellheight = ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
-    if (cellheight < (MessageMargin * 2 + HeadSideLength)) {
-        cellheight = MessageMargin * 2 + HeadSideLength;
+    if (cellheight < MessageContentH) {
+        cellheight = MessageContentH;
     }
     return CGSizeMake(bubbleWidth, cellheight);
 }
