@@ -64,7 +64,7 @@
                                                BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
     left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
-    _bubbleImage_left.frame = CGRectMake(MessageMargin * 2 + HeadSideLength,
+    _bubbleImage_left.frame = CGRectMake(MessageMargin * 2 + HeadSideLength - BubbleShareAngleWidth,
                                          MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_left addSubview:_bubbleImage_left];
     
@@ -102,7 +102,7 @@
                                                 BubbleRoundAnglehorizInset, BubbleSharpAnglehorizInset);
     right_box = [right_box resizableImageWithCapInsets:inset_right resizingMode:UIImageResizingModeStretch];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
-    _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength),
+    _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth,
                                           MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_right addSubview:_bubbleImage_right];
     
@@ -158,7 +158,7 @@
     CGRect bubbleRec = self.bubbleImage_right.frame;
     bubbleRec.size.width = data.bubbleWidth;
     bubbleRec.size.height = data.cellHeight - MessageMargin * 2;
-    bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength);
+    bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth;
     self.bubbleImage_right.frame = bubbleRec;
     
     if (data.msgState == CDMessageStateNormal) {
