@@ -13,12 +13,13 @@
 
 // cell
 
-#define MsgBackGroundColor CRMHexColor(0x9E7777) // cell背景色
-
+#define MsgBackGroundColor (isChatListDebug ? CRMHexColor(0x9E7777) : CRMHexColor(0xEBEBEB)) // cell背景色
+#define HeadBackGroundColor (isChatListDebug ? [UIColor redColor] : CRMHexColor(0xEBEBEB)) // 头像背景色
+#define MsgContentBackGroundColor (isChatListDebug ? [UIColor redColor] : CRMHexColor(0xF5F5F5)) // 文字背景色
 
 #define HeadSideLength  40 // cell中头像边长
-#define MessagePadding  10  // 头像内边距
-#define MessageContentH (MessagePadding * 2 +  HeadSideLength) // 文字消息内容在只有一行时的高度 不包括时间label 
+#define MessageMargin  10  // 头像外边距
+#define MessageContentH (MessageMargin * 2 +  HeadSideLength) // 文字消息内容在只有一行时的高度 不包括时间label 
 
 // 气泡切图cap内边距
 #define BubbleSharpAngleHeighInset 25

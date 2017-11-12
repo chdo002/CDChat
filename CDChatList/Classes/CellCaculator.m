@@ -122,9 +122,9 @@
                                                         options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                      attributes:attri context:nil].size;
     CGFloat bubbleWidth = ceilf(caculateTextSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
-    CGFloat cellheight = ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessagePadding * 2;
-    if (cellheight < (MessagePadding * 2 + HeadSideLength)) {
-        cellheight = MessagePadding * 2 + HeadSideLength;
+    CGFloat cellheight = ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
+    if (cellheight < (MessageMargin * 2 + HeadSideLength)) {
+        cellheight = MessageMargin * 2 + HeadSideLength;
     }
     return CGSizeMake(bubbleWidth, cellheight);
 }
@@ -152,9 +152,9 @@ static CGSize caculateImageSize140By140(UIImage *image) {
     
     // 返回的高度是图片高度，需加上消息内边距变成消息体高度
     if (maxSide == width) {
-        return CGSizeMake(140, actuallMiniSide + MessagePadding * 2);
+        return CGSizeMake(140, actuallMiniSide + MessageMargin * 2);
     } else {
-        return CGSizeMake(actuallMiniSide, 140 + MessagePadding * 2);
+        return CGSizeMake(actuallMiniSide, 140 + MessageMargin * 2);
     }
 }
 

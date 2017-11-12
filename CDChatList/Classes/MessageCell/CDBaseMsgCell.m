@@ -47,16 +47,15 @@
 -(void)initLeftMessageContent {
     
     _msgContent_left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
-    //    _msgContent_left.backgroundColor = MsgBackGroundColor;
-    _msgContent_left.backgroundColor = [UIColor blueColor];
+    _msgContent_left.backgroundColor = MsgBackGroundColor;
     [self addSubview:_msgContent_left];
     // 头像
     UIImage *left_head = BundleImage(@"icon_head");
     _headImage_left = [[UIImageView alloc] initWithImage:left_head];
-    _headImage_left.frame = CGRectMake(MessagePadding, MessagePadding,
+    _headImage_left.frame = CGRectMake(MessageMargin, MessageMargin,
                                        HeadSideLength, HeadSideLength);
     _headImage_left.contentMode = UIViewContentModeScaleAspectFit;
-    _headImage_left.backgroundColor = [UIColor redColor];
+    _headImage_left.backgroundColor = HeadBackGroundColor;
     [_msgContent_left addSubview:_headImage_left];
     
     // 气泡
@@ -65,8 +64,8 @@
                                                BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
     left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
-    _bubbleImage_left.frame = CGRectMake(MessagePadding * 2 + HeadSideLength,
-                                         MessagePadding, BubbleMaxWidth, HeadSideLength);
+    _bubbleImage_left.frame = CGRectMake(MessageMargin * 2 + HeadSideLength,
+                                         MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_left addSubview:_bubbleImage_left];
     
     //发送中的菊花loading
@@ -91,10 +90,10 @@
     // 头像
     UIImage *right_head = BundleImage(@"icon_head");
     _headImage_right = [[UIImageView alloc] initWithImage:right_head];
-    _headImage_right.frame = CGRectMake(scrnW - (HeadSideLength + MessagePadding), MessagePadding,
+    _headImage_right.frame = CGRectMake(scrnW - (HeadSideLength + MessageMargin), MessageMargin,
                                         HeadSideLength, HeadSideLength);
     _headImage_right.contentMode = UIViewContentModeScaleAspectFit;
-    _headImage_right.backgroundColor = [UIColor redColor];
+    _headImage_right.backgroundColor = HeadBackGroundColor;
     [_msgContent_right addSubview:_headImage_right];
     
     // 气泡
@@ -103,8 +102,8 @@
                                                 BubbleRoundAnglehorizInset, BubbleSharpAnglehorizInset);
     right_box = [right_box resizableImageWithCapInsets:inset_right resizingMode:UIImageResizingModeStretch];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
-    _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessagePadding * 2 + HeadSideLength),
-                                          MessagePadding, BubbleMaxWidth, HeadSideLength);
+    _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength),
+                                          MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_right addSubview:_bubbleImage_right];
     
     //发送中的菊花loading
@@ -133,7 +132,7 @@
     // 设置气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_left.frame;
     bubbleRec.size.width = data.bubbleWidth;
-    bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
+    bubbleRec.size.height = data.cellHeight - MessageMargin * 2;
     self.bubbleImage_left.frame = bubbleRec;
     
     
@@ -158,8 +157,8 @@
     // 设置气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_right.frame;
     bubbleRec.size.width = data.bubbleWidth;
-    bubbleRec.size.height = data.cellHeight - MessagePadding * 2;
-    bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessagePadding * 2 + HeadSideLength);
+    bubbleRec.size.height = data.cellHeight - MessageMargin * 2;
+    bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength);
     self.bubbleImage_right.frame = bubbleRec;
     
     if (data.msgState == CDMessageStateNormal) {
