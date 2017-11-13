@@ -84,6 +84,8 @@
     return data.cellHeight;
 }
 
+#pragma mark 针对不同的cell，计算cell高度及气泡宽度
+
 /**
  针对不同的cell，计算cell高度及气泡宽度
  
@@ -91,9 +93,6 @@
  @return cell高度
  */
 +(CGSize)caculateCellHeightAndBubleWidth:(CDChatMessage)data{
-    
-    CGFloat randwidth = (CGFloat)arc4random_uniform(15);
-    CGFloat randHeight = (CGFloat)arc4random_uniform(15);
 
     switch (data.msgType) {
         case CDMessageTypeText:
@@ -101,12 +100,13 @@
         case CDMessageTypeImage:
             return [self sizeForImageMessage:data];
         case CDMessageTypeSystemInfo:
-            return CGSizeMake(randwidth + 150, randHeight + 179);
+            return [self sizeForSysInfoMessage:data];
         default:
             return CGSizeMake(150, 170);
     }
 }
 
+#pragma mark ---计算文字消息尺寸方法
 +(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
     NSDictionary *attri = @{NSFontAttributeName: MessageFont};
@@ -129,7 +129,7 @@
     return CGSizeMake(bubbleWidth, cellheight);
 }
 
-#pragma mark 计算图片消息尺寸方法
+#pragma mark ---计算图片消息尺寸方法
 
 /**
  根据图片大小计算气泡宽度和cell高度
@@ -195,7 +195,18 @@ static CGSize caculateImageSize140By140(UIImage *image) {
         return CGSizeMake(140, 140);
     }
 }
+#pragma mark ---计算系统消息消息尺寸方法
 
-
++(CGSize)sizeForSysInfoMessage:(CDChatMessage)msgData{
+    
+    NSDictionary *attri = @{NSFontAttributeName: SysInfoMessageFont};
+    CGSize maxTextSize = CGSizeMake(scrnW * 0.6, CGFLOAT_MAX);
+    CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
+                                                        options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                                     attributes:attri context:nil].size;
+    
+    return CGSizeMake(caculateTextSize.width + SysInfoPadding * 2,
+                      caculateTextSize.height + SysInfoPadding * 2);
+}
 
 @end

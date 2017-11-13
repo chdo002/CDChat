@@ -23,7 +23,7 @@
 #define MessageContentH (MessageMargin * 2 +  HeadSideLength) // 文字消息内容在只有一行时的高度 不包括时间label 
 
 // 气泡切图cap内边距
-#define BubbleRoundAnglehorizInset 5  // 气泡圆角半径
+#define BubbleRoundAnglehorizInset 10  // 气泡圆角半径
 #define BubbleShareAngleWidth  6      // 气泡尖角宽度
 #define BubbleSharpAnglehorizInset (BubbleRoundAnglehorizInset + BubbleShareAngleWidth) //尖角外部到圆角内部的距离 
 #define BubbleSharpAngleHeighInset 25  // 气泡顶部到尖角底部的距离
@@ -32,7 +32,10 @@
 
 #define MessageFont  [UIFont systemFontOfSize:16]
 
-@interface CDBaseMsgCell : UITableViewCell
+#define SysInfoMessageFont  [UIFont systemFontOfSize:14]
+#define SysInfoPadding  8
+
+@interface CDBaseMsgCell : UITableViewCell<MessageCellProtocal>
 
 
 @property(nonatomic,strong) UILabel *timeLabel; //消息时间视图
@@ -68,8 +71,5 @@
  */
 -(CGRect)updateMsgContentFrame_right:(CDChatMessage) data;
 
-
-
-- (void)configCellByData:(CDChatMessage)data;
 
 @end

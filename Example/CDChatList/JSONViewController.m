@@ -34,8 +34,20 @@
     UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"动作3" style:UIBarButtonItemStyleDone target:self action:@selector(action3)];
     [self.navigationItem setRightBarButtonItems:@[item1, item2, item3]];
     
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSError *err;
+    NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
     
+    NSMutableArray *msgArr = [NSMutableArray array];
     
+    for (NSDictionary *dic in arr) {
+        CDMessageModal *modal = [CDMessageModal initWithDic:dic];
+        [msgArr addObject:modal];
+    }
+    
+    self.listView.msgArr = msgArr;
+    self.msgArr = msgArr;
     
 }
 
@@ -63,19 +75,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSError *err;
-    NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
     
-    NSMutableArray *msgArr = [NSMutableArray array];
-    
-    for (NSDictionary *dic in arr) {
-        CDMessageModal *modal = [CDMessageModal initWithDic:dic];
-        [msgArr addObject:modal];
-    }
-    self.listView.msgArr = msgArr;
-    self.msgArr = msgArr;
 }
 
 @end

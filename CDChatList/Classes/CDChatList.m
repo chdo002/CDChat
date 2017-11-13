@@ -9,7 +9,7 @@
 
 #import "CDTextTableViewCell.h"
 #import "CDImageTableViewCell.h"
-
+#import "CDSystemTableViewCell.h"
 
 #import "CellCaculator.h"
 
@@ -57,7 +57,7 @@ typedef enum : NSUInteger {
     // 注册cell类
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"textcell"];
     [self registerClass:[CDImageTableViewCell class] forCellReuseIdentifier:@"imagecell"];
-    
+    [self registerClass:[CDSystemTableViewCell class] forCellReuseIdentifier:@"syscell"];
     // 下拉loading视图
     CGRect rect = CGRectMake(0, -LoadingH, scrnW, LoadingH);
     UIActivityIndicatorView *indicatr = [[UIActivityIndicatorView alloc] initWithFrame:rect];
@@ -179,6 +179,7 @@ typedef enum : NSUInteger {
 //        [MBProgressHUD hideHUDForView:self animated:YES];
         [self relayoutTable:YES];
     }];
+    
 }
 
 /**

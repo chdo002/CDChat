@@ -20,7 +20,6 @@
  */
 @property(nonatomic, strong) UIImageView *imageContent_right;
 
-
 @end;
 
 @implementation CDImageTableViewCell
@@ -75,19 +74,16 @@
 -(void)configCellByData:(CDChatMessage)data{
     [super configCellByData:data];
     
-//    [self.msgContent_left setHidden:YES];
-//    [self.msgContent_right setHidden:NO];
-    
-    [self.msgContent_left setHidden:NO];
-    [self.msgContent_right setHidden:YES];
-    
-    // 左侧
-    // 设置消息内容的总高度
-    [self configImage_Left:data];
-    
-    // 右侧
-    // 设置消息内容的总高度
-    [self configImage_Right:data];
+    if (data.isLeft) {
+        // 左侧
+        // 设置消息内容的总高度
+        [self configImage_Left:data];
+    } else {
+        // 右侧
+        // 设置消息内容的总高度
+        [self configImage_Right:data];
+    }
+
 }
 
 -(void)configImage_Left:(CDChatMessage)data {
@@ -108,9 +104,10 @@
     
     CGRect bubbleRec = [super updateMsgContentFrame_right:data];
     
-    self.imageContent_right.frame  =bubbleRec;
+    self.imageContent_right.frame = bubbleRec;
     
     UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:data.msg];
+    
     if (image) {
         self.imageContent_right.image = image;
     } else {

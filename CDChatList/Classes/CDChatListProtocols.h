@@ -68,6 +68,12 @@ typedef enum : NSUInteger {
 @property (copy,nonatomic) NSString *messageId;
 
 /**
+ 模型其他信息
+ */
+@property (copy, nonatomic) NSDictionary *modalInfo;
+
+#pragma mark 缓存，这些字段，存在缓存表中
+/**
  气泡宽度，缓存用
  */
 @property (assign, nonatomic) CGFloat bubbleWidth;
@@ -78,10 +84,9 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) CGFloat cellHeight;
 
 /**
- 模型其他信息
+ cell左右，缓存用
  */
-@property (copy, nonatomic) NSDictionary *modalInfo;
-
+@property (assign, nonatomic) BOOL isLeft;
 
 
 @end

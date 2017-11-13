@@ -31,7 +31,7 @@
     _timeLabel.backgroundColor = CRMHexColor(0xCECECE);
     _timeLabel.layer.cornerRadius = 5;
     _timeLabel.clipsToBounds = YES;
-    _timeLabel.font = [UIFont systemFontOfSize:12];
+    _timeLabel.font = [UIFont systemFontOfSize:14];
     _timeLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_timeLabel];
     
@@ -69,7 +69,7 @@
     [_msgContent_left addSubview:_bubbleImage_left];
     
     //发送中的菊花loading
-    _indicator_left = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    _indicator_left = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [_msgContent_left addSubview:_indicator_left];
     [_indicator_left startAnimating];
     
@@ -107,9 +107,7 @@
     [_msgContent_right addSubview:_bubbleImage_right];
     
     //发送中的菊花loading
-    
-    
-    _indicator_right = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    _indicator_right = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [_msgContent_right addSubview:_indicator_right];
     [_indicator_right startAnimating];
     
@@ -120,14 +118,21 @@
         make.centerY.equalTo(_bubbleImage_right);
     }];
     
-    
 }
 
+/**
+ 根据消息中的cellHeight  bubbleWidth 更新UI
+
+ @param data 消息体
+ @return 气泡宽高
+ */
 -(CGRect)updateMsgContentFrame_left:(CDChatMessage) data{
     // 左侧
     // 设置消息内容的总高度
     CGRect msgRect = self.msgContent_left.frame;
     CGFloat msgContentHeight = data.cellHeight;
+    
+    // 根据是否显示时间，调整msgContent_left位置
     if (data.willDisplayTime) {
         msgRect.origin = CGPointMake(msgRect.origin.x, MsgTimeH);
         msgContentHeight = msgContentHeight - MsgTimeH; //
@@ -153,7 +158,12 @@
     return bubbleRec;
 }
 
-
+/**
+ 根据消息中的cellHeight  bubbleWidth 更新UI
+ 
+ @param data 消息体
+ @return 气泡宽高
+ */
 -(CGRect)updateMsgContentFrame_right:(CDChatMessage) data{
     // 右侧
     // 设置消息内容的总高度
@@ -188,6 +198,92 @@
 
 - (void)configCellByData:(CDChatMessage)data{
     self.msgModal = data;
+    
+    // 显示或隐藏  左右气泡
+    [self.msgContent_left setHidden:!data.isLeft];
+    [self.msgContent_right setHidden:data.isLeft];
+    
+    // 顶部
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];
+    self.timeLabel.text = [self checkDateDisplay:date];
+    CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(scrnW, MsgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
+    [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + 15, textSize.height + 12)];
+    _timeLabel.center = CGPointMake(scrnW / 2, MsgTimeH / 2);
 }
+
+
+/**
+ 根据消息时间，计算需要显示的消息时间格式
+
+ @param thisDate 消息时间
+ @return 显示在label上的
+ */
+- (NSString*)checkDateDisplay:(NSDate *) thisDate {
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+    NSDate *nowDate =  [NSDate date];
+    
+    // IOS8 最低支持；
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear;
+    
+    NSDateComponents *nowComps = [[NSDateComponents alloc] init];
+    nowComps = [calendar components:unitFlags fromDate:nowDate];
+    NSInteger nowDay = nowComps.day;
+    
+    // 时间戳  转 是日期
+    NSDateComponents *thisComps = [[NSDateComponents alloc] init];
+    thisComps = [calendar components:unitFlags fromDate:thisDate];
+    NSInteger thisDay = thisComps.day;
+    
+    // 当前时间差；
+    NSDateComponents *dayDiffComps = [[NSDateComponents alloc] init] ;
+    dayDiffComps = [calendar components:NSCalendarUnitDay fromDate:thisDate toDate:nowDate options:NSCalendarWrapComponents];
+    NSInteger compareDay = dayDiffComps.day;
+    
+    NSString *timeString;
+    
+    // 是否 是当天 的 时间；
+    if (compareDay == 0 && nowDay == thisDay) {
+        NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"HH:mm"];
+        timeString  = [dateFormat stringFromDate:thisDate];
+        return timeString;
+    }
+    
+    // 是否  昨天时间；
+    if (compareDay == 1 || (compareDay == 0 && nowDay != thisDay) ){
+        timeString = @"昨天";
+        
+        NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"HH:mm"];
+        NSString* time = [dateFormat stringFromDate:thisDate];
+        timeString = [NSString stringWithFormat:@"%@ %@" , timeString , time ];
+        
+        return timeString;
+    }
+    
+    // 是否  前天时间；
+    if (compareDay == 2 || (compareDay == 0 && nowDay != thisDay) ){
+        timeString = @"前天";
+        
+        NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"HH:mm"];
+        NSString* time = [dateFormat stringFromDate:thisDate];
+        timeString = [NSString stringWithFormat:@"%@ %@" , timeString , time ];
+        
+        return timeString;
+    }
+    
+    // 非近 一周时间 ；
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM-dd"];
+    timeString  = [dateFormat stringFromDate:thisDate];
+    
+    [dateFormat setDateFormat:@"yy/MM/dd"];
+    timeString  = [dateFormat stringFromDate:thisDate];
+    
+    return timeString;
+}
+
 
 @end

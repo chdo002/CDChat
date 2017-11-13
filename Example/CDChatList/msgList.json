@@ -4,76 +4,95 @@
  "messageId": "1230",
  "createTime": "1509634535123",
  "msgType" : 0,
- "msgState" : 0
+ "msgState" : 0,
+ "isLeft" : 0
  },
  {
  "msg": "http://g.hiphotos.baidu.com/image/h%3D300/sign=638180014a166d222777139476220945/5882b2b7d0a20cf407d7f9157f094b36adaf99b0.jpg",
  "messageId": "1231",
  "createTime": "1509634535123",
  "msgType" : 1,
- "msgState" : 0
+ "msgState" : 0,
+ "isLeft" : 1
  },
  {
  "msg": "阿斯蒂芬撒低价",
  "messageId": "1232",
  "createTime": "1509634535123",
  "msgType" : 0,
- "msgState" : 0
+ "msgState" : 0,
+ "isLeft" : 0
  },
  {
  "msg": "21341234123asdfsdfoijsdfoi阿斯蒂阿斯蒂芬奇偶及价格芬撒低价",
  "messageId": "1233",
  "createTime": "1509634535123",
  "msgType" : 0,
- "msgState" : 0
+ "msgState" : 0,
+ "isLeft" : 0
  },
  {
  "msg": "http://desk.fd.zol-img.com.cn/t_s1280x800/g5/M00/02/08/ChMkJlbKzNaIFo7nAAVSSVmZG6oAALI6QO9Tt8ABVJh702.jpg",
  "messageId": "1234",
  "createTime": "1509634535123",
  "msgType" : 1,
- "msgState": 0
+ "msgState": 0,
+ "isLeft" : 0
  },
  {
  "msg": "http://b.hiphotos.baidu.com/image/pic/item/8ad4b31c8701a18b5eb81585972f07082938fead.jpg",
  "messageId": "1235",
  "createTime": "1509634535123",
  "msgType" : 1,
- "msgState": 0
+ "msgState": 0,
+ "isLeft" : 0
  },
  {
  "msg": "http://g.hiphotos.baidu.com/image/pic/item/0df431adcbef76097d92995527dda3cc7dd99e5a.jpg",
  "messageId": "1236",
  "createTime": "1509634535123",
  "msgType" : 1,
- "msgState": 0
+ "msgState": 0,
+ "isLeft" : 1
+ },
+ {
+ "msg": "这是系统消息",
+ "messageId": "1246",
+ "createTime": "1509634535223",
+ "msgType" : 2,
+ "msgState": 0,
+ "isLeft" : 1
  },
  {
  "msg": "开始奥斯大家否奇偶偶师傅就哦啊死的飞机偶发叫司法局公司附近奥斯福建欧思凡解耦往奇偶if酒叟ID飞机结束",
  "messageId": "1237",
  "createTime": "1509634535124",
  "msgType" : 0,
- "msgState": 0
+ "msgState": 0,
+ "isLeft" : 0
  },
  {
  "msg": "开始佛寺大家否金佛寺定金佛山就结束",
  "messageId": "1238",
  "createTime": "1509634535125",
  "msgType" : 0,
- "msgState": 0
+ "msgState": 0,
+ "isLeft" : 0
  },
  {
  "msg": "开始阿什顿",
  "messageId": "1239",
  "createTime": "1508634535126",
  "msgType" : 0,
- "msgState": 0
+ "msgState": 0,
+ "isLeft" : 1
  },
  {
  "msg": "开始阿什顿",
  "messageId": "1240",
  "createTime": "1509634535127",
  "msgType" : 0,
- "msgState": 0
+ "msgState": 0,
+ "isLeft" : 0
  }
 ]

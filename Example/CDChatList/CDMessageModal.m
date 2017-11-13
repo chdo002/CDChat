@@ -29,6 +29,7 @@
 
 @synthesize msgState;
 
+@synthesize isLeft;
 
 +(CDMessageModal *)initWithDic:(NSDictionary *)dic {
     
@@ -39,10 +40,12 @@
     modal.createTime = dic[@"createTime"];
     modal.msgType = [dic[@"msgType"] integerValue];
     modal.msgState = [dic[@"msgState"] integerValue];
-    
+    modal.isLeft = [dic[@"isLeft"] integerValue];
     
     return modal;
 }
+
+
 
 @end
 

@@ -55,20 +55,16 @@
 
 - (void)configCellByData:(CDChatMessage)data {
     [super configCellByData:data];
-    
-//    [self.msgContent_left setHidden:YES];
-//    [self.msgContent_right setHidden:NO];
 
-    [self.msgContent_left setHidden:NO];
-    [self.msgContent_right setHidden:YES];
-    
-    // 左侧
-//     设置消息内容的总高度
-    [self configText_Left:data];
-    
-    // 右侧
-    // 设置消息内容的总高度
-    [self configText_Right:data];
+    if (data.isLeft) {
+        // 左侧
+        //     设置消息内容的总高度
+        [self configText_Left:data];
+    } else {
+        // 右侧
+        // 设置消息内容的总高度
+        [self configText_Right:data];
+    }
 }
 
 -(void)configText_Left:(CDChatMessage)data{
