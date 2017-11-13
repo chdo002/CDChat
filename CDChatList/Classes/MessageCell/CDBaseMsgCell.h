@@ -31,9 +31,10 @@
 #define BubbleMaxWidth scrnW * 0.64 // 气泡最大边长   从尖角到另一边
 
 #define MessageFont  [UIFont systemFontOfSize:16]
-
-#define SysInfoMessageFont  [UIFont systemFontOfSize:14]
-#define SysInfoPadding  8
+// 系统消息的一些布局
+#define SysInfoMessageFont  [UIFont systemFontOfSize:14] // 系统字体
+#define SysInfoMessageMaxWidth scrnW * 0.64    // 系统消息最大边长
+#define SysInfoPadding  8                      // 系统消息内边距
 
 @interface CDBaseMsgCell : UITableViewCell<MessageCellProtocal>
 

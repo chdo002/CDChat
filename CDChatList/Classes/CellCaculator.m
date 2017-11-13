@@ -200,7 +200,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
 +(CGSize)sizeForSysInfoMessage:(CDChatMessage)msgData{
     
     NSDictionary *attri = @{NSFontAttributeName: SysInfoMessageFont};
-    CGSize maxTextSize = CGSizeMake(scrnW * 0.6, CGFLOAT_MAX);
+    CGSize maxTextSize = CGSizeMake(SysInfoMessageMaxWidth, CGFLOAT_MAX);
     CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
                                                         options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                      attributes:attri context:nil].size;

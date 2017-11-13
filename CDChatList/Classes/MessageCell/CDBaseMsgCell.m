@@ -24,7 +24,7 @@
     
     // 1 消息时间初始化
     _timeLabel = [[UILabel alloc] init];
-    [_timeLabel setFrame:CGRectMake(0, 0, 100, 25)];
+    [_timeLabel setFrame:CGRectMake(0, 0, 100, MsgTimeH)];
     _timeLabel.center = CGPointMake(scrnW / 2, MsgTimeH / 2);
     _timeLabel.text = @"星期一 下午 2:38";
     _timeLabel.textColor = [UIColor whiteColor];
@@ -207,7 +207,10 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];
     self.timeLabel.text = [self checkDateDisplay:date];
     CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(scrnW, MsgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
-    [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + 15, textSize.height + 12)];
+    if (textSize.height < MsgTimeH) {
+        textSize.height = MsgTimeH;
+    }
+    [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + SysInfoPadding * 2, textSize.height)];
     _timeLabel.center = CGPointMake(scrnW / 2, MsgTimeH / 2);
 }
 

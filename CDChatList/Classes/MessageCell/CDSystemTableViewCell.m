@@ -10,6 +10,7 @@
 #import "CDBaseMsgCell.h"
 
 @interface CDSystemTableViewCell()
+@property(nonatomic, strong) UIView  *infoBackGround;
 @property(nonatomic, strong) UILabel *sysInfoLbael;
 @end
 
@@ -21,21 +22,32 @@
     
     self.backgroundColor = MsgBackGroundColor;
     
+    self.infoBackGround = [[UIView alloc] init];
+    self.infoBackGround.backgroundColor = CRMHexColor(0xCECECE);
+    self.infoBackGround.clipsToBounds = YES;
+    self.infoBackGround.layer.cornerRadius = 5;
+    [self addSubview:self.infoBackGround];
+    
     self.sysInfoLbael = [[UILabel alloc] init];
     self.sysInfoLbael.font = SysInfoMessageFont;
     self.sysInfoLbael.textAlignment = NSTextAlignmentCenter;
     self.sysInfoLbael.textColor = [UIColor whiteColor];
-    self.sysInfoLbael.layer.cornerRadius = 5;
-    self.sysInfoLbael.clipsToBounds = YES;
+    self.sysInfoLbael.numberOfLines = 0;
     self.sysInfoLbael.backgroundColor = CRMHexColor(0xCECECE);
-    [self addSubview:self.sysInfoLbael];
+    [self.infoBackGround addSubview:self.sysInfoLbael];
     
     return self;
 }
 - (void)configCellByData:(CDChatMessage)data {
+    
+    self.infoBackGround.frame = CGRectMake(0, 0, data.bubbleWidth, data.cellHeight);
+    self.infoBackGround.center = CGPointMake(scrnW / 2, data.cellHeight / 2);
+    
     self.sysInfoLbael.text = data.msg;
-    self.sysInfoLbael.frame = CGRectMake(0, 0, data.bubbleWidth, data.cellHeight - SysInfoPadding * 1.2);
-    self.sysInfoLbael.center = CGPointMake(scrnW / 2, data.cellHeight / 2);
+    self.sysInfoLbael.frame = CGRectMake(0, 0, data.bubbleWidth - SysInfoPadding * 2, data.cellHeight - SysInfoPadding * 2);
+    self.sysInfoLbael.center = CGPointMake(data.bubbleWidth / 2, data.cellHeight / 2);
+    
+
 }
 
 @end
