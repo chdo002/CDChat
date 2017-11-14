@@ -7,6 +7,7 @@
 
 #import "CDImageTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIView+WebCache.h"
 
 @interface CDImageTableViewCell()
 
@@ -49,7 +50,11 @@
     self.imageContent_left = [[UIImageView alloc] initWithFrame:self.bubbleImage_left.frame];
     self.imageContent_left.contentMode = UIViewContentModeScaleAspectFit;
     self.imageContent_left.backgroundColor = [UIColor lightGrayColor];
-    [self.msgContent_left insertSubview:self.imageContent_left belowSubview:self.bubbleImage_left];
+    [self.msgContent_left insertSubview:self.imageContent_left
+                           belowSubview:self.bubbleImage_left];
+    
+    [self.msgContent_left sd_setShowActivityIndicatorView:YES];
+    [self.msgContent_left sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
 }
 
 -(void)initRightImageContent{
@@ -69,6 +74,8 @@
     self.imageContent_right.backgroundColor = CRMHexColor(0x808080);
     [self.msgContent_right insertSubview:self.imageContent_right
                             belowSubview:self.bubbleImage_right];
+    [self.msgContent_right sd_setShowActivityIndicatorView:YES];
+    [self.msgContent_right sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
 }
 
 -(void)configCellByData:(CDChatMessage)data{

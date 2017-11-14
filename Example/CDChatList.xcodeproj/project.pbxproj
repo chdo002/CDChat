@@ -23,6 +23,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B6954DFC369378779E81DABA /* Pods_CDChatList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */; };
+		E93F00191FBABE14009C3E7B /* msgList2.json in Resources */ = {isa = PBXBuildFile; fileRef = E93F00181FBABE14009C3E7B /* msgList2.json */; };
 		E949D4F91FA6C5E800094E5E /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E949D4F81FA6C5E800094E5E /* msgList.json */; };
 		E951A2FC1FAB60B80053CE5B /* JSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E951A2FB1FAB60B80053CE5B /* JSONViewController.m */; };
 		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
@@ -69,6 +70,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB16BFC8B517E192E61FBA43 /* Pods_CDChatList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E93F00181FBABE14009C3E7B /* msgList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList2.json; sourceTree = "<group>"; };
 		E949D4F81FA6C5E800094E5E /* msgList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList.json; sourceTree = "<group>"; };
 		E951A2FA1FAB60B80053CE5B /* JSONViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONViewController.h; sourceTree = "<group>"; };
 		E951A2FB1FAB60B80053CE5B /* JSONViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONViewController.m; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				E99CD0AD1FA185B90045783B /* CDMessageModal.h */,
 				E99CD0AE1FA185B90045783B /* CDMessageModal.m */,
 				E949D4F81FA6C5E800094E5E /* msgList.json */,
+				E93F00181FBABE14009C3E7B /* msgList2.json */,
 				E9C9995D1FB011C3000B4E3E /* imageList.json */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -299,6 +302,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				E93F00191FBABE14009C3E7B /* msgList2.json in Resources */,
 				E949D4F91FA6C5E800094E5E /* msgList.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */,

@@ -145,22 +145,35 @@ typedef enum : NSUInteger {
  */
 -(void)updateMessage:(CDChatMessage)message{
     
+    // 找到消息ID
     NSUInteger msgIndex = 0;
-
-    for (int i = 0; i < self.msgArr.count; i++) {
-        if ([message.messageId isEqualToString:self.msgArr[i].messageId]) {
+    for (int i = 0; i < _msgArr.count; i++) {
+        if ([message.messageId isEqualToString:_msgArr[i].messageId]) {
             msgIndex = i;
             break;
         }
     }
-
-    NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:self.msgArr];
+    
+    // 更新数据源
+    NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:_msgArr];
     [mutableMsgArr replaceObjectAtIndex:msgIndex withObject:message];
-    self.msgArr = [mutableMsgArr copy];
+    _msgArr = [mutableMsgArr copy];
     
+    // 若待更新的cell在屏幕上方，则可能造成屏幕抖动，需要手动调回contentoffset
     
-//    [self reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:msgIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    NSIndexPath *index = [NSIndexPath indexPathForRow:msgIndex inSection:0];
+    CGRect rect_old = [self rectForRowAtIndexPath:index]; // cell所在位置
+    CGFloat cellOffset = rect_old.origin.y + rect_old.size.height;
+    CGPoint contentOffset = self.contentOffset;
+    BOOL needAdjust = cellOffset < contentOffset.y;
+    
     [self reloadData];
+    #warning 这里存在未知的问题，在cellheight小于140时，会出现下沉
+    if (needAdjust) {
+        CGRect rect_new = [self rectForRowAtIndexPath:index]; // cell新的位置
+        CGFloat adjust = rect_old.size.height - rect_new.size.height;
+        [self setContentOffset:CGPointMake(0, self.contentOffset.y - adjust)];
+    }
 }
 
 /**
@@ -168,11 +181,11 @@ typedef enum : NSUInteger {
  */
 -(void)addMessagesToBottom: (CDChatMessageArray)newBottomMsgArr{
     
-    if (!self.msgArr) {
+    if (!_msgArr) {
         _msgArr = [NSMutableArray array];
     }
     
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:self.msgArr];
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:_msgArr];
     [arr addObjectsFromArray:newBottomMsgArr];
     
     [self configTableData:arr completeBlock:^(CGFloat totalHeight){
@@ -226,7 +239,7 @@ typedef enum : NSUInteger {
  @param animated 是否有动画
  */
 -(void)relayoutTable:(BOOL)animated{
-    if (self.msgArr.count == 0) {
+    if (_msgArr.count == 0) {
         return;
     }
     //
@@ -235,7 +248,7 @@ typedef enum : NSUInteger {
     }
     // 异步让tableview滚到最底部
 //    [self mainAsyQueue:^{
-        NSIndexPath *index = [NSIndexPath indexPathForRow:self.msgArr.count - 1  inSection:0];
+        NSIndexPath *index = [NSIndexPath indexPathForRow:_msgArr.count - 1  inSection:0];
         [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 //    }];
 }
@@ -254,7 +267,7 @@ typedef enum : NSUInteger {
         self.loadHeaderState = CDHeaderLoadStateLoading;
         
         // 当前最旧消息传给代理，调用获取上一段旧消息的方法
-        CDChatMessage lastMsg = self.msgArr.firstObject;
+        CDChatMessage lastMsg = _msgArr.firstObject;
         if (![self.msgDelegate respondsToSelector:@selector(loadMoreMsg: callback:)]) {
             
             return;
@@ -262,13 +275,13 @@ typedef enum : NSUInteger {
         
         [self.msgDelegate loadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
            
-            if (!self.msgArr) {
+            if (!_msgArr) {
                 _msgArr = [NSMutableArray array];
             }
             
             // 将旧消息加入当前消息数据中
             NSMutableArray *arr = [NSMutableArray arrayWithArray:newMessages];
-            [arr addObjectsFromArray:self.msgArr];
+            [arr addObjectsFromArray:_msgArr];
             // 计算消息高度
             [CellCaculator caculatorAllCellHeight:arr callBackOnMainThread:^(CGFloat totalHeight)
             {
@@ -307,7 +320,7 @@ typedef enum : NSUInteger {
 #pragma mark table 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CDChatMessage data = self.msgArr[indexPath.row];
+    CDChatMessage data = _msgArr[indexPath.row];
     NSString *cellType = @"textcell";
     switch (data.msgType) {
         case CDMessageTypeImage:
