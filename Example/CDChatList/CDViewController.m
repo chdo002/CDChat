@@ -42,7 +42,8 @@
         NSMutableArray *items = [NSMutableArray array];
         for (int i = 0; i < 15; i++) {
             CDMessageModal *modal = [[CDMessageModal alloc] init];
-            modal.msg = [NSString stringWithFormat:@"%d",i];
+    
+            modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",i]];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
             modal.msgType = CDMessageTypeText;
             NSString *number = @"";
@@ -73,7 +74,7 @@
 
     CDMessageModal *modal = [[CDMessageModal alloc] init];
     modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
-    modal.msg = [NSString stringWithFormat:@"新消息%@",modal.createTime];
+    modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"新消息%@",modal.createTime]];
     modal.msgType = CDMessageTypeText;
     
     NSString *number = @"";
@@ -92,9 +93,10 @@
     NSMutableArray *items = [NSMutableArray array];
     for (int i = 0; i < 15; i++) {
         CDMessageModal *modal = [[CDMessageModal alloc] init];
-        modal.msg = [NSString stringWithFormat:@"%d",i];
+        
+        modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",i]];
         modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
-        modal.msg = [NSString stringWithFormat:@"新消息%d",i];
+//        modal.msg = [NSString stringWithFormat:@"新消息%d",i];
         NSString *number = @"";
         for (int i = 1; i <= 5; i ++) {
             int x = arc4random() % 10;

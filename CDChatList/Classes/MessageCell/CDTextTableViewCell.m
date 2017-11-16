@@ -71,7 +71,7 @@
 
     CGRect bubbleRec = [super updateMsgContentFrame_left:data];
     // 文字内容
-    self.textContent_left.text = data.msg;
+    self.textContent_left.attributedText = data.msg_attributed;
     CGRect textRect = self.textContent_left.frame;
     textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
     textRect.size.height = bubbleRec.size.height - BubbleRoundAnglehorizInset * 2;
@@ -83,7 +83,7 @@
     CGRect bubbleRec = [super updateMsgContentFrame_right:data];
     
     // 文字内容
-    self.textContent_right.text = data.msg;
+    self.textContent_right.attributedText = data.msg_attributed;
     CGRect textRect = self.textContent_right.frame;
     textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
     textRect.size.height = bubbleRec.size.height - BubbleRoundAnglehorizInset * 2;

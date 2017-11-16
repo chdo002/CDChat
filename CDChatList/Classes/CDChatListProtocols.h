@@ -40,7 +40,7 @@ typedef enum : NSUInteger {
 /**
  消息内容
  */
-@property (copy,nonatomic) NSString *msg;
+@property (copy,nonatomic) NSMutableAttributedString *msg_attributed;
 
 /**
  发送时间

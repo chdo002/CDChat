@@ -109,7 +109,7 @@
 #pragma mark ---计算文字消息尺寸方法
 +(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
-    NSDictionary *attri = @{NSFontAttributeName: MessageFont};
+//    NSDictionary *attri = @{NSFontAttributeName: MessageFont};
     
     //NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
     // 计算的高度 = boundingRectWithSize计算出来的高度 + \n\r转义字符出现的个数 * 单行文本的高度。
@@ -118,9 +118,8 @@
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
     
-    CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
-                                                        options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
-                                                     attributes:attri context:nil].size;
+    CGSize caculateTextSize = [msgData.msg_attributed boundingRectWithSize:maxTextSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
+    
     CGFloat bubbleWidth = ceilf(caculateTextSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
     CGFloat cellheight = ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
     if (cellheight < MessageContentH) {
@@ -161,7 +160,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
 +(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
     
     // 获得本地缓存的图片
-    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.msg];
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.msg_attributed.string];
     
     // 如果本地存在图片，则通过图片计算
     if (image) {
@@ -170,7 +169,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
     } else {
         // 若不存在，则返回占位图大小，并下载
         msgData.msgState = CDMessageStateDownloading;
-        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg_attributed.string] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
@@ -178,7 +177,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
             } else {
                 
                 CGSize size = caculateImageSize140By140(image);
-                [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
+                [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg_attributed.string completion:nil];
                 
                 #warning 记录 缓存 这里写法有待商榷
                 
@@ -201,7 +200,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
     
     NSDictionary *attri = @{NSFontAttributeName: SysInfoMessageFont};
     CGSize maxTextSize = CGSizeMake(SysInfoMessageMaxWidth, CGFLOAT_MAX);
-    CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
+    CGSize caculateTextSize = [msgData.msg_attributed.string boundingRectWithSize: maxTextSize
                                                         options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                      attributes:attri context:nil].size;
     

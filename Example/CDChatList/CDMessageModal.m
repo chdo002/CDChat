@@ -11,7 +11,7 @@
 
 @implementation CDMessageModal
 
-@synthesize msg;
+@synthesize msg_attributed;
 
 @synthesize msgType;
 
@@ -35,7 +35,7 @@
     
     CDMessageModal*modal = [[CDMessageModal alloc] init];
     
-    modal.msg = dic[@"msg"];
+    modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:dic[@"msg"]];
     modal.messageId = dic[@"messageId"];
     modal.createTime = dic[@"createTime"];
     modal.msgType = [dic[@"msgType"] integerValue];
