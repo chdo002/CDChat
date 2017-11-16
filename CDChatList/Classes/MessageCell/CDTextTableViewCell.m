@@ -32,7 +32,6 @@
     // 左侧气泡中添加label
     self.textContent_left = [[UILabel alloc] init];
     self.textContent_left.numberOfLines = 0;
-    self.textContent_left.font = MessageFont;
     self.textContent_left.backgroundColor = MsgTextContentBackGroundColor;
     self.textContent_left.frame = CGRectMake(BubbleSharpAnglehorizInset,
                                              BubbleRoundAnglehorizInset, 0, 0);
@@ -42,7 +41,6 @@
     // 右侧气泡中添加label
     self.textContent_right = [[UILabel alloc] init];
     self.textContent_right.numberOfLines = 0;
-    self.textContent_right.font = MessageFont;
     self.textContent_right.backgroundColor = MsgTextContentBackGroundColor;
     self.textContent_right.frame = CGRectMake(BubbleRoundAnglehorizInset,
                                               BubbleRoundAnglehorizInset, 0, 0);
@@ -70,7 +68,8 @@
 -(void)configText_Left:(CDChatMessage)data{
 
     CGRect bubbleRec = [super updateMsgContentFrame_left:data];
-    // 文字内容
+    
+    // 给label复制文字内容
     self.textContent_left.attributedText = data.msg_attributed;
     CGRect textRect = self.textContent_left.frame;
     textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
@@ -82,7 +81,7 @@
     
     CGRect bubbleRec = [super updateMsgContentFrame_right:data];
     
-    // 文字内容
+    // 给label复制文字内容
     self.textContent_right.attributedText = data.msg_attributed;
     CGRect textRect = self.textContent_right.frame;
     textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;

@@ -38,7 +38,7 @@ typedef enum : NSUInteger {
 
 
 /**
- 消息内容
+ 消息内容 -- 富文本
  */
 @property (copy,nonatomic) NSMutableAttributedString *msg_attributed;
 

@@ -30,7 +30,7 @@
 
 #define BubbleMaxWidth scrnW * 0.64 // 气泡最大边长   从尖角到另一边
 
-#define MessageFont  [UIFont systemFontOfSize:16]
+#define MessageTextDefaultFont  [UIFont systemFontOfSize:16] //默认文字消息字体
 // 系统消息的一些布局
 #define SysInfoMessageFont  [UIFont systemFontOfSize:14] // 系统字体
 #define SysInfoMessageMaxWidth scrnW * 0.64    // 系统消息最大边长

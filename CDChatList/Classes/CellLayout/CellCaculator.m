@@ -33,23 +33,36 @@
 +(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
-    dispatch_group_t group = dispatch_group_create();
+//    dispatch_group_t group = dispatch_group_create();
     
-//    dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
-    dispatch_queue_t caculatorQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-
-    for (int i = 0; i < msgArr.count; i++) {    
-        dispatch_group_async(group, caculatorQueue, ^{
-           [self fetchCellHeight:i of:msgArr];
-        });
-    }
+////   dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
+//    dispatch_queue_t caculatorQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//
+//    for (int i = 0; i < msgArr.count; i++) {
+//        dispatch_group_async(group, caculatorQueue, ^{
+//           [self fetchCellHeight:i of:msgArr];
+//        });
+//    }
+//
+//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+//        CGFloat totalHeight = 0.0f;
+//        for (CDChatMessage msg in msgArr) {
+//            totalHeight = totalHeight + msg.cellHeight;
+//        }
+//        completeBlock(totalHeight);
+//    });
     
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        for (int i = 0; i < msgArr.count; i++) {
+            [self fetchCellHeight:i of:msgArr];
+        }
         CGFloat totalHeight = 0.0f;
         for (CDChatMessage msg in msgArr) {
             totalHeight = totalHeight + msg.cellHeight;
         }
-        completeBlock(totalHeight);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completeBlock(totalHeight);
+        });
     });
 }
 
@@ -110,21 +123,31 @@
 +(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
 //    NSDictionary *attri = @{NSFontAttributeName: MessageFont};
-    
+    #warning 注意换行
     //NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
     // 计算的高度 = boundingRectWithSize计算出来的高度 + \n\r转义字符出现的个数 * 单行文本的高度。
-    
+
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
-    
+//
+//    [msgData.msg_attributed enumerateAttributesInRange:NSMakeRange(0, msgData.msg_attributed.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary<NSAttributedStringKey,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
+//        
+//    }];
+//
+    // 计算文字区域大小
     CGSize caculateTextSize = [msgData.msg_attributed boundingRectWithSize:maxTextSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
     
+    // 计算气泡宽度
     CGFloat bubbleWidth = ceilf(caculateTextSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
+    // 计算整个cell高度
     CGFloat cellheight = ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
+    
+    // 如果 小于最小cell高度
     if (cellheight < MessageContentH) {
         cellheight = MessageContentH;
     }
+    
     return CGSizeMake(bubbleWidth, cellheight);
 }
 
