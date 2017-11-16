@@ -85,6 +85,7 @@ typedef enum : NSUInteger {
     pullToLoadMark = -LoadingH;
     if (viewController.navigationController) {
         originInset = NaviH - self.frame.origin.y;
+        self.scrollIndicatorInsets = UIEdgeInsetsMake(NaviH, 0, 0, 0);
     } else {
         originInset = 0;
     }

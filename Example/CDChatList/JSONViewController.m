@@ -10,7 +10,7 @@
 #import "CDMessageModal.h"
 #import <Masonry/Masonry.h>
 
-@interface JSONViewController ()
+@interface JSONViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
 @property(nonatomic, strong)NSMutableArray<CDChatMessage> *msgArr;
 
@@ -23,7 +23,7 @@
 
     
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
-//    list.msgDelegate = self;
+    list.msgDelegate = self;
     list.viewController = self;
     self.listView = list;
     [self.view addSubview:self.listView];
@@ -77,5 +77,10 @@
     
     
 }
+
+- (void)loadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished {
+    finnished(nil);
+}
+
 
 @end

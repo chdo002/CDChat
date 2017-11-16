@@ -8,6 +8,9 @@
 #import <UIKit/UIKit.h>
 #import "CDChatListProtocols.h"
 
+/**
+ 聊天列表视图
+ */
 @interface CDChatList : UITableView
 
 @property(weak, nonatomic) UIViewController *viewController;
