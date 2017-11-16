@@ -30,6 +30,7 @@ typedef enum : NSUInteger {
  */
 @protocol MessageModalProtocal
 
+@required
 /*
  注意：
     1、发送图片消息 需用 SDImageCache预先缓存，key为messageid

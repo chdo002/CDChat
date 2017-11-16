@@ -7,7 +7,6 @@
 //
 
 #import "CDMessageModal.h"
-#import <CDChatList/CDChatList.h>
 
 @implementation CDMessageModal
 
@@ -35,7 +34,8 @@
     
     CDMessageModal*modal = [[CDMessageModal alloc] init];
     
-    modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:dic[@"msg"] attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]}];
+    modal.msg_attributed = [ChatListDataHelper decorateMessageStr:dic[@"msg"] attribute:@{NSFontAttributeName: [UIFont systemFontOfSize:16]}];
+    
     modal.messageId = dic[@"messageId"];
     modal.createTime = dic[@"createTime"];
     modal.msgType = [dic[@"msgType"] integerValue];

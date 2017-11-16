@@ -11,9 +11,11 @@
 #endif
 
 #import "CDChatList.h"
+#import "CDChatListHeaders.h"
 #import "CDChatListProtocols.h"
 #import "CDChatMacro.h"
-//#import "CellCaculator.h"
+#import "CellCaculator.h"
+#import "ChatListDataHelper.h"
 #import "CDBaseMsgCell.h"
 #import "CDImageTableViewCell.h"
 #import "CDSystemTableViewCell.h"

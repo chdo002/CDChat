@@ -7,7 +7,7 @@
 //
 
 #import "CDViewController.h"
-#import <CDChatList/CDChatList.h>
+
 #import "CDMessageModal.h"
 #import "UIImageView+WebCache.h"
 
@@ -43,7 +43,7 @@
         for (int i = 0; i < 15; i++) {
             CDMessageModal *modal = [[CDMessageModal alloc] init];
     
-            modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",i]];
+            modal.msg_attributed = [ChatListDataHelper decorateMessageStr:[NSString stringWithFormat:@"%d",i] attribute:nil];
             modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
             modal.msgType = CDMessageTypeText;
             NSString *number = @"";
@@ -74,7 +74,7 @@
 
     CDMessageModal *modal = [[CDMessageModal alloc] init];
     modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
-    modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"新消息%@",modal.createTime]];
+    modal.msg_attributed = [ChatListDataHelper decorateMessageStr:[NSString stringWithFormat:@"新消息%@",modal.createTime] attribute:nil];
     modal.msgType = CDMessageTypeText;
     
     NSString *number = @"";
@@ -94,7 +94,7 @@
     for (int i = 0; i < 15; i++) {
         CDMessageModal *modal = [[CDMessageModal alloc] init];
         
-        modal.msg_attributed = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",i]];
+        modal.msg_attributed = [ChatListDataHelper decorateMessageStr:[NSString stringWithFormat:@"%d",i] attribute:nil];
         modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
 //        modal.msg = [NSString stringWithFormat:@"新消息%d",i];
         NSString *number = @"";

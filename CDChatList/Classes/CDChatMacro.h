@@ -20,9 +20,8 @@
 // 随机色
 #define CRMRadomColor  [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1]
 
-// Bundle图片
+// Bundle图片  pod的资源会被打包成相应的bundle
 #define BundleImage(name) [UIImage imageNamed:name inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[CDChatList class]] pathForResource:@"CDChatList" ofType:@"bundle"]] compatibleWithTraitCollection:nil]
-
 
 // UI
 #define scrnW [UIScreen mainScreen].bounds.size.width
@@ -38,3 +37,7 @@
 
 
 #endif /* CDChatMacro_h */
+/*
+ http://eim-talk-stg.dmzstg.pingan.com.cn/appim-pir/talk?weAppNo=PAKDZS_09&businessType=KDZS&encryptStr=clientImNo=B37ED122435E56781260A2611231235DC02441231232134B4B%7CcustomerNo=%7CcustomerName=%7CnickName=&extraInfo=%7b%22umId%22:%22UCPMONUSER034%22,%22flag%22:%22Y%22,%22phoneNumber%22:%2213501020305%22,%22managerName%22:%22%E8%B7%AF%E4%BA%BA%E7%94%B2%22%7d
+ 
+ */

@@ -56,7 +56,6 @@
     
     CDChatMessage msg = self.msgArr.lastObject;
     msg.msgState = CDMessageStateNormal;
-//    [self.msgArr replaceObjectAtIndex:_msgArr.count - 1 withObject:msg];
     [self.listView updateMessage:msg];
 }
 
