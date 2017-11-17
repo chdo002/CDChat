@@ -32,6 +32,9 @@
     // 左侧气泡中添加label
     self.textContent_left = [[YYLabel alloc] init];
     self.textContent_left.numberOfLines = 0;
+    self.textContent_left.displaysAsynchronously = YES;
+    self.textContent_left.clearContentsBeforeAsynchronouslyDisplay = YES;
+    self.textContent_left.fadeOnAsynchronouslyDisplay = NO;
     self.textContent_left.backgroundColor = MsgTextContentBackGroundColor;
     self.textContent_left.frame = CGRectMake(BubbleSharpAnglehorizInset,
                                              BubbleRoundAnglehorizInset, 0, 0);
@@ -40,6 +43,9 @@
     // 右侧气泡中添加label
     self.textContent_right = [[YYLabel alloc] init];
     self.textContent_right.numberOfLines = 0;
+    self.textContent_right.displaysAsynchronously = YES;
+    self.textContent_right.clearContentsBeforeAsynchronouslyDisplay = YES;
+    self.textContent_right.fadeOnAsynchronouslyDisplay = NO;
     self.textContent_right.backgroundColor = MsgTextContentBackGroundColor;
     self.textContent_right.frame = CGRectMake(BubbleRoundAnglehorizInset,
                                               BubbleRoundAnglehorizInset, 0, 0);

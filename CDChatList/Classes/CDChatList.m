@@ -154,7 +154,7 @@ typedef enum : NSUInteger {
             break;
         }
     }
-    
+    if (!_msgArr) return;
     // 更新数据源
     NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:_msgArr];
     [mutableMsgArr replaceObjectAtIndex:msgIndex withObject:message];
@@ -279,6 +279,10 @@ typedef enum : NSUInteger {
                 _msgArr = [NSMutableArray array];
             }
             
+            if (!newMessages || newMessages.count == 0) {
+                self.loadHeaderState = CDHeaderLoadStateFinished;
+            }
+            
             // 将旧消息加入当前消息数据中
             NSMutableArray *arr = [NSMutableArray arrayWithArray:newMessages];
             [arr addObjectsFromArray:_msgArr];
@@ -304,14 +308,14 @@ typedef enum : NSUInteger {
                 [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
                 
                 // 异步调用
-                [self mainAsyQueue:^{
+//                [self mainAsyQueue:^{
                     // 判断是否要结束下拉加载功能
-                    if (newMessages.count < 10) {
-                        self.loadHeaderState = CDHeaderLoadStateFinished;
-                    } else {
+//                    if (newMessages.count < 10) {
+//                        self.loadHeaderState = CDHeaderLoadStateFinished;
+//                    } else {
                         self.loadHeaderState = CDHeaderLoadStateNoraml;
-                    }
-                }];
+//                    }
+//                }];
             }];
         }];
     }

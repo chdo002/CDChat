@@ -95,6 +95,8 @@
     
     NSMutableAttributedString *msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg attributes:@{NSFontAttributeName: MessageTextDefaultFont}];
     
+    msg_attributeText.yy_lineSpacing = 6;
+    
     // 各种替换匹配
     
     // 表情匹配替换
@@ -105,8 +107,7 @@
     
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
-                                        CGFLOAT_MAX);
-
+                                    CGFLOAT_MAX);
     YYTextContainer *container = [YYTextContainer containerWithSize:maxTextSize];
     YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg_attributeText];
     msgData.textlayout = layout;

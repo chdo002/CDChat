@@ -14,7 +14,7 @@
 #define CDChatMacro_h
 
 // 0 调试 1 生产
-#define environment 0
+#define environment 1
 #define isChatListDebug (environment == 0)
 
 // 16位颜色
