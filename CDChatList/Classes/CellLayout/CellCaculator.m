@@ -8,9 +8,9 @@
 #import "CellCaculator.h"
 #import "CDChatMacro.h"
 #import "SDImageCache.h"
-#import "CDBaseMsgCell.h"
 #import "SDWebImageDownloader.h"
 #import "ChatHelpr.h"
+#import "CDBaseMsgCell.h"
 
 @interface CellCaculator()
 
@@ -98,27 +98,11 @@
     // 各种替换匹配
     
     // 表情匹配替换
-    NSRegularExpression *regEmoji = [NSRegularExpression regularExpressionWithPattern:@"\\[[^ \\[\\]]+?\\]" options:kNilOptions error:NULL];
-    NSUInteger emoClipLength = 0;
-    NSArray<NSTextCheckingResult *> *emoticonResults = [regEmoji matchesInString:msgData.msg options:kNilOptions range:NSMakeRange(0, msgData.msg.length)];
-    for (NSTextCheckingResult *emo in emoticonResults) {
-        if (emo.range.location == NSNotFound && emo.range.length <= 1) continue;
-        NSRange range = emo.range;
-        range.location -= emoClipLength;
-        if ([msg_attributeText yy_attribute:YYTextHighlightAttributeName atIndex:range.location]) continue;
-        if ([msg_attributeText yy_attribute:YYTextAttachmentAttributeName atIndex:range.location]) continue;
-        NSString *emoString = [msg_attributeText.string substringWithRange:range];
-        UIImage *image = [ChatHelpr emoticonDic][emoString];
-        if (!image) continue;
-        NSAttributedString *emoText = [NSAttributedString yy_attachmentStringWithEmojiImage:image fontSize:MessageTextDefaultFontSize];
-        [msg_attributeText replaceCharactersInRange:range withAttributedString:emoText];
-        emoClipLength += range.length - 1;
-    }
-    
+    [ChatHelpr matchEmoji:msg_attributeText];
     // 链接匹配替换
+    [ChatHelpr matchUrl:msg_attributeText];
     
     
-
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                         CGFLOAT_MAX);

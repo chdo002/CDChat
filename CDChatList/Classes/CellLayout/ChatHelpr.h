@@ -9,6 +9,9 @@
 
 @interface ChatHelpr : NSObject
 
-+ (NSDictionary *)emoticonDic;
++(NSDictionary *)emoticonDic;
 
++(void)matchEmoji:(NSMutableAttributedString *)msgStr;
+
++(void)matchUrl:(NSMutableAttributedString *)msgStr;
 @end
