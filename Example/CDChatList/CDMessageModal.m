@@ -10,7 +10,7 @@
 
 @implementation CDMessageModal
 
-@synthesize msg_attributed;
+@synthesize msg;
 
 @synthesize msgType;
 
@@ -18,23 +18,28 @@
 
 @synthesize createTime;
 
-@synthesize cellHeight;
+@synthesize isLeft;
 
 @synthesize modalInfo;
 
 @synthesize willDisplayTime;
 
-@synthesize bubbleWidth;
-
 @synthesize msgState;
 
-@synthesize isLeft;
+// 缓存字段 不需要赋值
+@synthesize bubbleWidth;
+
+@synthesize cellHeight;
+
+
+
+@synthesize textlayout;
 
 +(CDMessageModal *)initWithDic:(NSDictionary *)dic {
     
     CDMessageModal*modal = [[CDMessageModal alloc] init];
     
-    modal.msg_attributed = [ChatListDataHelper decorateMessageStr:dic[@"msg"] attribute:@{NSFontAttributeName: [UIFont systemFontOfSize:16]}];
+    modal.msg = dic[@"msg"];
     
     modal.messageId = dic[@"messageId"];
     modal.createTime = dic[@"createTime"];
@@ -44,6 +49,8 @@
     
     return modal;
 }
+
+
 
 @end
 

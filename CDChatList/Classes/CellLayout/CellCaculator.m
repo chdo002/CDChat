@@ -74,7 +74,6 @@
     if (data.cellHeight) {
         return data.cellHeight;
     }
-    
 //     计算高度
     
     // 和上一条信息对比判断cell上是否显示时间label
@@ -122,27 +121,30 @@
 #pragma mark ---计算文字消息尺寸方法
 +(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
-//    NSDictionary *attri = @{NSFontAttributeName: MessageFont};
-    #warning 注意换行
-    //NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
-    // 计算的高度 = boundingRectWithSize计算出来的高度 + \n\r转义字符出现的个数 * 单行文本的高度。
-
+    NSMutableAttributedString *msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg attributes:@{NSFontAttributeName: MessageTextDefaultFont}];
+    
+    
+    // 各种替换匹配
+    
+    
+    
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
-                                    CGFLOAT_MAX);
-    // 计算文字区域大小
-    CGSize caculateTextSize = [msgData.msg_attributed boundingRectWithSize:maxTextSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
+                                        CGFLOAT_MAX);
+
+    YYTextContainer *container = [YYTextContainer containerWithSize:maxTextSize];
+    YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg_attributeText];
+    msgData.textlayout = layout;
     
     // 计算气泡宽度
-    CGFloat bubbleWidth = ceilf(caculateTextSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
+    CGFloat bubbleWidth = ceilf(layout.textBoundingSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
     // 计算整个cell高度
-    CGFloat cellheight = ceilf(caculateTextSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
-    
+    CGFloat cellheight = ceilf(layout.textBoundingSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
+
     // 如果 小于最小cell高度
     if (cellheight < MessageContentH) {
         cellheight = MessageContentH;
     }
-    
     return CGSizeMake(bubbleWidth, cellheight);
 }
 
@@ -178,7 +180,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
 +(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
     
     // 获得本地缓存的图片
-    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.msg_attributed.string];
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.msg];
     
     // 如果本地存在图片，则通过图片计算
     if (image) {
@@ -187,7 +189,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
     } else {
         // 若不存在，则返回占位图大小，并下载
         msgData.msgState = CDMessageStateDownloading;
-        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg_attributed.string] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
@@ -195,7 +197,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
             } else {
                 
                 CGSize size = caculateImageSize140By140(image);
-                [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg_attributed.string completion:nil];
+                [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
                 
                 #warning 记录 缓存 这里写法有待商榷
                 
@@ -218,7 +220,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
     
     NSDictionary *attri = @{NSFontAttributeName: SysInfoMessageFont};
     CGSize maxTextSize = CGSizeMake(SysInfoMessageMaxWidth, CGFLOAT_MAX);
-    CGSize caculateTextSize = [msgData.msg_attributed.string boundingRectWithSize: maxTextSize
+    CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
                                                         options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                      attributes:attri context:nil].size;
     

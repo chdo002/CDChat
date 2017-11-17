@@ -6,6 +6,7 @@
 //
 
 #import "CDChatMacro.h"
+#import <YYText/YYText.h>
 
 #ifndef CDChatListProtocols_h
 #define CDChatListProtocols_h
@@ -34,14 +35,12 @@ typedef enum : NSUInteger {
 /*
  注意：
     1、发送图片消息 需用 SDImageCache预先缓存，key为messageid
-    
  */
-
 
 /**
- 消息内容 -- 富文本
+ 消息内容
  */
-@property (copy,nonatomic) NSString *msg_attributed;
+@property (copy,nonatomic) NSString *msg;
 
 /**
  发送时间
@@ -73,7 +72,13 @@ typedef enum : NSUInteger {
  */
 @property (copy, nonatomic) NSDictionary *modalInfo;
 
+/**
+ cell左右判断
+ */
+@property (assign, nonatomic) BOOL isLeft;
+
 #pragma mark 缓存，这些字段，存在缓存表中
+
 /**
  气泡宽度，缓存用
  */
@@ -85,10 +90,9 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) CGFloat cellHeight;
 
 /**
- cell左右，缓存用
+ 文字布局，缓存用
  */
-@property (assign, nonatomic) BOOL isLeft;
-
+@property (nonatomic, strong) YYTextLayout *textlayout;
 
 @end
 
