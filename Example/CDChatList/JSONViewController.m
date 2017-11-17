@@ -23,18 +23,18 @@
 
     
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+    
     list.msgDelegate = self;
     list.viewController = self;
     self.listView = list;
     [self.view addSubview:self.listView];
-    
     
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithTitle:@"动作1" style:UIBarButtonItemStyleDone target:self action:@selector(action1)];
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"动作2" style:UIBarButtonItemStyleDone target:self action:@selector(action2)];
     UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"动作3" style:UIBarButtonItemStyleDone target:self action:@selector(action3)];
     [self.navigationItem setRightBarButtonItems:@[item1, item2, item3]];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList" ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList2" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *err;
     NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];

@@ -88,7 +88,7 @@
  "isLeft" : 1
  },
  {
- "msg": "开始阿",
+ "msg": "开始阿[微笑]",
  "messageId": "1240",
  "createTime": "1509634535127",
  "msgType" : 0,
@@ -99,7 +99,7 @@
  "msg": "http://b.hiphotos.baidu.com/image/h%3D300/sign=f5f627aa252eb938f36d7cf2e56285fe/d0c8a786c9177f3ec618d8467acf3bc79f3d5648.jpg",
  "messageId": "1241",
  "createTime": "1509634535128",
- "msgType" : 0,
+ "msgType" : 1,
  "msgState": 0,
  "isLeft" : 0
  }

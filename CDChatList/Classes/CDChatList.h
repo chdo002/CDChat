@@ -13,8 +13,19 @@
  */
 @interface CDChatList : UITableView
 
+/**
+ 列表所在控制器
+ */
 @property(weak, nonatomic) UIViewController *viewController;
+
+/**
+ 列表代理
+ */
 @property(weak, nonatomic) id<ChatListProtocol> msgDelegate;
+
+/**
+ 消息数组
+ */
 @property(nonatomic, copy) CDChatMessageArray msgArr;
 
 /**
@@ -32,3 +43,12 @@
 -(void)updateMessage:(CDChatMessage)message;
 
 @end
+
+
+
+
+
+
+
+
+

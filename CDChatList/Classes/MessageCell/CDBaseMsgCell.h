@@ -36,7 +36,8 @@
 
 
 // 字体
-#define MessageTextDefaultFont  [UIFont systemFontOfSize:16] //默认文字消息字体
+#define MessageTextDefaultFontSize 16
+#define MessageTextDefaultFont  [UIFont systemFontOfSize: MessageTextDefaultFontSize] //默认文字消息字体
 #define SysInfoMessageFont  [UIFont systemFontOfSize:14] // // 系统消息字体
 
 

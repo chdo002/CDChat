@@ -10,47 +10,19 @@
 #import "SDImageCache.h"
 #import "CDBaseMsgCell.h"
 #import "SDWebImageDownloader.h"
+#import "ChatHelpr.h"
 
 @interface CellCaculator()
-//{
-//    dispatch_queue_t caculatQueue;
-//}
 
 @end
+
 @implementation CellCaculator
 
-//+(CellCaculator *)shareInstance{
-//    static CellCaculator *caculator = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        caculator = [[CellCaculator alloc]init];
-//        // 计算所有cell高度的队列
-//        caculator->caculatQueue = dispatch_queue_create("calqueue", DISPATCH_QUEUE_CONCURRENT);
-//    });
-//    return caculator;
-//}
 
 +(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
-//    dispatch_group_t group = dispatch_group_create();
     
-////   dispatch_queue_t caculatorQueue = [CellCaculator shareInstance]->caculatQueue;
-//    dispatch_queue_t caculatorQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//
-//    for (int i = 0; i < msgArr.count; i++) {
-//        dispatch_group_async(group, caculatorQueue, ^{
-//           [self fetchCellHeight:i of:msgArr];
-//        });
-//    }
-//
-//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-//        CGFloat totalHeight = 0.0f;
-//        for (CDChatMessage msg in msgArr) {
-//            totalHeight = totalHeight + msg.cellHeight;
-//        }
-//        completeBlock(totalHeight);
-//    });
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         for (int i = 0; i < msgArr.count; i++) {
@@ -123,11 +95,30 @@
     
     NSMutableAttributedString *msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg attributes:@{NSFontAttributeName: MessageTextDefaultFont}];
     
-    
     // 各种替换匹配
     
+    // 表情匹配替换
+    NSRegularExpression *regEmoji = [NSRegularExpression regularExpressionWithPattern:@"\\[[^ \\[\\]]+?\\]" options:kNilOptions error:NULL];
+    NSUInteger emoClipLength = 0;
+    NSArray<NSTextCheckingResult *> *emoticonResults = [regEmoji matchesInString:msgData.msg options:kNilOptions range:NSMakeRange(0, msgData.msg.length)];
+    for (NSTextCheckingResult *emo in emoticonResults) {
+        if (emo.range.location == NSNotFound && emo.range.length <= 1) continue;
+        NSRange range = emo.range;
+        range.location -= emoClipLength;
+        if ([msg_attributeText yy_attribute:YYTextHighlightAttributeName atIndex:range.location]) continue;
+        if ([msg_attributeText yy_attribute:YYTextAttachmentAttributeName atIndex:range.location]) continue;
+        NSString *emoString = [msg_attributeText.string substringWithRange:range];
+        UIImage *image = [ChatHelpr emoticonDic][emoString];
+        if (!image) continue;
+        NSAttributedString *emoText = [NSAttributedString yy_attachmentStringWithEmojiImage:image fontSize:MessageTextDefaultFontSize];
+        [msg_attributeText replaceCharactersInRange:range withAttributedString:emoText];
+        emoClipLength += range.length - 1;
+    }
+    
+    // 链接匹配替换
     
     
+
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                         CGFLOAT_MAX);
@@ -229,3 +220,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
 }
 
 @end
+
+
+
+

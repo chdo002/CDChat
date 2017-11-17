@@ -17,10 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:1510360813];
-//    NSString *str = [self checkDateDisplay:date];
-//    
-//    NSLog(@"%@",str);
+    
 }
 
 

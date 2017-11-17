@@ -26,6 +26,7 @@
 		E93F00191FBABE14009C3E7B /* msgList2.json in Resources */ = {isa = PBXBuildFile; fileRef = E93F00181FBABE14009C3E7B /* msgList2.json */; };
 		E949D4F91FA6C5E800094E5E /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E949D4F81FA6C5E800094E5E /* msgList.json */; };
 		E951A2FC1FAB60B80053CE5B /* JSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E951A2FB1FAB60B80053CE5B /* JSONViewController.m */; };
+		E99C3CFE1FBECF6300D16194 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E99C3CFD1FBECF6300D16194 /* Expression.bundle */; };
 		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
 		E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */; };
 		E9C6945C1FB1BCB400E076D6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C6945B1FB1BCB400E076D6 /* MainViewController.m */; };
@@ -74,6 +75,7 @@
 		E949D4F81FA6C5E800094E5E /* msgList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList.json; sourceTree = "<group>"; };
 		E951A2FA1FAB60B80053CE5B /* JSONViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONViewController.h; sourceTree = "<group>"; };
 		E951A2FB1FAB60B80053CE5B /* JSONViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONViewController.m; sourceTree = "<group>"; };
+		E99C3CFD1FBECF6300D16194 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		E99CD0AD1FA185B90045783B /* CDMessageModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
 		E99CD0AE1FA185B90045783B /* CDMessageModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
 		E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chatlist.plist; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				E951A2FB1FAB60B80053CE5B /* JSONViewController.m */,
 				E99CD0AD1FA185B90045783B /* CDMessageModal.h */,
 				E99CD0AE1FA185B90045783B /* CDMessageModal.m */,
+				E99C3CFD1FBECF6300D16194 /* Expression.bundle */,
 				E949D4F81FA6C5E800094E5E /* msgList.json */,
 				E93F00181FBABE14009C3E7B /* msgList2.json */,
 				E9C9995D1FB011C3000B4E3E /* imageList.json */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				E99C3CFE1FBECF6300D16194 /* Expression.bundle in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E93F00191FBABE14009C3E7B /* msgList2.json in Resources */,
 				E949D4F91FA6C5E800094E5E /* msgList.json in Resources */,
