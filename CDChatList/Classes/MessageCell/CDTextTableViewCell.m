@@ -14,12 +14,12 @@
 /**
  左侧文字label
  */
-@property(nonatomic, strong) UILabel *textContent_left;
+@property(nonatomic, strong) YYLabel *textContent_left;
 
 /**
  右侧文字label
  */
-@property(nonatomic, strong) UILabel *textContent_right;
+@property(nonatomic, strong) YYLabel *textContent_right;
 
 @end
 
@@ -30,7 +30,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     // 左侧气泡中添加label
-    self.textContent_left = [[UILabel alloc] init];
+    self.textContent_left = [[YYLabel alloc] init];
     self.textContent_left.numberOfLines = 0;
     self.textContent_left.backgroundColor = MsgTextContentBackGroundColor;
     self.textContent_left.frame = CGRectMake(BubbleSharpAnglehorizInset,
@@ -38,7 +38,7 @@
     [self.bubbleImage_left addSubview:self.textContent_left];
     
     // 右侧气泡中添加label
-    self.textContent_right = [[UILabel alloc] init];
+    self.textContent_right = [[YYLabel alloc] init];
     self.textContent_right.numberOfLines = 0;
     self.textContent_right.backgroundColor = MsgTextContentBackGroundColor;
     self.textContent_right.frame = CGRectMake(BubbleRoundAnglehorizInset,
