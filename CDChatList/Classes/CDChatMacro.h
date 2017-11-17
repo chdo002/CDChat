@@ -11,7 +11,8 @@
 #ifndef CDChatMacro_h
 #define CDChatMacro_h
 
-#define environment 0 // 0 调试 1 生产
+// 0 调试 1 生产
+#define environment 0
 #define isChatListDebug (environment == 0)
 
 // 16位颜色
@@ -20,24 +21,22 @@
 // 随机色
 #define CRMRadomColor  [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1]
 
-// Bundle图片  pod的资源会被打包成相应的bundle
+// 资源图片  pod的资源会被打包成相应的bundle
 #define BundleImage(name) [UIImage imageNamed:name inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[CDChatList class]] pathForResource:@"CDChatList" ofType:@"bundle"]] compatibleWithTraitCollection:nil]
 
-// UI
+// 屏幕尺寸
 #define scrnW [UIScreen mainScreen].bounds.size.width
 #define scrnH [UIScreen mainScreen].bounds.size.height
 
-#define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)   // 导航栏高度
+// 导航栏高度
+#define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)
 
-// cell
+// cell中消息中时间视图的高度（如果显示）
+#define MsgTimeH  30
 
-#define MsgTimeH  30 // cell中消息中时间视图的高度（如果显示）
-
+// 消息中图片下载完成的通知
 #define DOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
 
 
 #endif /* CDChatMacro_h */
-/*
- http://eim-talk-stg.dmzstg.pingan.com.cn/appim-pir/talk?weAppNo=PAKDZS_09&businessType=KDZS&encryptStr=clientImNo=B37ED122435E56781260A2611231235DC02441231232134B4B%7CcustomerNo=%7CcustomerName=%7CnickName=&extraInfo=%7b%22umId%22:%22UCPMONUSER034%22,%22flag%22:%22Y%22,%22phoneNumber%22:%2213501020305%22,%22managerName%22:%22%E8%B7%AF%E4%BA%BA%E7%94%B2%22%7d
- 
- */
+

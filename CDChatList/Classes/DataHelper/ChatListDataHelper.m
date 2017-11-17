@@ -10,6 +10,10 @@
 
 @implementation ChatListDataHelper
 
+/**
+ 转为富文本
+ 匹配  链接 表情 ......
+ */
 +(NSMutableAttributedString *)decorateMessageStr:(NSString *)msg attribute:(NSDictionary<NSAttributedStringKey, id> *)attributes{
     if (!msg) return nil;
     
@@ -20,8 +24,11 @@
     //无字体 则设置默认字体
     UIFont *font = attributsDic[NSFontAttributeName];
     if (!font) [attributsDic setObject:MessageTextDefaultFont forKey:NSFontAttributeName];
-    
     NSMutableAttributedString *msg_attri = [[NSMutableAttributedString alloc] initWithString:msg attributes:attributsDic];
+    
+    
+    
+    
     
     //...
     return msg_attri;

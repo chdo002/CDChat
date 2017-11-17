@@ -37,7 +37,6 @@
                                              BubbleRoundAnglehorizInset, 0, 0);
     [self.bubbleImage_left addSubview:self.textContent_left];
     
-    
     // 右侧气泡中添加label
     self.textContent_right = [[UILabel alloc] init];
     self.textContent_right.numberOfLines = 0;

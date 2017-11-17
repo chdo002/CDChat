@@ -130,11 +130,6 @@
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
-//
-//    [msgData.msg_attributed enumerateAttributesInRange:NSMakeRange(0, msgData.msg_attributed.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary<NSAttributedStringKey,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
-//        
-//    }];
-//
     // 计算文字区域大小
     CGSize caculateTextSize = [msgData.msg_attributed boundingRectWithSize:maxTextSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
     
