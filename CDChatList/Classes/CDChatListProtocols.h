@@ -22,7 +22,7 @@ typedef enum : NSUInteger {
 } CDMessageType; // 消息类型
 
 typedef enum : NSUInteger {
-    CDMessageStateNormal,
+    CDMessageStateNormal,     
     CDMessageStateSending,     // 发送中，图片消息上传中，文字消息发送中
     CDMessageStateDownloading, // 下载中， 图片消息下载中
     CDMessageStateFaild        // 消息发送失败
