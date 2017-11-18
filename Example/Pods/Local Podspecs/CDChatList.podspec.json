@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "A short description of CDChatList.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/chdo002/CDChatList",
+  "homepage": "http://git-ma.paic.com.cn/aat_component_ios/ChatList",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -28,9 +28,6 @@
   "frameworks": "UIKit",
   "dependencies": {
     "SDWebImage": [
-
-    ],
-    "Masonry": [
 
     ],
     "YYText": [

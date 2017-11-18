@@ -6,9 +6,6 @@
 //
 
 #import "CDBaseMsgCell.h"
-#import <Masonry/Masonry.h>
-
-//#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 @interface CDBaseMsgCell()
 
@@ -73,13 +70,9 @@
     _indicator_left = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [_msgContent_left addSubview:_indicator_left];
     [_indicator_left startAnimating];
-    
-    [_indicator_left mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@20);
-        make.height.equalTo(@20);
-        make.leading.equalTo(_bubbleImage_left.mas_trailing).offset(20);
-        make.centerY.equalTo(_bubbleImage_left);
-    }];
+    _indicator_left.frame = CGRectMake(0, 0, 20, 20);
+    _indicator_left.center = CGPointMake(_bubbleImage_left.frame.origin.x + _bubbleImage_left.frame.size.width + 20,
+                                         _bubbleImage_left.frame.origin.y + _bubbleImage_left.frame.size.height * 0.5);
     
 }
 
@@ -113,13 +106,9 @@
     [_msgContent_right addSubview:_indicator_right];
     [_indicator_right startAnimating];
     
-    [_indicator_right mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@20);
-        make.height.equalTo(@20);
-        make.trailing.equalTo(_bubbleImage_right.mas_leading).offset(-20);
-        make.centerY.equalTo(_bubbleImage_right);
-    }];
-    
+    _indicator_right.frame = CGRectMake(0, 0, 20, 20);
+    _indicator_right.center = CGPointMake(_bubbleImage_right.frame.origin.x - 40,
+                                          _bubbleImage_right.frame.size.height * 0.5);
 }
 
 /**
@@ -149,6 +138,11 @@
     bubbleRec.size.width = data.bubbleWidth;
     bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
     self.bubbleImage_left.frame = bubbleRec;
+    
+    // 设置loading位置
+    _indicator_left.frame = CGRectMake(0, 0, 20, 20);
+    _indicator_left.center = CGPointMake(_bubbleImage_left.frame.origin.x + _bubbleImage_left.frame.size.width + 20,
+                                         _bubbleImage_left.frame.origin.y + _bubbleImage_left.frame.size.height * 0.5);
     
     // 更新动画状态
     if (data.msgState == CDMessageStateNormal) {
@@ -186,6 +180,11 @@
     bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
     bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth;
     self.bubbleImage_right.frame = bubbleRec;
+    
+    // 设置loading位置
+    _indicator_right.frame = CGRectMake(0, 0, 20, 20);
+    _indicator_right.center = CGPointMake(_bubbleImage_right.frame.origin.x - 40,
+                                          _bubbleImage_right.frame.size.height * 0.5);
     
     // 更新动画状态
     if (data.msgState == CDMessageStateNormal) {

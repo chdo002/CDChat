@@ -8,7 +8,6 @@
 
 #import "JSONViewController.h"
 #import "CDMessageModal.h"
-#import <Masonry/Masonry.h>
 
 @interface JSONViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
