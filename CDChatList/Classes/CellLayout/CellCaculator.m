@@ -12,6 +12,81 @@
 #import "ChatHelpr.h"
 #import "CDBaseMsgCell.h"
 
+
+
+/**
+ 
+ 从YYKit demo 中直接拿的 适配iOS 8
+ 文本 Line 位置修改
+ 将每行文本的高度和位置固定下来，不受中英文/Emoji字体的 ascent/descent 影响
+ */
+@interface WBTextLinePositionModifier : NSObject <YYTextLinePositionModifier>
+@property (nonatomic, strong) UIFont *font; // 基准字体 (例如 Heiti SC/PingFang SC)
+@property (nonatomic, assign) CGFloat paddingTop; //文本顶部留白
+@property (nonatomic, assign) CGFloat paddingBottom; //文本底部留白
+@property (nonatomic, assign) CGFloat lineHeightMultiple; //行距倍数
+- (CGFloat)heightForLineCount:(NSUInteger)lineCount;
+@end
+
+/*
+ 将每行的 baseline 位置固定下来，不受不同字体的 ascent/descent 影响。
+ 
+ 注意，Heiti SC 中，    ascent + descent = font size，
+ 但是在 PingFang SC 中，ascent + descent > font size。
+ 所以这里统一用 Heiti SC (0.86 ascent, 0.14 descent) 作为顶部和底部标准，保证不同系统下的显示一致性。
+ 间距仍然用字体默认
+ */
+@implementation WBTextLinePositionModifier
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (@available(iOS 9, *)) {
+        _lineHeightMultiple = 1.34;   // for PingFang SC
+    } else {
+        _lineHeightMultiple = 1.3125; // for Heiti SC
+    }
+    
+    return self;
+}
+
+- (void)modifyLines:(NSArray *)lines fromText:(NSAttributedString *)text inContainer:(YYTextContainer *)container {
+    //CGFloat ascent = _font.ascender;
+    CGFloat ascent = _font.pointSize * 0.86;
+    
+    CGFloat lineHeight = _font.pointSize * _lineHeightMultiple;
+    for (YYTextLine *line in lines) {
+        CGPoint position = line.position;
+        position.y = _paddingTop + ascent + line.row  * lineHeight;
+        line.position = position;
+    }
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    WBTextLinePositionModifier *one = [self.class new];
+    one->_font = _font;
+    one->_paddingTop = _paddingTop;
+    one->_paddingBottom = _paddingBottom;
+    one->_lineHeightMultiple = _lineHeightMultiple;
+    return one;
+}
+
+- (CGFloat)heightForLineCount:(NSUInteger)lineCount {
+    if (lineCount == 0) return 0;
+    //    CGFloat ascent = _font.ascender;
+    //    CGFloat descent = -_font.descender;
+    CGFloat ascent = _font.pointSize * 0.86;
+    CGFloat descent = _font.pointSize * 0.14;
+    CGFloat lineHeight = _font.pointSize * _lineHeightMultiple;
+    return _paddingTop + _paddingBottom + ascent + descent + (lineCount - 1) * lineHeight;
+}
+
+@end
+
+
+
+
+
 @interface CellCaculator()
 
 @end
@@ -93,22 +168,49 @@
 #pragma mark ---计算文字消息尺寸方法
 +(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
-    NSMutableAttributedString *msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg attributes:@{NSFontAttributeName: MessageTextDefaultFont}];
-    
-    msg_attributeText.yy_lineSpacing = 6;
-    
+    NSMutableAttributedString *msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg];
+
+  
     // 各种替换匹配
     
     // 表情匹配替换
     [ChatHelpr matchEmoji:msg_attributeText];
-    // 链接匹配替换
-    [ChatHelpr matchUrl:msg_attributeText];
     
+    // 链接匹配替换
+    [ChatHelpr matchUrl:msg_attributeText fetchActions:^YYTextAction(void) {
+        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
+            // 
+            ChatListInfo *info = [ChatListInfo new];
+            info.containerView = containerView;
+            info.msgText = text;
+            info.link = [text attributedSubstringFromRange:range].string;
+            info.range = range;
+            info.range = range;
+            [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGURL object:info];
+        };
+    }];
+    
+    
+    msg_attributeText.yy_lineSpacing = 6;
+    msg_attributeText.yy_maximumLineHeight = MessageTextDefaultFontSize;
+    msg_attributeText.yy_minimumLineHeight = MessageTextDefaultFontSize;
+    msg_attributeText.yy_font = [UIFont systemFontOfSize:MessageTextDefaultFontSize];
     
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
+
     YYTextContainer *container = [YYTextContainer containerWithSize:maxTextSize];
+    if (@available(iOS 9, *)) {
+        
+    } else {
+        WBTextLinePositionModifier *modifier = [WBTextLinePositionModifier new];
+        modifier.font = msg_attributeText.yy_font;
+        modifier.paddingTop = 10;
+        modifier.paddingBottom = 10;
+        container.linePositionModifier = modifier;
+    }
+    
     YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg_attributeText];
     msgData.textlayout = layout;
     
@@ -130,6 +232,7 @@
  根据图片大小计算气泡宽度和cell高度
  */
 static CGSize caculateImageSize140By140(UIImage *image) {
+    
     // 图片将被限制在140*140的区域内，按比例显示
     CGFloat width = image.size.width;
     CGFloat height = image.size.height;
@@ -141,8 +244,8 @@ static CGSize caculateImageSize140By140(UIImage *image) {
     CGFloat actuallMiniSide = 140 * miniSide / maxSide;
     
     // 防止长图，宽图，限制最小边 下限
-    if (actuallMiniSide < 45) {
-        actuallMiniSide = 45;
+    if (actuallMiniSide < 80) {
+        actuallMiniSide = 80;
     }
     
     // 返回的高度是图片高度，需加上消息内边距变成消息体高度
@@ -183,7 +286,7 @@ static CGSize caculateImageSize140By140(UIImage *image) {
                 msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
                 
                 msgData.msgState = CDMessageStateNormal;
-                [[NSNotificationCenter defaultCenter] postNotificationName:DOWNLOADLISTFINISH object:msgData userInfo:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH object:msgData userInfo:nil];
             }
         }];
         

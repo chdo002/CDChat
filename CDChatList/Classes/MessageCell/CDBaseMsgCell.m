@@ -64,6 +64,7 @@
                                                BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
     left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
+    _bubbleImage_left.userInteractionEnabled = YES;
     _bubbleImage_left.frame = CGRectMake(MessageMargin * 2 + HeadSideLength - BubbleShareAngleWidth,
                                          MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_left addSubview:_bubbleImage_left];
@@ -102,6 +103,7 @@
                                                 BubbleRoundAnglehorizInset, BubbleSharpAnglehorizInset);
     right_box = [right_box resizableImageWithCapInsets:inset_right resizingMode:UIImageResizingModeStretch];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
+    _bubbleImage_right.userInteractionEnabled = YES;
     _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth,
                                           MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_right addSubview:_bubbleImage_right];

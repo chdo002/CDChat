@@ -48,11 +48,11 @@
     
     // 在气泡图下面添加信息图片
     self.imageContent_left = [[UIImageView alloc] initWithFrame:self.bubbleImage_left.frame];
-    self.imageContent_left.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageContent_left.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageContent_left.clipsToBounds = YES;
     self.imageContent_left.backgroundColor = [UIColor lightGrayColor];
     [self.msgContent_left insertSubview:self.imageContent_left
                            belowSubview:self.bubbleImage_left];
-    
     [self.msgContent_left sd_setShowActivityIndicatorView:YES];
     [self.msgContent_left sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
 }
@@ -70,7 +70,8 @@
     
     // 在气泡图下面添加信息图片
     self.imageContent_right = [[UIImageView alloc] initWithFrame:self.bubbleImage_right.frame];
-    self.imageContent_right.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageContent_right.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageContent_right.clipsToBounds = YES;
     self.imageContent_right.backgroundColor = CRMHexColor(0x808080);
     [self.msgContent_right insertSubview:self.imageContent_right
                             belowSubview:self.bubbleImage_right];

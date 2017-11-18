@@ -43,6 +43,7 @@ typedef enum : NSUInteger {
     self = [super initWithFrame:frame];
 
     
+    
     self.delegate = self;
     self.dataSource = self;
     self.estimatedRowHeight = 0;
@@ -65,9 +66,9 @@ typedef enum : NSUInteger {
     [indicatr startAnimating];
     self.indicatro = indicatr;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImageFinished:) name:DOWNLOADLISTFINISH object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTDOWNLOADLISTFINISH object:nil];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGURL object:nil];
     return self;
 }
 
@@ -103,9 +104,16 @@ typedef enum : NSUInteger {
 //    [self layoutSubviews];
 }
 
--(void)downloadImageFinished:(NSNotification *)noti{
-    CDChatMessage msgData = noti.object;
-    [self updateMessage:msgData];
+#pragma mark 通知
+-(void)receiveNotification:(NSNotification *)noti{
+    
+    if ([noti.name isEqualToString:CHATLISTDOWNLOADLISTFINISH]) {
+        CDChatMessage msgData = noti.object;
+        [self updateMessage:msgData];
+    } else if ([noti.name isEqualToString:CHATLISTCLICKMSGURL]) {
+        [self.msgDelegate chatlistClickMsgLink:noti.object];
+    }
+    
 }
 
 #pragma mark 数据源变动
@@ -269,11 +277,11 @@ typedef enum : NSUInteger {
         
         // 当前最旧消息传给代理，调用获取上一段旧消息的方法
         CDChatMessage lastMsg = _msgArr.firstObject;
-        if (![self.msgDelegate respondsToSelector:@selector(loadMoreMsg: callback:)]) {
+        if (![self.msgDelegate respondsToSelector:@selector(chatlistLoadMoreMsg: callback:)]) {
             return;
         }
         
-        [self.msgDelegate loadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
+        [self.msgDelegate chatlistLoadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
            
             if (!_msgArr) {
                 _msgArr = [NSMutableArray array];

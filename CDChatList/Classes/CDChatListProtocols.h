@@ -5,8 +5,10 @@
 //  Created by chdo on 2017/10/26.
 //
 
+#import "ChatHelpr.h"
 #import "CDChatMacro.h"
 #import <YYText/YYText.h>
+
 
 #ifndef CDChatListProtocols_h
 #define CDChatListProtocols_h
@@ -122,18 +124,11 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
  @param topMessage 目前最早的消息
  @param finnished 加载完成回调
  */
--(void)loadMoreMsg: (CDChatMessage)topMessage
-          callback: (void(^)(CDChatMessageArray))finnished;
+-(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
+                  callback: (void(^)(CDChatMessageArray))finnished;
 
+
+-(void)chatlistClickMsgLink: (ChatListInfo *)listInfo;
 @end
 
 #endif /* CDChatListProtocols_h */
-
-
-
-
-
-
-
-
-

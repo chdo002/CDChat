@@ -31,8 +31,6 @@
 
 @synthesize cellHeight;
 
-
-
 @synthesize textlayout;
 
 +(CDMessageModal *)initWithDic:(NSDictionary *)dic {
@@ -50,12 +48,4 @@
     return modal;
 }
 
-
-
 @end
-
-/*
- https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511244324&di=c4b1f6c40bbb36959095b8a2ff8341d7&imgtype=jpg&er=1&src=http%3A%2F%2Fimg2.niutuku.com%2Fdesk%2F1208%2F2027%2Fntk-2027-16107.jpg
- 
- 41.25
- */

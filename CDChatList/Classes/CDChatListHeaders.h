@@ -8,7 +8,7 @@
 #ifndef CDChatListHeaders_h
 #define CDChatListHeaders_h
 
-
+#import "ChatHelpr.h"
 #import "CDChatList.h"
 #import "CDChatListProtocols.h"
 #import "CDChatMacro.h"

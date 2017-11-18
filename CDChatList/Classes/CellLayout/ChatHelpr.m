@@ -9,6 +9,10 @@
 #import "CDChatMacro.h"
 #import "CDBaseMsgCell.h"
 
+@implementation ChatListInfo
+@end
+
+
 @implementation ChatHelpr
 
 #pragma mark  表情替换
@@ -47,38 +51,48 @@
         NSString *emoString = [msgStr.string substringWithRange:range];
         UIImage *image = [ChatHelpr emoticonDic][emoString];
         if (!image) continue;
-        NSAttributedString *emoText = [NSAttributedString yy_attachmentStringWithEmojiImage:image fontSize:MessageTextDefaultFontSize];
+        NSMutableAttributedString *emoText = [NSMutableAttributedString yy_attachmentStringWithEmojiImage:image fontSize:MessageTextDefaultFontSize];
         [msgStr replaceCharactersInRange:range withAttributedString:emoText];
         emoClipLength += range.length - 1;
     }
 }
 
-+(void)matchUrl:(NSMutableAttributedString *)msgStr{
-    NSRegularExpression *regUrl = [NSRegularExpression regularExpressionWithPattern:@"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)" options:kNilOptions error:NULL];
-//    NSUInteger emoClipLength = 0;
++(void)matchUrl: (NSMutableAttributedString *) msgStr
+   fetchActions: (YYTextAction (^)(void))getAction
+{
     
+    NSRegularExpression *regUrl = [NSRegularExpression regularExpressionWithPattern:@"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)" options:kNilOptions error:NULL];
+
     NSArray<NSTextCheckingResult *> *emoticonResults = [regUrl matchesInString:msgStr.string options:kNilOptions range:NSMakeRange(0, msgStr.string.length)];
     
-    for (NSTextCheckingResult *emo in emoticonResults) {
-        if (emo.range.location == NSNotFound && emo.range.length <= 1) continue;
-        NSRange range = emo.range;
+    for (int i = 0; i < emoticonResults.count; i++) {
+        
+        NSTextCheckingResult *rest = emoticonResults[i];
+        if (rest.range.location == NSNotFound && rest.range.length <= 1) continue;
+        NSRange range = rest.range;
         if ([msgStr yy_attribute:YYTextHighlightAttributeName atIndex:range.location]) continue;
         if ([msgStr yy_attribute:YYTextAttachmentAttributeName atIndex:range.location]) continue;
         NSString *emoString = [msgStr.string substringWithRange:range];
         
-        NSDictionary *dic = @{
-                                NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
-                                NSFontAttributeName: MessageTextDefaultFont,
-                                NSForegroundColorAttributeName: [UIColor blueColor]
-                              };
         
-        NSMutableAttributedString *urlString = [[NSMutableAttributedString alloc] initWithString:emoString
-                                                                                      attributes:dic];
+        NSMutableAttributedString *urlString = [[NSMutableAttributedString alloc] initWithString:emoString];
+//
+//        urlString.yy_underlineColor = urlString.yy_color;
+//        urlString.yy_underlineStyle = NSUnderlineStyleSingle;
+//        urlString.yy_lineSpacing = 6;
+//        urlString.yy_maximumLineHeight = MessageTextDefaultFontSize + 10;
+//        urlString.yy_minimumLineHeight = MessageTextDefaultFontSize + 10;
+//        urlString.yy_paragraphSpacing = 1;
         [msgStr replaceCharactersInRange:range withAttributedString:urlString];
-        [msgStr yy_setTextHighlightRange:range color: [UIColor redColor] backgroundColor: [UIColor lightGrayColor] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
-
-        }];
+        
+        
+        [msgStr yy_setTextHighlightRange: range
+                                   color: [UIColor blueColor]
+                         backgroundColor: [UIColor lightGrayColor]
+                               tapAction: getAction()];
     }
+    
+    
 }
 
 @end

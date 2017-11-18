@@ -14,7 +14,7 @@
 #define CDChatMacro_h
 
 // 0 调试 1 生产
-#define environment 1
+#define environment 0
 #define isChatListDebug (environment == 0)
 
 // 16位颜色
@@ -39,8 +39,10 @@
 #define MsgTimeH  30
 
 // 消息中图片下载完成的通知
-#define DOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
+#define CHATLISTDOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
 
+// 消息中点击链接的通知  obj 中包含点击的range
+#define CHATLISTCLICKMSGURL @"CDCHATLISTCLICKMSGURL"
 
 #endif /* CDChatMacro_h */
 

@@ -9,8 +9,6 @@
 #import "CDChatListProtocols.h"
 
 @interface CellCaculator : NSObject
-
-
 /**
  计算所有的cell高度
 

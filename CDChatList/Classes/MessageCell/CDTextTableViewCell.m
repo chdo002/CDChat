@@ -57,21 +57,26 @@
 #pragma mark MessageCellDelegate
 
 - (void)configCellByData:(CDChatMessage)data {
+    if (self.msgModal.messageId == data.messageId){
+        return;
+    }
+    
     [super configCellByData:data];
 
     if (data.isLeft) {
         // 左侧
-        //     设置消息内容的总高度
+        //     设置消息内容, 并调整UI
         [self configText_Left:data];
+        
     } else {
         // 右侧
-        // 设置消息内容的总高度
+        //     设置消息内容, 并调整UI
         [self configText_Right:data];
+        
     }
 }
 
 -(void)configText_Left:(CDChatMessage)data{
-
     CGRect bubbleRec = [super updateMsgContentFrame_left:data];
     
     // 给label复制文字内容

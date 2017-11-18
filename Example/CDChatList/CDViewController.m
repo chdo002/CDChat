@@ -88,7 +88,7 @@
     [self.listView addMessagesToBottom:@[modal]];
 }
 
--(void)loadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished{
+-(void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished{
     
     NSMutableArray *items = [NSMutableArray array];
     for (int i = 0; i < 15; i++) {
