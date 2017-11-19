@@ -210,7 +210,6 @@
         modifier.paddingBottom = 10;
         container.linePositionModifier = modifier;
     }
-    
     YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg_attributeText];
     msgData.textlayout = layout;
     

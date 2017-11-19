@@ -57,10 +57,6 @@
 #pragma mark MessageCellDelegate
 
 - (void)configCellByData:(CDChatMessage)data {
-    if (self.msgModal.messageId == data.messageId){
-        return;
-    }
-    
     [super configCellByData:data];
 
     if (data.isLeft) {
