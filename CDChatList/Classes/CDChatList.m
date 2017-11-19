@@ -42,8 +42,6 @@ typedef enum : NSUInteger {
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
 
-    
-    
     self.delegate = self;
     self.dataSource = self;
     self.estimatedRowHeight = 0;

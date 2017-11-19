@@ -18,5 +18,4 @@
 #import "CDSystemTableViewCell.h"
 #import "CDTextTableViewCell.h"
 
-
 #endif /* CDChatListHeaders_h */

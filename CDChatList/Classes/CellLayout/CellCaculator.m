@@ -201,15 +201,15 @@
                                     CGFLOAT_MAX);
 
     YYTextContainer *container = [YYTextContainer containerWithSize:maxTextSize];
-    if (@available(iOS 9, *)) {
-        
-    } else {
-        WBTextLinePositionModifier *modifier = [WBTextLinePositionModifier new];
-        modifier.font = msg_attributeText.yy_font;
-        modifier.paddingTop = 10;
-        modifier.paddingBottom = 10;
-        container.linePositionModifier = modifier;
-    }
+//    if (@available(iOS 9, *)) {
+//        
+//    } else {
+//        WBTextLinePositionModifier *modifier = [WBTextLinePositionModifier new];
+//        modifier.font = msg_attributeText.yy_font;
+//        modifier.paddingTop = 10;
+//        modifier.paddingBottom = 10;
+//        container.linePositionModifier = modifier;
+//    }
     YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg_attributeText];
     msgData.textlayout = layout;
     
