@@ -233,13 +233,13 @@ static inline CGRect YYTextEmojiGetGlyphBoundingRectWithFontSize(CGFloat fontSiz
  Get the character set which should rotate in vertical form.
  @return The shared character set.
  */
-NSCharacterSet *YYTextVerticalFormRotateCharacterSet();
+NSCharacterSet *YYTextVerticalFormRotateCharacterSet(void);
 
 /**
  Get the character set which should rotate and move in vertical form.
  @return The shared character set.
  */
-NSCharacterSet *YYTextVerticalFormRotateAndMoveCharacterSet();
+NSCharacterSet *YYTextVerticalFormRotateAndMoveCharacterSet(void);
 
 
 
@@ -318,9 +318,7 @@ NSString *YYTextUIViewContentModeToCAGravity(UIViewContentMode contentMode);
 
 /**
  Returns a rectangle to fit the @param rect with specified content mode.
- 
- @param rect The constrant rect
- @param size The content size
+  @param size The content size
  @param mode The content mode
  @return A rectangle for the given content mode.
  @discussion UIViewContentModeRedraw is same as UIViewContentModeScaleToFill.
