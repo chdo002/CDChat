@@ -97,8 +97,6 @@
 +(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
-    
-    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         for (int i = 0; i < msgArr.count; i++) {
             [self fetchCellHeight:i of:msgArr];

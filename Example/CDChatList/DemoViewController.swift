@@ -19,7 +19,7 @@ class DemoViewController: UIViewController {
         listView.viewController = self
         self.view.addSubview(listView)
         
-        let path = Bundle.main.path(forResource: "msgList", ofType: "json")
+        let path = Bundle.main.path(forResource: "msgList2", ofType: "json")
         let data = try! Data.init(contentsOf: URL(fileURLWithPath: path!))
         let arr = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
         var msgArr: Array<CDMessageModal> = Array()

@@ -124,14 +124,10 @@ typedef enum : NSUInteger {
 -(void)setMsgArr:(CDChatMessageArray)msgArr{
     
     [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
-        
-//        [MBProgressHUD hideHUDForView:self animated:YES];
-        
+            
         [self relayoutTable:NO];
         
         // 小于tableview高度时，不出现loading，不可下拉加载
-//        CGFloat visualHeight = self.bounds.size.height;
-        
         if (self.bounds.size.height >= totalHeight) {
             self.loadHeaderState = CDHeaderLoadStateFinished;
         } else {
@@ -212,12 +208,14 @@ typedef enum : NSUInteger {
 -(void)configTableData: (CDChatMessageArray)msgArr
          completeBlock: (void(^)(CGFloat))callBack{
     [self mainAsyQueue:^{
+        
         if (msgArr.count == 0) {
             _msgArr = msgArr;
             [self reloadData];
             callBack(0);
         } else {
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                
                 [CellCaculator caculatorAllCellHeight:msgArr callBackOnMainThread:^(CGFloat totalHeight) {
                     _msgArr = msgArr;
                     [self reloadData];

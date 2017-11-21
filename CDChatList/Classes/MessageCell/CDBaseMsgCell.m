@@ -66,14 +66,33 @@
                                          MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_left addSubview:_bubbleImage_left];
     
+    //消息失败icon
+    _failLabel_left = [[UILabel alloc] init];
+    [_msgContent_left addSubview:_failLabel_left];
+    
+    if (@available(iOS 8.2, *)) {
+        _failLabel_left.font = [UIFont systemFontOfSize:16 weight:UIFontWeightHeavy];
+    } else {
+        _failLabel_left.font = [UIFont systemFontOfSize:16];
+    }
+    
+    _failLabel_left.text = @"!";
+    _failLabel_left.textAlignment = NSTextAlignmentCenter;
+    _failLabel_left.textColor = [UIColor whiteColor];
+    _failLabel_left.backgroundColor = [UIColor redColor];
+    _failLabel_left.clipsToBounds = YES;
+    _failLabel_left.layer.cornerRadius = 10;
+    _failLabel_left.frame = CGRectMake(0, 0, 20, 20);
+    _failLabel_left.center = CGPointMake(_bubbleImage_left.frame.origin.x + _bubbleImage_left.frame.size.width + 20,
+                                         _bubbleImage_left.frame.origin.y + _bubbleImage_left.frame.size.height * 0.5);
+    
     //发送中的菊花loading
     _indicator_left = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [_msgContent_left addSubview:_indicator_left];
     [_indicator_left startAnimating];
-    _indicator_left.frame = CGRectMake(0, 0, 20, 20);
-    _indicator_left.center = CGPointMake(_bubbleImage_left.frame.origin.x + _bubbleImage_left.frame.size.width + 20,
-                                         _bubbleImage_left.frame.origin.y + _bubbleImage_left.frame.size.height * 0.5);
-    
+    _indicator_left.frame = _failLabel_left.frame;
+    _indicator_left.center = _failLabel_left.center;
+
 }
 
 -(void)initRightMessageContent{
@@ -101,14 +120,32 @@
                                           MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_right addSubview:_bubbleImage_right];
     
+    //消息失败icon
+    _failLabel_right = [[UILabel alloc] init];
+    [_msgContent_right addSubview:_failLabel_right];
+    if (@available(iOS 8.2, *)) {
+        _failLabel_right.font = [UIFont systemFontOfSize:16 weight:UIFontWeightHeavy];
+    } else {
+        _failLabel_right.font = [UIFont systemFontOfSize:16];
+    }
+    
+    _failLabel_right.text = @"!";
+    _failLabel_right.textAlignment = NSTextAlignmentCenter;
+    _failLabel_right.textColor = [UIColor whiteColor];
+    _failLabel_right.backgroundColor = [UIColor redColor];
+    _failLabel_right.clipsToBounds = YES;
+    _failLabel_right.layer.cornerRadius = 10;
+    _failLabel_right.frame = CGRectMake(0, 0, 20, 20);
+    _failLabel_right.center = CGPointMake(_bubbleImage_right.frame.origin.x - 40,
+                                          _bubbleImage_right.frame.size.height * 0.5);
+    
     //发送中的菊花loading
     _indicator_right = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [_msgContent_right addSubview:_indicator_right];
     [_indicator_right startAnimating];
     
-    _indicator_right.frame = CGRectMake(0, 0, 20, 20);
-    _indicator_right.center = CGPointMake(_bubbleImage_right.frame.origin.x - 40,
-                                          _bubbleImage_right.frame.size.height * 0.5);
+    _indicator_right.frame = _failLabel_right.frame;
+    _indicator_right.center = _failLabel_right.center;
 }
 
 /**
@@ -133,22 +170,35 @@
     msgRect.size.height = msgContentHeight;
     self.msgContent_left.frame = msgRect;
     
-    // 设置气泡的高度和宽度
+    // 更新气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_left.frame;
     bubbleRec.size.width = data.bubbleWidth;
     bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
     self.bubbleImage_left.frame = bubbleRec;
     
-    // 设置loading位置
+    // 更新loading位置
     _indicator_left.frame = CGRectMake(0, 0, 20, 20);
     _indicator_left.center = CGPointMake(_bubbleImage_left.frame.origin.x + _bubbleImage_left.frame.size.width + 20,
                                          _bubbleImage_left.frame.origin.y + _bubbleImage_left.frame.size.height * 0.5);
     
+    // 更新faillabel位置
+    _failLabel_left.frame = _indicator_left.frame;
+    _failLabel_left.center = _indicator_left.center;
+    
+    // 更新动画状态
     // 更新动画状态
     if (data.msgState == CDMessageStateNormal) {
         [_indicator_left stopAnimating];
-    } else {
+        [_failLabel_left setHidden: YES];
+    } else if (data.msgState == CDMessageStateSending) {
         [_indicator_left startAnimating];
+        [_failLabel_left setHidden: YES];
+    } else if (data.msgState == CDMessageStateFaild) {
+        [_indicator_left stopAnimating];
+        [_failLabel_left setHidden: NO];
+    } else if (data.msgState == CDMessageStateDownloading) {
+        [_indicator_left startAnimating];
+        [_failLabel_left setHidden: YES];
     }
     
     return bubbleRec;
@@ -184,13 +234,24 @@
     // 设置loading位置
     _indicator_right.frame = CGRectMake(0, 0, 20, 20);
     _indicator_right.center = CGPointMake(_bubbleImage_right.frame.origin.x - 40,
-                                          _bubbleImage_right.frame.size.height * 0.5);
+                                          _bubbleImage_right.frame.origin.y + _bubbleImage_right.frame.size.height * 0.5);
+    // 更新faillabel位置
+    _failLabel_right.frame = _indicator_right.frame;
+    _failLabel_right.center = _indicator_right.center;
     
     // 更新动画状态
     if (data.msgState == CDMessageStateNormal) {
         [_indicator_right stopAnimating];
-    } else {
+        [_failLabel_right setHidden: YES];
+    } else if (data.msgState == CDMessageStateSending) {
         [_indicator_right startAnimating];
+        [_failLabel_right setHidden: YES];
+    } else if (data.msgState == CDMessageStateFaild) {
+        [_indicator_right stopAnimating];
+        [_failLabel_right setHidden: NO];
+    } else if (data.msgState == CDMessageStateDownloading) {
+        [_indicator_right startAnimating];
+        [_failLabel_right setHidden: YES];
     }
     
     return bubbleRec;
