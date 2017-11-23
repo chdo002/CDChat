@@ -16,7 +16,7 @@
 
 /**
  
- 从YYKit demo 中直接拿的 适配iOS 8
+ 从YYKit demo 中直接拿的 适配iOS 10以下
  文本 Line 位置修改
  将每行文本的高度和位置固定下来，不受中英文/Emoji字体的 ascent/descent 影响
  */
@@ -25,7 +25,6 @@
 @property (nonatomic, assign) CGFloat paddingTop; //文本顶部留白
 @property (nonatomic, assign) CGFloat paddingBottom; //文本底部留白
 @property (nonatomic, assign) CGFloat lineHeightMultiple; //行距倍数
-- (CGFloat)heightForLineCount:(NSUInteger)lineCount;
 @end
 
 /*
@@ -50,8 +49,8 @@
     return self;
 }
 
-- (void)modifyLines:(NSArray *)lines fromText:(NSAttributedString *)text inContainer:(YYTextContainer *)container {
-    //CGFloat ascent = _font.ascender;
+- (void)modifyLines:(NSArray *)lines fromText: (NSAttributedString *)text inContainer:(YYTextContainer *)container {
+    
     CGFloat ascent = _font.pointSize * 0.86;
     
     CGFloat lineHeight = _font.pointSize * _lineHeightMultiple;
@@ -71,19 +70,7 @@
     return one;
 }
 
-- (CGFloat)heightForLineCount:(NSUInteger)lineCount {
-    if (lineCount == 0) return 0;
-    //    CGFloat ascent = _font.ascender;
-    //    CGFloat descent = -_font.descender;
-    CGFloat ascent = _font.pointSize * 0.86;
-    CGFloat descent = _font.pointSize * 0.14;
-    CGFloat lineHeight = _font.pointSize * _lineHeightMultiple;
-    return _paddingTop + _paddingBottom + ascent + descent + (lineCount - 1) * lineHeight;
-}
-
 @end
-
-
 
 
 
@@ -177,21 +164,21 @@
     // 链接匹配替换
     [ChatHelpr matchUrl:msg_attributeText fetchActions:^YYTextAction(void) {
         return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
-            // 
             ChatListInfo *info = [ChatListInfo new];
+            info.eventType = ChatClickEventTypeURL;
             info.containerView = containerView;
-            info.msgText = text;
-            info.link = [text attributedSubstringFromRange:range].string;
+            info.msgText = text.string;
+            info.msglink = [text attributedSubstringFromRange:range].string;
             info.range = range;
-            info.range = range;
-            [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGURL object:info];
+            info.clicedkRect = rect;
+            [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENT object:info];
         };
     }];
     
     
-    msg_attributeText.yy_lineSpacing = 6;
-    msg_attributeText.yy_maximumLineHeight = MessageTextDefaultFontSize;
-    msg_attributeText.yy_minimumLineHeight = MessageTextDefaultFontSize;
+//    msg_attributeText.yy_lineSpacing = 2;
+//    msg_attributeText.yy_maximumLineHeight = MessageTextDefaultFontSize;
+//    msg_attributeText.yy_minimumLineHeight = MessageTextDefaultFontSize;
     msg_attributeText.yy_font = [UIFont systemFontOfSize:MessageTextDefaultFontSize];
     
     // 文字的限制区域，红色部分
@@ -199,15 +186,14 @@
                                     CGFLOAT_MAX);
 
     YYTextContainer *container = [YYTextContainer containerWithSize:maxTextSize];
-//    if (@available(iOS 9, *)) {
-//        
-//    } else {
-//        WBTextLinePositionModifier *modifier = [WBTextLinePositionModifier new];
-//        modifier.font = msg_attributeText.yy_font;
-//        modifier.paddingTop = 10;
-//        modifier.paddingBottom = 10;
-//        container.linePositionModifier = modifier;
-//    }
+
+    // 
+//    WBTextLinePositionModifier *modifier = [WBTextLinePositionModifier new];
+//    modifier.font = msg_attributeText.yy_font;
+//    modifier.paddingTop = 0;
+//    modifier.paddingBottom = 0;
+//    container.linePositionModifier = modifier;
+    
     YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg_attributeText];
     msgData.textlayout = layout;
     
@@ -269,7 +255,8 @@ static CGSize caculateImageSize140By140(UIImage *image) {
             
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
-                
+                msgData.msgState = CDMessageStateDownloadFaild;
+                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH object:msgData userInfo:error.userInfo];
             } else {
                 
                 CGSize size = caculateImageSize140By140(image);

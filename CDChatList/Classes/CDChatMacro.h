@@ -7,14 +7,13 @@
 
 
 #import "CDChatListProtocols.h"
-
 #import <YYText/YYText.h>
 
 #ifndef CDChatMacro_h
 #define CDChatMacro_h
 
 // 0 调试 1 生产
-#define environment 0
+#define environment 1
 #define isChatListDebug (environment == 0)
 
 // 16位颜色
@@ -41,8 +40,8 @@
 // 消息中图片下载完成的通知
 #define CHATLISTDOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
 
-// 消息中点击链接的通知  obj 中包含点击的range
-#define CHATLISTCLICKMSGURL @"CDCHATLISTCLICKMSGURL"
+// 点击消息中可点击区域的通知
+#define CHATLISTCLICKMSGEVENT @"CHATLISTCLICKMSGEVENT"
 
 #endif /* CDChatMacro_h */
 

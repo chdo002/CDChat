@@ -9,10 +9,6 @@
 #import "CDChatMacro.h"
 #import "CDBaseMsgCell.h"
 
-@implementation ChatListInfo
-@end
-
-
 @implementation ChatHelpr
 
 #pragma mark  表情替换
@@ -52,6 +48,7 @@
         UIImage *image = [ChatHelpr emoticonDic][emoString];
         if (!image) continue;
         NSMutableAttributedString *emoText = [NSMutableAttributedString yy_attachmentStringWithEmojiImage:image fontSize:MessageTextDefaultFontSize];
+        
         [msgStr replaceCharactersInRange:range withAttributedString:emoText];
         emoClipLength += range.length - 1;
     }

@@ -8,16 +8,6 @@
 #import <Foundation/Foundation.h>
 #import <YYText/YYText.h>
 
-@interface ChatListInfo: NSObject
-@property (nonatomic, strong) UIView *containerView;
-@property (nonatomic, copy) NSAttributedString *msgText;
-@property (nonatomic, copy) NSString *link;
-@property (nonatomic, assign) NSRange range;
-@property (nonatomic, assign) CGRect rect;
-@end
-
-
-
 @interface ChatHelpr : NSObject
 
 +(NSDictionary *)emoticonDic;

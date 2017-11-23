@@ -55,6 +55,10 @@
                            belowSubview:self.bubbleImage_left];
     [self.msgContent_left sd_setShowActivityIndicatorView:YES];
     [self.msgContent_left sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    // 点击手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapContent:)];
+    [self.msgContent_left addGestureRecognizer:tap];
 }
 
 -(void)initRightImageContent{
@@ -77,6 +81,10 @@
                             belowSubview:self.bubbleImage_right];
     [self.msgContent_right sd_setShowActivityIndicatorView:YES];
     [self.msgContent_right sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    // 点击手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapContent:)];
+    [self.msgContent_right addGestureRecognizer:tap];
 }
 
 -(void)configCellByData:(CDChatMessage)data{
@@ -124,4 +132,25 @@
         }];
     }
 }
+
+-(void)tapContent:(UITapGestureRecognizer *)tap {
+    //
+    if (self.msgModal.msgState == CDMessageStateDownloading ||
+        self.msgModal.msgState == CDMessageStateDownloadFaild) {
+        return;
+    }
+    
+    ChatListInfo *info = [ChatListInfo new];
+    info.eventType = ChatClickEventTypeIMAGE;
+    if (self.msgModal.isLeft) {
+        info.containerView = self.bubbleImage_left;
+    } else {
+        info.containerView = self.bubbleImage_right;
+    }
+//    info.containerView = tap.view;
+    info.image = [[SDImageCache sharedImageCache] imageFromCacheForKey:self.msgModal.msg];
+    info.msgText = self.msgModal.msg;
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENT object:info];
+}
+
 @end

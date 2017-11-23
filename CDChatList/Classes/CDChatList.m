@@ -6,16 +6,11 @@
 //
 
 #import "CDChatList.h"
-
 #import "CDTextTableViewCell.h"
 #import "CDImageTableViewCell.h"
 #import "CDSystemTableViewCell.h"
-
 #import "CellCaculator.h"
-
 #import "CDChatMacro.h"
-//#import <MBProgressHUD/MBProgressHUD.h>
-
 
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
@@ -66,7 +61,7 @@ typedef enum : NSUInteger {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTDOWNLOADLISTFINISH object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGURL object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGEVENT object:nil];
     return self;
 }
 
@@ -106,12 +101,31 @@ typedef enum : NSUInteger {
 -(void)receiveNotification:(NSNotification *)noti{
     
     if ([noti.name isEqualToString:CHATLISTDOWNLOADLISTFINISH]) {
+        // 下载图片完成通知
         CDChatMessage msgData = noti.object;
         [self updateMessage:msgData];
-    } else if ([noti.name isEqualToString:CHATLISTCLICKMSGURL]) {
-        [self.msgDelegate chatlistClickMsgLink:noti.object];
+        
+    } else if ([noti.name isEqualToString:CHATLISTCLICKMSGEVENT]) {
+        
+        // 点击消息中可点击区域的通知
+        ChatListInfo *info = noti.object;
+        switch (info.eventType) {
+            case ChatClickEventTypeURL:
+                [self.msgDelegate chatlistClickMsgEvent:info];
+                break;
+            case ChatClickEventTypeIMAGE:
+            {
+                CGRect cellRect = [info.containerView.superview convertRect:info.containerView.frame toView:self];
+                info.msgImageRectInTableView = cellRect;
+                [self.msgDelegate chatlistClickMsgEvent:info];
+                break;
+            }
+            case ChatClickEventTypeCOMMAND:
+                [self.msgDelegate chatlistClickMsgEvent:info];
+                break;
+        }
+        
     }
-    
 }
 
 #pragma mark 数据源变动

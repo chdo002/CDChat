@@ -40,12 +40,14 @@
     
     return self;
 }
-
+#pragma mark 初始化左侧消息UI
 -(void)initLeftMessageContent {
     
+    // 视图容器
     _msgContent_left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
     _msgContent_left.backgroundColor = MsgContentBackGroundColor;
     [self addSubview:_msgContent_left];
+    
     // 头像
     UIImage *left_head = BundleImage(@"icon_head");
     _headImage_left = [[UIImageView alloc] initWithImage:left_head];
@@ -94,12 +96,14 @@
     _indicator_left.center = _failLabel_left.center;
 
 }
-
+#pragma mark 初始化右侧消息UI
 -(void)initRightMessageContent{
     
+    // 视图容器
     _msgContent_right = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
     _msgContent_right.backgroundColor = MsgContentBackGroundColor;
     [self addSubview:_msgContent_right];
+
     // 头像
     UIImage *right_head = BundleImage(@"icon_head");
     _headImage_right = [[UIImageView alloc] initWithImage:right_head];
@@ -148,6 +152,7 @@
     _indicator_right.center = _failLabel_right.center;
 }
 
+#pragma mark 根据消息中的cellHeight  bubbleWidth 更新UI
 /**
  根据消息中的cellHeight  bubbleWidth 更新UI
 
@@ -193,7 +198,8 @@
     } else if (data.msgState == CDMessageStateSending) {
         [_indicator_left startAnimating];
         [_failLabel_left setHidden: YES];
-    } else if (data.msgState == CDMessageStateFaild) {
+    } else if (data.msgState == CDMessageStateSendFaild ||
+               data.msgState == CDMessageStateDownloadFaild) {
         [_indicator_left stopAnimating];
         [_failLabel_left setHidden: NO];
     } else if (data.msgState == CDMessageStateDownloading) {
@@ -204,6 +210,7 @@
     return bubbleRec;
 }
 
+#pragma mark 根据消息中的cellHeight  bubbleWidth 更新UI
 /**
  根据消息中的cellHeight  bubbleWidth 更新UI
  
@@ -246,7 +253,8 @@
     } else if (data.msgState == CDMessageStateSending) {
         [_indicator_right startAnimating];
         [_failLabel_right setHidden: YES];
-    } else if (data.msgState == CDMessageStateFaild) {
+    } else if (data.msgState == CDMessageStateSendFaild ||
+               data.msgState == CDMessageStateDownloadFaild) {
         [_indicator_right stopAnimating];
         [_failLabel_right setHidden: NO];
     } else if (data.msgState == CDMessageStateDownloading) {
@@ -257,15 +265,15 @@
     return bubbleRec;
 }
 
-
+#pragma mark 设置消息data
 - (void)configCellByData:(CDChatMessage)data{
     self.msgModal = data;
     
-    // 显示或隐藏  左右气泡
+    // 设置显示或隐藏  左右气泡
     [self.msgContent_left setHidden:!data.isLeft];
     [self.msgContent_right setHidden:data.isLeft];
     
-    // 顶部
+    // 设置顶部时间Label
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];
     self.timeLabel.text = [self checkDateDisplay:date];
     CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(scrnW, MsgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
@@ -276,7 +284,7 @@
     _timeLabel.center = CGPointMake(scrnW / 2, MsgTimeH / 2);
 }
 
-
+#pragma mark 根据消息时间，计算需要显示的消息时间格式
 /**
  根据消息时间，计算需要显示的消息时间格式
 
@@ -349,6 +357,5 @@
     
     return timeString;
 }
-
 
 @end

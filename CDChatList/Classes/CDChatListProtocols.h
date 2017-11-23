@@ -5,15 +5,13 @@
 //  Created by chdo on 2017/10/26.
 //
 
-#import "ChatHelpr.h"
-#import "CDChatMacro.h"
-#import <YYText/YYText.h>
-
-
 #ifndef CDChatListProtocols_h
 #define CDChatListProtocols_h
 
-
+#import "ChatHelpr.h"
+#import "CDChatMacro.h"
+#import <YYText/YYText.h>
+#import "ChatListInfo.h"
 
 typedef enum : NSUInteger {
     CDMessageTypeText,      // 文字类型
@@ -22,10 +20,15 @@ typedef enum : NSUInteger {
 } CDMessageType; // 消息类型
 
 typedef enum : NSUInteger {
-    CDMessageStateNormal,     
-    CDMessageStateSending,     // 发送中，图片消息上传中，文字消息发送中
-    CDMessageStateDownloading, // 下载中， 图片消息下载中
-    CDMessageStateFaild        // 消息发送失败
+    
+    CDMessageStateNormal,
+    
+    CDMessageStateSending,          // 图片消息上传中/文字消息发送中
+    CDMessageStateSendFaild,        // 消息发送失败
+    
+    CDMessageStateDownloading,      // 图片消息下载中
+    CDMessageStateDownloadFaild     // 图片消息下载失败
+    
 } CDMessageState;
 
 /**
@@ -119,7 +122,7 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 
 
 /**
- 请求加载更多消息
+ 消息列表请求加载更多消息
 
  @param topMessage 目前最早的消息
  @param finnished 加载完成回调
@@ -127,8 +130,12 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 -(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
                   callback: (void(^)(CDChatMessageArray))finnished;
 
+/**
+ 消息列表中消息的链接被点击
 
--(void)chatlistClickMsgLink: (ChatListInfo *)listInfo;
+ @param listInfo 点击事件体
+ */
+-(void)chatlistClickMsgEvent: (ChatListInfo *)listInfo;
 @end
 
 #endif /* CDChatListProtocols_h */

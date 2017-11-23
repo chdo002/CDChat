@@ -70,13 +70,11 @@
 -(CGRect)updateMsgContentFrame_left:(CDChatMessage) data;
 
 
-
 /**
  根据消息中缓存的消息高度，气泡宽度重新设置msgContent_right的frame
  
  @param data 消息内容
  */
 -(CGRect)updateMsgContentFrame_right:(CDChatMessage) data;
-
 
 @end

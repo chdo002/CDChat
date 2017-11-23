@@ -1,4 +1,4 @@
-//
+    //
 //  YYLabel.m
 //  YYText <https://github.com/ibireme/YYText>
 //
@@ -980,7 +980,6 @@ static dispatch_queue_t YYLabelGetReleaseQueue() {
             _innerText = [NSMutableAttributedString new];
         }
         [self _updateOuterTextProperties];
-        
         _innerContainer = textLayout.container.copy;
         if (!_innerContainer) {
             _innerContainer = [YYTextContainer new];

@@ -43,12 +43,3 @@
 -(void)updateMessage:(CDChatMessage)message;
 
 @end
-
-
-
-
-
-
-
-
-
