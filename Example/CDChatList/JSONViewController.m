@@ -8,6 +8,7 @@
 
 #import "JSONViewController.h"
 #import "CDMessageModal.h"
+#import "CDChatList_Example-Swift.h"
 
 @interface JSONViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
@@ -92,10 +93,7 @@
     
     CGRect rec =  [self.listView convertRect:listInfo.msgImageRectInTableView toView:self.view];
     
-    UIView *test = [[UIView alloc] initWithFrame:rec];
-    test.backgroundColor = [UIColor redColor];
-    [self.view addSubview:test];
-    NSLog(@"%@ --  %@",listInfo.msglink, NSStringFromRange(listInfo.range));
+    [ImageViewer showImageWithImage:listInfo.image rectInWindow:rec];
 }
 
 -(NSString *)radomString{

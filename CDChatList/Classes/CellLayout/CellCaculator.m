@@ -153,10 +153,14 @@
 #pragma mark ---计算文字消息尺寸方法
 +(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
-    NSMutableAttributedString *msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg];
+    NSMutableAttributedString *msg_attributeText;
 
-  
+    msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg];
+    
     // 各种替换匹配
+    
+    // 替换HTML
+    msg_attributeText = [ChatHelpr matchHTML:msg_attributeText];
     
     // 表情匹配替换
     [ChatHelpr matchEmoji:msg_attributeText];
@@ -176,7 +180,11 @@
     }];
     
     
-//    msg_attributeText.yy_lineSpacing = 2;
+    
+    
+    
+    
+    msg_attributeText.yy_lineSpacing = 2;
 //    msg_attributeText.yy_maximumLineHeight = MessageTextDefaultFontSize;
 //    msg_attributeText.yy_minimumLineHeight = MessageTextDefaultFontSize;
     msg_attributeText.yy_font = [UIFont systemFontOfSize:MessageTextDefaultFontSize];

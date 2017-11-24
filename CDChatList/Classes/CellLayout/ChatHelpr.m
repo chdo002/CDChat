@@ -10,6 +10,33 @@
 #import "CDBaseMsgCell.h"
 
 @implementation ChatHelpr
+#pragma mark  表情HTML
+
++(NSMutableAttributedString *)matchHTML:(NSMutableAttributedString *)msgStr{
+    
+
+    NSString *originStr = [msgStr.string copy];
+    
+    
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"</span>" withString:@""];
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\n\r"];
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+
+    
+    
+//    NSData *data = [originStr dataUsingEncoding:NSUnicodeStringEncoding];
+//    NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
+//    msg_attributeText = [[NSMutableAttributedString alloc] initWithData:data
+//                                                                options:options
+//                                                     documentAttributes:nil
+//                                                                  error:nil];
+//    / 去掉所有HTML标签 不包括a标签
+    NSRegularExpression *replaceReg = [NSRegularExpression regularExpressionWithPattern:@"<(?!a)(?!/a).*?>" options:0 error:nil];
+    NSString *cleanStr = [replaceReg stringByReplacingMatchesInString:originStr options:0 range: NSMakeRange(0, originStr.length) withTemplate:@""];
+    
+    return [[NSMutableAttributedString alloc] initWithString:cleanStr attributes:msgStr.yy_attributes];
+}
 
 #pragma mark  表情替换
 
@@ -34,9 +61,10 @@
 }
 
 +(void)matchEmoji:(NSMutableAttributedString *)msgStr{
-    NSRegularExpression *regEmoji = [NSRegularExpression regularExpressionWithPattern:@"\\[[^\\[\\]]+?\\]" options:kNilOptions error:NULL];
-    NSUInteger emoClipLength = 0;
     
+    NSRegularExpression *regEmoji = [NSRegularExpression regularExpressionWithPattern:@"\\[[^\\[\\]]+?\\]" options:kNilOptions error:NULL];
+    
+    NSUInteger emoClipLength = 0;
     NSArray<NSTextCheckingResult *> *emoticonResults = [regEmoji matchesInString:msgStr.string options:kNilOptions range:NSMakeRange(0, msgStr.string.length)];
     for (NSTextCheckingResult *emo in emoticonResults) {
         if (emo.range.location == NSNotFound && emo.range.length <= 1) continue;
@@ -54,34 +82,27 @@
     }
 }
 
+
+
 +(void)matchUrl: (NSMutableAttributedString *) msgStr
    fetchActions: (YYTextAction (^)(void))getAction
 {
-    
-    NSRegularExpression *regUrl = [NSRegularExpression regularExpressionWithPattern:@"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)" options:kNilOptions error:NULL];
+    NSRegularExpression *regUrl = [NSRegularExpression regularExpressionWithPattern:@"((((((H|h){1}(T|t){2}(P|p){1})(S|s)?|ftp)://)(([a-zA-Z0-9_-]+\\.?)+|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})|((([a-zA-Z_-]+\\.)|[\\d]+\\.)+[a-zA-Z0-9#_-]+))|((((H|h){1}(T|t){2}(P|p){1})(S|s)?|ftp)://)?(((([a-zA-Z_-]+\\.)|[\\d]+\\.)+[a-zA-Z0-9#_-]+)|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(:[0-9]+)?)(:[0-9]+)?(/[a-zA-Z0-9\\&%_\\./-~-#]*)?)" options:kNilOptions error:NULL];
 
-    NSArray<NSTextCheckingResult *> *emoticonResults = [regUrl matchesInString:msgStr.string options:kNilOptions range:NSMakeRange(0, msgStr.string.length)];
+    NSArray<NSTextCheckingResult *> *regResults = [regUrl matchesInString:msgStr.string options:kNilOptions range:NSMakeRange(0, msgStr.string.length)];
     
-    for (int i = 0; i < emoticonResults.count; i++) {
+    for (int i = 0; i < regResults.count; i++) {
         
-        NSTextCheckingResult *rest = emoticonResults[i];
+        NSTextCheckingResult *rest = regResults[i];
         if (rest.range.location == NSNotFound && rest.range.length <= 1) continue;
         NSRange range = rest.range;
         if ([msgStr yy_attribute:YYTextHighlightAttributeName atIndex:range.location]) continue;
         if ([msgStr yy_attribute:YYTextAttachmentAttributeName atIndex:range.location]) continue;
+        
         NSString *emoString = [msgStr.string substringWithRange:range];
         
-        
         NSMutableAttributedString *urlString = [[NSMutableAttributedString alloc] initWithString:emoString];
-//
-//        urlString.yy_underlineColor = urlString.yy_color;
-//        urlString.yy_underlineStyle = NSUnderlineStyleSingle;
-//        urlString.yy_lineSpacing = 6;
-//        urlString.yy_maximumLineHeight = MessageTextDefaultFontSize + 10;
-//        urlString.yy_minimumLineHeight = MessageTextDefaultFontSize + 10;
-//        urlString.yy_paragraphSpacing = 1;
         [msgStr replaceCharactersInRange:range withAttributedString:urlString];
-        
         
         [msgStr yy_setTextHighlightRange: range
                                    color: [UIColor blueColor]
