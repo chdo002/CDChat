@@ -9,6 +9,7 @@
 #import "JSONViewController.h"
 #import "CDMessageModal.h"
 #import "CDChatList_Example-Swift.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface JSONViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
@@ -93,7 +94,17 @@
     
     CGRect rec =  [self.listView convertRect:listInfo.msgImageRectInTableView toView:self.view];
     
-    [ImageViewer showImageWithImage:listInfo.image rectInWindow:rec];
+    if (listInfo.eventType == ChatClickEventTypeIMAGE) {
+        [ImageViewer showImageWithImage:listInfo.image rectInWindow:rec];
+    } else {
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = listInfo.msglink;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [hud hideAnimated:YES];
+        });
+    }
 }
 
 -(NSString *)radomString{

@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong, nullable) UIView *containerView;
 
 /**
- 消息字符
+ 全部消息字符
  */
 @property (nonatomic, copy, nonnull) NSString *msgText;
 

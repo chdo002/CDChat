@@ -152,7 +152,7 @@
     _indicator_right.center = _failLabel_right.center;
 }
 
-#pragma mark 根据消息中的cellHeight  bubbleWidth 更新UI
+#pragma mark 根据消息中的cellHeight  bubbleWidth 更新左侧UI
 /**
  根据消息中的cellHeight  bubbleWidth 更新UI
 
@@ -210,7 +210,7 @@
     return bubbleRec;
 }
 
-#pragma mark 根据消息中的cellHeight  bubbleWidth 更新UI
+#pragma mark 根据消息中的cellHeight  bubbleWidth 更新右侧UI
 /**
  根据消息中的cellHeight  bubbleWidth 更新UI
  
@@ -240,7 +240,7 @@
     
     // 设置loading位置
     _indicator_right.frame = CGRectMake(0, 0, 20, 20);
-    _indicator_right.center = CGPointMake(_bubbleImage_right.frame.origin.x - 40,
+    _indicator_right.center = CGPointMake(_bubbleImage_right.frame.origin.x - 20,
                                           _bubbleImage_right.frame.origin.y + _bubbleImage_right.frame.size.height * 0.5);
     // 更新faillabel位置
     _failLabel_right.frame = _indicator_right.frame;

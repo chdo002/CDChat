@@ -4,7 +4,7 @@ use_frameworks!
 target 'CDChatList_Example' do
   pod 'CDChatList', :path => '../'
   pod 'SDWebImage'
-#  pod 'Masonry'
+  pod 'MBProgressHUD'
 #  pod 'YYText'
 #  pod 'AFNetworking'
 end
