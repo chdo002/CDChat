@@ -15,7 +15,7 @@ public class ImageViewer: NSObject {
     var window : UIWindow?
     var vc = UIViewController()
     var imageView = UIImageView()
-    
+    var imageOringRect: CGRect!
     
     public static func showImage(image:UIImage, rectInWindow rect: CGRect){
         
@@ -24,8 +24,8 @@ public class ImageViewer: NSObject {
         showWd?.makeKeyAndVisible()
         viwer?.imageView.image = image
         viwer?.imageView.frame = rect
-     
-     
+        viwer?.imageOringRect = rect
+        
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             viwer?.imageView.frame = (viwer?.vc.view.bounds)!
             viwer?.imageView.contentMode = .scaleAspectFit
@@ -38,7 +38,7 @@ public class ImageViewer: NSObject {
         super.init()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = vc
-        vc.view.backgroundColor = .white
+        vc.view.backgroundColor = .black
         vc.view.addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -65,13 +65,12 @@ public class ImageViewer: NSObject {
                 let halfScr = UIScreen.main.bounds.size.height * 0.5
                 let calAlpha =  1 - (deltaY / halfScr)
                 let newAlpha = calAlpha >= 0 ? calAlpha : 0
-                vc.view.backgroundColor = UIColor(white: 1, alpha: newAlpha)
+                vc.view.backgroundColor = UIColor(white: 0, alpha: newAlpha)
                 
-                /*
-                 y = 
-                 */
+                // y = 1.5^x - 0.5
+                let newScale = pow(1.4, newAlpha) - 0.4
                 // 修改图片大小
-                imageView.transform = CGAffineTransform(scaleX: newAlpha, y: newAlpha)
+                imageView.transform = CGAffineTransform(scaleX: newScale, y: newScale)
             }
             
             //
@@ -81,7 +80,22 @@ public class ImageViewer: NSObject {
             ges.setTranslation(CGPoint.zero, in: ges.view)
             
         default:
-            tapges(ges: ges)
+            
+            if imageView.transform.a > 0.9 {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    self.imageView.center = self.vc.view.center
+                    self.vc.view.backgroundColor = UIColor(white: 0, alpha: 1)
+                }, completion: { (res) in
+                })
+            } else {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    self.imageView.frame = self.imageOringRect
+                }, completion: { (res) in
+                    self.tapges(ges: ges)
+                })
+            }
         }
     }
     func tapges(ges: UIPanGestureRecognizer){
