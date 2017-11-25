@@ -38,6 +38,7 @@
     
     return self;
 }
+
 - (void)configCellByData:(CDChatMessage)data {
     
     self.infoBackGround.frame = CGRectMake(0, 0, data.bubbleWidth, data.cellHeight);

@@ -55,15 +55,26 @@ public class ImageViewer: NSObject {
         case .began:
             movBeginPoint = ges.location(in: ges.view)
         case .changed:
-            var currentPoint = ges.location(in: ges.view)
+            
+            let currentPoint = ges.location(in: ges.view)
+            // 手指位移
             let deltaY = currentPoint.y - movBeginPoint.y
-            if deltaY > 0 {
+            if deltaY > 0 { // 手指向上移动
+                
+                // 修改背景透明度
                 let halfScr = UIScreen.main.bounds.size.height * 0.5
                 let calAlpha =  1 - (deltaY / halfScr)
                 let newAlpha = calAlpha >= 0 ? calAlpha : 0
                 vc.view.backgroundColor = UIColor(white: 1, alpha: newAlpha)
+                
+                /*
+                 y = 
+                 */
+                // 修改图片大小
+                imageView.transform = CGAffineTransform(scaleX: newAlpha, y: newAlpha)
             }
             
+            //
             let trans = ges.translation(in: ges.view)
             imageView.center = CGPoint(x: imageView.center.x + trans.x,
                                        y: imageView.center.y + trans.y)

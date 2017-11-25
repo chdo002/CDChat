@@ -32,7 +32,7 @@
     // 左侧气泡中添加label
     self.textContent_left = [[YYLabel alloc] init];
     self.textContent_left.numberOfLines = 0;
-    self.textContent_left.displaysAsynchronously = NO;
+    self.textContent_left.displaysAsynchronously = YES;
     self.textContent_left.clearContentsBeforeAsynchronouslyDisplay = YES;
     self.textContent_left.fadeOnAsynchronouslyDisplay = YES;
     self.textContent_left.backgroundColor = MsgTextContentBackGroundColor;
@@ -43,7 +43,7 @@
     // 右侧气泡中添加label
     self.textContent_right = [[YYLabel alloc] init];
     self.textContent_right.numberOfLines = 0;
-    self.textContent_right.displaysAsynchronously = NO;
+    self.textContent_right.displaysAsynchronously = YES;
     self.textContent_right.clearContentsBeforeAsynchronouslyDisplay = YES;
     self.textContent_right.fadeOnAsynchronouslyDisplay = YES;
     self.textContent_right.backgroundColor = MsgTextContentBackGroundColor;
