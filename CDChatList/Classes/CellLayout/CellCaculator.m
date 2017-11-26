@@ -167,7 +167,9 @@
     
     // 链接匹配替换
     [ChatHelpr matchUrl:msg_attributeText fetchActions:^YYTextAction(void) {
+        
         return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
+            
             ChatListInfo *info = [ChatListInfo new];
             info.eventType = ChatClickEventTypeURL;
             info.containerView = containerView;
@@ -178,12 +180,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENT object:info];
         };
     }];
-    
-    
-    
-    
-    
-    
+
     msg_attributeText.yy_lineSpacing = 2;
 //    msg_attributeText.yy_maximumLineHeight = MessageTextDefaultFontSize;
 //    msg_attributeText.yy_minimumLineHeight = MessageTextDefaultFontSize;
