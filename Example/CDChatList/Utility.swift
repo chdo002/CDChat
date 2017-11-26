@@ -13,7 +13,17 @@ var viwer :ImageViewer?
 public class ImageViewer: NSObject {
     
     var window : UIWindow?
-    var vc = UIViewController()
+    class ImageViewController: UIViewController {
+        override func viewDidLoad() {
+            
+        }
+        override var prefersStatusBarHidden: Bool{
+            return false
+        }
+    }
+    var vc = ImageViewController()
+    
+
     var imageView = UIImageView()
     var imageOringRect: CGRect!
     
@@ -46,6 +56,7 @@ public class ImageViewer: NSObject {
         vc.view.addGestureRecognizer(pan)
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapges(ges:)))
         vc.view.addGestureRecognizer(tap)
+        
     }
     
     var movBeginPoint : CGPoint!
@@ -101,5 +112,10 @@ public class ImageViewer: NSObject {
     func tapges(ges: UIPanGestureRecognizer){
         window?.resignKey()
         window = nil
+//        适配iOS 9
+        if let wind = UIApplication.shared.delegate?.window {
+            wind?.makeKeyAndVisible()
+        }
+        
     }
 }

@@ -113,6 +113,15 @@ typedef enum : NSUInteger {
             case ChatClickEventTypeURL:
                 [self.msgDelegate chatlistClickMsgEvent:info];
                 break;
+            case ChatClickEventTypeCOMMAND:
+                [self.msgDelegate chatlistClickMsgEvent:info];
+                break;
+            case ChatClickEventTypePHONE:
+                [self.msgDelegate chatlistClickMsgEvent:info];
+                break;
+            case ChatClickEventTypeEMAIL:
+                [self.msgDelegate chatlistClickMsgEvent:info];
+                break;
             case ChatClickEventTypeIMAGE:
             {
                 CGRect cellRect = [info.containerView.superview convertRect:info.containerView.frame toView:self];
@@ -120,9 +129,6 @@ typedef enum : NSUInteger {
                 [self.msgDelegate chatlistClickMsgEvent:info];
                 break;
             }
-            case ChatClickEventTypeCOMMAND:
-                [self.msgDelegate chatlistClickMsgEvent:info];
-                break;
         }
         
     }

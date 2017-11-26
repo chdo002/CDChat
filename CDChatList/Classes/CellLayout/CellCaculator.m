@@ -9,10 +9,8 @@
 #import "CDChatMacro.h"
 #import "SDImageCache.h"
 #import "SDWebImageDownloader.h"
-#import "ChatHelpr.h"
+#import "ChatMessageMatch.h"
 #import "CDBaseMsgCell.h"
-
-
 
 /**
  
@@ -106,8 +104,8 @@
     if (data.cellHeight) {
         return data.cellHeight;
     }
-//     计算高度
     
+//     计算高度
     // 和上一条信息对比判断cell上是否显示时间label
     if (index > 0) {
         CDChatMessage previousData = msgArr[index - 1];
@@ -115,7 +113,6 @@
         NSInteger currentTime = [data.createTime integerValue];
         data.willDisplayTime = ((currentTime - lastTime) > 180000);
     }
-    
     CGSize res = [self caculateCellHeightAndBubleWidth:data];
     
     // 记录 缓存
@@ -157,29 +154,48 @@
 
     msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg];
     
-    // 各种替换匹配
-    
+/*
+ =================================================================================================
+    各种替换匹配
+ =================================================================================================
+ */
     // 替换HTML
-    msg_attributeText = [ChatHelpr matchHTML:msg_attributeText];
+    msg_attributeText = [ChatMessageMatch matchHTML:msg_attributeText];
     
     // 表情匹配替换
-    [ChatHelpr matchEmoji:msg_attributeText];
+    [ChatMessageMatch matchEmoji:msg_attributeText];
     
     // 链接匹配替换
-    [ChatHelpr matchUrl:msg_attributeText fetchActions:^YYTextAction(void) {
+    [ChatMessageMatch matchUrl:msg_attributeText fetchActions:^YYTextAction(void) {
         
         return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
-            
-            ChatListInfo *info = [ChatListInfo new];
-            info.eventType = ChatClickEventTypeURL;
-            info.containerView = containerView;
-            info.msgText = text.string;
-            info.msglink = [text attributedSubstringFromRange:range].string;
-            info.range = range;
-            info.clicedkRect = rect;
-            [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENT object:info];
+            [[ChatListInfo info:ChatClickEventTypeURL containerView:containerView
+                        msgText:text.string link:[text attributedSubstringFromRange:range].string
+                           rnag:range clickRect:rect] sendMessage];
         };
     }];
+    
+    // 邮箱匹配
+    [ChatMessageMatch matchEmail:msg_attributeText fetchActions:^YYTextAction{
+        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
+            [[ChatListInfo info:ChatClickEventTypeEMAIL containerView:containerView
+                        msgText:text.string link:[text attributedSubstringFromRange:range].string
+                           rnag:range clickRect:rect] sendMessage];
+        };
+    }];
+
+    
+    // 号码匹配
+    [ChatMessageMatch matchPhone:msg_attributeText fetchActions:^YYTextAction{
+        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
+            [[ChatListInfo info:ChatClickEventTypePHONE containerView:containerView
+                        msgText:text.string link:[text attributedSubstringFromRange:range].string
+                           rnag:range clickRect:rect] sendMessage];
+        };
+    }];
+    
+   
+    
 
     msg_attributeText.yy_lineSpacing = 2;
 //    msg_attributeText.yy_maximumLineHeight = MessageTextDefaultFontSize;
@@ -207,10 +223,11 @@
     // 计算整个cell高度
     CGFloat cellheight = ceilf(layout.textBoundingSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
 
-    // 如果 小于最小cell高度
+    // 如果 cellheight小于最小cell高度
     if (cellheight < MessageContentH) {
         cellheight = MessageContentH;
     }
+    
     return CGSizeMake(bubbleWidth, cellheight);
 }
 
@@ -219,7 +236,7 @@
 /**
  根据图片大小计算气泡宽度和cell高度
  */
-static CGSize caculateImageSize140By140(UIImage *image) {
+ CGSize caculateImageSize140By140(UIImage *image) {
     
     // 图片将被限制在140*140的区域内，按比例显示
     CGFloat width = image.size.width;

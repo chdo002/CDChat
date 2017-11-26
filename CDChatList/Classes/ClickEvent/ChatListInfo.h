@@ -10,6 +10,8 @@
 typedef enum : NSUInteger {
     ChatClickEventTypeURL,
     ChatClickEventTypeIMAGE,
+    ChatClickEventTypePHONE,
+    ChatClickEventTypeEMAIL,
     ChatClickEventTypeCOMMAND,
 } ChatClickEventType;
 
@@ -67,4 +69,13 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, assign) CGRect msgImageRectInTableView;
 
++(ChatListInfo *_Nullable)info:(ChatClickEventType)type
+                 containerView:(UIView *_Nullable)view
+              msgText:(NSString *_Nullable)msgText
+                 link:(NSString *_Nullable)link
+                 rnag:(NSRange)rang
+            clickRect:(CGRect) rect;
+
+
+-(void)sendMessage;
 @end
