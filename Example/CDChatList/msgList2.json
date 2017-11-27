@@ -6,5 +6,13 @@
   "msgType" : 0,
   "msgState": 3,
   "isLeft" : 1
+  },
+  {
+  "msg": "您可能需要以下服务：\n\r1. 财富宝充值路径\n\r2. 财富宝提现或赎回\n\r如您没有找到想要的问题，请输入“转人工”",
+  "messageId": "1242",
+  "createTime": "1509634535128",
+  "msgType" : 0,
+  "msgState": 3,
+  "isLeft" : 1
   }
 ]

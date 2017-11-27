@@ -56,6 +56,7 @@
         NSString *emoString = [msgStr.string substringWithRange:range];
         UIImage *image = [ChatHelpr emoticonDic][emoString];
         if (!image) continue;
+        
         NSMutableAttributedString *emoText = [NSMutableAttributedString yy_attachmentStringWithEmojiImage:image fontSize:MessageTextDefaultFontSize];
         
         [msgStr replaceCharactersInRange:range withAttributedString:emoText];
