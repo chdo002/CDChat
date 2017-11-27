@@ -165,12 +165,22 @@
     // 表情匹配替换
     [ChatMessageMatch matchEmoji:msg_attributeText];
     
+    // "转人工"匹配
+    NSRegularExpression *reg = [[NSRegularExpression alloc] initWithPattern:@"转人工" options:kNilOptions error:nil];
+    [ChatMessageMatch matchFixedStr:msg_attributeText with:reg fetchActions:^YYTextAction{
+        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
+            [[ChatListInfo info:ChatClickEventTypeCOMMAND containerView:containerView
+                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
+                           rnag:range clickRect:rect] sendMessage];
+        };
+    }];
+    
     // 链接匹配替换
     [ChatMessageMatch matchUrl:msg_attributeText fetchActions:^YYTextAction(void) {
         
         return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
             [[ChatListInfo info:ChatClickEventTypeURL containerView:containerView
-                        msgText:text.string link:[text attributedSubstringFromRange:range].string
+                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
                            rnag:range clickRect:rect] sendMessage];
         };
     }];
@@ -179,7 +189,7 @@
     [ChatMessageMatch matchEmail:msg_attributeText fetchActions:^YYTextAction{
         return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
             [[ChatListInfo info:ChatClickEventTypeEMAIL containerView:containerView
-                        msgText:text.string link:[text attributedSubstringFromRange:range].string
+                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
                            rnag:range clickRect:rect] sendMessage];
         };
     }];
@@ -189,7 +199,7 @@
     [ChatMessageMatch matchPhone:msg_attributeText fetchActions:^YYTextAction{
         return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
             [[ChatListInfo info:ChatClickEventTypePHONE containerView:containerView
-                        msgText:text.string link:[text attributedSubstringFromRange:range].string
+                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
                            rnag:range clickRect:rect] sendMessage];
         };
     }];

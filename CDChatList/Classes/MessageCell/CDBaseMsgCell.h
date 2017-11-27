@@ -11,7 +11,11 @@
 #import "CDChatList.h"
 
 
-// cell
+/*
+========================================================================================================================
+=======================================================  cell中的宏  ====================================================
+========================================================================================================================
+ */
 
 
 // 颜色
@@ -34,18 +38,14 @@
 #define BubbleSharpAnglehorizInset (BubbleRoundAnglehorizInset + BubbleShareAngleWidth) //尖角外部到圆角内部的距离 
 #define BubbleSharpAngleHeighInset 25  // 气泡顶部到尖角底部的距离
 
-
 // 字体
 #define MessageTextDefaultFontSize 16
 #define MessageTextDefaultFont  [UIFont systemFontOfSize: MessageTextDefaultFontSize] //默认文字消息字体
 #define SysInfoMessageFont  [UIFont systemFontOfSize:14] // // 系统消息字体
 
-
 @interface CDBaseMsgCell : UITableViewCell<MessageCellProtocal>
 
-
 @property(nonatomic,strong) UILabel *timeLabel; //消息时间视图
-
 @property(nonatomic, strong) CDChatMessage msgModal;
 
 // 左侧 消息内容视图

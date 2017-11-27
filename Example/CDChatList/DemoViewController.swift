@@ -8,8 +8,9 @@
 
 import UIKit
 import CDChatList
+import MBProgressHUD
 
-class DemoViewController: UIViewController {
+class DemoViewController: UIViewController, ChatListProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,7 @@ class DemoViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         let listView = CDChatList(frame: view.bounds)
         listView.viewController = self
+        listView.msgDelegate = self
         self.view.addSubview(listView)
         
         let path = Bundle.main.path(forResource: "msgList2", ofType: "json")
@@ -33,5 +35,20 @@ class DemoViewController: UIViewController {
             msgArr.append(CDMessageModal.initWithDic(item))
         }
         listView.msgArr = msgArr
+    }
+    
+    func chatlistClickMsgEvent(_ listInfo: ChatListInfo!) {
+        if listInfo.eventType == ChatClickEventTypeCOMMAND {
+            let hud = MBProgressHUD.showAdded(to: view, animated: true)
+            hud.label.text = listInfo.clickedText
+            hud.mode = .text
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5 , execute: {
+                hud.hide(animated: true)
+            })
+        }
+    }
+    
+    func chatlistLoadMoreMsg(_ topMessage: CDChatMessage!, callback finnished: (([CDChatMessage]?) -> Void)!) {
+        
     }
 }

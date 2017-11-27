@@ -42,7 +42,8 @@ typedef enum : NSUInteger {
     self.estimatedRowHeight = 0;
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
-    self.backgroundColor = CRMHexColor(0x808080);
+    
+    self.backgroundColor =  isChatListDebug ? CRMHexColor(0xB5E7E1) : CRMHexColor(0xEBEBEB);
     if (!isChatListDebug) {
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
@@ -55,6 +56,7 @@ typedef enum : NSUInteger {
     // 下拉loading视图
     CGRect rect = CGRectMake(0, -LoadingH, scrnW, LoadingH);
     UIActivityIndicatorView *indicatr = [[UIActivityIndicatorView alloc] initWithFrame:rect];
+    indicatr.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self addSubview:indicatr];
     [indicatr startAnimating];
     self.indicatro = indicatr;
@@ -234,8 +236,7 @@ typedef enum : NSUInteger {
             [self reloadData];
             callBack(0);
         } else {
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{                
                 [CellCaculator caculatorAllCellHeight:msgArr callBackOnMainThread:^(CGFloat totalHeight) {
                     _msgArr = msgArr;
                     [self reloadData];

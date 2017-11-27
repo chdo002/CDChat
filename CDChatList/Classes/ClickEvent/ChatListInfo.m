@@ -9,13 +9,13 @@
 #import "CDChatMacro.h"
 
 @implementation ChatListInfo
-+(ChatListInfo *)info:(ChatClickEventType)type containerView:(UIView *)view msgText:(NSString *)msgText link:(NSString *)link rnag:(NSRange )rang clickRect:(CGRect)rect
++(ChatListInfo *)info:(ChatClickEventType)type containerView:(UIView *)view msgText:(NSString *)msgText clickedText:(NSString *)clickedText rnag:(NSRange )rang clickRect:(CGRect)rect
 {
     ChatListInfo *info = [[ChatListInfo alloc] init];
     info.eventType = type;
     info.containerView = view;
     info.msgText = msgText;
-    info.msglink = link;
+    info.clickedText = clickedText;
     info.range = rang;
     info.clicedkRect = rect;
     return info;

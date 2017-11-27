@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 @interface ChatListInfo: NSObject
 
 /**
- 文字容器
+ 文字视图容器
  */
 @property (nonatomic, strong, nullable) UIView *containerView;
 
@@ -45,13 +45,12 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, assign) ChatClickEventType eventType;
 
-
-/*-------链接-------*/
 /**
  链接文本
  */
-@property (nonatomic, copy, nullable) NSString *msglink;
+@property (nonatomic, copy, nullable) NSString *clickedText;
 
+/*-------链接-------*/
 /**
  链接文本在tableview中的位置
  */
@@ -72,7 +71,7 @@ typedef enum : NSUInteger {
 +(ChatListInfo *_Nullable)info:(ChatClickEventType)type
                  containerView:(UIView *_Nullable)view
               msgText:(NSString *_Nullable)msgText
-                 link:(NSString *_Nullable)link
+          clickedText:(NSString *_Nullable)clickedText
                  rnag:(NSRange)rang
             clickRect:(CGRect) rect;
 

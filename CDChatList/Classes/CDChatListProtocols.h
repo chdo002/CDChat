@@ -131,7 +131,7 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
                   callback: (void(^)(CDChatMessageArray))finnished;
 
 /**
- 消息列表中消息的链接被点击
+ 消息中的点击事件
 
  @param listInfo 点击事件体
  */

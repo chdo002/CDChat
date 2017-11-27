@@ -25,8 +25,6 @@
 // 资源图片  pod的资源会被打包成相应的bundle
 #define BundleImage(name) [UIImage imageNamed:name inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[CDChatList class]] pathForResource:@"CDChatList" ofType:@"bundle"]] compatibleWithTraitCollection:nil]
 
-// 
-
 // 屏幕尺寸
 #define scrnW [UIScreen mainScreen].bounds.size.width
 #define scrnH [UIScreen mainScreen].bounds.size.height
