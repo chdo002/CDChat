@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
      'CDChatList' => ['CDChatList/Assets/*.png']
   }
 
-  s.public_header_files = 'Pod/Classes/**/**/*.h'
+  s.public_header_files = 'CDChatList/Classes/**/**/*.h'
   s.frameworks = 'UIKit'
 
   s.dependency 'SDWebImage'
