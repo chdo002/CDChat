@@ -9,16 +9,10 @@
 Pod::Spec.new do |s|
   s.name             = 'CDChatList'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of CDChatList.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = '聊天界面的封装.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    ios 版本对聊天界面的封装
                        DESC
 
   s.homepage         = 'http://git-ma.paic.com.cn/aat_component_ios/ChatList'
@@ -36,7 +30,7 @@ TODO: Add long description of the pod here.
      'CDChatList' => ['CDChatList/Assets/*.png']
   }
 
-  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'Pod/Classes/**/**/*.h'
   s.frameworks = 'UIKit'
 
   s.dependency 'SDWebImage'
