@@ -5,9 +5,12 @@ iOS 聊天界面的组件
 想要提交代码请fork下，然后pullrequest，谢谢
 
 
-#usage
+## usage
 
 >  作为pod依赖
+
+    在podfile中添加
+    source 'git@git-ma.paic.com.cn:aat/AATComponent_iOS.git'
 
 ```
  pod 'CDChatList'
