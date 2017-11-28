@@ -26,7 +26,14 @@ iOS 聊天界面的组件
 ```
 
 
-## 更新记得打tag
+## 更新
 
+> 记得打tag
 git tag -m "first release" "0.1.0"
 $ git push --tags     #推送tag到远端仓库
+
+> 添加前的检查
+pod lib lint --allow-warnings -veribse
+
+> 推送到git-ma仓库
+pod repo push AATComponent_iOS CDChatList.podspec --verbose --allow-warnings
