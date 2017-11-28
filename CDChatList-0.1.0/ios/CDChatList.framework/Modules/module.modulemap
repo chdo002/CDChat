@@ -1,0 +1,6 @@
+framework module CDChatList {
+  umbrella header "CDChatList.h"
+
+  export *
+  module * { export * }
+}
