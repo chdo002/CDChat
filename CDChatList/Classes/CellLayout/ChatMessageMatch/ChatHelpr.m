@@ -7,12 +7,32 @@
 
 #import "ChatHelpr.h"
 
+@interface ChatHelpr()
+@property(nonatomic, strong) NSMutableDictionary<NSString*, UIImage *> *emojDic;
+@end
 
 @implementation ChatHelpr
 
++(instancetype)share{
+    static dispatch_once_t onceToken;
+    static ChatHelpr *helper;
+    dispatch_once(&onceToken, ^{
+        helper = [[ChatHelpr alloc] init];
+    });
+    return helper;
+}
+
++(void)loadImageDic: (NSMutableDictionary<NSString*, UIImage *> *)emjDic{
+    [ChatHelpr share].emojDic = emjDic;
+}
 
 #pragma mark  表情替换
 +(NSDictionary *)emoticonDic {
+    
+    if ([ChatHelpr share].emojDic) {
+        return [ChatHelpr share].emojDic;
+    }
+    
     static NSMutableDictionary *dic;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

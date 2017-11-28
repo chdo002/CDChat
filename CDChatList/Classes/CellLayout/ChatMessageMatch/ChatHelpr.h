@@ -9,6 +9,13 @@
 
 @interface ChatHelpr : NSObject
 
+/**
+ 配置表情字典
+
+ @param emjDic 表情名->image
+ */
++(void)loadImageDic: (NSMutableDictionary<NSString*, UIImage *> *)emjDic;
+
 +(NSDictionary *)emoticonDic;
 
 @end
