@@ -16,7 +16,7 @@ iOS 聊天界面的组件
 >  将pod打包成framework
 
 ```
- pod package CDChatList.podspec --library  --force  -verbose
+ pod package CDChatList.podspec --force  -verbose
 ```
 
 >  将pod打包成静态库（需要手动处理资源文件）
