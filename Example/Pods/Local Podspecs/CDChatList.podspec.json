@@ -12,7 +12,7 @@
     "chdo002": "1107661983@qq.com"
   },
   "source": {
-    "git": "https://github.com/chdo002/CDChatList.git",
+    "git": "http://git-ma.paic.com.cn/aat/ChatList.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -24,7 +24,7 @@
       "CDChatList/Assets/*.png"
     ]
   },
-  "public_header_files": "Pod/Classes/**/*.h",
+  "public_header_files": "CDChatList/Classes/**/**/*.h",
   "frameworks": "UIKit",
   "dependencies": {
     "SDWebImage": [
