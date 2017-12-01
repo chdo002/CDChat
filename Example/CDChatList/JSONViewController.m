@@ -10,6 +10,7 @@
 #import "CDMessageModal.h"
 #import "CDChatList_Example-Swift.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <CDChatList/CDChatList.h>
 
 @interface JSONViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
@@ -21,8 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
+   
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
     
     list.msgDelegate = self;
