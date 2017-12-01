@@ -57,7 +57,8 @@
         UIImage *image = [ChatHelpr emoticonDic][emoString];
         if (!image) continue;
         
-        NSMutableAttributedString *emoText = [NSMutableAttributedString yy_attachmentStringWithEmojiImage:image fontSize:MessageTextDefaultFontSize];
+        NSMutableAttributedString *emoText = [NSMutableAttributedString yy_attachmentStringWithEmojiImage:image
+           fontSize:MessageTextDefaultFontSize];
         
         [msgStr replaceCharactersInRange:range withAttributedString:emoText];
         emoClipLength += range.length - 1;

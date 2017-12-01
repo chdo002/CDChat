@@ -29,19 +29,13 @@
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
     
     //     普通富文本
-    NSAttributedString *attStr = [self fact: @"isjoijosa哦时间大佛我熬时间佛已董事局佛我阿佛奇偶ojf"
+    NSAttributedString *attStr = [self fact: @"isjoijosa哦时间大熬时间佛已董事局佛我阿佛奇偶ojf"
                                       color: [UIColor blueColor]
                                    fontSize: 15];
     
     //     产生一个图片占位符
-    UIFont *font = [UIFont systemFontOfSize:15];
     
-    NSDictionary *imgInfoDic = @{@"ascent":@(font.ascender),
-                                 @"descent":@(font.descender),
-                                 @"width":@(font.pointSize)
-                                 };
-
-    NSMutableAttributedString *imageString = [self imageStrFromDictionary:imgInfoDic size:15];
+    NSMutableAttributedString *imageString = [self imageStrFromFontSize:15];
     [attString appendAttributedString:attStr];
     [attString appendAttributedString:imageString];
     
@@ -95,26 +89,30 @@ static CGFloat widthfunc(void *ref){
     return [(NSNumber*)[(__bridge NSDictionary*)ref objectForKey:@"width"] floatValue];
 }
 
-/**
- <#Description#>
+static void deallocfunc(void *ref){
+    NSDictionary *self = (__bridge_transfer NSDictionary *)(ref);
+    self = nil;
+}
 
- @param dict <#dict description#>
- @param fontSize <#fontSize description#>
- @return <#return value description#>
- */
--(NSMutableAttributedString *)imageStrFromDictionary:(NSDictionary *)dict size: (CGFloat )fontSize{
+-(NSMutableAttributedString *)imageStrFromFontSize: (CGFloat )fontSize{
     
     
+    UIFont *font = [UIFont systemFontOfSize:15];
+    
+    NSDictionary *imgInfoDic = @{@"ascent":@(font.ascender),
+                                 @"descent":@(font.descender),
+                                 @"width":@(font.pointSize)
+                                 };
     // 字形参数
     CTRunDelegateCallbacks callbacks;
     
     memset(&callbacks, 0, sizeof(CTRunDelegateCallbacks));
-    callbacks.version = kCTRunDelegateVersion1;
-    
+    callbacks.version = kCTRunDelegateCurrentVersion;
     callbacks.getAscent = ascentfunc;   // 顶边到基线
     callbacks.getDescent = dscentfunc; // 底边到基线
     callbacks.getWidth = widthfunc;     //
-    CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void *)(dict));
+    callbacks.dealloc = deallocfunc;
+    CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge_retained void *)(imgInfoDic));
     
     // 使用0xFFFC作为空白的占位符
     unichar objectReplacementChar = 0xFFFC;
