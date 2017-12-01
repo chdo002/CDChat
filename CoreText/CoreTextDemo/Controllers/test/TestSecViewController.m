@@ -29,10 +29,13 @@
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
     
     //     普通富文本
-    NSAttributedString *attStr = [self fact:@"112341234124oaisjdfoisjoijosaojf" color:[UIColor blueColor] fontSize:15];
+    NSAttributedString *attStr = [self fact: @"isjoijosa哦时间大佛我熬时间佛已董事局佛我阿佛奇偶ojf"
+                                      color: [UIColor blueColor]
+                                   fontSize: 15];
     
     //     产生一个图片占位符
     UIFont *font = [UIFont systemFontOfSize:15];
+    
     NSDictionary *imgInfoDic = @{@"ascent":@(font.ascender),
                                  @"descent":@(font.descender),
                                  @"width":@(font.pointSize)
@@ -50,7 +53,7 @@
     CGSize boundingSize = CGSizeMake(200, CGFLOAT_MAX);
     CGSize caedSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0,attString.length), nil, boundingSize, nil);
 
-    CGSize caSize = CGSizeMake(200, ceilf(caedSize.height));
+    CGSize caSize = CGSizeMake(ceilf(caedSize.width), ceilf(caedSize.height));
     // -- 创建显示范围
     CGPathRef path = CGPathCreateWithRect(CGRectMake(0, 0, caSize.width, caSize.height), NULL);
     // 创建显示frame
@@ -77,19 +80,28 @@
         return attString;
 }
 
-    
-    static CGFloat ascentfunc(void *ref){
-        return [(NSNumber*)[(__bridge NSDictionary*)ref objectForKey:@"ascent"] floatValue];
-    }
-    
-    static CGFloat dscentfunc(void *ref){
-        return [(NSNumber*)[(__bridge NSDictionary*)ref objectForKey:@"descent"] floatValue];
-    }
-    
-    static CGFloat widthfunc(void *ref){
-        return [(NSNumber*)[(__bridge NSDictionary*)ref objectForKey:@"width"] floatValue];
-    }
-    
+
+
+#pragma mark
+static CGFloat ascentfunc(void *ref){
+    return [(NSNumber*)[(__bridge NSDictionary*)ref objectForKey:@"ascent"] floatValue];
+}
+
+static CGFloat dscentfunc(void *ref){
+    return [(NSNumber*)[(__bridge NSDictionary*)ref objectForKey:@"descent"] floatValue];
+}
+
+static CGFloat widthfunc(void *ref){
+    return [(NSNumber*)[(__bridge NSDictionary*)ref objectForKey:@"width"] floatValue];
+}
+
+/**
+ <#Description#>
+
+ @param dict <#dict description#>
+ @param fontSize <#fontSize description#>
+ @return <#return value description#>
+ */
 -(NSMutableAttributedString *)imageStrFromDictionary:(NSDictionary *)dict size: (CGFloat )fontSize{
     
     

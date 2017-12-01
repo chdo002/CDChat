@@ -40,6 +40,7 @@
 		45DFED2F1866C15B0068E2BE /* CoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DFED2E1866C15B0068E2BE /* CoreTextUtils.m */; };
 		45DFED331866C5430068E2BE /* WebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DFED311866C5430068E2BE /* WebContentViewController.m */; };
 		45DFED341866C5430068E2BE /* WebContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DFED321866C5430068E2BE /* WebContentViewController.xib */; };
+		E97693F61FD0E4C7005ADBD2 /* Expression_22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97693F51FD0E4C7005ADBD2 /* Expression_22@2x.png */; };
 		E98253251FC2D52D00012F5B /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98253241FC2D52D00012F5B /* TestView.m */; };
 		E9846F161FCFD35A00545B03 /* TestSecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9846F151FCFD35A00545B03 /* TestSecViewController.m */; };
 		E99981E11FC3E680006E51D0 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99981E01FC3E680006E51D0 /* TestViewController.m */; };
@@ -105,6 +106,7 @@
 		45DFED301866C5430068E2BE /* WebContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebContentViewController.h; sourceTree = "<group>"; };
 		45DFED311866C5430068E2BE /* WebContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebContentViewController.m; sourceTree = "<group>"; };
 		45DFED321866C5430068E2BE /* WebContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebContentViewController.xib; sourceTree = "<group>"; };
+		E97693F51FD0E4C7005ADBD2 /* Expression_22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_22@2x.png"; sourceTree = "<group>"; };
 		E98253231FC2D52D00012F5B /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
 		E98253241FC2D52D00012F5B /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 		E9846F141FCFD35A00545B03 /* TestSecViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSecViewController.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		452F1B92184D682B0071F13B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E97693F51FD0E4C7005ADBD2 /* Expression_22@2x.png */,
 				45CB423E1918F0EF0080FC11 /* red@2x.png */,
 				45CB423C1918E1E10080FC11 /* cursor@2x.png */,
 				45C460271854492600F35D02 /* coretext-image-1.jpg */,
@@ -365,6 +368,7 @@
 				45C4602A1854492600F35D02 /* coretext-image-2.jpg in Resources */,
 				452F1BA2184D682B0071F13B /* Main_iPad.storyboard in Resources */,
 				452F1BA7184D682B0071F13B /* Images.xcassets in Resources */,
+				E97693F61FD0E4C7005ADBD2 /* Expression_22@2x.png in Resources */,
 				45CB423F1918F0EF0080FC11 /* red@2x.png in Resources */,
 				452F1B9F184D682B0071F13B /* Main_iPhone.storyboard in Resources */,
 				452F1B96184D682B0071F13B /* InfoPlist.strings in Resources */,
