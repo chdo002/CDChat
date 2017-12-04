@@ -9,7 +9,7 @@
 #import "CDChatListProtocols.h"
 
 /**
- 聊天列表视图
+ 聊天视图
  */
 @interface CDChatList : UITableView
 
