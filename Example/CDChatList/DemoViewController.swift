@@ -8,7 +8,6 @@
 
 import UIKit
 import CDChatList
-import MBProgressHUD
 
 class DemoViewController: UIViewController, ChatListProtocol {
 
@@ -39,12 +38,12 @@ class DemoViewController: UIViewController, ChatListProtocol {
     
     func chatlistClickMsgEvent(_ listInfo: ChatListInfo!) {
         if listInfo.eventType == ChatClickEventTypeCOMMAND {
-            let hud = MBProgressHUD.showAdded(to: view, animated: true)
-            hud.label.text = listInfo.clickedText
-            hud.mode = .text
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5 , execute: {
-                hud.hide(animated: true)
-            })
+//            let hud = MBProgressHUD.showAdded(to: view, animated: true)
+//            hud.label.text = listInfo.clickedText
+//            hud.mode = .text
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5 , execute: {
+//                hud.hide(animated: true)
+//            })
         }
     }
     

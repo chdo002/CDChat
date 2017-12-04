@@ -4,7 +4,5 @@ use_frameworks!
 target 'CDChatList_Example' do
   pod 'CDChatList', :path => '../'
   pod 'SDWebImage'
-  pod 'MBProgressHUD'
-#  pod 'YYText'
-#  pod 'AFNetworking'
+  pod 'CDLabel', '~> 0.0.11', :source => 'http://git-ma.paic.com.cn/aat/AATComponent_iOS.git'
 end

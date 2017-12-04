@@ -12,6 +12,7 @@
 #import "CellCaculator.h"
 #import "CDChatMacro.h"
 
+
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
     CDHeaderLoadStateNoraml,        // 等待下拉加载
@@ -36,7 +37,9 @@ typedef enum : NSUInteger {
 #pragma mark 生命周期
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
-
+    
+    
+    
     self.delegate = self;
     self.dataSource = self;
     self.estimatedRowHeight = 0;

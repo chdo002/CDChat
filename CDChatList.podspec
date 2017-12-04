@@ -28,6 +28,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit'
 
   s.dependency 'SDWebImage'
-  s.dependency 'YYText'
-
+  s.dependency 'CDLabel'
 end

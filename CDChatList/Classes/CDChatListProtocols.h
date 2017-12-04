@@ -10,7 +10,7 @@
 
 
 #import "CDChatMacro.h"
-#import <YYText/YYText.h>
+#import <CDLabel/CTData.h>
 #import "ChatListInfo.h"
 
 typedef enum : NSUInteger {
@@ -97,7 +97,7 @@ typedef enum : NSUInteger {
 /**
  文字布局，缓存用
  */
-@property (nonatomic, strong) YYTextLayout *textlayout;
+@property (nonatomic, strong) CTData *textlayout;
 
 @end
 
