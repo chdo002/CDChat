@@ -8,9 +8,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
     ios 版本对聊天界面的封装
                        DESC
-
   s.homepage         = 'http://git-ma.paic.com.cn/aat_component_ios/ChatList'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'chdo002' => '1107661983@qq.com' }
   s.source           = { :git => 'http://git-ma.paic.com.cn/aat/ChatList.git', :tag => s.version.to_s }
