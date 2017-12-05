@@ -6,13 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CTClickInfo.h"
 
 typedef enum : NSUInteger {
-    ChatClickEventTypeURL,
+    ChatClickEventTypeTEXT,
     ChatClickEventTypeIMAGE,
-    ChatClickEventTypePHONE,
-    ChatClickEventTypeEMAIL,
-    ChatClickEventTypeCOMMAND,
 } ChatClickEventType;
 
 /**
@@ -20,25 +18,6 @@ typedef enum : NSUInteger {
  */
 @interface ChatListInfo: NSObject
 
-/**
- 文字视图容器
- */
-@property (nonatomic, strong, nullable) UIView *containerView;
-
-/**
- 全部消息字符
- */
-@property (nonatomic, copy, nonnull) NSString *msgText;
-
-/**
- 点击文字range
- */
-@property (nonatomic, assign) NSRange range;
-
-/**
- 点击区域在containerView中的位置
- */
-@property (nonatomic, assign) CGRect clicedkRect;
 
 /**
  事件类型
@@ -46,15 +25,30 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) ChatClickEventType eventType;
 
 /**
+ 全部消息字符
+ */
+@property (nonatomic, copy, nonnull) NSString *msgText;
+
+/**
+ 文字视图容器
+ */
+@property (nonatomic, strong, nullable) UIView *containerView;
+
+
+/*-------文本类型-------*/
+/**
  链接文本
  */
 @property (nonatomic, copy, nullable) NSString *clickedText;
-
-/*-------链接-------*/
 /**
- 链接文本在tableview中的位置
+ 点击文字range
  */
-@property (nonatomic, assign) CGRect msglinkRectInTableView;
+@property (nonatomic, assign) NSRange range;
+
+/**
+ 被点击文本的隐藏信息
+ */
+@property (nonatomic, copy, nullable) NSString *clickedTextContent;
 
 
 /*-------图片-------*/
@@ -68,13 +62,19 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, assign) CGRect msgImageRectInTableView;
 
-+(ChatListInfo *_Nullable)info:(ChatClickEventType)type
-                 containerView:(UIView *_Nullable)view
-              msgText:(NSString *_Nullable)msgText
-          clickedText:(NSString *_Nullable)clickedText
-                 rnag:(NSRange)rang
-            clickRect:(CGRect) rect;
 
++(ChatListInfo *_Nullable)info:(ChatClickEventType)type
+                       msgText:(NSString *_Nullable)msgText
+                 containerView:(UIView *_Nullable)view
+
+                   clickedText:(NSString *_Nullable)clickedTitle
+                      textRang:(NSRange)rang
+            clickedTextContent:(NSString *_Nullable)clickedTextContent
+
+                         image:(UIImage *_Nullable)image
+                     imageRect:(CGRect) rect;
+
++(ChatListInfo *_Nullable)eventFromChatListInfo:(CTClickInfo *_Nullable)info;
 
 -(void)sendMessage;
 @end

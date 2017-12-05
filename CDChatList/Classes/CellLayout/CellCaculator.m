@@ -11,65 +11,7 @@
 #import "SDWebImageDownloader.h"
 #import "ChatMessageMatch.h"
 #import "CDBaseMsgCell.h"
-
-/**
- 
- 从YYKit demo 中直接拿的 适配iOS 10以下
- 文本 Line 位置修改
- 将每行文本的高度和位置固定下来，不受中英文/Emoji字体的 ascent/descent 影响
- */
-@interface WBTextLinePositionModifier : NSObject <YYTextLinePositionModifier>
-@property (nonatomic, strong) UIFont *font; // 基准字体 (例如 Heiti SC/PingFang SC)
-@property (nonatomic, assign) CGFloat paddingTop; //文本顶部留白
-@property (nonatomic, assign) CGFloat paddingBottom; //文本底部留白
-@property (nonatomic, assign) CGFloat lineHeightMultiple; //行距倍数
-@end
-
-/*
- 将每行的 baseline 位置固定下来，不受不同字体的 ascent/descent 影响。
- 
- 注意，Heiti SC 中，    ascent + descent = font size，
- 但是在 PingFang SC 中，ascent + descent > font size。
- 所以这里统一用 Heiti SC (0.86 ascent, 0.14 descent) 作为顶部和底部标准，保证不同系统下的显示一致性。
- 间距仍然用字体默认
- */
-@implementation WBTextLinePositionModifier
-
-- (instancetype)init {
-    self = [super init];
-    
-    if (@available(iOS 9, *)) {
-        _lineHeightMultiple = 1.34;   // for PingFang SC
-    } else {
-        _lineHeightMultiple = 1.3125; // for Heiti SC
-    }
-    
-    return self;
-}
-
-- (void)modifyLines:(NSArray *)lines fromText: (NSAttributedString *)text inContainer:(YYTextContainer *)container {
-    
-    CGFloat ascent = _font.pointSize * 0.86;
-    
-    CGFloat lineHeight = _font.pointSize * _lineHeightMultiple;
-    for (YYTextLine *line in lines) {
-        CGPoint position = line.position;
-        position.y = _paddingTop + ascent + line.row  * lineHeight;
-        line.position = position;
-    }
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-    WBTextLinePositionModifier *one = [self.class new];
-    one->_font = _font;
-    one->_paddingTop = _paddingTop;
-    one->_paddingBottom = _paddingBottom;
-    one->_lineHeightMultiple = _lineHeightMultiple;
-    return one;
-}
-
-@end
-
+#import "CTData.h"
 
 
 @interface CellCaculator()
@@ -83,9 +25,12 @@
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 此处为同步计算所有高度
         for (int i = 0; i < msgArr.count; i++) {
             [self fetchCellHeight:i of:msgArr];
         }
+        
+        // 总共高度
         CGFloat totalHeight = 0.0f;
         for (CDChatMessage msg in msgArr) {
             totalHeight = totalHeight + msg.cellHeight;
@@ -152,86 +97,26 @@
     
     NSMutableAttributedString *msg_attributeText;
 
-    msg_attributeText = [[NSMutableAttributedString alloc] initWithString:msgData.msg];
-    
-/*
- =================================================================================================
-    各种替换匹配
- =================================================================================================
- */
-    // 替换HTML
-    msg_attributeText = [ChatMessageMatch matchHTML:msg_attributeText];
-    
-    // 表情匹配替换
-    [ChatMessageMatch matchEmoji:msg_attributeText];
-    
-    // "转人工"匹配
-    NSRegularExpression *reg = [[NSRegularExpression alloc] initWithPattern:@"转人工" options:kNilOptions error:nil];
-    [ChatMessageMatch matchFixedStr:msg_attributeText with:reg fetchActions:^YYTextAction{
-        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
-            [[ChatListInfo info:ChatClickEventTypeCOMMAND containerView:containerView
-                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
-                           rnag:range clickRect:rect] sendMessage];
-        };
-    }];
-    
-    // 链接匹配替换
-    [ChatMessageMatch matchUrl:msg_attributeText fetchActions:^YYTextAction(void) {
-        
-        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
-            [[ChatListInfo info:ChatClickEventTypeURL containerView:containerView
-                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
-                           rnag:range clickRect:rect] sendMessage];
-        };
-    }];
-    
-    // 邮箱匹配
-    [ChatMessageMatch matchEmail:msg_attributeText fetchActions:^YYTextAction{
-        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
-            [[ChatListInfo info:ChatClickEventTypeEMAIL containerView:containerView
-                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
-                           rnag:range clickRect:rect] sendMessage];
-        };
-    }];
-
-    
-    // 号码匹配
-    [ChatMessageMatch matchPhone:msg_attributeText fetchActions:^YYTextAction{
-        return ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect){
-            [[ChatListInfo info:ChatClickEventTypePHONE containerView:containerView
-                        msgText:text.string clickedText:[text attributedSubstringFromRange:range].string
-                           rnag:range clickRect:rect] sendMessage];
-        };
-    }];
-    
-   
-    
-
-    msg_attributeText.yy_lineSpacing = 2;
-//    msg_attributeText.yy_maximumLineHeight = MessageTextDefaultFontSize;
-//    msg_attributeText.yy_minimumLineHeight = MessageTextDefaultFontSize;
-    msg_attributeText.yy_font = [UIFont systemFontOfSize:MessageTextDefaultFontSize];
+    msg_attributeText = [[NSMutableAttributedString alloc] initWithString: msgData.msg];
     
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
-
-    YYTextContainer *container = [YYTextContainer containerWithSize:maxTextSize];
-
-    // 
-//    WBTextLinePositionModifier *modifier = [WBTextLinePositionModifier new];
-//    modifier.font = msg_attributeText.yy_font;
-//    modifier.paddingTop = 0;
-//    modifier.paddingBottom = 0;
-//    container.linePositionModifier = modifier;
+//    CTDataConfig config;
+//    config.textColor = [UIColor blackColor].CGColor;
+//    config.hilightColor = [UIColor lightGrayColor].CGColor;
+//    config.clickStrColor = [UIColor blueColor].CGColor;
+//    config.lineSpace = 2;
+//    config.textSize = 16;
+//    config.lineBreakMode = NSLineBreakByCharWrapping;
     
-    YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg_attributeText];
-    msgData.textlayout = layout;
+    CTData *data = [CTData dataWithStr:msgData.msg containerWithSize:maxTextSize];
+    msgData.textlayout = data;
     
     // 计算气泡宽度
-    CGFloat bubbleWidth = ceilf(layout.textBoundingSize.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
+    CGFloat bubbleWidth = ceilf(data.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
     // 计算整个cell高度
-    CGFloat cellheight = ceilf(layout.textBoundingSize.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
+    CGFloat cellheight = ceilf(data.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
 
     // 如果 cellheight小于最小cell高度
     if (cellheight < MessageContentH) {
@@ -294,7 +179,7 @@
                 CGSize size = caculateImageSize140By140(image);
                 [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
                 
-                #warning 记录 缓存 这里写法有待商榷
+                #warning image cache 记录 缓存 这里写法有待商榷
                 
                 msgData.bubbleWidth = size.width;
                 // 加上可能显示的时间视图高度

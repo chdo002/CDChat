@@ -9,19 +9,31 @@
 #import "CDChatMacro.h"
 
 @implementation ChatListInfo
-+(ChatListInfo *)info:(ChatClickEventType)type containerView:(UIView *)view msgText:(NSString *)msgText clickedText:(NSString *)clickedText rnag:(NSRange )rang clickRect:(CGRect)rect
-{
+
+
++(ChatListInfo *)info:(ChatClickEventType)type msgText:(NSString *)msgText containerView:(UIView *)view clickedText:(NSString *)clickedTitle textRang:(NSRange)rang clickedTextContent:(NSString *)clickedTextContent image:(UIImage *)image imageRect:(CGRect)rect{
     ChatListInfo *info = [[ChatListInfo alloc] init];
     info.eventType = type;
-    info.containerView = view;
     info.msgText = msgText;
-    info.clickedText = clickedText;
+    info.containerView = view;
+    info.clickedText = clickedTitle;
     info.range = rang;
-    info.clicedkRect = rect;
+    info.clickedTextContent = clickedTextContent;
+    info.image = image;
+    info.msgImageRectInTableView = rect;
     return info;
 }
 
++(ChatListInfo *)eventFromChatListInfo:(CTClickInfo *)info{
+    ChatClickEventType type = ChatClickEventTypeTEXT;
+    if (info.eventType == CTClickEventTypeIMAGE){
+        return nil;
+    }
+    ChatListInfo *newInfo = [ChatListInfo info:type msgText:info.msgText containerView:info.containerView clickedText:info.clickedText textRang:info.range clickedTextContent:info.clickedTextContent image:info.image imageRect:info.imageRect];
+    return newInfo;
+}
+
 -(void)sendMessage{
-    [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENT object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENTNOTIFICATION object:self];
 }
 @end

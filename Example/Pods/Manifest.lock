@@ -1,16 +1,15 @@
 PODS:
   - CDChatList (0.1.0):
+    - CDChatList/CDLabel (= 0.1.0)
     - SDWebImage
-    - YYText
-  - MBProgressHUD (1.0.0)
+  - CDChatList/CDLabel (0.1.0):
+    - SDWebImage
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
-  - YYText (1.0.7)
 
 DEPENDENCIES:
   - CDChatList (from `../`)
-  - MBProgressHUD
   - SDWebImage
 
 EXTERNAL SOURCES:
@@ -18,11 +17,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CDChatList: 3783ca0efa14c01073f96e092b80dfc1b699286e
-  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  CDChatList: e550915527bdaeb55657c442d7334aed6ad04142
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
-  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: c7ac1037421c1f04139585ddd7c5c9ee83eab50f
+PODFILE CHECKSUM: 524fd7368852b3e0d03b35ec9fc47c06a10e232c
 
 COCOAPODS: 1.4.0.beta.2

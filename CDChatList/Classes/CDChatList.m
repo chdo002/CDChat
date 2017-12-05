@@ -11,6 +11,7 @@
 #import "CDSystemTableViewCell.h"
 #import "CellCaculator.h"
 #import "CDChatMacro.h"
+#import "CTClickInfo.h"
 
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
@@ -36,7 +37,9 @@ typedef enum : NSUInteger {
 #pragma mark 生命周期
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
-
+    
+    
+    
     self.delegate = self;
     self.dataSource = self;
     self.estimatedRowHeight = 0;
@@ -63,7 +66,10 @@ typedef enum : NSUInteger {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTDOWNLOADLISTFINISH object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGEVENT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGEVENTNOTIFICATION object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CTCLICKMSGEVENTNOTIFICATION object:nil];
     return self;
 }
 
@@ -107,32 +113,21 @@ typedef enum : NSUInteger {
         CDChatMessage msgData = noti.object;
         [self updateMessage:msgData];
         
-    } else if ([noti.name isEqualToString:CHATLISTCLICKMSGEVENT]) {
+    } else if ([noti.name isEqualToString:CHATLISTCLICKMSGEVENTNOTIFICATION]) {
         
         // 点击消息中可点击区域的通知
         ChatListInfo *info = noti.object;
-        switch (info.eventType) {
-            case ChatClickEventTypeURL:
-                [self.msgDelegate chatlistClickMsgEvent:info];
-                break;
-            case ChatClickEventTypeCOMMAND:
-                [self.msgDelegate chatlistClickMsgEvent:info];
-                break;
-            case ChatClickEventTypePHONE:
-                [self.msgDelegate chatlistClickMsgEvent:info];
-                break;
-            case ChatClickEventTypeEMAIL:
-                [self.msgDelegate chatlistClickMsgEvent:info];
-                break;
-            case ChatClickEventTypeIMAGE:
-            {
-                CGRect cellRect = [info.containerView.superview convertRect:info.containerView.frame toView:self];
-                info.msgImageRectInTableView = cellRect;
-                [self.msgDelegate chatlistClickMsgEvent:info];
-                break;
-            }
+        if (info.eventType == ChatClickEventTypeIMAGE){
+            CGRect cellRect = [info.containerView.superview convertRect:info.containerView.frame toView:self];
+            info.msgImageRectInTableView = cellRect;
+            [self.msgDelegate chatlistClickMsgEvent:info];
         }
-        
+    } else if ([noti.name isEqualToString:CTCLICKMSGEVENTNOTIFICATION]){
+        CTClickInfo *info = noti.object;
+        ChatListInfo *chatInfo = [ChatListInfo eventFromChatListInfo:info];
+        if (chatInfo){
+            [self.msgDelegate chatlistClickMsgEvent:chatInfo];
+        }
     }
 }
 
