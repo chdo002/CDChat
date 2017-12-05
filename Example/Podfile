@@ -5,6 +5,4 @@ target 'CDChatList_Example' do
   pod 'CDChatList', :path => '../'
   pod 'SDWebImage'
   pod 'MBProgressHUD'
-#  pod 'YYText'
-#  pod 'AFNetworking'
 end
