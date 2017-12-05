@@ -8,6 +8,7 @@
 #import "CTData.h"
 #import "CDTextParser.h"
 #import "CDLabelMacro.h"
+#import "CTHelper.h"
 
 @implementation CTImageData
 @end
@@ -77,11 +78,35 @@
     // 创建显示frame
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter,
                                                 CFRangeMake(0, [attString length]), path, NULL);
+    
+    
     data.width = caSize.width;
     data.height = caSize.height;
     data.ctFrame = frame;
     data.imageArray = imageDataArr;
     data.linkArray = linkDataArr;
+    
+    
+    
+    UIGraphicsBeginImageContextWithOptions(caSize, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    CGContextTranslateCTM(context, 0, caSize.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CTFrameDraw(frame, context);
+    
+    for (CTImageData * imageData in data.imageArray) {
+        UIImage *image = [CTHelper emoticonDic][imageData.name];
+        if (image) {
+            CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
+        }
+    }
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    data.contents = image;
+    
+    
     return data;
 }
 

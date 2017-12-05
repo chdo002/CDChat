@@ -16,8 +16,7 @@
 //    
 //    
 //    NSString *originStr = [msgStr.string copy];
-//    
-//    
+//
 //    originStr = [originStr stringByReplacingOccurrencesOfString:@"</span>" withString:@""];
 //    originStr = [originStr stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\n\r"];
 //    originStr = [originStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];

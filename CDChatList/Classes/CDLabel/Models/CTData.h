@@ -53,6 +53,8 @@ typedef struct {
  */
 @property (assign, nonatomic) CTFrameRef ctFrame;
 
+@property(nonatomic, strong) UIImage *contents;
+
 @property (assign, nonatomic) CGFloat width;   // 文本宽度
 @property (assign, nonatomic) CGFloat height;  // 文本高度
 

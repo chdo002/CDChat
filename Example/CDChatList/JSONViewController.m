@@ -127,9 +127,6 @@
         [str appendString:emArr[x]];
     }
     
-    
-    
-    
     return [str copy];
 }
 

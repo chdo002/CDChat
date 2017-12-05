@@ -34,7 +34,7 @@
     
     [ChatHelpr loadImageDic:dic];
     
-    
+//    [UIView appearance]
 }
 
 

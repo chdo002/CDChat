@@ -50,8 +50,9 @@ typedef enum CTDisplayViewState : NSInteger {
 
 - (void)setData:(CTData *)data {
     _data = data;
+    self.layer.contents = (__bridge id)data.contents.CGImage;
     self.state = CTDisplayViewStateNormal;
-    [self setNeedsDisplay];
+//    [self setNeedsDisplay];
 }
 
 - (void)setState:(CTDisplayViewState)state {
@@ -94,28 +95,28 @@ typedef enum CTDisplayViewState : NSInteger {
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    if (self.data == nil) {
-        return;
-    }
-    
+//    if (self.data == nil) {
+//        return;
+//    }
+//
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
-    
+
     if (self.state == CTDisplayViewStateTouching || self.state == CTDisplayViewStateSelecting) {
         [self drawSelectionArea];
         [self drawAnchors];
     }
-    
-    CTFrameDraw(self.data.ctFrame, context);
-    
-    for (CTImageData * imageData in self.data.imageArray) {
-        UIImage *image = [CTHelper emoticonDic][imageData.name];
-        if (image) {
-            CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
-        }
-    }
+//
+//    CTFrameDraw(self.data.ctFrame, context);
+//
+//    for (CTImageData * imageData in self.data.imageArray) {
+//        UIImage *image = [CTHelper emoticonDic][imageData.name];
+//        if (image) {
+//            CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
+//        }
+//    }
     
 }
 
@@ -124,9 +125,9 @@ typedef enum CTDisplayViewState : NSInteger {
                                                                                   action:@selector(userTapGestureDetected:)];
     [self addGestureRecognizer:tapRecognizer];
     
-    UIGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                                                             action:@selector(userLongPressedGuestureDetected:)];
-    [self addGestureRecognizer:longPressRecognizer];
+//    UIGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+//                                                                                             action:@selector(userLongPressedGuestureDetected:)];
+//    [self addGestureRecognizer:longPressRecognizer];
     
     // UIGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
     //                                                                              action:@selector(userPanGuestureDetected:)];
