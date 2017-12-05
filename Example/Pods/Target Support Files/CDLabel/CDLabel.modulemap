@@ -1,6 +1,0 @@
-framework module CDLabel {
-  umbrella header "CDLabel-umbrella.h"
-
-  export *
-  module * { export * }
-}

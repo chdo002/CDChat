@@ -95,26 +95,40 @@
     
     if (listInfo.eventType == ChatClickEventTypeIMAGE) {
         [ImageViewer showImageWithImage:listInfo.image rectInWindow:rec];
-    } else {
+    } else if (listInfo.eventType == ChatClickEventTypeTEXT){
         
-//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//        hud.mode = MBProgressHUDModeText;
-//        hud.label.text = listInfo.clickedText;
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [hud hideAnimated:YES];
-//        });
+        UIAlertController *alert = [[UIAlertController alloc] init];
+        alert.message = listInfo.clickedTextContent;
+        UIAlertAction *aciotn = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+        [alert addAction:aciotn];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
 -(NSString *)radomString{
     NSString *pool = @"推送佛哦时间风高放火金坷垃发生丢开方便农民， 爱说的反馈规划局客服更是加快哦票紧迫i";
+    NSArray *emArr = @[@"[惊恐]",@"[困]",@"[得意]",@"[鼓掌]",@"[刀]",@"[害羞]",@"[礼物]",@"[哈欠]",@"[拳头]",@"[飞吻]",@"[发抖]",@"[嘴唇]"];
     
     NSMutableString *str = [[NSMutableString alloc] init];
+    
     int lent = arc4random() % 50 + 50;
+    for (int i = 0; i < lent; i ++) {
+        int x = arc4random() % emArr.count;
+        [str appendString:emArr[x]];
+    }
+    
     for (int i = 0; i < lent; i ++) {
         int x = arc4random() % [pool length];
         [str appendString:[pool substringWithRange:NSMakeRange(x, 1)]];
     }
+    
+    for (int i = 0; i < lent; i ++) {
+        int x = arc4random() % emArr.count;
+        [str appendString:emArr[x]];
+    }
+    
+    
+    
     
     return [str copy];
 }

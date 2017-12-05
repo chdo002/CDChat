@@ -10,7 +10,7 @@
 
 
 #import "CDChatMacro.h"
-#import <CDLabel/CTData.h>
+#import "CTData.h"
 #import "ChatListInfo.h"
 
 typedef enum : NSUInteger {

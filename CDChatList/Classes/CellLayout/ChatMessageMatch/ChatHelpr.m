@@ -6,7 +6,7 @@
 //
 
 #import "ChatHelpr.h"
-#import <CDLabel/CTHelper.h>
+#import "CTHelper.h"
 
 @interface ChatHelpr()
 @property(nonatomic, strong) NSMutableDictionary<NSString*, UIImage *> *emojDic;

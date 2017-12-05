@@ -8,7 +8,7 @@
 #import "CDTextTableViewCell.h"
 #import "CDChatMacro.h"
 #import "CDChatList.h"
-#import <CDLabel/CDLabel.h>
+#import "CDLabel.h"
 
 @interface CDTextTableViewCell()
 

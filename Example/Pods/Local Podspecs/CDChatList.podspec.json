@@ -29,9 +29,13 @@
   "dependencies": {
     "SDWebImage": [
 
-    ],
-    "CDLabel": [
-
     ]
-  }
+  },
+  "subspecs": [
+    {
+      "name": "CDLabel",
+      "source_files": "CDChatList/Classes/CDLabel/**/*",
+      "public_header_files": "CDChatList/Classes/CDLabel/**/*.h"
+    }
+  ]
 }

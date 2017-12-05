@@ -11,7 +11,7 @@
 #import "SDWebImageDownloader.h"
 #import "ChatMessageMatch.h"
 #import "CDBaseMsgCell.h"
-#import <CDLabel/CTData.h>
+#import "CTData.h"
 
 
 @interface CellCaculator()
@@ -106,8 +106,8 @@
 //    config.textColor = [UIColor blackColor].CGColor;
 //    config.hilightColor = [UIColor lightGrayColor].CGColor;
 //    config.clickStrColor = [UIColor blueColor].CGColor;
-//    config.lineSpace = 0;
-//    config.textSize = 15;
+//    config.lineSpace = 2;
+//    config.textSize = 16;
 //    config.lineBreakMode = NSLineBreakByCharWrapping;
     
     CTData *data = [CTData dataWithStr:msgData.msg containerWithSize:maxTextSize];
@@ -179,7 +179,7 @@
                 CGSize size = caculateImageSize140By140(image);
                 [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
                 
-                #warning 记录 缓存 这里写法有待商榷
+                #warning image cache 记录 缓存 这里写法有待商榷
                 
                 msgData.bubbleWidth = size.width;
                 // 加上可能显示的时间视图高度
