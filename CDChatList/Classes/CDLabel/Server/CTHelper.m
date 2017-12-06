@@ -8,7 +8,7 @@
 #import "CTHelper.h"
 
 @interface CTHelper()
-@property(nonatomic, strong) NSMutableDictionary<NSString*, UIImage *> *emojDic;
+@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *emojDic;
 @end
 
 @implementation CTHelper
@@ -22,7 +22,7 @@
     return helper;
 }
 
-+(void)loadImageDic: (NSMutableDictionary<NSString*, UIImage *> *)emjDic{
++(void)loadImageDic: (NSDictionary<NSString*, UIImage *> *)emjDic{
     [CTHelper share].emojDic = emjDic;
 }
 

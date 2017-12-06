@@ -6,6 +6,7 @@
 //
 
 #import "CDBaseMsgCell.h"
+#import "ChatHelpr.h"
 
 @interface CDBaseMsgCell()
 

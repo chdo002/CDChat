@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CTData.h"
+#import "CDChatMacro.h"
 
 @interface ChatConfiguration : NSObject
 
@@ -82,7 +83,7 @@
  */
 @property (nonatomic, assign) CGFloat bubbleSharpAngleHeighInset;
 
-#pragma mark  字体相关设置
+#pragma mark 字体相关设置
 
 /**
  消息默认字号
@@ -97,5 +98,14 @@
  */
 @property(nonatomic, strong) UIFont *sysInfoMessageFont;
 
+#pragma mark CDLabel 相关设置
+
+@property (nonatomic, assign) CTDataConfig ctDataconfig;
+
+
+/**
+ 组件环境  0 调试 1 生产
+ */
+-(BOOL)isDebug;
 
 @end

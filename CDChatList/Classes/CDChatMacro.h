@@ -7,19 +7,21 @@
 
 
 #import "CDChatListProtocols.h"
+#import "ChatConfiguration.h"
 
 #ifndef CDChatMacro_h
 #define CDChatMacro_h
 
 // 0 调试 1 生产
-#define Environment 1
-#define isChatListDebug (Environment == 0)
+#define Environment [ChatHelpr defaultConfiguration].environment
+#define isChatListDebug [[ChatHelpr defaultConfiguration] isDebug]
 
 // 16位颜色
 #define CRMHexColor(hexColor)  [UIColor colorWithRed:((float)((hexColor & 0xFF0000) >> 16))/255.0 green:((float)((hexColor & 0xFF00) >> 8))/255.0 blue:((float)(hexColor & 0xFF))/255.0 alpha:1]
 
 // 随机色
 #define CRMRadomColor  [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1]
+
 
 // 资源图片  pod的资源会被打包成相应的bundle
 #define BundleImage(name) [UIImage imageNamed:name inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[CDChatList class]] pathForResource:@"CDChatList" ofType:@"bundle"]] compatibleWithTraitCollection:nil]
@@ -49,14 +51,17 @@
 
 
 // cell中消息中时间视图的高度（如果显示）
-#define MsgTimeH  30
+#define MsgTimeH  [ChatHelpr defaultConfiguration].msgTimeH
 
 
 // 颜色
-#define MsgBackGroundColor (isChatListDebug ? CRMHexColor(0xB5E7E1) : CRMHexColor(0xEBEBEB))           // cell背景色
-#define MsgContentBackGroundColor (isChatListDebug ? CRMHexColor(0x9E7777) : CRMHexColor(0xEBEBEB))       // 消息容器背景色
-#define HeadBackGroundColor (isChatListDebug ? [UIColor redColor] : CRMHexColor(0xEBEBEB))             // 头像背景色
-#define MsgTextContentBackGroundColor (isChatListDebug ? [UIColor redColor] : CRMHexColor(0xF5F5F5))       // 文字背景色
+#define MsgBackGroundColor [ChatHelpr defaultConfiguration].msgBackGroundColor           // cell背景色
+
+#define MsgContentBackGroundColor [ChatHelpr defaultConfiguration].msgContentBackGroundColor       // 消息容器背景色
+
+#define HeadBackGroundColor [ChatHelpr defaultConfiguration].headBackGroundColor             // 头像背景色
+
+#define MsgTextContentBackGroundColor [ChatHelpr defaultConfiguration].msgTextContentBackGroundColor       // 文字背景色
 
 // 长度
 #define SysInfoMessageMaxWidth scrnW * 0.64    // 系统消息最大边长

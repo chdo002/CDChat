@@ -13,7 +13,7 @@
  
  @param emjDic 表情名->image
  */
-+(void)loadImageDic: (NSMutableDictionary<NSString*, UIImage *> *)emjDic;
++(void)loadImageDic: (NSDictionary<NSString*, UIImage *> *)emjDic;
 
 +(NSDictionary *)emoticonDic;
 

@@ -6,16 +6,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ChatConfiguration.h"
 
 @interface ChatHelpr : NSObject
 
+#pragma mark 组件配置相关
++(ChatConfiguration *)defaultConfiguration;
++(void)setDefaultConfiguration:(ChatConfiguration *)config;
+
+#pragma mark  表情相关
 /**
- 配置表情字典
-
- @param emjDic 表情名->image
+ 表情字典
+ @return <NameString: UIImage>
  */
-+(void)loadImageDic: (NSMutableDictionary<NSString*, UIImage *> *)emjDic;
-
-+(NSDictionary *)emoticonDic;
++(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic;
++(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic;
 
 @end

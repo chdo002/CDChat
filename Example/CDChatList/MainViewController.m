@@ -32,9 +32,10 @@
         [dic setValue:img forKey:imagName];
     }
     
-    [ChatHelpr loadImageDic:dic];
+    [ChatHelpr setDefaultEmoticonDic:dic];
     
-//    [UIView appearance]
+    
+
 }
 
 

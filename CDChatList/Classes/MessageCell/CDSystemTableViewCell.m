@@ -8,7 +8,7 @@
 #import "CDSystemTableViewCell.h"
 #import "CDChatMacro.h"
 #import "CDBaseMsgCell.h"
-
+#import "ChatHelpr.h"
 @interface CDSystemTableViewCell()
 @property(nonatomic, strong) UIView  *infoBackGround;
 @property(nonatomic, strong) UILabel *sysInfoLbael;

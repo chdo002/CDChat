@@ -12,7 +12,7 @@
 #import "ChatMessageMatch.h"
 #import "CDBaseMsgCell.h"
 #import "CTData.h"
-
+#import "ChatHelpr.h"
 
 @interface CellCaculator()
 

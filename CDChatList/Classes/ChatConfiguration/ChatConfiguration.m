@@ -6,7 +6,7 @@
 //
 
 #import "ChatConfiguration.h"
-#import "CDChatMacro.h"
+#import "ChatHelpr.h"
 
 @implementation ChatConfiguration
 
@@ -37,9 +37,54 @@
     self.messageTextDefaultFont = [UIFont systemFontOfSize: self.messageTextDefaultFontSize];
     self.sysInfoMessageFont = [UIFont systemFontOfSize:14];
     
+    CTDataConfig config;
+    config.textColor = [UIColor blackColor].CGColor;
+    config.hilightColor = [UIColor lightGrayColor].CGColor;
+    config.clickStrColor = [UIColor blueColor].CGColor;
+    config.lineSpace = 2;
+    config.textSize = 16;
+    config.lineBreakMode = NSLineBreakByCharWrapping;
+    self.ctDataconfig = config;
+    
     return self;
 }
 
+-(BOOL)isDebug{
+    return self.environment == 0;
+}
 
+// 颜色
+
+-(UIColor *)msgBackGroundColor{
+    if ([self isDebug]) {
+        return CRMHexColor(0xB5E7E1);
+    } else {
+        return _msgBackGroundColor;
+    }
+}
+
+-(UIColor *)msgContentBackGroundColor{
+    if ([self isDebug]) {
+        return CRMHexColor(0x9E7777);
+    } else {
+        return _msgContentBackGroundColor;
+    }
+}
+
+-(UIColor *)headBackGroundColor {
+    if ([self isDebug]) {
+        return [UIColor redColor];
+    } else {
+        return _headBackGroundColor;
+    }
+}
+
+-(UIColor *)msgTextContentBackGroundColor{
+    if ([self isDebug]) {
+        return [UIColor redColor];
+    } else {
+        return _msgTextContentBackGroundColor;
+    }
+}
 
 @end
