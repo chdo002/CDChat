@@ -25,6 +25,7 @@
 #import "CellCaculator.h"
 #import "ChatHelpr.h"
 #import "ChatMessageMatch.h"
+#import "ChatConfiguration.h"
 #import "ChatListInfo.h"
 #import "CDBaseMsgCell.h"
 #import "CDImageTableViewCell.h"
