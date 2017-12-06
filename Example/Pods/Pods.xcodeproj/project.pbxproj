@@ -96,8 +96,6 @@
 		E3A68A10E066D8B9A60ED85952FBFB6E /* CDBaseMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A2C34087C332EB578A029E71D4D69C /* CDBaseMsgCell.m */; };
 		E9B2CFDC1FD6A14400CC7186 /* ChatConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B2CFDA1FD6A14400CC7186 /* ChatConfiguration.h */; };
 		E9B2CFDD1FD6A14400CC7186 /* ChatConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B2CFDB1FD6A14400CC7186 /* ChatConfiguration.m */; };
-		E9B2CFE01FD6A23F00CC7186 /* ChatLayoutConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B2CFDE1FD6A23F00CC7186 /* ChatLayoutConfiguration.h */; };
-		E9B2CFE11FD6A23F00CC7186 /* ChatLayoutConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B2CFDF1FD6A23F00CC7186 /* ChatLayoutConfiguration.m */; };
 		EEEC6A2CA0A36A4995B9A57E885F0330 /* bg_mask_left@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A81D69F34ADCC0ABF5141B98B537FD76 /* bg_mask_left@3x.png */; };
 		EF4075DE32E92219EB3B070AD1A02B1B /* CTData.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D28ED5683482EC85F634A4C6CA068E1 /* CTData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F13BB38DDEC868EF4B354E3AE8334744 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4820634B6127B72FFA59EBC57B6D111 /* SDImageCache.m */; };
@@ -241,8 +239,6 @@
 		E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
 		E9B2CFDA1FD6A14400CC7186 /* ChatConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatConfiguration.h; sourceTree = "<group>"; };
 		E9B2CFDB1FD6A14400CC7186 /* ChatConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatConfiguration.m; sourceTree = "<group>"; };
-		E9B2CFDE1FD6A23F00CC7186 /* ChatLayoutConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatLayoutConfiguration.h; sourceTree = "<group>"; };
-		E9B2CFDF1FD6A23F00CC7186 /* ChatLayoutConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatLayoutConfiguration.m; sourceTree = "<group>"; };
 		EC01F7566937A3BF1B841177A3055519 /* CDChatListHeaders.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDChatListHeaders.h; path = CDChatList/Classes/CDChatListHeaders.h; sourceTree = "<group>"; };
 		ED2B0EEB6D8D7E64CB8F9611FB69E685 /* ChatListInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ChatListInfo.m; sourceTree = "<group>"; };
 		F020637C381C8C4DDA4297F9A8CFC7F7 /* left_box@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "left_box@2x.png"; path = "CDChatList/Assets/left_box@2x.png"; sourceTree = "<group>"; };
@@ -563,8 +559,6 @@
 			children = (
 				E9B2CFDA1FD6A14400CC7186 /* ChatConfiguration.h */,
 				E9B2CFDB1FD6A14400CC7186 /* ChatConfiguration.m */,
-				E9B2CFDE1FD6A23F00CC7186 /* ChatLayoutConfiguration.h */,
-				E9B2CFDF1FD6A23F00CC7186 /* ChatLayoutConfiguration.m */,
 			);
 			name = ChatConfiguration;
 			path = CDChatList/Classes/ChatConfiguration;
@@ -644,7 +638,6 @@
 			files = (
 				D1003246FE0BDBAC3FC81E4F92D3B430 /* CDBaseMsgCell.h in Headers */,
 				E9B2CFDC1FD6A14400CC7186 /* ChatConfiguration.h in Headers */,
-				E9B2CFE01FD6A23F00CC7186 /* ChatLayoutConfiguration.h in Headers */,
 				B25EA6E7DF36988845327556A3A2BE8C /* CDChatList-umbrella.h in Headers */,
 				C91F80C306E3D12991E97024FF594586 /* CDChatList.h in Headers */,
 				0510E5B1E5B35662EE4DAE68B2FA6A74 /* CDChatListHeaders.h in Headers */,
@@ -813,7 +806,6 @@
 				8F82B62DCFBBFD478761B309D37B4ACC /* CDLabel.m in Sources */,
 				F7EEB858B8C1274DBD5E79F4E3B5F8B5 /* CDSystemTableViewCell.m in Sources */,
 				06BD25CFFEC2A412E8335ADFCEABB692 /* CDTextParser.m in Sources */,
-				E9B2CFE11FD6A23F00CC7186 /* ChatLayoutConfiguration.m in Sources */,
 				021ADE810EE544E687493C7983DBA022 /* CDTextTableViewCell.m in Sources */,
 				3FA7F82023DEE31AB83A23996F37E598 /* CellCaculator.m in Sources */,
 				7CF2D3BF484A9D86A6ACEB298053661B /* ChatHelpr.m in Sources */,

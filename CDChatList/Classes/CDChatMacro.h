@@ -12,8 +12,8 @@
 #define CDChatMacro_h
 
 // 0 调试 1 生产
-#define environment 1
-#define isChatListDebug (environment == 0)
+#define Environment 1
+#define isChatListDebug (Environment == 0)
 
 // 16位颜色
 #define CRMHexColor(hexColor)  [UIColor colorWithRed:((float)((hexColor & 0xFF0000) >> 16))/255.0 green:((float)((hexColor & 0xFF00) >> 8))/255.0 blue:((float)(hexColor & 0xFF))/255.0 alpha:1]
@@ -30,7 +30,6 @@
 
 // 导航栏高度
 #define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)
-
 
 // 消息中图片下载完成的通知
 #define CHATLISTDOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
@@ -65,7 +64,7 @@
 #define MessageContentH (MessageMargin * 2 +  HeadSideLength) // 文字消息内容在只有一行时的高度 不包括时间label
 #define SysInfoPadding  8                      // 系统消息内边距
 
-// 气泡内边距
+// 气泡尺寸
 #define BubbleRoundAnglehorizInset 10  // 气泡圆角半径
 #define BubbleShareAngleWidth  6      // 气泡尖角宽度
 #define MessageMargin  10  // 头像外边距
