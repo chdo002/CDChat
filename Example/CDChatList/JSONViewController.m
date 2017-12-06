@@ -23,7 +23,7 @@
     [super viewDidLoad];
    
     
-    [ChatHelpr defaultConfiguration].environment = 0;
+    
     
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
     

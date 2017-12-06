@@ -35,7 +35,7 @@
     [ChatHelpr setDefaultEmoticonDic:dic];
     
     
-
+    [ChatHelpr defaultConfiguration].environment = 1;
 }
 
 

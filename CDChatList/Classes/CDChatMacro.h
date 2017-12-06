@@ -64,23 +64,26 @@
 #define MsgTextContentBackGroundColor [ChatHelpr defaultConfiguration].msgTextContentBackGroundColor       // 文字背景色
 
 // 长度
-#define SysInfoMessageMaxWidth scrnW * 0.64    // 系统消息最大边长
-#define HeadSideLength  40 // 头像边长
-#define MessageContentH (MessageMargin * 2 +  HeadSideLength) // 文字消息内容在只有一行时的高度 不包括时间label
-#define SysInfoPadding  8                      // 系统消息内边距
+#define SysInfoMessageMaxWidth [ChatHelpr defaultConfiguration].sysInfoMessageMaxWidth    // 系统消息最大边长
+
+#define HeadSideLength  [ChatHelpr defaultConfiguration].headSideLength // 头像边长
+#define MessageContentH [ChatHelpr defaultConfiguration].messageContentH // 文字消息内容在只有一行时的高度 不包括时间label
+
+#define SysInfoPadding  [ChatHelpr defaultConfiguration].sysInfoPadding                      // 系统消息内边距
 
 // 气泡尺寸
-#define BubbleRoundAnglehorizInset 10  // 气泡圆角半径
-#define BubbleShareAngleWidth  6      // 气泡尖角宽度
-#define MessageMargin  10  // 头像外边距
-#define BubbleMaxWidth scrnW * 0.64 // 气泡最大边长   从尖角到另一边
-#define BubbleSharpAnglehorizInset (BubbleRoundAnglehorizInset + BubbleShareAngleWidth) //尖角外部到文字边缘的水平距离
-#define BubbleSharpAngleHeighInset 25  // 气泡顶部到尖角底部的距离
+#define BubbleRoundAnglehorizInset [ChatHelpr defaultConfiguration].bubbleRoundAnglehorizInset  // 气泡圆角半径
+#define BubbleShareAngleWidth  [ChatHelpr defaultConfiguration].bubbleShareAngleWidth      // 气泡尖角宽度
+#define MessageMargin  [ChatHelpr defaultConfiguration].messageMargin  // 头像外边距
+#define BubbleMaxWidth [ChatHelpr defaultConfiguration].bubbleMaxWidth // 气泡最大边长   从尖角到另一边
+#define BubbleSharpAnglehorizInset [ChatHelpr defaultConfiguration].bubbleSharpAnglehorizInset //尖角外部到文字边缘的水平距离
+#define BubbleSharpAngleHeighInset [ChatHelpr defaultConfiguration].bubbleSharpAngleHeighInset  // 气泡顶部到尖角底部的距离
 
 // 字体
-#define MessageTextDefaultFontSize 16
-#define MessageTextDefaultFont  [UIFont systemFontOfSize: MessageTextDefaultFontSize] //默认文字消息字体
-#define SysInfoMessageFont  [UIFont systemFontOfSize:14] // // 系统消息字体
+#define MessageTextDefaultFontSize [ChatHelpr defaultConfiguration].messageTextDefaultFontSize
+#define MessageTextDefaultFont [ChatHelpr defaultConfiguration].messageTextDefaultFont  //默认文字消息字体
+
+#define SysInfoMessageFont  [ChatHelpr defaultConfiguration].sysInfoMessageFont  // 系统消息字体
 
 
 #endif /* CDChatMacro_h */
