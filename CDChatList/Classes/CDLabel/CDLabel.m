@@ -94,11 +94,7 @@ typedef enum CTDisplayViewState : NSInteger {
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
-    
-//    if (self.data == nil) {
-//        return;
-//    }
-//
+
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
@@ -108,16 +104,6 @@ typedef enum CTDisplayViewState : NSInteger {
         [self drawSelectionArea];
         [self drawAnchors];
     }
-//
-//    CTFrameDraw(self.data.ctFrame, context);
-//
-//    for (CTImageData * imageData in self.data.imageArray) {
-//        UIImage *image = [CTHelper emoticonDic][imageData.name];
-//        if (image) {
-//            CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
-//        }
-//    }
-    
 }
 
 - (void)setupEvents {

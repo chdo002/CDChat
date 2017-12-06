@@ -14,4 +14,8 @@
 
 // 链接
 +(NSMutableArray *)matchLink:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
+// 邮箱
++(NSMutableArray *)matchEmail:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
+// 号码
++(NSMutableArray *)matchPhone:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
 @end

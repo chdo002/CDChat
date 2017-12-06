@@ -59,7 +59,10 @@
     
     // 匹配链接
     NSMutableArray <CTLinkData *> *linkDataArr = [CDTextParser matchLink:attString configuration:config];
-    
+    NSMutableArray <CTLinkData *> *emailDataArr = [CDTextParser matchEmail:attString configuration:config];
+    NSMutableArray <CTLinkData *> *phoneDataArr = [CDTextParser matchPhone:attString configuration:config];
+    [linkDataArr addObjectsFromArray:emailDataArr];
+    [linkDataArr addObjectsFromArray:phoneDataArr];
     
     /*
      ===========================================================================

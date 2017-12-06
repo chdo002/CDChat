@@ -105,11 +105,28 @@ static void deallocfunc(void *ref){
     return space;
 }
 
-#pragma mark 可点击文字
+#pragma mark 匹配链接
+
+
 +(NSMutableArray *)matchLink:(NSMutableAttributedString *)str configuration:(CTDataConfig)config{
     NSRegularExpression *regUrl = [NSRegularExpression regularExpressionWithPattern:@"((((((H|h){1}(T|t){2}(P|p){1})(S|s)?|ftp)://)(([a-zA-Z0-9_-]+\\.?)+|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})|((([a-zA-Z_-]+\\.)|[\\d]+\\.)+[a-zA-Z0-9#_-]+))|((((H|h){1}(T|t){2}(P|p){1})(S|s)?|ftp)://)?(((([a-zA-Z_-]+\\.)|[\\d]+\\.)+[a-zA-Z0-9#_-]+)|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(:[0-9]+)?)(:[0-9]+)?(/[a-zA-Z0-9\\&%_\\./-~-#]*)?)" options:kNilOptions error:NULL];
+    return [self matchFixStr:str configuration:config reg:regUrl];
+}
+
+
++(NSMutableArray *)matchEmail:(NSMutableAttributedString *)str configuration:(CTDataConfig)config{
+    NSRegularExpression *regEmail = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}" options:kNilOptions error:NULL];
+    return [self matchFixStr:str configuration:config reg:regEmail];
+}
+
++(NSMutableArray *)matchPhone:(NSMutableAttributedString *)str configuration:(CTDataConfig)config{
+    NSRegularExpression *regPhone = [NSRegularExpression regularExpressionWithPattern:@"\\d{3}-\\d{8}|\\d{3}-\\d{7}|\\d{4}-\\d{8}|\\d{4}-\\d{7}|1+[0-9]+\\d{5,10}|\\d{8}|\\d{7}\\d{6}" options:kNilOptions error:NULL];
+    return [self matchFixStr:str configuration:config reg:regPhone];
+}
+
++(NSMutableArray *)matchFixStr:(NSMutableAttributedString *)str configuration:(CTDataConfig)config reg:(NSRegularExpression *)regEx{
     
-    NSArray<NSTextCheckingResult *> *regResults = [regUrl matchesInString: str.string
+    NSArray<NSTextCheckingResult *> *regResults = [regEx matchesInString: str.string
                                                                   options: kNilOptions
                                                                     range: NSMakeRange(0, str.string.length)];
     NSMutableArray *linkArr = [NSMutableArray array];
@@ -117,8 +134,9 @@ static void deallocfunc(void *ref){
         NSTextCheckingResult *rest = regResults[i];
         if (rest.range.location == NSNotFound && rest.range.length <= 1) continue;
         NSRange range = rest.range;
-        NSString *targetStr = [str.string substringWithRange:range];
         
+        // 这里还需要做 rang重复检查
+        NSString *targetStr = [str.string substringWithRange:range];
         
         UIFont *font = [UIFont systemFontOfSize:config.textSize];
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
@@ -135,7 +153,7 @@ static void deallocfunc(void *ref){
         NSMutableAttributedString *targetString = [[NSMutableAttributedString alloc] initWithString:targetStr
                                                                                          attributes:attributes];
         [str replaceCharactersInRange:range withAttributedString:targetString];
-//        构建链接对象
+        //        构建链接对象
         CTLinkData *linkData = [[CTLinkData alloc] init];
         linkData.title = targetStr;
         linkData.url = targetStr;
@@ -144,4 +162,6 @@ static void deallocfunc(void *ref){
     }
     return linkArr;
 }
+
+
 @end
