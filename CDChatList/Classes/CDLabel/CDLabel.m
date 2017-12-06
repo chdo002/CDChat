@@ -52,7 +52,6 @@ typedef enum CTDisplayViewState : NSInteger {
     _data = data;
     self.layer.contents = (__bridge id)data.contents.CGImage;
     self.state = CTDisplayViewStateNormal;
-//    [self setNeedsDisplay];
 }
 
 - (void)setState:(CTDisplayViewState)state {
@@ -104,6 +103,7 @@ typedef enum CTDisplayViewState : NSInteger {
         [self drawSelectionArea];
         [self drawAnchors];
     }
+    self.layer.contents = (__bridge id)self.data.contents.CGImage;
 }
 
 - (void)setupEvents {

@@ -82,6 +82,9 @@
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter,
                                                 CFRangeMake(0, [attString length]), path, NULL);
     
+    CFRelease(framesetter);
+    CFRelease(path);
+    
     
     data.width = caSize.width;
     data.height = caSize.height;
@@ -89,8 +92,7 @@
     data.imageArray = imageDataArr;
     data.linkArray = linkDataArr;
     
-    
-    
+    // 提前渲染展示内容
     UIGraphicsBeginImageContextWithOptions(caSize, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
@@ -177,7 +179,6 @@
             
             //
             CGRect colRect = CGPathGetBoundingBox(pathRef);
-            
             // 最终图片位置
             CGRect delegateBounds = CGRectOffset(runBounds, colRect.origin.x, colRect.origin.y);
             

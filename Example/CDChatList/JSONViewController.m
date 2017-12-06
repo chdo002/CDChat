@@ -49,6 +49,9 @@
         [msgArr addObject:modal];
     }
     
+//    NSString *str = [NSString stringWithFormat:@"%d Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫",i];
+    
+    
     self.listView.msgArr = msgArr;
     self.msgArr = msgArr;
     
@@ -88,7 +91,7 @@
     mode.isLeft = arc4random() % 2 == 1;
     mode.messageId = @"12312556";
     mode.createTime = @"1509634535127";
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         finnished(@[mode]);
     });
 }

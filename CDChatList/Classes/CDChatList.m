@@ -97,11 +97,6 @@ typedef enum : NSUInteger {
         return;
     }
     NSAssert(self.viewController, @"CDChatList: 一定要传ViewController进来");
-    
-    [self mainAsyQueue:^{
-//        [MBProgressHUD showHUDAddedTo:self animated:YES];
-    }];
-//    [self layoutSubviews];
 }
 
 #pragma mark 通知
@@ -187,7 +182,6 @@ typedef enum : NSUInteger {
     BOOL needAdjust = cellOffset < contentOffset.y;
     
     [self reloadData];
-    #warning 这里存在未知的问题，在cellheight小于140时，会出现下沉
     if (needAdjust) {
         CGRect rect_new = [self rectForRowAtIndexPath:index]; // cell新的位置
         CGFloat adjust = rect_old.size.height - rect_new.size.height;

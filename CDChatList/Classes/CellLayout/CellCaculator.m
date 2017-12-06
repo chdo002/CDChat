@@ -102,15 +102,9 @@
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
-//    CTDataConfig config;
-//    config.textColor = [UIColor blackColor].CGColor;
-//    config.hilightColor = [UIColor lightGrayColor].CGColor;
-//    config.clickStrColor = [UIColor blueColor].CGColor;
-//    config.lineSpace = 2;
-//    config.textSize = 16;
-//    config.lineBreakMode = NSLineBreakByCharWrapping;
     
-    CTData *data = [CTData dataWithStr:msgData.msg containerWithSize:maxTextSize];
+    CTData *data = [CTData dataWithStr:msgData.msg containerWithSize:maxTextSize configuration:[ChatHelpr defaultConfiguration].ctDataconfig];
+    
     msgData.textlayout = data;
     
     // 计算气泡宽度
@@ -178,8 +172,6 @@
                 
                 CGSize size = caculateImageSize140By140(image);
                 [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
-                
-                #warning image cache 记录 缓存 这里写法有待商榷
                 
                 msgData.bubbleWidth = size.width;
                 // 加上可能显示的时间视图高度
