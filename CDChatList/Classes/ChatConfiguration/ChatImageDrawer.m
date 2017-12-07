@@ -8,7 +8,18 @@
 #import "ChatImageDrawer.h"
 #import "CDChatMacro.h"
 #import "ChatHelpr.h"
-
+/**
+ 
+ --------------------
+ |                | 5|  bubbleCornerRadius
+ |                |10|  bubbleUppereight
+ |                    \ bubbleAngleHeight  10 |_
+ |                    / bubbleAngleWidth       6
+ |                |10|  bubbleUppereight
+ |                | 5|  bubbleCornerRadius
+ --------------------
+ 
+ */
 @interface ChatImageDrawer()
 {
     CGPathRef lpath;
@@ -20,6 +31,7 @@
     CGFloat bubbleUppereight; // 垂直距离
     CGFloat bubbleAngleWidth; // 尖角宽度
     CGFloat bubbleAngleHeight; // 尖角高度
+
 }
 @end
 @implementation ChatImageDrawer
@@ -33,13 +45,11 @@
         helper = [[ChatImageDrawer alloc] init];
         helper->bubbleCornerRadius = 5;
         helper->bubbleUppereight = 10;
-        helper->bubbleAngleWidth = 6;
-        helper->bubbleAngleHeight = 9;
+        helper->bubbleAngleWidth = [ChatHelpr defaultConfiguration].bubbleShareAngleWidth;
+        helper->bubbleAngleHeight = 10;
     });
     return helper;
 }
-
-
 
 +(NSDictionary<NSString *,UIImage *> *)defaultImageDic{
     NSArray<NSValue *> *insets = [[ChatImageDrawer share] insetsForImages];
@@ -54,8 +64,7 @@
     UIImage *right_mask = [[ChatImageDrawer share] right_mask];
     right_mask = [right_mask resizableImageWithCapInsets:[insets[3] UIEdgeInsetsValue] resizingMode:UIImageResizingModeStretch];
     
-    
-    
+
     return @{
              @"left_box": leftBubble,
              @"right_box": rightBubble,
@@ -228,8 +237,13 @@
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(40, 40), NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
     CGContextAddRect(context, CGRectMake(0, 0, 40, 40));
-    CGContextSetFillColorWithColor(context, [UIColor cyanColor].CGColor);//填充色
+    CGContextSetFillColorWithColor(context, CRMHexColor(0xE8EEF5).CGColor);//填充色
+    CGContextFillPath(context);
+    
+    CGContextAddArc(context, 20, 10, 6, 0, M_PI * 2, 0);
+    CGContextSetFillColorWithColor(context, [UIColor lightGrayColor].CGColor);//填充色
     CGContextFillPath(context);
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
