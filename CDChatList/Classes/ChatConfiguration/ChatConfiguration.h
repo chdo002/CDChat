@@ -35,6 +35,7 @@
  */
 @property (nonatomic, strong) UIColor *msgTextContentBackGroundColor;
 
+
 #pragma mark 所有视图的尺寸自定义
 /**
  cell中消息中时间视图的高度（如果显示）
@@ -82,6 +83,7 @@
  气泡顶部到尖角底部的距离
  */
 @property (nonatomic, assign) CGFloat bubbleSharpAngleHeighInset;
+
 
 #pragma mark 字体相关设置
 

@@ -50,7 +50,7 @@
     [self addSubview:_msgContent_left];
     
     // 头像
-    UIImage *left_head = BundleImage(@"icon_head");
+    UIImage *left_head = [ChatHelpr defaultImageDic][@"icon_head"];
     _headImage_left = [[UIImageView alloc] initWithImage:left_head];
     _headImage_left.frame = CGRectMake(MessageMargin, MessageMargin,
                                        HeadSideLength, HeadSideLength);
@@ -59,10 +59,7 @@
     [_msgContent_left addSubview:_headImage_left];
     
     // 气泡
-    UIImage *left_box = BundleImage(@"left_box");
-    UIEdgeInsets inset_left = UIEdgeInsetsMake(BubbleSharpAngleHeighInset, BubbleSharpAnglehorizInset,
-                                               BubbleRoundAnglehorizInset, BubbleRoundAnglehorizInset);
-    left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
+    UIImage *left_box = [ChatHelpr defaultImageDic][@"left_box"];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
     _bubbleImage_left.userInteractionEnabled = YES;
     _bubbleImage_left.frame = CGRectMake(MessageMargin * 2 + HeadSideLength - BubbleShareAngleWidth,
@@ -106,7 +103,8 @@
     [self addSubview:_msgContent_right];
 
     // 头像
-    UIImage *right_head = BundleImage(@"icon_head");
+    UIImage *right_head = [ChatHelpr defaultImageDic][@"icon_head"];
+    
     _headImage_right = [[UIImageView alloc] initWithImage:right_head];
     _headImage_right.frame = CGRectMake(scrnW - (HeadSideLength + MessageMargin), MessageMargin,
                                         HeadSideLength, HeadSideLength);
@@ -115,10 +113,7 @@
     [_msgContent_right addSubview:_headImage_right];
     
     // 气泡
-    UIImage *right_box = BundleImage(@"right_box");
-    UIEdgeInsets inset_right = UIEdgeInsetsMake(BubbleSharpAngleHeighInset, BubbleRoundAnglehorizInset,
-                                                BubbleRoundAnglehorizInset, BubbleSharpAnglehorizInset);
-    right_box = [right_box resizableImageWithCapInsets:inset_right resizingMode:UIImageResizingModeStretch];
+    UIImage *right_box = [ChatHelpr defaultImageDic][@"right_box"];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
     _bubbleImage_right.userInteractionEnabled = YES;
     _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth,

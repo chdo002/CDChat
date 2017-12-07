@@ -22,4 +22,10 @@
 +(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic;
 +(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic;
 
+/**
+ 图片资源
+ */
++(NSDictionary<NSString *,UIImage *> *)defaultImageDic;
++(void)setDefaultImageDic:(NSDictionary<NSString *,UIImage *> *)dic;
+
 @end

@@ -38,13 +38,7 @@
 
 -(void)initLeftImageContent{
     // 将气泡图换位透明图
-    UIImage *left_box = BundleImage(@"bg_mask_left");
-    UIEdgeInsets inset_left = UIEdgeInsetsMake(BubbleSharpAngleHeighInset,
-                                               BubbleSharpAnglehorizInset,
-                                               BubbleRoundAnglehorizInset,
-                                               BubbleRoundAnglehorizInset);
-    
-    left_box = [left_box resizableImageWithCapInsets:inset_left resizingMode:UIImageResizingModeStretch];
+    UIImage *left_box = [ChatHelpr defaultImageDic][@"bg_mask_left"];
     self.bubbleImage_left.image = left_box;
     
     // 在气泡图下面添加信息图片
@@ -64,13 +58,7 @@
 
 -(void)initRightImageContent{
     // 将气泡图换位透明图
-    UIImage *right_box = BundleImage(@"bg_mask_right");
-    UIEdgeInsets inset_right = UIEdgeInsetsMake(BubbleSharpAngleHeighInset,
-                                                BubbleRoundAnglehorizInset,
-                                                BubbleRoundAnglehorizInset,
-                                                BubbleSharpAnglehorizInset);
-    right_box = [right_box resizableImageWithCapInsets:inset_right
-                                          resizingMode:UIImageResizingModeStretch];
+    UIImage *right_box = [ChatHelpr defaultImageDic][@"bg_mask_right"];
     self.bubbleImage_right.image = right_box;
     
     // 在气泡图下面添加信息图片
