@@ -8,7 +8,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatImageDrawer : NSObject
-
+/*
+ @"left_box": leftBubble,
+ @"right_box": rightBubble,
+ @"bg_mask_right":right_mask,
+ @"bg_mask_left":left_mask,
+ @"icon_head":[[ChatImageDrawer share] icon_head],
+ */
 +(NSDictionary<NSString *, UIImage *>*)defaultImageDic;
 
 @end

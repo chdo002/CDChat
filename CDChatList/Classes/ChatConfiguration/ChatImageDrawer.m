@@ -242,8 +242,12 @@
     CGContextSetFillColorWithColor(context, CRMHexColor(0xE8EEF5).CGColor);//填充色
     CGContextFillPath(context);
     
-    CGContextAddArc(context, 20, 10, 6, 0, M_PI * 2, 0);
-    CGContextSetFillColorWithColor(context, [UIColor lightGrayColor].CGColor);//填充色
+    CGContextAddArc(context, 20, 10, 8, 0, M_PI * 2, 0);
+    CGContextSetFillColorWithColor(context, CRMHexColor(0xC8CEDB).CGColor);//填充色
+    CGContextFillPath(context);
+    
+    CGContextAddEllipseInRect(context, CGRectMake(5, 18, 30, 16));
+    CGContextSetFillColorWithColor(context, CRMHexColor(0xC8CEDB).CGColor);//填充色
     CGContextFillPath(context);
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
