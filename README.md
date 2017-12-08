@@ -1,7 +1,11 @@
 # CDChatList
 iOS 聊天界面的组件
 
-# 安装
+## 支持
+
+iOS 8 +
+
+## 安装
 
 ####  作为pod依赖 在podfile中添加
 
@@ -21,7 +25,7 @@ pod package CDChatList.podspec --force  -verbose
 pod package CDChatList.podspec --library  --force  -verbose
 ```
 
-# TODO
+## TODO
 
 - 实现异步加载图片，去除对SDWebImage依赖
 - 添加音频消息类型

@@ -82,6 +82,8 @@
 		CCCF6BD4F6CB2905D9DBCBBA11696ECF /* NSImage+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 85C1E697FDBDB6720C67C945FF48A5AA /* NSImage+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9A57C9B570055764A8A31A8492C37DC /* MagnifiterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E47393DE84BADF8A42F81EEA98BEFCC4 /* MagnifiterView.m */; };
 		E57214352CAB0414FFE4244AE69DD667 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A64EEECAD63A7EADEA29E7AEA25270 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E91BB8E61FDA3F6F00EE2B3B /* InputBoxDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = E91BB8E41FDA3F6F00EE2B3B /* InputBoxDrawer.h */; };
+		E91BB8E71FDA3F6F00EE2B3B /* InputBoxDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BB8E51FDA3F6F00EE2B3B /* InputBoxDrawer.m */; };
 		E97EBE751FD8E11D0085F095 /* ChatImageDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = E97EBE731FD8E11D0085F095 /* ChatImageDrawer.h */; };
 		E97EBE761FD8E11D0085F095 /* ChatImageDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E97EBE741FD8E11D0085F095 /* ChatImageDrawer.m */; };
 		EC9AE20BFE055D12CABBC0985D414DCB /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E48183907F6CCFBE1EB9099359CEAF27 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -225,6 +227,8 @@
 		E48183907F6CCFBE1EB9099359CEAF27 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		E4FFC975EB8EE75AB8E5A2FD0F90026E /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
 		E72F4F809854869A8A6DD4D99F1CB893 /* ChatHelpr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ChatHelpr.h; sourceTree = "<group>"; };
+		E91BB8E41FDA3F6F00EE2B3B /* InputBoxDrawer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputBoxDrawer.h; sourceTree = "<group>"; };
+		E91BB8E51FDA3F6F00EE2B3B /* InputBoxDrawer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputBoxDrawer.m; sourceTree = "<group>"; };
 		E97EBE731FD8E11D0085F095 /* ChatImageDrawer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatImageDrawer.h; sourceTree = "<group>"; };
 		E97EBE741FD8E11D0085F095 /* ChatImageDrawer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatImageDrawer.m; sourceTree = "<group>"; };
 		EA5349B7976D8E8513B82C174C4E555F /* CDSystemTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDSystemTableViewCell.h; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 				9E267B47353B0847530EAA3E4E8B98ED /* CDChatListHeaders.h */,
 				9129502410E84EBF090B9367E310443E /* CDChatListProtocols.h */,
 				D7334DD93B851F8B54ECD78059233892 /* CDChatMacro.h */,
+				E91BB8DF1FDA3D7D00EE2B3B /* CDChatInputBox */,
 				A052FB07E44AABA07241C2397F9C6BA0 /* CDLabel */,
 				AD9DDE037FF562BDF43E988E99ACB75C /* CellLayout */,
 				1E4B8B61959AB63852D44D16D86F285D /* ChatConfiguration */,
@@ -556,6 +561,24 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
+		E91BB8DF1FDA3D7D00EE2B3B /* CDChatInputBox */ = {
+			isa = PBXGroup;
+			children = (
+				E91BB8E31FDA3F5300EE2B3B /* resourceDrawer */,
+			);
+			name = CDChatInputBox;
+			path = CDChatList/Classes/CDChatInputBox;
+			sourceTree = "<group>";
+		};
+		E91BB8E31FDA3F5300EE2B3B /* resourceDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				E91BB8E41FDA3F6F00EE2B3B /* InputBoxDrawer.h */,
+				E91BB8E51FDA3F6F00EE2B3B /* InputBoxDrawer.m */,
+			);
+			path = resourceDrawer;
+			sourceTree = "<group>";
+		};
 		F1997356235CE9CA38A9DECB85EFA641 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +642,7 @@
 				3051FE7AF34D00BCD6F701297EAD1093 /* CDChatList-umbrella.h in Headers */,
 				26A24D58C8A23B918D58B51B80ADDA6D /* CDChatList.h in Headers */,
 				4CF9ACC3CAB65989764483EDB5FC0A7C /* CDChatListHeaders.h in Headers */,
+				E91BB8E61FDA3F6F00EE2B3B /* InputBoxDrawer.h in Headers */,
 				175A95635D8FECAC0430D5F3785D5FF4 /* CDChatListProtocols.h in Headers */,
 				04BC585ADAC9BB5C52404082E35A006F /* CDChatMacro.h in Headers */,
 				36B85ABA625F064F5161F6F9E2758E11 /* CDImageTableViewCell.h in Headers */,
@@ -814,6 +838,7 @@
 				472FF677C808FA26DDF487B920D489DB /* ChatHelpr.m in Sources */,
 				97B4C5A25EC86ED8CBC5C7A930091826 /* ChatListInfo.m in Sources */,
 				B6B892DECE95BD5D976D08B1073B04D8 /* ChatMessageMatch.m in Sources */,
+				E91BB8E71FDA3F6F00EE2B3B /* InputBoxDrawer.m in Sources */,
 				E97EBE761FD8E11D0085F095 /* ChatImageDrawer.m in Sources */,
 				941C61EEF15A3B4AFC6BFB5E1C90CEF6 /* CoreTextUtils.m in Sources */,
 				373E5BCE23248A5C9462BB8176E323CC /* CTClickInfo.m in Sources */,

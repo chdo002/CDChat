@@ -66,7 +66,20 @@
 }
 
 -(void)action2{
-    [self.listView reloadData];
+    CDMessageModal *modal = [[CDMessageModal alloc] init];
+    modal.createTime = [NSString stringWithFormat:@"%ld", (long) [[NSDate date] timeIntervalSince1970] * 1000];
+    modal.msg = [NSString stringWithFormat:@"新消息%@",modal.createTime];
+    modal.msgType = CDMessageTypeText;
+    
+    NSString *number = @"";
+    for (int i = 1; i <= 5; i ++) {
+        int x = arc4random() % 10;
+        number = [number stringByAppendingString:[NSString stringWithFormat:@"%i",x]];
+    }
+    modal.messageId = number;
+    UIColor *color = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+    modal.modalInfo = @{@"color": color};
+    [self.listView addMessagesToBottom:@[modal]];
 }
 
 -(void)listen{
@@ -136,5 +149,4 @@
     
     return [str copy];
 }
-
 @end

@@ -20,6 +20,11 @@ Pod::Spec.new do |s|
         label.public_header_files = 'CDChatList/Classes/CDLabel/**/*.h'
     end
 
+    s.subspec 'CDChatInputBox' do |inputbox|
+        inputbox.source_files = 'CDChatList/Classes/CDChatInputBox/**/*'
+        inputbox.public_header_files = 'CDChatList/Classes/CDChatInputBox/**/*.h'
+    end
+
     s.source_files = 'CDChatList/Classes/**/*'
     s.public_header_files = 'CDChatList/Classes/**/**/*.h'
 
