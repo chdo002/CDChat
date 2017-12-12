@@ -22,17 +22,17 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B6954DFC369378779E81DABA /* Pods_CDChatList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */; };
-		E91BB8E21FDA3E5E00EE2B3B /* InputBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BB8E11FDA3E5E00EE2B3B /* InputBoxViewController.m */; };
-		E93E7BBF1FC086DE000EF14E /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E7BBE1FC086DE000EF14E /* DemoViewController.swift */; };
-		E93F00191FBABE14009C3E7B /* msgList2.json in Resources */ = {isa = PBXBuildFile; fileRef = E93F00181FBABE14009C3E7B /* msgList2.json */; };
-		E949D4F91FA6C5E800094E5E /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E949D4F81FA6C5E800094E5E /* msgList.json */; };
-		E951A2FC1FAB60B80053CE5B /* JSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E951A2FB1FAB60B80053CE5B /* JSONViewController.m */; };
-		E9654A841FC7AAEA0007FF03 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9654A831FC7AAEA0007FF03 /* Utility.swift */; };
-		E99C3CFE1FBECF6300D16194 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E99C3CFD1FBECF6300D16194 /* Expression.bundle */; };
-		E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CD0AE1FA185B90045783B /* CDMessageModal.m */; };
 		E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */; };
-		E9C6945C1FB1BCB400E076D6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C6945B1FB1BCB400E076D6 /* MainViewController.m */; };
-		E9C9995E1FB011C3000B4E3E /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C9995D1FB011C3000B4E3E /* imageList.json */; };
+		E9D3BD5A1FDFB9C4003C5084 /* msgList2.json in Resources */ = {isa = PBXBuildFile; fileRef = E9D3BD4D1FDFB9C4003C5084 /* msgList2.json */; };
+		E9D3BD5B1FDFB9C4003C5084 /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E9D3BD4E1FDFB9C4003C5084 /* msgList.json */; };
+		E9D3BD5C1FDFB9C4003C5084 /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = E9D3BD501FDFB9C4003C5084 /* imageList.json */; };
+		E9D3BD5D1FDFB9C4003C5084 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9D3BD511FDFB9C4003C5084 /* Expression.bundle */; };
+		E9D3BD5E1FDFB9C4003C5084 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3BD521FDFB9C4003C5084 /* DemoViewController.swift */; };
+		E9D3BD5F1FDFB9C4003C5084 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3BD541FDFB9C4003C5084 /* MainViewController.m */; };
+		E9D3BD601FDFB9C4003C5084 /* JSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3BD551FDFB9C4003C5084 /* JSONViewController.m */; };
+		E9D3BD611FDFB9C4003C5084 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3BD561FDFB9C4003C5084 /* Utility.swift */; };
+		E9D3BD621FDFB9C4003C5084 /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3BD581FDFB9C4003C5084 /* CDMessageModal.m */; };
+		E9D3BD651FDFB9D6003C5084 /* InputBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3BD641FDFB9D6003C5084 /* InputBoxViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,22 +71,22 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB16BFC8B517E192E61FBA43 /* Pods_CDChatList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E91BB8E01FDA3E5E00EE2B3B /* InputBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputBoxViewController.h; sourceTree = "<group>"; };
-		E91BB8E11FDA3E5E00EE2B3B /* InputBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputBoxViewController.m; sourceTree = "<group>"; };
 		E93E7BBD1FC086DE000EF14E /* CDChatList_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDChatList_Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		E93E7BBE1FC086DE000EF14E /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
-		E93F00181FBABE14009C3E7B /* msgList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList2.json; sourceTree = "<group>"; };
-		E949D4F81FA6C5E800094E5E /* msgList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList.json; sourceTree = "<group>"; };
-		E951A2FA1FAB60B80053CE5B /* JSONViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONViewController.h; sourceTree = "<group>"; };
-		E951A2FB1FAB60B80053CE5B /* JSONViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONViewController.m; sourceTree = "<group>"; };
-		E9654A831FC7AAEA0007FF03 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		E99C3CFD1FBECF6300D16194 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
-		E99CD0AD1FA185B90045783B /* CDMessageModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
-		E99CD0AE1FA185B90045783B /* CDMessageModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
 		E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chatlist.plist; sourceTree = "<group>"; };
-		E9C6945A1FB1BCB400E076D6 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		E9C6945B1FB1BCB400E076D6 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		E9C9995D1FB011C3000B4E3E /* imageList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = imageList.json; sourceTree = "<group>"; };
+		E9D3BD4D1FDFB9C4003C5084 /* msgList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList2.json; sourceTree = "<group>"; };
+		E9D3BD4E1FDFB9C4003C5084 /* msgList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList.json; sourceTree = "<group>"; };
+		E9D3BD4F1FDFB9C4003C5084 /* JSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONViewController.h; sourceTree = "<group>"; };
+		E9D3BD501FDFB9C4003C5084 /* imageList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imageList.json; sourceTree = "<group>"; };
+		E9D3BD511FDFB9C4003C5084 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
+		E9D3BD521FDFB9C4003C5084 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		E9D3BD531FDFB9C4003C5084 /* CDMessageModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
+		E9D3BD541FDFB9C4003C5084 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		E9D3BD551FDFB9C4003C5084 /* JSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONViewController.m; sourceTree = "<group>"; };
+		E9D3BD561FDFB9C4003C5084 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		E9D3BD571FDFB9C4003C5084 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E9D3BD581FDFB9C4003C5084 /* CDMessageModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
+		E9D3BD631FDFB9D6003C5084 /* InputBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputBoxViewController.h; sourceTree = "<group>"; };
+		E9D3BD641FDFB9D6003C5084 /* InputBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputBoxViewController.m; sourceTree = "<group>"; };
 		F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,20 +156,8 @@
 				6003F59D195388D20070C39A /* CDAppDelegate.m */,
 				E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				E9C6945A1FB1BCB400E076D6 /* MainViewController.h */,
-				E9C6945B1FB1BCB400E076D6 /* MainViewController.m */,
-				E91BB8E01FDA3E5E00EE2B3B /* InputBoxViewController.h */,
-				E91BB8E11FDA3E5E00EE2B3B /* InputBoxViewController.m */,
-				E951A2FA1FAB60B80053CE5B /* JSONViewController.h */,
-				E951A2FB1FAB60B80053CE5B /* JSONViewController.m */,
-				E99CD0AD1FA185B90045783B /* CDMessageModal.h */,
-				E99CD0AE1FA185B90045783B /* CDMessageModal.m */,
-				E93E7BBE1FC086DE000EF14E /* DemoViewController.swift */,
-				E9654A831FC7AAEA0007FF03 /* Utility.swift */,
-				E99C3CFD1FBECF6300D16194 /* Expression.bundle */,
-				E949D4F81FA6C5E800094E5E /* msgList.json */,
-				E93F00181FBABE14009C3E7B /* msgList2.json */,
-				E9C9995D1FB011C3000B4E3E /* imageList.json */,
+				E9D3BD4C1FDFB9C4003C5084 /* chatList */,
+				E9D3BD591FDFB9C4003C5084 /* input */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -226,6 +214,34 @@
 				291E4F11EC968AF0DBC53694 /* Pods-CDChatList_Example.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E9D3BD4C1FDFB9C4003C5084 /* chatList */ = {
+			isa = PBXGroup;
+			children = (
+				E9D3BD4D1FDFB9C4003C5084 /* msgList2.json */,
+				E9D3BD4E1FDFB9C4003C5084 /* msgList.json */,
+				E9D3BD501FDFB9C4003C5084 /* imageList.json */,
+				E9D3BD511FDFB9C4003C5084 /* Expression.bundle */,
+				E9D3BD571FDFB9C4003C5084 /* MainViewController.h */,
+				E9D3BD541FDFB9C4003C5084 /* MainViewController.m */,
+				E9D3BD4F1FDFB9C4003C5084 /* JSONViewController.h */,
+				E9D3BD551FDFB9C4003C5084 /* JSONViewController.m */,
+				E9D3BD521FDFB9C4003C5084 /* DemoViewController.swift */,
+				E9D3BD561FDFB9C4003C5084 /* Utility.swift */,
+				E9D3BD531FDFB9C4003C5084 /* CDMessageModal.h */,
+				E9D3BD581FDFB9C4003C5084 /* CDMessageModal.m */,
+			);
+			path = chatList;
+			sourceTree = "<group>";
+		};
+		E9D3BD591FDFB9C4003C5084 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				E9D3BD631FDFB9D6003C5084 /* InputBoxViewController.h */,
+				E9D3BD641FDFB9D6003C5084 /* InputBoxViewController.m */,
+			);
+			path = input;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,13 +329,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				E99C3CFE1FBECF6300D16194 /* Expression.bundle in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				E93F00191FBABE14009C3E7B /* msgList2.json in Resources */,
-				E949D4F91FA6C5E800094E5E /* msgList.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */,
-				E9C9995E1FB011C3000B4E3E /* imageList.json in Resources */,
+				E9D3BD5A1FDFB9C4003C5084 /* msgList2.json in Resources */,
+				E9D3BD5D1FDFB9C4003C5084 /* Expression.bundle in Resources */,
+				E9D3BD5C1FDFB9C4003C5084 /* imageList.json in Resources */,
+				E9D3BD5B1FDFB9C4003C5084 /* msgList.json in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,11 +360,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CDChatList/CDChatList.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Utility/Utility.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDChatList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Utility.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -395,13 +413,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E99CD0AF1FA185B90045783B /* CDMessageModal.m in Sources */,
-				E9C6945C1FB1BCB400E076D6 /* MainViewController.m in Sources */,
-				E951A2FC1FAB60B80053CE5B /* JSONViewController.m in Sources */,
-				E91BB8E21FDA3E5E00EE2B3B /* InputBoxViewController.m in Sources */,
+				E9D3BD651FDFB9D6003C5084 /* InputBoxViewController.m in Sources */,
+				E9D3BD5F1FDFB9C4003C5084 /* MainViewController.m in Sources */,
+				E9D3BD5E1FDFB9C4003C5084 /* DemoViewController.swift in Sources */,
 				6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */,
-				E9654A841FC7AAEA0007FF03 /* Utility.swift in Sources */,
-				E93E7BBF1FC086DE000EF14E /* DemoViewController.swift in Sources */,
+				E9D3BD601FDFB9C4003C5084 /* JSONViewController.m in Sources */,
+				E9D3BD621FDFB9C4003C5084 /* CDMessageModal.m in Sources */,
+				E9D3BD611FDFB9C4003C5084 /* Utility.swift in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

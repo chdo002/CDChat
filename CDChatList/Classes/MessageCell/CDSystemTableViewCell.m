@@ -42,7 +42,7 @@
 - (void)configCellByData:(CDChatMessage)data {
     
     self.infoBackGround.frame = CGRectMake(0, 0, data.bubbleWidth, data.cellHeight);
-    self.infoBackGround.center = CGPointMake(scrnW / 2, data.cellHeight / 2);
+    self.infoBackGround.center = CGPointMake(ScreenW() / 2, data.cellHeight / 2);
     
     self.sysInfoLbael.text = data.msg;
     self.sysInfoLbael.frame = CGRectMake(0, 0, data.bubbleWidth - SysInfoPadding * 2, data.cellHeight - SysInfoPadding * 2);

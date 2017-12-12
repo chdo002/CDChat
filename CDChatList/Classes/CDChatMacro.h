@@ -8,6 +8,7 @@
 
 #import "CDChatListProtocols.h"
 #import "ChatConfiguration.h"
+#import <Utility/Utility.h>
 
 #ifndef CDChatMacro_h
 #define CDChatMacro_h
@@ -16,27 +17,11 @@
 #define Environment [ChatHelpr defaultConfiguration].environment
 #define isChatListDebug [[ChatHelpr defaultConfiguration] isDebug]
 
-// 16位颜色
-#define CRMHexColor(hexColor)  [UIColor colorWithRed:((float)((hexColor & 0xFF0000) >> 16))/255.0 green:((float)((hexColor & 0xFF00) >> 8))/255.0 blue:((float)(hexColor & 0xFF))/255.0 alpha:1]
-
-// 随机色
-#define CRMRadomColor  [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1]
-
-// 屏幕尺寸
-#define scrnW [UIScreen mainScreen].bounds.size.width
-#define scrnH [UIScreen mainScreen].bounds.size.height
-
-// 导航栏高度
-#define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)
-
 // 消息中图片下载完成的通知
 #define CHATLISTDOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
 
 // 点击消息中可点击区域的通知
 #define CHATLISTCLICKMSGEVENTNOTIFICATION @"CHATLISTCLICKMSGEVENTNOTIFICATION"
-
-
-
 
 
 /*

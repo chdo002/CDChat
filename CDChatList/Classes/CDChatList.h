@@ -7,16 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CDChatListProtocols.h"
+#import <Utility/Utility.h>
 
 /**
  聊天视图
  */
 @interface CDChatList : UITableView
-
-/**
- 列表所在控制器
- */
-@property(weak, nonatomic) UIViewController *viewController;
 
 /**
  列表代理

@@ -23,7 +23,7 @@
     // 1 消息时间初始化
     _timeLabel = [[UILabel alloc] init];
     [_timeLabel setFrame:CGRectMake(0, 0, 100, MsgTimeH)];
-    _timeLabel.center = CGPointMake(scrnW / 2, MsgTimeH / 2);
+    _timeLabel.center = CGPointMake(ScreenW() / 2, MsgTimeH / 2);
     _timeLabel.text = @"星期一 下午 2:38";
     _timeLabel.textColor = [UIColor whiteColor];
     _timeLabel.backgroundColor = CRMHexColor(0xCECECE);
@@ -45,7 +45,7 @@
 -(void)initLeftMessageContent {
     
     // 视图容器
-    _msgContent_left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
+    _msgContent_left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW(), MessageContentH)];
     _msgContent_left.backgroundColor = MsgContentBackGroundColor;
     [self addSubview:_msgContent_left];
     
@@ -98,7 +98,7 @@
 -(void)initRightMessageContent{
     
     // 视图容器
-    _msgContent_right = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrnW, MessageContentH)];
+    _msgContent_right = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW(), MessageContentH)];
     _msgContent_right.backgroundColor = MsgContentBackGroundColor;
     [self addSubview:_msgContent_right];
 
@@ -106,7 +106,7 @@
     UIImage *right_head = [ChatHelpr defaultImageDic][@"icon_head"];
     
     _headImage_right = [[UIImageView alloc] initWithImage:right_head];
-    _headImage_right.frame = CGRectMake(scrnW - (HeadSideLength + MessageMargin), MessageMargin,
+    _headImage_right.frame = CGRectMake(ScreenW() - (HeadSideLength + MessageMargin), MessageMargin,
                                         HeadSideLength, HeadSideLength);
     _headImage_right.contentMode = UIViewContentModeScaleAspectFit;
     _headImage_right.backgroundColor = HeadBackGroundColor;
@@ -116,7 +116,7 @@
     UIImage *right_box = [ChatHelpr defaultImageDic][@"right_box"];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
     _bubbleImage_right.userInteractionEnabled = YES;
-    _bubbleImage_right.frame = CGRectMake(scrnW - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth,
+    _bubbleImage_right.frame = CGRectMake(ScreenW() - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth,
                                           MessageMargin, BubbleMaxWidth, HeadSideLength);
     [_msgContent_right addSubview:_bubbleImage_right];
     
@@ -231,7 +231,7 @@
     CGRect bubbleRec = self.bubbleImage_right.frame;
     bubbleRec.size.width = data.bubbleWidth;
     bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
-    bubbleRec.origin.x = scrnW - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth;
+    bubbleRec.origin.x = ScreenW() - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth;
     self.bubbleImage_right.frame = bubbleRec;
     
     // 设置loading位置
@@ -272,12 +272,12 @@
     // 设置顶部时间Label
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];
     self.timeLabel.text = [self checkDateDisplay:date];
-    CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(scrnW, MsgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
+    CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(ScreenW(), MsgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
     if (textSize.height < MsgTimeH) {
         textSize.height = MsgTimeH;
     }
     [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + SysInfoPadding * 2, textSize.height)];
-    _timeLabel.center = CGPointMake(scrnW / 2, MsgTimeH / 2);
+    _timeLabel.center = CGPointMake(ScreenW() / 2, MsgTimeH / 2);
 }
 
 #pragma mark 根据消息时间，计算需要显示的消息时间格式

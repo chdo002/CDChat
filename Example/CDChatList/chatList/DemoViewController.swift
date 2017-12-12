@@ -16,7 +16,6 @@ class DemoViewController: UIViewController, ChatListProtocol {
         
         self.view.backgroundColor = UIColor.white
         let listView = CDChatList(frame: view.bounds)
-        listView.viewController = self
         listView.msgDelegate = self
         self.view.addSubview(listView)
         

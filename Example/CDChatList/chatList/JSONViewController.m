@@ -26,9 +26,7 @@
     
     
     CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
-    
     list.msgDelegate = self;
-    list.viewController = self;
     self.listView = list;
     [self.view addSubview:self.listView];
     

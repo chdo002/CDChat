@@ -14,6 +14,7 @@
 #import "CTClickInfo.h"
 #import "ChatHelpr.h"
 
+
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
     CDHeaderLoadStateNoraml,        // 等待下拉加载
@@ -56,7 +57,7 @@ typedef enum : NSUInteger {
     [self registerClass:[CDImageTableViewCell class] forCellReuseIdentifier:@"imagecell"];
     [self registerClass:[CDSystemTableViewCell class] forCellReuseIdentifier:@"syscell"];
     // 下拉loading视图
-    CGRect rect = CGRectMake(0, -LoadingH, scrnW, LoadingH);
+    CGRect rect = CGRectMake(0, -LoadingH, ScreenW(), LoadingH);
     UIActivityIndicatorView *indicatr = [[UIActivityIndicatorView alloc] initWithFrame:rect];
     indicatr.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self addSubview:indicatr];
@@ -67,32 +68,25 @@ typedef enum : NSUInteger {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGEVENTNOTIFICATION object:nil];
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CTCLICKMSGEVENTNOTIFICATION object:nil];
     return self;
 }
-
--(void)setViewController:(UIViewController *)viewController {
-    
-    _viewController = viewController;
-    
-    //
-    viewController.automaticallyAdjustsScrollViewInsets = NO;
-    //适配
-    if (@available(iOS 11, *)) {
-        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
-    
-    pullToLoadMark = -LoadingH;
-    if (viewController.navigationController) {
-        originInset = NaviH - self.frame.origin.y;
-        self.scrollIndicatorInsets = UIEdgeInsetsMake(NaviH, 0, 0, 0);
-    } else {
-        originInset = 0;
-    }
-}
-
 -(void)didMoveToSuperview{
+    UIViewController *viewController =  self.viewController;
+    if (self.viewController) {
+        viewController.automaticallyAdjustsScrollViewInsets = NO;
+        //适配
+        if (@available(iOS 11, *)) {
+            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        pullToLoadMark = -LoadingH;
+        if (viewController.navigationController) {
+            originInset = NaviH() - self.frame.origin.y;
+            self.scrollIndicatorInsets = UIEdgeInsetsMake(NaviH(), 0, 0, 0);
+        } else {
+            originInset = 0;
+        }
+    }
     if (!self.superview) {
         return;
     }
@@ -160,14 +154,16 @@ typedef enum : NSUInteger {
 -(void)updateMessage:(CDChatMessage)message{
     
     // 找到消息ID
-    NSUInteger msgIndex = 0;
+    NSInteger msgIndex = -1;
     for (int i = 0; i < _msgArr.count; i++) {
         if ([message.messageId isEqualToString:_msgArr[i].messageId]) {
             msgIndex = i;
             break;
         }
     }
+    if (msgIndex < 0) return;
     if (!_msgArr) return;
+    
     // 更新数据源
     NSMutableArray *mutableMsgArr = [NSMutableArray arrayWithArray:_msgArr];
     [mutableMsgArr replaceObjectAtIndex:msgIndex withObject:message];

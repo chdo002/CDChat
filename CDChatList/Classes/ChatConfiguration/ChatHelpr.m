@@ -8,6 +8,7 @@
 #import "ChatHelpr.h"
 #import "CTHelper.h"
 #import "ChatImageDrawer.h"
+#import "CTinputHelper.h"
 
 @interface ChatHelpr()
 @property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *emojDic;
@@ -47,6 +48,7 @@
 }
 +(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic{
     [ChatHelpr share].emojDic = dic;
+    [CTinputHelper setDefaultEmoticonDic:dic];
     [CTHelper loadImageDic:dic];
 }
 

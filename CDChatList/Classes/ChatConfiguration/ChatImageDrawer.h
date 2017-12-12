@@ -17,4 +17,5 @@
  */
 +(NSDictionary<NSString *, UIImage *>*)defaultImageDic;
 
+
 @end

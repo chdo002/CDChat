@@ -7,6 +7,7 @@
 //
 
 #import "InputBoxViewController.h"
+#import "CTInputView.h"
 
 @interface InputBoxViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CTInputView *input = [[CTInputView alloc] initWithFrame:CGRectMake(0, ScreenH() - CTInputViewHeight, ScreenW(), CTInputViewHeight)];
+    
+    [self.view addSubview:input];
 }
 
 @end
