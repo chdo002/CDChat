@@ -9,14 +9,17 @@
 #import <CoreText/CoreText.h>
 
 
-typedef struct {
-    
+typedef struct {    
     CGColorRef textColor;  // 文本颜色
     CGColorRef clickStrColor;// 可点击文本颜色
     CGColorRef hilightColor;// 高亮文本颜色
     CGFloat textSize;   // 字号
     CGFloat lineSpace;  // 行间距
     NSLineBreakMode lineBreakMode;
+    BOOL matchEmoji;
+    BOOL matchLink;
+    BOOL matchPhone;
+    BOOL matchEmail;
 } CTDataConfig;
 
 /**

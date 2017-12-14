@@ -27,6 +27,10 @@
     config.lineSpace = 2;
     config.textSize = 16;
     config.lineBreakMode = NSLineBreakByCharWrapping;
+    config.matchLink = YES;
+    config.matchEmail = YES;
+    config.matchEmoji = YES;
+    config.matchPhone = YES;
     return [self dataWithStr:msgString containerWithSize:size configuration:config];
 }
 
@@ -54,15 +58,26 @@
      ===========================================================================
      */
     
-    // 匹配图片(主要是表情) 并返回图片
-    NSMutableArray <CTImageData *>*imageDataArr = [CDTextParser matchImage:attString configuration:config];
-    
-    // 匹配链接
-    NSMutableArray <CTLinkData *> *linkDataArr = [CDTextParser matchLink:attString configuration:config];
-    NSMutableArray <CTLinkData *> *emailDataArr = [CDTextParser matchEmail:attString configuration:config];
-    NSMutableArray <CTLinkData *> *phoneDataArr = [CDTextParser matchPhone:attString configuration:config];
-    [linkDataArr addObjectsFromArray:emailDataArr];
-    [linkDataArr addObjectsFromArray:phoneDataArr];
+    NSMutableArray <CTImageData *>*imageDataArr = [NSMutableArray array];
+    if (config.matchEmoji) {
+        // 匹配图片(主要是表情) 并返回图片
+        imageDataArr = [CDTextParser matchImage:attString configuration:config];
+    }
+    NSMutableArray <CTLinkData *> *linkDataArr = [NSMutableArray array];
+    if (config.matchLink) {
+        // 匹配链接
+        linkDataArr = [CDTextParser matchLink:attString configuration:config];
+    }
+    if (config.matchEmail) {
+        // 匹配邮箱
+        NSMutableArray <CTLinkData *> *emailDataArr = [CDTextParser matchEmail:attString configuration:config];
+        [linkDataArr addObjectsFromArray:emailDataArr];
+    }
+    if (config.matchPhone) {
+        // 匹配号码
+        NSMutableArray <CTLinkData *> *phoneDataArr = [CDTextParser matchPhone:attString configuration:config];
+        [linkDataArr addObjectsFromArray:phoneDataArr];
+    }
     
     /*
      ===========================================================================

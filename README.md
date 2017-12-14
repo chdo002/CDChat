@@ -19,11 +19,18 @@ pod 'CDChatList', :source => 'http://git-ma.paic.com.cn/aat/AATComponent_iOS.git
 pod package CDChatList.podspec --force  -verbose
 ```
 
-####  最为静态库集成（需要手动处理资源文件）
+####  作为静态库集成
 
 ```
 pod package CDChatList.podspec --library  --force  -verbose
 ```
+
+
+没有cocoapods-packager，则通过下面命令安装
+```
+ sudo gem install cocoapods-packager
+```
+
 
 ## TODO
 

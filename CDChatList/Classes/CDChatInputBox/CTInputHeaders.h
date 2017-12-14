@@ -9,7 +9,7 @@
 #define CTInputHeaders_h
 
 #import "CTInPutMacro.h"
-#import "CTInputView.h"
+#import "CTData.h"
 #import "CTinputHelper.h"
 #import "CTInputConfiguration.h"
 #import "CTInputBoxDrawer.h"

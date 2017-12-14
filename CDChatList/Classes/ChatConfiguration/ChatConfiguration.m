@@ -43,6 +43,10 @@
     config.lineSpace = 2;
     config.textSize = 16;
     config.lineBreakMode = NSLineBreakByCharWrapping;
+    config.matchLink = YES;
+    config.matchEmail = YES;
+    config.matchEmoji = YES;
+    config.matchPhone = YES;
     self.ctDataconfig = config;
     
     return self;

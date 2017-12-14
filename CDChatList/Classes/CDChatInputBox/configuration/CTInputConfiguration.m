@@ -41,7 +41,13 @@
     hasMore = NO;;
     buttongSize = CGSizeMake(30, 30);
     CTInputViewWidth = ScreenW();
+    self.messageTextDefaultFontSize = 16;
     return self;
+}
+
+-(UIFont *)stringFont{
+    UIFont *font = [UIFont systemFontOfSize:self.messageTextDefaultFontSize];
+    return font;
 }
 
 // 输入框配置
@@ -50,6 +56,19 @@
 }
 
 
+/**
+ 语音按钮位置
+ */
+-(CGRect)voiceButtonRect{
+    CGFloat top = inset;
+    CGFloat left = inset;
+    CGFloat bottom = inset;
+    return CGRectMake(left, top, hasVoice ? buttongSize.width : 0, CTInputViewHeight - top - bottom);
+}
+
+/**
+ 获得输入框位置
+ */
 -(CGRect)inputViewRect{
     
     CGFloat top = inset;
@@ -58,6 +77,30 @@
     CGFloat right = inset + (hasEmoji ? buttongSize.width + inset : 0) + + (hasMore ? buttongSize.width + inset : 0);
     
     return CGRectMake(left, top, CTInputViewWidth - left - right, CTInputViewHeight - top - bottom);
+}
+
+
+/**
+ 表情按钮位置
+ 依赖输入框rect
+ */
+-(CGRect)emojiButtonRect{
+    CGFloat top = inset;
+    CGFloat left = self.inputViewRect.origin.x + self.inputViewRect.size.width + inset;
+    CGFloat bottom = inset;
+    return CGRectMake(left, top, hasEmoji ? buttongSize.width : 0, CTInputViewHeight - top - bottom);
+}
+
+
+/**
+ ’更多‘ 按钮位置
+  依赖输入框rect
+ */
+-(CGRect)moreButtonRect{
+    CGFloat top = inset;
+    CGFloat left = self.inputViewRect.origin.x + self.inputViewRect.size.width + (hasEmoji ? inset * 2 + buttongSize.width: inset);
+    CGFloat bottom = inset;
+    return CGRectMake(left, top, hasMore ? buttongSize.width : 0, CTInputViewHeight - top - bottom);
 }
 
 // 添加输入语音功能

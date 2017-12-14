@@ -38,7 +38,12 @@
     {
       "name": "CDChatInputBox",
       "source_files": "CDChatList/Classes/CDChatInputBox/**/*",
-      "public_header_files": "CDChatList/Classes/CDChatInputBox/**/*.h"
+      "public_header_files": "CDChatList/Classes/CDChatInputBox/**/*.h",
+      "dependencies": {
+        "CDChatList/CDLabel": [
+
+        ]
+      }
     }
   ]
 }

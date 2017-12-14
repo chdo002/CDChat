@@ -47,6 +47,7 @@
     return [CTinputHelper share].emojDic;
 }
 +(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic{
+    [CTinputHelper share]->_imageDic = [CTInputBoxDrawer defaultImageDic];
     [CTinputHelper share].emojDic = dic;
 }
 

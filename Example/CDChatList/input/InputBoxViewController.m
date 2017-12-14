@@ -8,8 +8,11 @@
 
 #import "InputBoxViewController.h"
 #import "CTInputView.h"
-
-@interface InputBoxViewController ()
+@interface InputBoxViewController ()<UITextViewDelegate>
+{
+    CTInputView *input;
+}
+@property (nonatomic, strong) UITextView *textView;
 
 @end
 
@@ -18,9 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CTInputView *input = [[CTInputView alloc] initWithFrame:CGRectMake(0, ScreenH() - CTInputViewHeight, ScreenW(), CTInputViewHeight)];
-    
+    input = [[CTInputView alloc] initWithFrame:CGRectMake(0, ScreenH() - CTInputViewHeight, ScreenW(), CTInputViewHeight)];
     [self.view addSubview:input];
+}
+
+- (IBAction)becomeFirst:(id)sender {
+
+}
+
+- (IBAction)resigFitrst:(id)sender {
+
+}
+
+-(void)send{
+
 }
 
 @end

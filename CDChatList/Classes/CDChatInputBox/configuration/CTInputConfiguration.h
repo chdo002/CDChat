@@ -37,6 +37,13 @@ static CGFloat CTInputViewHeight = 50.0f;
 @property(nonatomic,assign) CGRect moreButtonRect;
 
 
+/**
+ 消息默认字号
+ */
+@property(nonatomic, assign) CGFloat messageTextDefaultFontSize;
+
+@property(nonatomic, strong) UIFont *stringFont;
+
 // 只有输入框的配置
 +(CTInputConfiguration*)defaultConfig;
 

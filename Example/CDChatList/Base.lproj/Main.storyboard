@@ -114,7 +114,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvG-Ux-E33">
-                                <rect key="frame" x="0.0" y="337" width="375" height="122"/>
+                                <rect key="frame" x="0.0" y="268" width="375" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.044903492955336133" green="0.72686107234168151" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="输入框">
@@ -144,12 +144,30 @@
                     <view key="view" contentMode="scaleToFill" id="3dF-sv-0KA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AG-lw-sjp">
+                                <rect key="frame" x="29" y="189" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="收起键盘"/>
+                                <connections>
+                                    <action selector="resigFitrst:" destination="gXa-T1-eDf" eventType="touchUpInside" id="iho-JM-uDb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvz-C0-kWw">
+                                <rect key="frame" x="29" y="114" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="弹出键盘"/>
+                                <connections>
+                                    <action selector="becomeFirst:" destination="gXa-T1-eDf" eventType="touchUpInside" id="ayh-Q0-s40"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v7v-Un-lGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="2104"/>
+            <point key="canvasLocation" x="720.79999999999995" y="2103.5982008995502"/>
         </scene>
         <!--Demo View Controller-->
         <scene sceneID="Uco-zN-qNe">
