@@ -30,11 +30,11 @@
 }
 
 - (IBAction)becomeFirst:(id)sender {
-
+    [input becomeFirstResponder];
 }
 
 - (IBAction)resigFitrst:(id)sender {
-
+    [input resignFirstResponder];
 }
 
 -(void)send{

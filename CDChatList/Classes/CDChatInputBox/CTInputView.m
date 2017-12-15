@@ -8,49 +8,6 @@
 #import "CTInputView.h"
 #import "CTTextView.h"
 
-
-@implementation NSArray (chinese)
-
-- (NSString *)descriptionWithLocale:(id)locale
-{
-    
-    
-    NSMutableString *strM = [NSMutableString string];
-    [strM appendString:@"(\n"];
-    
-    for (id obj in self) {
-        [strM appendFormat:@"\t\t%@,\n", obj];
-    }
-    [strM appendString:@")"];
-    
-    return strM;
-}
-
-@end
-
-
-@implementation NSDictionary (chinese)
-
-- (NSString *)descriptionWithLocale:(id)locale
-{
-    
-    NSMutableString *strM = [NSMutableString string];
-    [strM appendString:@"{\n"];
-    
-    for (id obj in [self allKeys]) {
-        [strM appendFormat:@"\t\t%@,", obj];
-        
-        [strM appendFormat:@"%@\n", self[obj]];
-    }
-    
-    [strM appendString:@"}"];
-    
-    return strM;
-}
-
-
-@end
-
 @interface CTInputView()
 {
     CGRect originRect;   // 根据键盘是否弹起，整个值有可能是底部的是在底部的rect  也可能是上面的rect
@@ -133,16 +90,13 @@
     CGRect selfNewFrame = CGRectMake(self.frame.origin.x,
                                       keyBoardEndFrmae.origin.y - self.frame.size.height,
                                       self.frame.size.width, self.frame.size.height);
-//    CGFloat singleLineHight = originRect.size.height;
-//    CGFloat originX = originRect.origin.x;
-//    originRect = selfNewFrame;
-//    originRect.size.height = singleLineHight;
-    
+
     originRect.origin.y = selfNewFrame.origin.y - (originRect.size.height - selfNewFrame.size.height);
     
     [UIView animateWithDuration:duration.doubleValue delay:0 options:curv.integerValue animations:^{
         self.frame = selfNewFrame;
     } completion:^(BOOL finished) {
+        
     }];
 }
 // 适应输入框高度变化
