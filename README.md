@@ -96,6 +96,7 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 }
 -(void)send{
     modal = [[MessageModal alloc] init];
+    modal.msgState = CDMessageStateSending;
     modal.createTime = ...;
     modal.msg = ...;
     modal.msgType = ...;
