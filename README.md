@@ -1,4 +1,4 @@
-# CDChatList
+# CDChatList (0.2.0)
 iOS 聊天界面的组件
 
 ## 支持
@@ -44,10 +44,10 @@ UI配置及资源文件都有默认，所以无需自定义的话，就可以跳
 
 
 ```
-CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
-list.msgDelegate = self;
-self.listView = list;
-[self.view addSubview:self.listView];
+    CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+    list.msgDelegate = self;
+    self.listView = list;
+    [self.view addSubview:self.listView];
 ```
 
 CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentInsetAdjustmentBehavior设为NO及Never，并适应导航栏高度
@@ -63,7 +63,7 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 消息列表请求加载更多消息
 ```
 -(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
-callback: (void(^)(CDChatMessageArray))finnished;
+                  callback: (void(^)(CDChatMessageArray))finnished;
 ```
 
 消息中的点击事件
@@ -92,26 +92,26 @@ callback: (void(^)(CDChatMessageArray))finnished;
 ```Objective-C
 // 发
 {
-MessageModal *modal;
+    MessageModal *modal;
 }
 -(void)send{
-modal = [[MessageModal alloc] init];
-modal.createTime = ...;
-modal.msg = ...;
-modal.msgType = ...;
-[chatList addMessagesToBottom: modal];
+    modal = [[MessageModal alloc] init];
+    modal.createTime = ...;
+    modal.msg = ...;
+    modal.msgType = ...;
+    [chatList addMessagesToBottom: modal];
 }
 
 -(void)sendCallBack:(BOOL)isSuccess{
-modal.msgState = isSuccess;  // 此处应根据枚举处理
-[chatList updateMessage: modal];
+    modal.msgState = isSuccess;  // 此处应处理成枚举
+    [chatList updateMessage: modal];
 }
 
 
 
 // 收
 -(void)receivedNewMessage{
-[chatList addMessagesToBottom: modal];
+    [chatList addMessagesToBottom: modal];
 }
 
 ```
@@ -121,11 +121,11 @@ modal.msgState = isSuccess;  // 此处应根据枚举处理
 
 ```
 -(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
-callback: (void(^)(CDChatMessageArray))finnished
+                  callback: (void(^)(CDChatMessageArray))finnished
 {
-// 根据topMessage 获取更多消息
-NSArray *msgArr = [self getMoreMessageFrom: topMessage amount: 10];
-callback(msgArr);
+    // 根据topMessage 获取更多消息
+    NSArray *msgArr = [self getMoreMessageFrom: topMessage amount: 10];
+    callback(msgArr);
 }
 ```
 
@@ -135,19 +135,19 @@ callback(msgArr);
 
 ```
 -(void)chatlistClickMsgEvent: (ChatListInfo *)listInfo{
-if (listInfo.eventType == ChatClickEventTypeTEXT){
-// 点击的文本
-listInfo.clickedText
-// 点击的文字位置  防止有相同的可点击文字
-listInfo.range
-// 被点击文本的隐藏信息   e.g.  <a title="转人工" href="doTransfer">
-listInfo.clickedTextContent
-} else if (listInfo.eventType == ChatClickEventTypeIMAGE){
-// 图片
-listInfo.image
-// 图片在tableview中的位置
-listInfo.msgImageRectInTableView
-}
+    if (listInfo.eventType == ChatClickEventTypeTEXT){
+        // 点击的文本
+        listInfo.clickedText
+        // 点击的文字位置  防止有相同的可点击文字
+        listInfo.range
+        // 被点击文本的隐藏信息   e.g.  <a title="转人工" href="doTransfer">
+        listInfo.clickedTextContent
+    } else if (listInfo.eventType == ChatClickEventTypeIMAGE){
+        // 图片
+        listInfo.image
+        // 图片在tableview中的位置
+        listInfo.msgImageRectInTableView
+    }
 }
 ```
 
