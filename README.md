@@ -158,4 +158,5 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 
 - 实现异步加载图片，去除对SDWebImage依赖
 - 添加音频消息类型
-
+- 自定义消息内容匹配    去人工
+- 头像漏做

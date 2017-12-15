@@ -4,5 +4,5 @@ use_frameworks!
 target 'CDChatList_Example' do
   pod 'CDChatList', :path => '../'
   pod 'SDWebImage'
-  pod 'Utility', :source => 'http://git-ma.paic.com.cn/aat/AATComponent_iOS.git'
+  pod 'Utility', '~> 0.1.2', :source => 'http://git-ma.paic.com.cn/aat/AATComponent_iOS.git'
 end

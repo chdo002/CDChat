@@ -7,7 +7,7 @@
 
 #import "CDBaseMsgCell.h"
 #import "ChatHelpr.h"
-
+#import "UIImageView+WebCache.h"
 @interface CDBaseMsgCell()
 
 @end
@@ -268,6 +268,25 @@
     // 设置显示或隐藏  左右气泡
     [self.msgContent_left setHidden:!data.isLeft];
     [self.msgContent_right setHidden:data.isLeft];
+    
+    // 设置头像
+    if (data.isLeft) {
+        if (data.userThumImage) {
+            _headImage_left.image = data.userThumImage;
+        } else if (data.userThumImageURL) {
+            [_headImage_left sd_setImageWithURL:data.userThumImageURL placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+        } else {
+            [_headImage_left setImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+        }
+    } else {
+        if (data.userThumImage) {
+            _headImage_right.image = data.userThumImage;
+        } else if (data.userThumImageURL) {
+            [_headImage_right sd_setImageWithURL:data.userThumImageURL placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+        } else {
+            [_headImage_right setImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+        }
+    }
     
     // 设置顶部时间Label
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];

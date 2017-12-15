@@ -82,6 +82,16 @@ typedef enum : NSUInteger {
  */
 @property (assign, nonatomic) BOOL isLeft;
 
+/**
+ 消息对应用户的头像图片
+ */
+@property (strong, nonatomic) UIImage *userThumImage;
+
+/**
+ 消息对应用户的头像图片地址
+ */
+@property (strong, nonatomic) NSURL *userThumImageURL;
+
 #pragma mark 缓存，这些字段，存在缓存表中
 
 /**

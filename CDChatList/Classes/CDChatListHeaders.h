@@ -16,5 +16,6 @@
 #import "CDImageTableViewCell.h"
 #import "CDSystemTableViewCell.h"
 #import "CDTextTableViewCell.h"
+#import "CTEmojiKeyboard.h"
 
 #endif /* CDChatListHeaders_h */

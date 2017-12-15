@@ -8,6 +8,11 @@
 #import <Foundation/Foundation.h>
 #import <Utility/Utility.h>
 
+
+//@"emojIcon":emojButtonIcon,
+//@"addIcon": addButtonIcon};
+// 没有 语音图片  键盘图片
+
 @interface CTInputBoxDrawer : NSObject
     
 +(NSDictionary<NSString *, UIImage *>*)defaultImageDic;

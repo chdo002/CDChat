@@ -14,6 +14,14 @@
 
 #pragma mark  和表情相关
 +(NSMutableArray *)matchImage:(NSMutableAttributedString *)str configuration:(CTDataConfig)config{
+    
+    /**
+     REGULAREXPRESSION(SlashEmojiRegularExpression, @"(/:[\\x21-\\x2E\\x30-\\x7E]{1,8})|(\\[[\\u4e00-\\u9fa5|a-z|A-Z]{1,3}\\])|[^\\u0020-\\u007E\\u00A0-\\u00BE\\u2E80-\\uA4CF\\uF900-\\uFAFF\\uFE30-\\uFE4F\\uFF00-\\uFFEF\\u0080-\\u009F\\u2000-\\u201f\r\n]")
+     
+     REGULAREXPRESSION(sign_SlashEmojiRegularExpression, @"[^\\u0020-\\u007E\\u00A0-\\u00BE\\u2E80-\\uA4CF\\uF900-\\uFAFF\\uFE30-\\uFE4F\\uFF00-\\uFFEF\\u0080-\\u009F\\u2000-\\u201f\r\n]")
+     type
+     */
+    
     // 处理表情   将所有[呵呵]换成占位字符  并计算图片位置
     NSMutableArray *imageDataArrr = [NSMutableArray array];
     NSRegularExpression *regEmoji = [NSRegularExpression regularExpressionWithPattern:@"\\[[^\\[\\]]+?\\]"

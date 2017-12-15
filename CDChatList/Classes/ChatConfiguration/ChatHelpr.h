@@ -14,8 +14,7 @@
 +(ChatConfiguration *)defaultConfiguration;
 +(void)setDefaultConfiguration:(ChatConfiguration *)config;
 
-    
-    
+
 #pragma mark  表情相关
 /**
  表情字典
@@ -24,9 +23,11 @@
 +(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic;
 +(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic;
 
-    
 #pragma mark 图片资源
 +(NSDictionary<NSString *,UIImage *> *)defaultImageDic;
 +(void)setDefaultImageDic:(NSDictionary<NSString *,UIImage *> *)dic;
+
+
+
 
 @end

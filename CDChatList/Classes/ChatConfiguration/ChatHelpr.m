@@ -42,7 +42,7 @@
     [ChatHelpr share].config = config;
 }
 
-#pragma mark  表情相关
+#pragma mark  表情图片相关
 +(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic{
     return [ChatHelpr share].emojDic;
 }

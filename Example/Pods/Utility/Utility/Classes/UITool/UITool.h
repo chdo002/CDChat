@@ -17,7 +17,7 @@ CGSize CRMScreenSize(void);
  */
 UIColor *CRMHexColor(int hexColor); // 16位颜色
 UIColor *CRMRadomColor(void); //随机色
-
+UIColor *RGB(CGFloat A, CGFloat B, CGFloat C);
 
 
 /**
@@ -32,3 +32,6 @@ CGFloat ScreenH(void);
 NSInteger CRMFileSizeByFileUrl(NSURL *filePath);
 NSInteger CRMFileSizeByFilePath(NSString *filePath);
 
+
+#define WeakObj(o) __weak typeof(o) o##Weak = o;
+#define StrongObj(o) __weak typeof(o) o##Strong = o;

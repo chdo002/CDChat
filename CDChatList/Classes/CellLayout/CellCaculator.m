@@ -9,7 +9,6 @@
 #import "CDChatMacro.h"
 #import "SDImageCache.h"
 #import "SDWebImageDownloader.h"
-#import "ChatMessageMatch.h"
 #import "CDBaseMsgCell.h"
 #import "CTData.h"
 #import "ChatHelpr.h"

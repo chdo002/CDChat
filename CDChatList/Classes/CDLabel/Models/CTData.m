@@ -37,7 +37,18 @@
 +(CTData *)dataWithStr:(NSString *)msgString containerWithSize:(CGSize)size configuration:(CTDataConfig)config{
     
     CTData *data = [[CTData alloc] init];
-    data.msgString = msgString;
+    
+    NSString *originStr = [msgString copy];
+
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"</span>" withString:@""];
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\n"];
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    originStr = [originStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+    
+    NSRegularExpression *replaceReg = [NSRegularExpression regularExpressionWithPattern:@"<(?!a)(?!/a).*?>" options:0 error:nil];
+    NSString *cleanStr = [replaceReg stringByReplacingMatchesInString:originStr options:0 range: NSMakeRange(0, originStr.length) withTemplate:@""];
+    data.msgString = cleanStr;
+    
     // 构建富文本
     UIFont *font = [UIFont systemFontOfSize:config.textSize];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -50,7 +61,7 @@
                           NSParagraphStyleAttributeName: paragraphStyle
                           };
     
-    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:msgString attributes:dic];
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:data.msgString attributes:dic];
     
     /*
      ===========================================================================

@@ -21,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSDictionary *origin = [CTinputHelper defaultImageDic];
+    
+    NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:origin];
+    [newDic setObject:[UIImage imageNamed:@"keyboard"] forKey:@"keyboard"];
+    [newDic setObject:[UIImage imageNamed:@"voice"] forKey:@"voice"];
+
+    [CTinputHelper setDefaultImageDic:newDic];
+    
     input = [[CTInputView alloc] initWithFrame:CGRectMake(0, ScreenH() - CTInputViewHeight, ScreenW(), CTInputViewHeight)];
     [self.view addSubview:input];
 }

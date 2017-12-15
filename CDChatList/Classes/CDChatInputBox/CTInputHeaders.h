@@ -13,5 +13,7 @@
 #import "CTinputHelper.h"
 #import "CTInputConfiguration.h"
 #import "CTInputBoxDrawer.h"
+#import "CTEmojiKeyboard.h"
+#import "CTMoreKeyBoard.h"
 
 #endif /* CTInputHeaders_h */

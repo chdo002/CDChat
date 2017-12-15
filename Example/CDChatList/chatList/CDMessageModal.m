@@ -48,4 +48,8 @@
     return modal;
 }
 
+@synthesize userThumImage;
+
+@synthesize userThumImageURL;
+
 @end

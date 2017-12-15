@@ -32,11 +32,9 @@
         return [CTInputBoxDrawer share].imageDic;
     }
     UIImage *emojButtonIcon = [[CTInputBoxDrawer share] emojButtonIcon];
-    UIImage *emojButtonIcon_pressed = [[CTInputBoxDrawer share] emojButtonIcon_pressed];
     UIImage *addButtonIcon = [[CTInputBoxDrawer share] addButtonIcon];
     
     [CTInputBoxDrawer share].imageDic = @{@"emojIcon":emojButtonIcon,
-                                          @"emojIcon_pressed":emojButtonIcon_pressed,
                                           @"addIcon": addButtonIcon};
     return [CTInputBoxDrawer share].imageDic;
 }
@@ -75,46 +73,6 @@
     UIGraphicsEndImageContext();
     return image;
 }
-
-
--(UIImage *)emojButtonIcon_pressed{
-    UIGraphicsBeginImageContextWithOptions(butIconSize, NO, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, CRMHexColor(0xA9A7A7).CGColor);
-    CGContextAddArc(context, butIconSize.width * 0.5, butIconSize.height * 0.5, (butIconSize.width - 2) * 0.5, 0, M_PI * 2, 0);
-    CGContextDrawPath(context, kCGPathFill);//仅填充
-    
-    // 外圆
-    CGContextSetLineWidth(context, 1);
-    CGContextSetStrokeColorWithColor(context, CRMHexColor(0x878A91).CGColor);
-    CGContextAddArc(context, butIconSize.width * 0.5, butIconSize.height * 0.5, (butIconSize.width - 2) * 0.5, 0, M_PI * 2, 0);
-    CGContextStrokePath(context);
-    
-    // 左眼
-    CGContextAddEllipseInRect(context, CGRectMake(8, 8, 3, 4));
-    CGContextSetFillColorWithColor(context, CRMHexColor(0x878A91).CGColor);
-    
-    // 右眼
-    CGContextAddEllipseInRect(context, CGRectMake(18, 8, 3, 4));
-    CGContextSetFillColorWithColor(context, CRMHexColor(0x878A91).CGColor);
-    
-    CGMutablePathRef path = CGPathCreateMutable();
-    // 嘴
-    [self pathMoveToPoint:path point:7 pointy:16];
-    [self pathAddLineToPoint:path point:23 pointy:16];
-    [self pathAddArcToPoint:path x:15 y:16 rad:8 sA:0 eA:M_PI dir:0];
-    CGContextClosePath(context);
-    // 填充路径
-    CGContextAddPath(context, path);
-    // 画边框
-    CGContextDrawPath(context, kCGPathFillStroke);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
 
 -(UIImage *)addButtonIcon{
     UIGraphicsBeginImageContextWithOptions(butIconSize, NO, 0);
