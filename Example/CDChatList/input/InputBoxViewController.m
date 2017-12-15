@@ -25,6 +25,10 @@
     [self.view addSubview:input];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    input = nil;
+}
+
 - (IBAction)becomeFirst:(id)sender {
 
 }

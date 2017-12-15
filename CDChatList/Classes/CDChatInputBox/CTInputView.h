@@ -8,8 +8,20 @@
 #import <UIKit/UIKit.h>
 #import "CTInputHeaders.h"
 
+
+@interface NSArray (chinese)
+
+- (NSString *)descriptionWithLocale:(id)locale;
+
+@end
+
+@interface NSDictionary (chinese)
+
+- (NSString *)descriptionWithLocale:(id)locale;
+
+@end
+
+
 @interface CTInputView : UIView
-
-
 
 @end

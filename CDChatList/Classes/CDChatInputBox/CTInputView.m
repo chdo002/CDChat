@@ -8,9 +8,52 @@
 #import "CTInputView.h"
 #import "CTTextView.h"
 
+
+@implementation NSArray (chinese)
+
+- (NSString *)descriptionWithLocale:(id)locale
+{
+    
+    
+    NSMutableString *strM = [NSMutableString string];
+    [strM appendString:@"(\n"];
+    
+    for (id obj in self) {
+        [strM appendFormat:@"\t\t%@,\n", obj];
+    }
+    [strM appendString:@")"];
+    
+    return strM;
+}
+
+@end
+
+
+@implementation NSDictionary (chinese)
+
+- (NSString *)descriptionWithLocale:(id)locale
+{
+    
+    NSMutableString *strM = [NSMutableString string];
+    [strM appendString:@"{\n"];
+    
+    for (id obj in [self allKeys]) {
+        [strM appendFormat:@"\t\t%@,", obj];
+        
+        [strM appendFormat:@"%@\n", self[obj]];
+    }
+    
+    [strM appendString:@"}"];
+    
+    return strM;
+}
+
+
+@end
+
 @interface CTInputView()
 {
-    CGRect currentRect;
+    CGRect originRect;   // 根据键盘是否弹起，整个值有可能是底部的是在底部的rect  也可能是上面的rect
 }
 @property (nonatomic, strong) UITextView *textView;
 
@@ -23,7 +66,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.backgroundColor = CRMHexColor(0xF5F5F7);
-    currentRect = frame;
+    originRect = frame;
     // 容器
     self.containerView = [[UIView alloc] initWithFrame:self.bounds];
     self.containerView.backgroundColor = self.backgroundColor;
@@ -50,12 +93,10 @@
     textView.maxNumberOfLines = 5;
     self.textView = textView;
     [self addSubview:textView];
-    
+    __weak __typeof__ (self) wself = self;
     [textView textValueDidChanged:^(NSString *text, CGFloat textHeight) {
-//        CGRect frame = textView.frame;
-//        frame.size.height = textHeight;
-        [self updateLayout:textHeight];
-//        textView.frame = frame;
+        __strong __typeof (wself) sself = wself;
+        [sself updateLayout:textHeight];
     }];
     
     UIButton *v3 = [[UIButton alloc] initWithFrame:config.emojiButtonRect];
@@ -86,29 +127,44 @@
     NSDictionary *dic = noti.userInfo;
     NSNumber *curv = dic[UIKeyboardAnimationCurveUserInfoKey];
     NSNumber *duration = dic[UIKeyboardAnimationDurationUserInfoKey];
+    // 键盘Rect
     CGRect keyBoardEndFrmae = ((NSValue * )dic[UIKeyboardFrameEndUserInfoKey]).CGRectValue;
     
-    CGRect inputNewFrame = CGRectMake(self.frame.origin.x, keyBoardEndFrmae.origin.y - CTInputViewHeight, self.frame.size.width, CTInputViewHeight);
+    CGRect selfNewFrame = CGRectMake(self.frame.origin.x,
+                                      keyBoardEndFrmae.origin.y - self.frame.size.height,
+                                      self.frame.size.width, self.frame.size.height);
+//    CGFloat singleLineHight = originRect.size.height;
+//    CGFloat originX = originRect.origin.x;
+//    originRect = selfNewFrame;
+//    originRect.size.height = singleLineHight;
+    
+    originRect.origin.y = selfNewFrame.origin.y - (originRect.size.height - selfNewFrame.size.height);
+    
     [UIView animateWithDuration:duration.doubleValue delay:0 options:curv.integerValue animations:^{
-        self.frame = inputNewFrame;
-        currentRect = inputNewFrame;
+        self.frame = selfNewFrame;
     } completion:^(BOOL finished) {
-        
     }];
 }
 // 适应输入框高度变化
 -(void)updateLayout:(CGFloat)newTextViewHight{
     
+    // 输入框默认位置
     CTInputConfiguration *config = [CTinputHelper defaultConfiguration];
+    
+    // 更新后的输入框的位置
     CGRect newTextViewRect = self.textView.frame;
     newTextViewRect.size.height = newTextViewHight;
 
+    // 输入框的高度变化
     CGFloat delta = config.inputViewRect.size.height - newTextViewHight;
-    CGRect newRect = CGRectOffset(currentRect, 0, delta);
+    // 根据输入框的变化修改整个视图的位置
+    CGRect newRect = CGRectOffset(originRect, 0, delta);
     newRect.size.height = newRect.size.height - delta;
-    self.frame = newRect;
-    self.textView.frame = newTextViewRect;
-
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.frame = newRect;
+        self.textView.frame = newTextViewRect;
+    }];
 }
 
 -(BOOL)becomeFirstResponder{

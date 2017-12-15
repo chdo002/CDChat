@@ -118,7 +118,7 @@
 - (void)textDidChange
 {
     // 根据文字内容决定placeholderView是否隐藏
-    self.placeholderView.hidden = self.text.length > 0;
+//    self.placeholderView.hidden = self.text.length > 0;
     
     NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
     
