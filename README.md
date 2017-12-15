@@ -110,7 +110,7 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 
 
 // 收
--(void)receivedNewMessage{
+-(void)receivedNewMessage:(MessageModal *)modal{
     [chatList addMessagesToBottom: modal];
 }
 
