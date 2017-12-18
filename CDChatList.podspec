@@ -15,11 +15,14 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '8.0'
 
+    # 富文本
     s.subspec 'CDLabel' do |label|
         label.source_files = 'CDChatList/Classes/CDLabel/**/*'
         label.public_header_files = 'CDChatList/Classes/CDLabel/**/*.h'
     end
 
+
+    # 输入框
     s.subspec 'CDChatInputBox' do |inputbox|
         inputbox.source_files = 'CDChatList/Classes/CDChatInputBox/**/*'
         inputbox.public_header_files = 'CDChatList/Classes/CDChatInputBox/**/*.h'
@@ -28,8 +31,6 @@ Pod::Spec.new do |s|
 
     s.source_files = 'CDChatList/Classes/**/*'
     s.public_header_files = 'CDChatList/Classes/**/**/*.h'
-
-# s.vendored_libraries  = 'CDChatList/Classes/libs/libUtility/*.{a}'
 
     s.frameworks = 'UIKit'
     s.dependency 'SDWebImage'
