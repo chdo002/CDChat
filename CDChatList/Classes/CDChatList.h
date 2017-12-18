@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CDChatListProtocols.h"
-#import <Utility/Utility.h>
+#import "Utility.h"
 
 /**
  聊天视图

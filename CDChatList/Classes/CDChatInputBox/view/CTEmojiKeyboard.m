@@ -6,7 +6,7 @@
 //
 
 #import "CTEmojiKeyboard.h"
-#import <Utility/Utility.h>
+#import "Utility.h"
 @interface CTEmojiKeyboard()
 {
     UIScrollView *scrollView;

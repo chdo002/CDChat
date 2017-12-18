@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Utility/Utility.h>
+#import "Utility.h"
 
 
 //@"emojIcon":emojButtonIcon,

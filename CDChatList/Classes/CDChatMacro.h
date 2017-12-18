@@ -8,7 +8,7 @@
 
 #import "CDChatListProtocols.h"
 #import "ChatConfiguration.h"
-#import <Utility/Utility.h>
+#import "Utility.h"
 
 #ifndef CDChatMacro_h
 #define CDChatMacro_h
