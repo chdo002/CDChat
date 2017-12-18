@@ -5,7 +5,7 @@
 //  Created by chdo on 2017/12/12.
 //
 
-#import "Utility.h"
+#import <Utility/Utility.h>
 
 #ifndef CTInPutMacro_h
 #define CTInPutMacro_h

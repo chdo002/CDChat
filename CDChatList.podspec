@@ -29,9 +29,9 @@ Pod::Spec.new do |s|
     s.source_files = 'CDChatList/Classes/**/*'
     s.public_header_files = 'CDChatList/Classes/**/**/*.h'
 
-    s.vendored_libraries  = 'CDChatList/Classes/libs/libUtility/*.{a}'
+# s.vendored_libraries  = 'CDChatList/Classes/libs/libUtility/*.{a}'
 
     s.frameworks = 'UIKit'
     s.dependency 'SDWebImage'
-
+    s.dependency 'Utility'
 end
