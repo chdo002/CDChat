@@ -10,6 +10,8 @@
 @interface CTEmojiKeyboard()
 {
     UIScrollView *scrollView;
+    UIPageControl *pageCtr;
+    
 }
 @end
 @implementation CTEmojiKeyboard
@@ -23,14 +25,23 @@
         single = [[CTEmojiKeyboard alloc] init];
         single.backgroundColor = [UIColor cyanColor];
         single.frame = CGRectMake(0, 0, ScreenW(), ScreenH() * 0.4);
-        single->scrollView = [[UIScrollView alloc] initWithFrame:single.bounds];
+        single->scrollView = [[UIScrollView alloc] init];
+        [single addSubview:single->scrollView];
         
+        UIPageControl *page = [[UIPageControl alloc] init];
+        [single addSubview:page];
     });
     return single;
 }
 
 +(CTEmojiKeyboard *)keyBoard{
+    
+    [[CTEmojiKeyboard share] updateKeyBoard];
     return [CTEmojiKeyboard share];
+}
+
+-(void)updateKeyBoard{
+    
 }
 
 -(void)layoutSubviews{

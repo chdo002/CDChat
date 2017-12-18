@@ -14,6 +14,7 @@
 }
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIButton *voiceBut;
+@property (nonatomic, strong) UIButton *recordBut;
 @property (nonatomic, strong) UIButton *emojiBut;
 @property (nonatomic, strong) UIButton *moreBut;
 @property (nonatomic, strong) NSArray *buttons;
@@ -27,16 +28,19 @@
     self = [super initWithFrame:frame];
     self.backgroundColor = CRMHexColor(0xF5F5F7);
     originRect = frame;
-    // 容器
+    
+    // 三个按钮容器
     self.containerView = [[UIView alloc] initWithFrame:self.bounds];
     self.containerView.backgroundColor = self.backgroundColor;
     [self addSubview:self.containerView];
     
-    
+    // 图片资源
     UIImage *emojIcon = [CTinputHelper defaultImageDic][@"emojIcon"];
     UIImage *moreIcon = [CTinputHelper defaultImageDic][@"addIcon"];
     UIImage *keyboardIcon = [CTinputHelper defaultImageDic][@"keyboard"];
     UIImage *voice = [CTinputHelper defaultImageDic][@"voice"];
+    
+    // 配置
     CTInputConfiguration *config = [CTinputHelper defaultConfiguration];
     [config addEmoji];
     [config addVoice];
@@ -63,6 +67,18 @@
         [sself updateLayout:textHeight];
     }];
     
+    // 按住说话按钮
+    UIButton *v2 = [[UIButton alloc] initWithFrame:config.inputViewRect];
+    [v2 setTitle:@"按住 说话" forState:UIControlStateNormal];
+    [v2 setTitleColor:CRMHexColor(0x555555) forState:UIControlStateNormal];
+    v2.layer.borderColor = CRMHexColor(0xC1C2C6).CGColor;
+    v2.layer.borderWidth = 1;
+    v2.layer.cornerRadius = 5;
+    v2.backgroundColor = CRMHexColor(0xF6F6F8);
+    [self.containerView addSubview:v2];
+    self.recordBut = v2;
+    
+    
     // 表情按钮
     UIButton *v3 = [[UIButton alloc] initWithFrame:config.emojiButtonRect];
     [v3 setImage:emojIcon forState:UIControlStateNormal];
@@ -82,6 +98,7 @@
     [self.containerView addSubview:v4];
     self.moreBut = v4;
     
+    // 键盘注释
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNoitfication:) name:UIKeyboardWillChangeFrameNotification object:nil];
 
     return self;
@@ -94,12 +111,15 @@
 -(void)tagbut:(UIButton *)but{
     // 切换按钮icon
     [self turnButtonOnAtIndex:(int)but.tag];
+    
     if (but.tag == 0) {
         // 语音
         if (self.voiceBut.isSelected) {
-            [self becomeFirstResponder];
+            [self.textView resignFirstResponder];
+            [self.textView setHidden:YES];
         } else {
-            [self resignFirstResponder];
+            [self changeKeyBoard:nil];
+            [self.textView setHidden:NO];
         }
     } else if (but.tag == 1) {
         // 表情
@@ -120,6 +140,7 @@
 }
 
 -(void)changeKeyBoard:(UIView *)keyboard{
+    [self.textView setHidden:NO];
     self.textView.inputView = keyboard;
     [self.textView reloadInputViews];
     [self.textView becomeFirstResponder];
@@ -146,6 +167,7 @@
         
     }];
 }
+
 // 适应输入框高度变化
 -(void)updateLayout:(CGFloat)newTextViewHight{
     
@@ -177,6 +199,7 @@
 }
 
 -(BOOL)resignFirstResponder{
+    [self.textView setHidden:NO];
     [self turnButtonOnAtIndex:-1];
     [self.textView resignFirstResponder];
     return [super resignFirstResponder];

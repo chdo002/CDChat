@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CDChatList'
-    s.version          = '0.2.0'
+    s.version          = '0.2.1'
     s.summary          = '聊天界面的封装.'
 
     s.description      = <<-DESC

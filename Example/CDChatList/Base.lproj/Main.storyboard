@@ -148,7 +148,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AG-lw-sjp">
                                 <rect key="frame" x="29" y="189" width="101" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="收起键盘"/>
+                                <state key="normal" title="取消响应"/>
                                 <connections>
                                     <action selector="resigFitrst:" destination="gXa-T1-eDf" eventType="touchUpInside" id="iho-JM-uDb"/>
                                 </connections>
