@@ -6,6 +6,7 @@
 //
 
 #import "CTInputConfiguration.h"
+#import <Utility/Utility.h>
 
 @interface CTInputConfiguration()
 {

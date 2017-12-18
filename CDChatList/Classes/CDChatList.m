@@ -13,7 +13,7 @@
 #import "CDChatMacro.h"
 #import "CTClickInfo.h"
 #import "ChatHelpr.h"
-
+#import <Utility/Utility.h>
 
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中

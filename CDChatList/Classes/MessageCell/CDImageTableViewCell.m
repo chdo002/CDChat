@@ -9,6 +9,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIView+WebCache.h"
 #import "ChatHelpr.h"
+#import <Utility/Utility.h>
 
 @interface CDImageTableViewCell()
 

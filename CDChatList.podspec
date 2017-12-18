@@ -33,6 +33,6 @@ Pod::Spec.new do |s|
     s.public_header_files = 'CDChatList/Classes/**/**/*.h'
 
     s.frameworks = 'UIKit'
-    s.dependency 'SDWebImage'
-    s.dependency 'Utility'
+    s.dependency "SDWebImage"
+    s.dependency "Utility", "0.1.2"
 end

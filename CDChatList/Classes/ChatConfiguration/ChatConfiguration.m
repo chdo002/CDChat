@@ -7,7 +7,7 @@
 
 #import "ChatConfiguration.h"
 #import "ChatHelpr.h"
-
+#import <Utility/Utility.h>
 @implementation ChatConfiguration
 
 -(instancetype)init{

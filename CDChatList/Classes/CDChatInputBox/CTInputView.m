@@ -7,6 +7,7 @@
 
 #import "CTInputView.h"
 #import "CTTextView.h"
+#import <Utility/Utility.h>
 
 @interface CTInputView()
 {

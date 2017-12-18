@@ -8,7 +8,7 @@
 #import "ChatImageDrawer.h"
 #import "CDChatMacro.h"
 #import "ChatHelpr.h"
-
+#import <Utility/Utility.h>
 /**
  
  --------------------

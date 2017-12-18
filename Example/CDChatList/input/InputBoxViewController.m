@@ -8,6 +8,7 @@
 
 #import "InputBoxViewController.h"
 #import "CTInputView.h"
+#import <Utility/Utility.h>
 @interface InputBoxViewController ()<UITextViewDelegate>
 {
     CTInputView *input;

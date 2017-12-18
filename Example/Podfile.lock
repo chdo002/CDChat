@@ -3,14 +3,14 @@ PODS:
     - CDChatList/CDChatInputBox (= 0.2.2)
     - CDChatList/CDLabel (= 0.2.2)
     - SDWebImage
-    - Utility
+    - Utility (= 0.1.2)
   - CDChatList/CDChatInputBox (0.2.2):
     - CDChatList/CDLabel
     - SDWebImage
-    - Utility
+    - Utility (= 0.1.2)
   - CDChatList/CDLabel (0.2.2):
     - SDWebImage
-    - Utility
+    - Utility (= 0.1.2)
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
@@ -19,17 +19,16 @@ PODS:
 DEPENDENCIES:
   - CDChatList (from `../`)
   - SDWebImage
-  - Utility (~> 0.1.2)
 
 EXTERNAL SOURCES:
   CDChatList:
     :path: ../
 
 SPEC CHECKSUMS:
-  CDChatList: 69bffcf72c19263e5ac63dd134967aba36ce5968
+  CDChatList: e8789ad3622d9d4aed24a76d430d15cbb77e217a
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   Utility: f345a510d703a9025afec048805097a9cfa76909
 
-PODFILE CHECKSUM: 9445e071f15b0a6b44ff2168c231d60cc2e5a4ff
+PODFILE CHECKSUM: 2eb8e48138f6c062f3eef3c42cfbf657b0658b73
 
 COCOAPODS: 1.4.0.beta.2

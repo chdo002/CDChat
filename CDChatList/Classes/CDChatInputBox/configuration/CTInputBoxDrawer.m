@@ -6,6 +6,8 @@
 //
 
 #import "CTInputBoxDrawer.h"
+#import <Utility/Utility.h>
+
 @interface CTInputBoxDrawer()
 {
     CGSize butIconSize;
