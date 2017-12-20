@@ -141,3 +141,5 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 - 添加音频消息类型
 - 自定义消息内容匹配    去人工
 - 头像漏做
+- 消息中添加extra类型 
+- 点击状态栏顶部返回bug
