@@ -3,7 +3,7 @@
 
 typedef void(^CM_textHeightChangedBlock)(NSString *text,CGFloat textHeight);
 
-
+// 输入框textview
 @interface CTTextView : UITextView
 
 /**

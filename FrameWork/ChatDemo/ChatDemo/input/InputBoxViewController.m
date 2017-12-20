@@ -28,7 +28,7 @@
     [newDic setObject:[UIImage imageNamed:@"keyboard"] forKey:@"keyboard"];
     [newDic setObject:[UIImage imageNamed:@"voice"] forKey:@"voice"];
 
-    [CTinputHelper setDefaultImageDic:newDic];
+    [CTinputHelper setDefaultImageDic:newDic]; // 设置除表情的图片资源
     
     input = [[CTInputView alloc] initWithFrame:CGRectMake(0, ScreenH() - CTInputViewHeight, ScreenW(), CTInputViewHeight)];
     [self.view addSubview:input];

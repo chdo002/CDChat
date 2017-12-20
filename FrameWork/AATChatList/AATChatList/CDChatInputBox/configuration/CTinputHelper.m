@@ -15,6 +15,11 @@
 @property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *imageDic;
 @property(nonatomic, strong) CTInputConfiguration *config;
 
+/**
+ @[ @[@"[微笑]",@"[呵呵]"],   @[@"[:微笑:",@":呵呵:"] ]
+ */
+@property(nonatomic, copy) NSArray<NSArray<NSString *> *> *emojiNameArr; // 表情图片名组成的数组  可对应多个集合
+
 @end
 
 @implementation CTinputHelper
@@ -43,12 +48,19 @@
     [CTinputHelper share].config = config;
 }
 #pragma mark  表情相关
+// 表情字典
 +(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic{
     return [CTinputHelper share].emojDic;
 }
-+(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic{
-    [CTinputHelper share]->_imageDic = [CTInputBoxDrawer defaultImageDic];
-    [CTinputHelper share].emojDic = dic;
+
++(NSArray<NSArray<NSString *> *> *)emojiNameArr{
+    return [CTinputHelper share].emojiNameArr;
+}
+
++(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic emojiNameArrs:(NSArray<NSArray<NSString *> *> *)arrs{
+    [CTinputHelper share]->_imageDic = [CTInputBoxDrawer defaultImageDic]; // 绘制图片资源
+    [CTinputHelper share].emojDic = dic;    // 表情资源字典
+    [CTinputHelper share].emojiNameArr = arrs; // 表情名数组
 }
 
 #pragma mark  资源图片

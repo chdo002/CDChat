@@ -43,13 +43,9 @@
 }
 
 #pragma mark  表情图片相关
-+(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic{
-    return [ChatHelpr share].emojDic;
-}
+
 +(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic{
-    [ChatHelpr share].emojDic = dic;
-    [CTinputHelper setDefaultEmoticonDic:dic];
-    [CTHelper loadImageDic:dic];
+    [CTHelper loadImageDic:dic]; //   CDLabel 组件设置资源
 }
 
 #pragma mark  资源图片

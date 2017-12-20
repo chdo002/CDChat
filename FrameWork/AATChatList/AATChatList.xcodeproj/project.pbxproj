@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E90647191FEA18D400836E3C /* AATUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90647181FEA18D400836E3C /* AATUtility.framework */; };
 		E92A049C1FE7C749004EF960 /* AATChatList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92A04921FE7C748004EF960 /* AATChatList.framework */; };
 		E92A04A11FE7C749004EF960 /* AATChatListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E92A04A01FE7C749004EF960 /* AATChatListTests.m */; };
 		E92A04A31FE7C749004EF960 /* AATChatList.h in Headers */ = {isa = PBXBuildFile; fileRef = E92A04951FE7C748004EF960 /* AATChatList.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +66,7 @@
 		E92A05261FE7C770004EF960 /* MagnifiterView.h in Headers */ = {isa = PBXBuildFile; fileRef = E92A04EE1FE7C76F004EF960 /* MagnifiterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E92A05271FE7C770004EF960 /* MagnifiterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E92A04EF1FE7C76F004EF960 /* MagnifiterView.m */; };
 		E92A05281FE7C770004EF960 /* CDLabelMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = E92A04F01FE7C76F004EF960 /* CDLabelMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9EC41321FEA355E00C373E4 /* AATUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EC41331FEA355E00C373E4 /* AATUtility.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E90647181FEA18D400836E3C /* AATUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AATUtility.framework; sourceTree = "<group>"; };
 		E92A04921FE7C748004EF960 /* AATChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AATChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92A04951FE7C748004EF960 /* AATChatList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATChatList.h; sourceTree = "<group>"; };
 		E92A04961FE7C748004EF960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,6 +142,7 @@
 		E92A04EE1FE7C76F004EF960 /* MagnifiterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnifiterView.h; sourceTree = "<group>"; };
 		E92A04EF1FE7C76F004EF960 /* MagnifiterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnifiterView.m; sourceTree = "<group>"; };
 		E92A04F01FE7C76F004EF960 /* CDLabelMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLabelMacro.h; sourceTree = "<group>"; };
+		E9EC41331FEA355E00C373E4 /* AATUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AATUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E90647191FEA18D400836E3C /* AATUtility.framework in Frameworks */,
+				E9EC41321FEA355E00C373E4 /* AATUtility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,17 +188,17 @@
 			isa = PBXGroup;
 			children = (
 				E92A04951FE7C748004EF960 /* AATChatList.h */,
-				E92A04B91FE7C76F004EF960 /* CDChatInputBox */,
 				E92A04B81FE7C76E004EF960 /* CDChatList.h */,
 				E92A04CF1FE7C76F004EF960 /* CDChatList.m */,
 				E92A04B71FE7C76E004EF960 /* CDChatListHeaders.h */,
 				E92A04DD1FE7C76F004EF960 /* CDChatListProtocols.h */,
 				E92A04DC1FE7C76F004EF960 /* CDChatMacro.h */,
-				E92A04DE1FE7C76F004EF960 /* CDLabel */,
 				E92A04AC1FE7C76E004EF960 /* CellLayout */,
 				E92A04B01FE7C76E004EF960 /* ChatConfiguration */,
 				E92A04D91FE7C76F004EF960 /* ClickEvent */,
 				E92A04D01FE7C76F004EF960 /* MessageCell */,
+				E92A04DE1FE7C76F004EF960 /* CDLabel */,
+				E92A04B91FE7C76F004EF960 /* CDChatInputBox */,
 				E92A04961FE7C748004EF960 /* Info.plist */,
 			);
 			path = AATChatList;
@@ -225,12 +225,12 @@
 		E92A04B01FE7C76E004EF960 /* ChatConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				E92A04B11FE7C76E004EF960 /* ChatImageDrawer.m */,
+				E92A04B51FE7C76E004EF960 /* ChatHelpr.h */,
 				E92A04B21FE7C76E004EF960 /* ChatHelpr.m */,
 				E92A04B31FE7C76E004EF960 /* ChatConfiguration.h */,
-				E92A04B41FE7C76E004EF960 /* ChatImageDrawer.h */,
-				E92A04B51FE7C76E004EF960 /* ChatHelpr.h */,
 				E92A04B61FE7C76E004EF960 /* ChatConfiguration.m */,
+				E92A04B41FE7C76E004EF960 /* ChatImageDrawer.h */,
+				E92A04B11FE7C76E004EF960 /* ChatImageDrawer.m */,
 			);
 			path = ChatConfiguration;
 			sourceTree = "<group>";
@@ -238,12 +238,12 @@
 		E92A04B91FE7C76F004EF960 /* CDChatInputBox */ = {
 			isa = PBXGroup;
 			children = (
-				E92A04BA1FE7C76F004EF960 /* configuration */,
-				E92A04C11FE7C76F004EF960 /* CTInputView.m */,
-				E92A04C21FE7C76F004EF960 /* CTInputHeaders.h */,
-				E92A04C31FE7C76F004EF960 /* Server */,
 				E92A04C61FE7C76F004EF960 /* CTInPutMacro.h */,
+				E92A04C21FE7C76F004EF960 /* CTInputHeaders.h */,
 				E92A04C71FE7C76F004EF960 /* CTInputView.h */,
+				E92A04C11FE7C76F004EF960 /* CTInputView.m */,
+				E92A04BA1FE7C76F004EF960 /* configuration */,
+				E92A04C31FE7C76F004EF960 /* Server */,
 				E92A04C81FE7C76F004EF960 /* view */,
 			);
 			path = CDChatInputBox;
@@ -253,11 +253,11 @@
 			isa = PBXGroup;
 			children = (
 				E92A04BB1FE7C76F004EF960 /* CTInputBoxDrawer.h */,
-				E92A04BC1FE7C76F004EF960 /* CTinputHelper.m */,
-				E92A04BD1FE7C76F004EF960 /* CTInputConfiguration.h */,
 				E92A04BE1FE7C76F004EF960 /* CTInputBoxDrawer.m */,
+				E92A04BD1FE7C76F004EF960 /* CTInputConfiguration.h */,
 				E92A04BF1FE7C76F004EF960 /* CTInputConfiguration.m */,
 				E92A04C01FE7C76F004EF960 /* CTinputHelper.h */,
+				E92A04BC1FE7C76F004EF960 /* CTinputHelper.m */,
 			);
 			path = configuration;
 			sourceTree = "<group>";
@@ -274,12 +274,12 @@
 		E92A04C81FE7C76F004EF960 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				E92A04C91FE7C76F004EF960 /* CTEmojiKeyboard.h */,
 				E92A04CA1FE7C76F004EF960 /* CTTextView.h */,
-				E92A04CB1FE7C76F004EF960 /* CTMoreKeyBoard.m */,
-				E92A04CC1FE7C76F004EF960 /* CTEmojiKeyboard.m */,
 				E92A04CD1FE7C76F004EF960 /* CTTextView.m */,
+				E92A04C91FE7C76F004EF960 /* CTEmojiKeyboard.h */,
+				E92A04CC1FE7C76F004EF960 /* CTEmojiKeyboard.m */,
 				E92A04CE1FE7C76F004EF960 /* CTMoreKeyBoard.h */,
+				E92A04CB1FE7C76F004EF960 /* CTMoreKeyBoard.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -324,12 +324,12 @@
 		E92A04E01FE7C76F004EF960 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				E92A04E11FE7C76F004EF960 /* CoreTextUtils.m */,
-				E92A04E21FE7C76F004EF960 /* CTHelper.m */,
+				E92A04E61FE7C76F004EF960 /* CDTextParser.h */,
 				E92A04E31FE7C76F004EF960 /* CDTextParser.m */,
 				E92A04E41FE7C76F004EF960 /* CoreTextUtils.h */,
+				E92A04E11FE7C76F004EF960 /* CoreTextUtils.m */,
 				E92A04E51FE7C76F004EF960 /* CTHelper.h */,
-				E92A04E61FE7C76F004EF960 /* CDTextParser.h */,
+				E92A04E21FE7C76F004EF960 /* CTHelper.m */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -357,7 +357,7 @@
 		E92A05291FE7C7CE004EF960 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E90647181FEA18D400836E3C /* AATUtility.framework */,
+				E9EC41331FEA355E00C373E4 /* AATUtility.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

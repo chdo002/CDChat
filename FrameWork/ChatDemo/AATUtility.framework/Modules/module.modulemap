@@ -1,6 +1,0 @@
-framework module AATUtility {
-  umbrella header "AATUtility.h"
-
-  export *
-  module * { export * }
-}

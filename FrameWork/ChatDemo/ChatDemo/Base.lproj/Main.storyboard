@@ -18,17 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySM-hf-i7v">
-                                <rect key="frame" x="156" y="200" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySM-hf-i7v">
+                                <rect key="frame" x="0.0" y="122" width="375" height="117"/>
+                                <color key="backgroundColor" red="1" green="0.54679200880000001" blue="0.50872045210000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="117" id="Y9n-7m-Wtg"/>
+                                </constraints>
                                 <state key="normal" title="聊天界面"/>
                                 <connections>
                                     <segue destination="HsT-kn-sTr" kind="show" id="rKB-Xj-LnT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F13-PV-bk6">
-                                <rect key="frame" x="164" y="420" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F13-PV-bk6">
+                                <rect key="frame" x="0.0" y="324" width="375" height="124"/>
+                                <color key="backgroundColor" red="1" green="0.75179895819999998" blue="0.43895330100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="6aT-Po-52U"/>
+                                </constraints>
                                 <state key="normal" title="输入框"/>
                                 <connections>
                                     <segue destination="kaC-kc-TsY" kind="show" id="ObH-Qh-TjT"/>
@@ -36,6 +42,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ySM-hf-i7v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2UJ-ob-7Sr"/>
+                            <constraint firstItem="F13-PV-bk6" firstAttribute="top" secondItem="ySM-hf-i7v" secondAttribute="bottom" constant="85" id="3Dj-i5-K8V"/>
+                            <constraint firstAttribute="trailing" secondItem="ySM-hf-i7v" secondAttribute="trailing" id="BWY-XL-9qc"/>
+                            <constraint firstItem="ySM-hf-i7v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="OcJ-KS-PPJ"/>
+                            <constraint firstAttribute="trailing" secondItem="F13-PV-bk6" secondAttribute="trailing" id="UX2-b4-YF3"/>
+                            <constraint firstItem="F13-PV-bk6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lfI-b4-MCW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="U4N-h5-tQu"/>

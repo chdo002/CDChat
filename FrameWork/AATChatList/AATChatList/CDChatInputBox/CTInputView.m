@@ -12,6 +12,9 @@
 @interface CTInputView()
 {
     CGRect originRect;   // 根据键盘是否弹起，整个值有可能是底部的是在底部的rect  也可能是上面的rect
+    
+    
+    CGFloat tempTextViewHeight; // 在多行文字切换到语音功能时，需要临时保存textview的高度
 }
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIButton *voiceBut;
@@ -21,6 +24,8 @@
 @property (nonatomic, strong) NSArray *buttons;
 // 容器视图  包含除输入框外的所有视图
 @property (nonatomic, strong) UIView *containerView;
+
+
 @end
 
 @implementation CTInputView
@@ -108,7 +113,7 @@
 -(NSArray *)buttons{
     return @[self.voiceBut, self.emojiBut, self.moreBut];
 }
-
+#pragma mark 按钮点击
 -(void)tagbut:(UIButton *)but{
     // 切换按钮icon
     [self turnButtonOnAtIndex:(int)but.tag];
@@ -116,9 +121,12 @@
     if (but.tag == 0) {
         // 语音
         if (self.voiceBut.isSelected) {
+            tempTextViewHeight = self.textView.height;
+            [self updateLayout:[CTinputHelper defaultConfiguration].emojiButtonRect.size.height];
             [self.textView resignFirstResponder];
             [self.textView setHidden:YES];
         } else {
+            [self updateLayout:tempTextViewHeight];
             [self changeKeyBoard:nil];
             [self.textView setHidden:NO];
         }

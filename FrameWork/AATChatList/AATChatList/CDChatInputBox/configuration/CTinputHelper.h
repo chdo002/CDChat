@@ -20,9 +20,12 @@
 表情字典
 @return <NameString: UIImage>
 */
+// 表情字典
 +(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic;
-+(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic;
-    
+// 表情名数组
++(NSArray<NSArray<NSString *> *> *)emojiNameArr;
++(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic emojiNameArrs:(NSArray<NSArray<NSString *> *> *)arrs;
+
     
 #pragma mark 图片资源
 +(NSDictionary<NSString *,UIImage *> *)defaultImageDic;

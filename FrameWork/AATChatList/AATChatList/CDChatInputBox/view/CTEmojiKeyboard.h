@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+// 表情键盘
 @interface CTEmojiKeyboard : UIView
 +(CTEmojiKeyboard *)keyBoard;
 @end
