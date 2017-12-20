@@ -17,10 +17,10 @@
 		E90646C41FEA0DCD00836E3C /* AATChatList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90646C01FEA0DC400836E3C /* AATChatList.framework */; };
 		E90646C61FEA0DF100836E3C /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E90646C51FEA0DF100836E3C /* msgList.json */; };
 		E90646D01FEA10CE00836E3C /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E90646CF1FEA10CE00836E3C /* Expression.bundle */; };
-		E90646D41FEA11C600836E3C /* AATUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90646D31FEA11C600836E3C /* AATUtility.framework */; };
 		E90646DA1FEA142700836E3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90646D61FEA142700836E3C /* ViewController.m */; };
 		E90646DB1FEA142700836E3C /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E90646D81FEA142700836E3C /* CDMessageModal.m */; };
 		E90646DF1FEA145900836E3C /* InputBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90646DE1FEA145900836E3C /* InputBoxViewController.m */; };
+		E906471B1FEA18E200836E3C /* AATUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E906471A1FEA18E200836E3C /* AATUtility.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,13 +72,13 @@
 		E90646BA1FEA0DC400836E3C /* AATChatList.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AATChatList.xcodeproj; path = ../AATChatList/AATChatList.xcodeproj; sourceTree = "<group>"; };
 		E90646C51FEA0DF100836E3C /* msgList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList.json; sourceTree = "<group>"; };
 		E90646CF1FEA10CE00836E3C /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
-		E90646D31FEA11C600836E3C /* AATUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AATUtility.framework; sourceTree = "<group>"; };
 		E90646D61FEA142700836E3C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E90646D71FEA142700836E3C /* CDMessageModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageModal.h; sourceTree = "<group>"; };
 		E90646D81FEA142700836E3C /* CDMessageModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageModal.m; sourceTree = "<group>"; };
 		E90646D91FEA142700836E3C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E90646DD1FEA145900836E3C /* InputBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputBoxViewController.h; sourceTree = "<group>"; };
 		E90646DE1FEA145900836E3C /* InputBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputBoxViewController.m; sourceTree = "<group>"; };
+		E906471A1FEA18E200836E3C /* AATUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AATUtility.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E90646D41FEA11C600836E3C /* AATUtility.framework in Frameworks */,
+				E906471B1FEA18E200836E3C /* AATUtility.framework in Frameworks */,
 				E90646C41FEA0DCD00836E3C /* AATChatList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,7 +178,7 @@
 		E90646C31FEA0DCD00836E3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E90646D31FEA11C600836E3C /* AATUtility.framework */,
+				E906471A1FEA18E200836E3C /* AATUtility.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
