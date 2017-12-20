@@ -1,4 +1,4 @@
-# CDChatList (0.2.0)
+# AATChatList (0.3.0)
 iOS 聊天界面的组件
 
 ## 支持
@@ -7,31 +7,12 @@ iOS 8 +
 
 ## 安装
 
-####  作为pod依赖 在podfile中添加
+//!     从这个版本开始，使用静态库作来管理代码，位置在根目录下的FrameWork下，更目录下的其他文件及代码不再维护，除了本文件及CHANGELOG.md
 
-```
-pod 'CDChatList', :source => 'http://git-ma.paic.com.cn/aat/AATComponent_iOS.git'
-```
+编译静态库工程得到静态库，或直接拖动工程
 
-####  作为framework 集成
-
-```
-pod package CDChatList.podspec --force  -verbose
-```
-
-####  作为静态库集成
-
-```
-pod package CDChatList.podspec --library  --force  -verbose
-```
-
-
-没有cocoapods-packager，则通过下面命令安装
-
-```
-sudo gem install cocoapods-packager
-```
-
+在静态库封装过程中，如果静态库文件包含类别，在主工程将无法使用。
+解决方法为：找到主工程的 target －－Build Setting－－Linking－－更改其 Other Linker Flags 为： -all_load 或 -force_load 即可。
 
 ## 使用
 
