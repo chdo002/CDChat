@@ -104,19 +104,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYI-we-fFF">
-                                <rect key="frame" x="0.0" y="127" width="375" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYI-we-fFF">
+                                <rect key="frame" x="0.0" y="150" width="375" height="130"/>
                                 <color key="backgroundColor" red="1" green="0.75179895819999998" blue="0.43895330100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="pLm-Np-w5R"/>
+                                </constraints>
                                 <state key="normal" title="聊天界面"/>
                                 <connections>
                                     <segue destination="whP-gf-Uak" kind="show" id="hDG-ew-066"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvG-Ux-E33">
-                                <rect key="frame" x="0.0" y="268" width="375" height="122"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvG-Ux-E33">
+                                <rect key="frame" x="0.0" y="301" width="375" height="122"/>
                                 <color key="backgroundColor" red="0.044903492955336133" green="0.72686107234168151" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="bZc-2B-MQz"/>
+                                </constraints>
                                 <state key="normal" title="输入框">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -126,6 +130,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GvG-Ux-E33" firstAttribute="leading" secondItem="cYw-Ip-EF0" secondAttribute="leading" id="3Hl-VV-lfI"/>
+                            <constraint firstItem="GYI-we-fFF" firstAttribute="leading" secondItem="cYw-Ip-EF0" secondAttribute="leading" id="UJn-qC-ZcG"/>
+                            <constraint firstItem="GvG-Ux-E33" firstAttribute="top" secondItem="GYI-we-fFF" secondAttribute="bottom" constant="21" id="Z4D-71-7eL"/>
+                            <constraint firstAttribute="trailing" secondItem="GYI-we-fFF" secondAttribute="trailing" id="jij-ZU-Sen"/>
+                            <constraint firstItem="GYI-we-fFF" firstAttribute="top" secondItem="cYw-Ip-EF0" secondAttribute="top" constant="150" id="o2C-BF-9Md"/>
+                            <constraint firstAttribute="trailing" secondItem="GvG-Ux-E33" secondAttribute="trailing" id="xtz-wT-tcW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YhD-Lp-Cvd"/>
                 </viewController>
@@ -187,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="2151.1999999999998" y="1219.3403298350825"/>
         </scene>
-        <!--View Controller-->
+        <!--For View Controller-->
         <scene sceneID="JD9-eu-gto">
             <objects>
-                <viewController id="5b3-JT-Nfo" sceneMemberID="viewController">
+                <viewController id="5b3-JT-Nfo" customClass="ForViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EAN-BR-dl0"/>
                         <viewControllerLayoutGuide type="bottom" id="Euu-0d-Zcd"/>

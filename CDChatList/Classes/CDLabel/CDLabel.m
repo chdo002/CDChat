@@ -163,6 +163,7 @@ typedef enum CTDisplayViewState : NSInteger {
 }
 
 - (void)userTapGestureDetected:(UIGestureRecognizer *)recognizer {
+    
     CGPoint point = [recognizer locationInView:self];
     if (_state == CTDisplayViewStateNormal) {
         for (CTImageData * imageData in self.data.imageArray) {
@@ -184,8 +185,11 @@ typedef enum CTDisplayViewState : NSInteger {
         
         CTLinkData *linkData = [CoreTextUtils touchLinkInView:self atPoint:point data:self.data];
         if (linkData) {
+            NSLog(@"--有data");
             [[CTClickInfo info:CTClickEventTypeTEXT msgText:self.data.msgString containerView:self clickedText:linkData.title textRang:linkData.range clickedTextContent:linkData.url image:nil imageRect:CGRectNull] sendMessage];
             return;
+        }else{
+            NSLog(@"没有data");
         }
     } else {
         self.state = CTDisplayViewStateNormal;

@@ -170,6 +170,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;
             self.ownedSession = [NSURLSession sessionWithConfiguration:sessionConfig
                                                               delegate:self
                                                          delegateQueue:nil];
+            
             session = self.ownedSession;
         }
         

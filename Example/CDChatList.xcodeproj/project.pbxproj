@@ -22,6 +22,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B6954DFC369378779E81DABA /* Pods_CDChatList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F8436FE1ED1D0BC08FC19D /* Pods_CDChatList_Example.framework */; };
+		E90645781FE9052000836E3C /* ForViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90645771FE9052000836E3C /* ForViewController.m */; };
 		E9ABEEF81FAB4A2B001F2EFB /* chatlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */; };
 		E9D3BD5A1FDFB9C4003C5084 /* msgList2.json in Resources */ = {isa = PBXBuildFile; fileRef = E9D3BD4D1FDFB9C4003C5084 /* msgList2.json */; };
 		E9D3BD5B1FDFB9C4003C5084 /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E9D3BD4E1FDFB9C4003C5084 /* msgList.json */; };
@@ -71,6 +72,8 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB16BFC8B517E192E61FBA43 /* Pods_CDChatList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90645761FE9052000836E3C /* ForViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForViewController.h; sourceTree = "<group>"; };
+		E90645771FE9052000836E3C /* ForViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForViewController.m; sourceTree = "<group>"; };
 		E93E7BBD1FC086DE000EF14E /* CDChatList_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDChatList_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		E9ABEEF71FAB4A2B001F2EFB /* chatlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chatlist.plist; sourceTree = "<group>"; };
 		E9D3BD4D1FDFB9C4003C5084 /* msgList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList2.json; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				E9D3BD541FDFB9C4003C5084 /* MainViewController.m */,
 				E9D3BD4F1FDFB9C4003C5084 /* JSONViewController.h */,
 				E9D3BD551FDFB9C4003C5084 /* JSONViewController.m */,
+				E90645761FE9052000836E3C /* ForViewController.h */,
+				E90645771FE9052000836E3C /* ForViewController.m */,
 				E9D3BD521FDFB9C4003C5084 /* DemoViewController.swift */,
 				E9D3BD561FDFB9C4003C5084 /* Utility.swift */,
 				E9D3BD531FDFB9C4003C5084 /* CDMessageModal.h */,
@@ -417,6 +422,7 @@
 				E9D3BD5F1FDFB9C4003C5084 /* MainViewController.m in Sources */,
 				E9D3BD5E1FDFB9C4003C5084 /* DemoViewController.swift in Sources */,
 				6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */,
+				E90645781FE9052000836E3C /* ForViewController.m in Sources */,
 				E9D3BD601FDFB9C4003C5084 /* JSONViewController.m in Sources */,
 				E9D3BD621FDFB9C4003C5084 /* CDMessageModal.m in Sources */,
 				E9D3BD611FDFB9C4003C5084 /* Utility.swift in Sources */,

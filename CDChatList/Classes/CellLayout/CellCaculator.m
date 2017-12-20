@@ -23,12 +23,12 @@
 +(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
+    // 待 添加队列  处理重复添加计算的问题
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 此处为同步计算所有高度
         for (int i = 0; i < msgArr.count; i++) {
             [self fetchCellHeight:i of:msgArr];
         }
-        
         // 总共高度
         CGFloat totalHeight = 0.0f;
         for (CDChatMessage msg in msgArr) {

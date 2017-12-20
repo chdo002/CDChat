@@ -92,6 +92,8 @@ typedef enum : NSUInteger {
  */
 @property (strong, nonatomic) NSURL *userThumImageURL;
 
+
+
 #pragma mark 缓存，这些字段，存在缓存表中
 
 /**

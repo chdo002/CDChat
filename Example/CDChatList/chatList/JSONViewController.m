@@ -10,7 +10,7 @@
 #import "CDMessageModal.h"
 #import "CDChatList_Example-Swift.h"
 #import <CDChatList/CDChatList.h>
-
+#import <Utility/Utility.h>
 @interface JSONViewController ()<ChatListProtocol>
 @property(nonatomic, weak)CDChatList *listView;
 @property(nonatomic, strong)NSMutableArray<CDChatMessage> *msgArr;
@@ -30,8 +30,8 @@
     self.listView = list;
     [self.view addSubview:self.listView];
     
-    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithTitle:@"动作1" style:UIBarButtonItemStyleDone target:self action:@selector(action1)];
-    UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"动作2" style:UIBarButtonItemStyleDone target:self action:@selector(action2)];
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithTitle:@"修改消息状态" style:UIBarButtonItemStyleDone target:self action:@selector(action1)];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"新消息" style:UIBarButtonItemStyleDone target:self action:@selector(action2)];
     UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"动作3" style:UIBarButtonItemStyleDone target:self action:@selector(action3)];
     [self.navigationItem setRightBarButtonItems:@[item1, item2, item3]];
     
@@ -114,12 +114,7 @@
     if (listInfo.eventType == ChatClickEventTypeIMAGE) {
         [ImageViewer showImageWithImage:listInfo.image rectInWindow:rec];
     } else if (listInfo.eventType == ChatClickEventTypeTEXT){
-        
-        UIAlertController *alert = [[UIAlertController alloc] init];
-        alert.message = listInfo.clickedTextContent;
-        UIAlertAction *aciotn = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
-        [alert addAction:aciotn];
-        [self presentViewController:alert animated:YES completion:nil];
+        [AATHUD showInfo:listInfo.clickedTextContent andDismissAfter:0.5];
     }
 }
 
