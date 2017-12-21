@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ChatDemo/ChatDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AATChatList/AATChatList.xcodeproj">
    </FileRef>
    <FileRef

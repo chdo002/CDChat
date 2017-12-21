@@ -1,8 +1,0 @@
-use_frameworks!
-
-source 'http://git-ma.paic.com.cn/aat/AATComponent_iOS.git'
-
-target 'CDChatList_Example' do
-  pod 'CDChatList', :path => '../'
-  pod 'SDWebImage', :source => 'https://github.com/CocoaPods/Specs.git'
-end
