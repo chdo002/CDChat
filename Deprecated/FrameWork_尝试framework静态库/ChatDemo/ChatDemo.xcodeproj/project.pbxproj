@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E904F1F21FEB452C00E156ED /* AATUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F1F31FEB452C00E156ED /* AATUtility.framework */; };
+		E904F2691FEB4C1B00E156ED /* AATChatList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F26A1FEB4C1B00E156ED /* AATChatList.framework */; };
 		E906468A1FEA0D9700836E3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E90646891FEA0D9700836E3C /* AppDelegate.m */; };
 		E90646901FEA0D9700836E3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E906468E1FEA0D9700836E3C /* Main.storyboard */; };
 		E90646921FEA0D9700836E3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90646911FEA0D9700836E3C /* Assets.xcassets */; };
@@ -19,8 +21,6 @@
 		E90646DA1FEA142700836E3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90646D61FEA142700836E3C /* ViewController.m */; };
 		E90646DB1FEA142700836E3C /* CDMessageModal.m in Sources */ = {isa = PBXBuildFile; fileRef = E90646D81FEA142700836E3C /* CDMessageModal.m */; };
 		E90646DF1FEA145900836E3C /* InputBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90646DE1FEA145900836E3C /* InputBoxViewController.m */; };
-		E9EC41301FEA33BF00C373E4 /* AATChatList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EC41311FEA33BF00C373E4 /* AATChatList.framework */; };
-		E9EC41341FEA357200C373E4 /* AATUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EC41351FEA357200C373E4 /* AATUtility.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E904F1F31FEB452C00E156ED /* AATUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AATUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E904F26A1FEB4C1B00E156ED /* AATChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AATChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90646851FEA0D9700836E3C /* ChatDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90646881FEA0D9700836E3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E90646891FEA0D9700836E3C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,8 +65,6 @@
 		E90646D91FEA142700836E3C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E90646DD1FEA145900836E3C /* InputBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputBoxViewController.h; sourceTree = "<group>"; };
 		E90646DE1FEA145900836E3C /* InputBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputBoxViewController.m; sourceTree = "<group>"; };
-		E9EC41311FEA33BF00C373E4 /* AATChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AATChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9EC41351FEA357200C373E4 /* AATUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AATUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9EC41341FEA357200C373E4 /* AATUtility.framework in Frameworks */,
-				E9EC41301FEA33BF00C373E4 /* AATChatList.framework in Frameworks */,
+				E904F2691FEB4C1B00E156ED /* AATChatList.framework in Frameworks */,
+				E904F1F21FEB452C00E156ED /* AATUtility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,8 +154,8 @@
 		E90646C31FEA0DCD00836E3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9EC41351FEA357200C373E4 /* AATUtility.framework */,
-				E9EC41311FEA33BF00C373E4 /* AATChatList.framework */,
+				E904F26A1FEB4C1B00E156ED /* AATChatList.framework */,
+				E904F1F31FEB452C00E156ED /* AATUtility.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -484,13 +484,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56W7P8272X;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = " -all_load";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = aat.ChatDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,13 +504,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56W7P8272X;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = " -all_load";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = aat.ChatDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

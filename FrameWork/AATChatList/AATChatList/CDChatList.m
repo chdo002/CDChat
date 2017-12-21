@@ -13,7 +13,7 @@
 #import "CDChatMacro.h"
 #import "CTClickInfo.h"
 #import "ChatHelpr.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 
 
 typedef enum : NSUInteger {

@@ -6,7 +6,7 @@
 //
 
 #import "CTInputConfiguration.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 
 @interface CTInputConfiguration()
 {

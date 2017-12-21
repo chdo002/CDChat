@@ -7,7 +7,7 @@
 
 #import "ChatConfiguration.h"
 #import "ChatHelpr.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 
 @implementation ChatConfiguration
 

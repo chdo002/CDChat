@@ -40,3 +40,5 @@ FOUNDATION_EXPORT const unsigned char AATChatListVersionString[];
 #import "CTMoreKeyBoard.h"
 #import "CDTextParser.h"
 #import "CTinputHelper.h"
+
+#import "AATUtility.h"

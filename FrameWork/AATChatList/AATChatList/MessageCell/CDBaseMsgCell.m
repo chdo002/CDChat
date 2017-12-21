@@ -8,7 +8,7 @@
 #import "CDBaseMsgCell.h"
 #import "ChatHelpr.h"
 //#import "UIImageView+WebCache.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 
 @interface CDBaseMsgCell()
 

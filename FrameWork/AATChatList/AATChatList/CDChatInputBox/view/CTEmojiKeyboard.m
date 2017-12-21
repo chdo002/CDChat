@@ -6,7 +6,7 @@
 //
 
 #import "CTEmojiKeyboard.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 #import "CTinputHelper.h"
 
 @interface CTEmojiKeyboard()<UIScrollViewDelegate>

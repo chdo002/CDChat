@@ -7,7 +7,7 @@
 
 #import "CDImageTableViewCell.h"
 #import "ChatHelpr.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 
 @interface CDImageTableViewCell()
 

@@ -6,7 +6,7 @@
 //
 
 #import "CTInputBoxDrawer.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 
 @interface CTInputBoxDrawer()
 {

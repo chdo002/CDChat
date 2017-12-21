@@ -9,7 +9,7 @@
 #import "CDChatMacro.h"
 #import "CDBaseMsgCell.h"
 #import "ChatHelpr.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 @interface CDSystemTableViewCell()
 @property(nonatomic, strong) UIView  *infoBackGround;
 @property(nonatomic, strong) UILabel *sysInfoLbael;

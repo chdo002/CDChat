@@ -10,7 +10,7 @@
 #import "CDBaseMsgCell.h"
 #import "CTData.h"
 #import "ChatHelpr.h"
-#import <AATUtility/AATUtility.h>
+#import "AATUtility.h"
 
 @interface CellCaculator()
 
