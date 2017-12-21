@@ -1,0 +1,80 @@
+10
+
+dir
+1851
+http://ex-dujiawen001@svn-app.paic.com.cn:80/svn/umap_crm_ios/branches/UMAP-CRM-IOS4.0.6/a2a+t(%E6%99%AE%E6%83%A0)/SDK_version/4.0.6/AATSDK/Libs/PAIM_SDK_iOS_2.3.0/include
+http://ex-dujiawen001@svn-app.paic.com.cn:80/svn/umap_crm_ios
+
+
+
+2017-11-27T01:40:15.685566Z
+1841
+ex-dujiawen001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a43eacfb-768c-48b8-8bcf-d91d3b6261b7
+
+Configure
+dir
+
+PAIMLib.h
+file
+
+
+
+
+2017-10-27T01:36:39.000000Z
+5ff7649ac32787f6d05c39e70bb0d102
+2017-11-27T01:40:15.685566Z
+1841
+ex-dujiawen001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2655
+
+Sbjson header
+dir
+
+Api
+dir
+
+Api model
+dir
+
+DataType
+dir
+
+SHA
+dir
+
