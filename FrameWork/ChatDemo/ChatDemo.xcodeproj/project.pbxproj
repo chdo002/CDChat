@@ -19,7 +19,7 @@
 		E904F5D11FEB5E9600E156ED /* InputBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F5CB1FEB5E9600E156ED /* InputBoxViewController.m */; };
 		E904F5D21FEB5E9600E156ED /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E904F5CD1FEB5E9600E156ED /* Expression.bundle */; };
 		E904F5D31FEB5E9600E156ED /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E904F5CE1FEB5E9600E156ED /* msgList.json */; };
-		E904F68A1FEB62BF00E156ED /* libAATChatList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6891FEB62BF00E156ED /* libAATChatList.a */; };
+		E904F68C1FEB658900E156ED /* libAATChatList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F68D1FEB658900E156ED /* libAATChatList.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,7 +127,7 @@
 		E904F6861FEB62BF00E156ED /* NSString+AATString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AATString.h"; sourceTree = "<group>"; };
 		E904F6871FEB62BF00E156ED /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		E904F6881FEB62BF00E156ED /* AATWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATWebImagePrefetcher.h; sourceTree = "<group>"; };
-		E904F6891FEB62BF00E156ED /* libAATChatList.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAATChatList.a; sourceTree = "<group>"; };
+		E904F68D1FEB658900E156ED /* libAATChatList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAATChatList.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E904F68A1FEB62BF00E156ED /* libAATChatList.a in Frameworks */,
+				E904F68C1FEB658900E156ED /* libAATChatList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +163,7 @@
 				E904F5AB1FEB5E6D00E156ED /* ChatDemoTests */,
 				E904F5B61FEB5E6E00E156ED /* ChatDemoUITests */,
 				E904F5911FEB5E6D00E156ED /* Products */,
-				E904F5D41FEB5EC000E156ED /* Frameworks */,
+				E904F68B1FEB658900E156ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,18 +234,10 @@
 			path = input;
 			sourceTree = "<group>";
 		};
-		E904F5D41FEB5EC000E156ED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E904F5D71FEB5EE100E156ED /* libs */ = {
 			isa = PBXGroup;
 			children = (
 				E904F6471FEB62BE00E156ED /* AATChatList */,
-				E904F6891FEB62BF00E156ED /* libAATChatList.a */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -320,6 +312,14 @@
 				E904F6881FEB62BF00E156ED /* AATWebImagePrefetcher.h */,
 			);
 			path = AATChatList;
+			sourceTree = "<group>";
+		};
+		E904F68B1FEB658900E156ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E904F68D1FEB658900E156ED /* libAATChatList.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
