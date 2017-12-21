@@ -20,6 +20,12 @@
 		E904F5D21FEB5E9600E156ED /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E904F5CD1FEB5E9600E156ED /* Expression.bundle */; };
 		E904F5D31FEB5E9600E156ED /* msgList.json in Resources */ = {isa = PBXBuildFile; fileRef = E904F5CE1FEB5E9600E156ED /* msgList.json */; };
 		E904F68C1FEB658900E156ED /* libAATChatList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F68D1FEB658900E156ED /* libAATChatList.a */; };
+		E904F6BE1FEB687D00E156ED /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6BC1FEB687D00E156ED /* libsqlite3.tbd */; };
+		E904F6BF1FEB687D00E156ED /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6BD1FEB687D00E156ED /* libsqlite3.0.tbd */; };
+		E904F6C11FEB688B00E156ED /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6C01FEB688B00E156ED /* libc++.tbd */; };
+		E904F6C31FEB68AB00E156ED /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6C21FEB68AB00E156ED /* libxml2.tbd */; };
+		E904F6C51FEB68B900E156ED /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6C41FEB68B900E156ED /* libz.tbd */; };
+		E904F6C71FEB68C400E156ED /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6C61FEB68C400E156ED /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +134,13 @@
 		E904F6871FEB62BF00E156ED /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		E904F6881FEB62BF00E156ED /* AATWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATWebImagePrefetcher.h; sourceTree = "<group>"; };
 		E904F68D1FEB658900E156ED /* libAATChatList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAATChatList.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E904F6BC1FEB687D00E156ED /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		E904F6BD1FEB687D00E156ED /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		E904F6C01FEB688B00E156ED /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E904F6C21FEB68AB00E156ED /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		E904F6C41FEB68B900E156ED /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E904F6C61FEB68C400E156ED /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		E904F6C81FEB68D600E156ED /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +148,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E904F6C71FEB68C400E156ED /* libresolv.tbd in Frameworks */,
+				E904F6C51FEB68B900E156ED /* libz.tbd in Frameworks */,
+				E904F6C31FEB68AB00E156ED /* libxml2.tbd in Frameworks */,
+				E904F6C11FEB688B00E156ED /* libc++.tbd in Frameworks */,
+				E904F6BE1FEB687D00E156ED /* libsqlite3.tbd in Frameworks */,
+				E904F6BF1FEB687D00E156ED /* libsqlite3.0.tbd in Frameworks */,
 				E904F68C1FEB658900E156ED /* libAATChatList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +336,13 @@
 		E904F68B1FEB658900E156ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E904F6C81FEB68D600E156ED /* libicucore.tbd */,
+				E904F6C61FEB68C400E156ED /* libresolv.tbd */,
+				E904F6C41FEB68B900E156ED /* libz.tbd */,
+				E904F6C21FEB68AB00E156ED /* libxml2.tbd */,
+				E904F6C01FEB688B00E156ED /* libc++.tbd */,
+				E904F6BD1FEB687D00E156ED /* libsqlite3.0.tbd */,
+				E904F6BC1FEB687D00E156ED /* libsqlite3.tbd */,
 				E904F68D1FEB658900E156ED /* libAATChatList.a */,
 			);
 			name = Frameworks;

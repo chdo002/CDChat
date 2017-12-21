@@ -18,14 +18,6 @@
 		E904F3841FEB53F500E156ED /* ChatImageDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F34F1FEB53F400E156ED /* ChatImageDrawer.m */; };
 		E904F3851FEB53F500E156ED /* ChatHelpr.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3501FEB53F400E156ED /* ChatHelpr.m */; };
 		E904F3861FEB53F500E156ED /* ChatConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3541FEB53F400E156ED /* ChatConfiguration.m */; };
-		E904F3871FEB53F500E156ED /* CTinputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3591FEB53F400E156ED /* CTinputHelper.m */; };
-		E904F3881FEB53F500E156ED /* CTInputBoxDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F35B1FEB53F400E156ED /* CTInputBoxDrawer.m */; };
-		E904F3891FEB53F500E156ED /* CTInputConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F35C1FEB53F400E156ED /* CTInputConfiguration.m */; };
-		E904F38A1FEB53F500E156ED /* CTInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F35E1FEB53F400E156ED /* CTInputView.m */; };
-		E904F38B1FEB53F500E156ED /* CTInputCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3611FEB53F400E156ED /* CTInputCaculator.m */; };
-		E904F38C1FEB53F500E156ED /* CTMoreKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3681FEB53F400E156ED /* CTMoreKeyBoard.m */; };
-		E904F38D1FEB53F500E156ED /* CTEmojiKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3691FEB53F400E156ED /* CTEmojiKeyboard.m */; };
-		E904F38E1FEB53F500E156ED /* CTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F36A1FEB53F400E156ED /* CTTextView.m */; };
 		E904F38F1FEB53F500E156ED /* CDChatList.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F36C1FEB53F400E156ED /* CDChatList.m */; };
 		E904F3901FEB53F500E156ED /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F36F1FEB53F400E156ED /* CDTextTableViewCell.m */; };
 		E904F3911FEB53F500E156ED /* CDImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3721FEB53F400E156ED /* CDImageTableViewCell.m */; };
@@ -33,16 +25,6 @@
 		E904F3931FEB53F500E156ED /* CDBaseMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3751FEB53F400E156ED /* CDBaseMsgCell.m */; };
 		E904F3941FEB53F500E156ED /* ChatListInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3771FEB53F400E156ED /* ChatListInfo.m */; };
 		E904F5461FEB5AD100E156ED /* AATChatList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F37A1FEB53F500E156ED /* AATChatList.h */; };
-		E904F5681FEB5AD100E156ED /* CTInputBoxDrawer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3581FEB53F400E156ED /* CTInputBoxDrawer.h */; };
-		E904F5691FEB5AD100E156ED /* CTInputConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F35A1FEB53F400E156ED /* CTInputConfiguration.h */; };
-		E904F56A1FEB5AD100E156ED /* CTinputHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F35D1FEB53F400E156ED /* CTinputHelper.h */; };
-		E904F56B1FEB5AD100E156ED /* CTInputHeaders.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F35F1FEB53F400E156ED /* CTInputHeaders.h */; };
-		E904F56C1FEB5AD100E156ED /* CTInputCaculator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3621FEB53F400E156ED /* CTInputCaculator.h */; };
-		E904F56D1FEB5AD100E156ED /* CTInPutMacro.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3631FEB53F400E156ED /* CTInPutMacro.h */; };
-		E904F56E1FEB5AD100E156ED /* CTInputView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3641FEB53F400E156ED /* CTInputView.h */; };
-		E904F56F1FEB5AD100E156ED /* CTEmojiKeyboard.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3661FEB53F400E156ED /* CTEmojiKeyboard.h */; };
-		E904F5701FEB5AD100E156ED /* CTTextView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3671FEB53F400E156ED /* CTTextView.h */; };
-		E904F5711FEB5AD100E156ED /* CTMoreKeyBoard.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F36B1FEB53F400E156ED /* CTMoreKeyBoard.h */; };
 		E904F5721FEB5AD100E156ED /* CDChatList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3551FEB53F400E156ED /* CDChatList.h */; };
 		E904F5731FEB5AD100E156ED /* CDChatListHeaders.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F34D1FEB53F400E156ED /* CDChatListHeaders.h */; };
 		E904F5741FEB5AD100E156ED /* CDChatListProtocols.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3791FEB53F500E156ED /* CDChatListProtocols.h */; };
@@ -65,6 +47,14 @@
 		E904F5851FEB5AD100E156ED /* CDSystemTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3711FEB53F400E156ED /* CDSystemTableViewCell.h */; };
 		E904F5861FEB5AD100E156ED /* CDTextTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3731FEB53F400E156ED /* CDTextTableViewCell.h */; };
 		E904F68F1FEB65BA00E156ED /* libAATUtility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6901FEB65BA00E156ED /* libAATUtility.a */; };
+		E904F7121FEB835100E156ED /* CTinputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F6FF1FEB835100E156ED /* CTinputHelper.m */; };
+		E904F7131FEB835100E156ED /* CTInputBoxDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F7011FEB835100E156ED /* CTInputBoxDrawer.m */; };
+		E904F7141FEB835100E156ED /* CTInputConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F7021FEB835100E156ED /* CTInputConfiguration.m */; };
+		E904F7151FEB835100E156ED /* CTInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F7041FEB835100E156ED /* CTInputView.m */; };
+		E904F7161FEB835100E156ED /* CTInputCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F7071FEB835100E156ED /* CTInputCaculator.m */; };
+		E904F7171FEB835100E156ED /* CTMoreKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F70E1FEB835100E156ED /* CTMoreKeyBoard.m */; };
+		E904F7181FEB835100E156ED /* CTEmojiKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F70F1FEB835100E156ED /* CTEmojiKeyboard.m */; };
+		E904F7191FEB835100E156ED /* CTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F7101FEB835100E156ED /* CTTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,16 +65,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 				E904F5461FEB5AD100E156ED /* AATChatList.h in CopyFiles */,
-				E904F5681FEB5AD100E156ED /* CTInputBoxDrawer.h in CopyFiles */,
-				E904F5691FEB5AD100E156ED /* CTInputConfiguration.h in CopyFiles */,
-				E904F56A1FEB5AD100E156ED /* CTinputHelper.h in CopyFiles */,
-				E904F56B1FEB5AD100E156ED /* CTInputHeaders.h in CopyFiles */,
-				E904F56C1FEB5AD100E156ED /* CTInputCaculator.h in CopyFiles */,
-				E904F56D1FEB5AD100E156ED /* CTInPutMacro.h in CopyFiles */,
-				E904F56E1FEB5AD100E156ED /* CTInputView.h in CopyFiles */,
-				E904F56F1FEB5AD100E156ED /* CTEmojiKeyboard.h in CopyFiles */,
-				E904F5701FEB5AD100E156ED /* CTTextView.h in CopyFiles */,
-				E904F5711FEB5AD100E156ED /* CTMoreKeyBoard.h in CopyFiles */,
 				E904F5721FEB5AD100E156ED /* CDChatList.h in CopyFiles */,
 				E904F5731FEB5AD100E156ED /* CDChatListHeaders.h in CopyFiles */,
 				E904F5741FEB5AD100E156ED /* CDChatListProtocols.h in CopyFiles */,
@@ -138,24 +118,6 @@
 		E904F3531FEB53F400E156ED /* ChatHelpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatHelpr.h; sourceTree = "<group>"; };
 		E904F3541FEB53F400E156ED /* ChatConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatConfiguration.m; sourceTree = "<group>"; };
 		E904F3551FEB53F400E156ED /* CDChatList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDChatList.h; sourceTree = "<group>"; };
-		E904F3581FEB53F400E156ED /* CTInputBoxDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputBoxDrawer.h; sourceTree = "<group>"; };
-		E904F3591FEB53F400E156ED /* CTinputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTinputHelper.m; sourceTree = "<group>"; };
-		E904F35A1FEB53F400E156ED /* CTInputConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputConfiguration.h; sourceTree = "<group>"; };
-		E904F35B1FEB53F400E156ED /* CTInputBoxDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputBoxDrawer.m; sourceTree = "<group>"; };
-		E904F35C1FEB53F400E156ED /* CTInputConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputConfiguration.m; sourceTree = "<group>"; };
-		E904F35D1FEB53F400E156ED /* CTinputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTinputHelper.h; sourceTree = "<group>"; };
-		E904F35E1FEB53F400E156ED /* CTInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputView.m; sourceTree = "<group>"; };
-		E904F35F1FEB53F400E156ED /* CTInputHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputHeaders.h; sourceTree = "<group>"; };
-		E904F3611FEB53F400E156ED /* CTInputCaculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputCaculator.m; sourceTree = "<group>"; };
-		E904F3621FEB53F400E156ED /* CTInputCaculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputCaculator.h; sourceTree = "<group>"; };
-		E904F3631FEB53F400E156ED /* CTInPutMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInPutMacro.h; sourceTree = "<group>"; };
-		E904F3641FEB53F400E156ED /* CTInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputView.h; sourceTree = "<group>"; };
-		E904F3661FEB53F400E156ED /* CTEmojiKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTEmojiKeyboard.h; sourceTree = "<group>"; };
-		E904F3671FEB53F400E156ED /* CTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTextView.h; sourceTree = "<group>"; };
-		E904F3681FEB53F400E156ED /* CTMoreKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTMoreKeyBoard.m; sourceTree = "<group>"; };
-		E904F3691FEB53F400E156ED /* CTEmojiKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEmojiKeyboard.m; sourceTree = "<group>"; };
-		E904F36A1FEB53F400E156ED /* CTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTextView.m; sourceTree = "<group>"; };
-		E904F36B1FEB53F400E156ED /* CTMoreKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTMoreKeyBoard.h; sourceTree = "<group>"; };
 		E904F36C1FEB53F400E156ED /* CDChatList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDChatList.m; sourceTree = "<group>"; };
 		E904F36E1FEB53F400E156ED /* CDImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDImageTableViewCell.h; sourceTree = "<group>"; };
 		E904F36F1FEB53F400E156ED /* CDTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
@@ -204,6 +166,24 @@
 		E904F6441FEB628900E156ED /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		E904F6451FEB628900E156ED /* AATWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATWebImagePrefetcher.h; sourceTree = "<group>"; };
 		E904F6901FEB65BA00E156ED /* libAATUtility.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAATUtility.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E904F6FE1FEB835100E156ED /* CTInputBoxDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputBoxDrawer.h; sourceTree = "<group>"; };
+		E904F6FF1FEB835100E156ED /* CTinputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTinputHelper.m; sourceTree = "<group>"; };
+		E904F7001FEB835100E156ED /* CTInputConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputConfiguration.h; sourceTree = "<group>"; };
+		E904F7011FEB835100E156ED /* CTInputBoxDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputBoxDrawer.m; sourceTree = "<group>"; };
+		E904F7021FEB835100E156ED /* CTInputConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputConfiguration.m; sourceTree = "<group>"; };
+		E904F7031FEB835100E156ED /* CTinputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTinputHelper.h; sourceTree = "<group>"; };
+		E904F7041FEB835100E156ED /* CTInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputView.m; sourceTree = "<group>"; };
+		E904F7051FEB835100E156ED /* CTInputHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputHeaders.h; sourceTree = "<group>"; };
+		E904F7071FEB835100E156ED /* CTInputCaculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTInputCaculator.m; sourceTree = "<group>"; };
+		E904F7081FEB835100E156ED /* CTInputCaculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputCaculator.h; sourceTree = "<group>"; };
+		E904F7091FEB835100E156ED /* CTInPutMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInPutMacro.h; sourceTree = "<group>"; };
+		E904F70A1FEB835100E156ED /* CTInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTInputView.h; sourceTree = "<group>"; };
+		E904F70C1FEB835100E156ED /* CTEmojiKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTEmojiKeyboard.h; sourceTree = "<group>"; };
+		E904F70D1FEB835100E156ED /* CTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTextView.h; sourceTree = "<group>"; };
+		E904F70E1FEB835100E156ED /* CTMoreKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTMoreKeyBoard.m; sourceTree = "<group>"; };
+		E904F70F1FEB835100E156ED /* CTEmojiKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEmojiKeyboard.m; sourceTree = "<group>"; };
+		E904F7101FEB835100E156ED /* CTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTextView.m; sourceTree = "<group>"; };
+		E904F7111FEB835100E156ED /* CTMoreKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTMoreKeyBoard.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +220,6 @@
 			children = (
 				E904F37A1FEB53F500E156ED /* AATChatList.h */,
 				E904F4841FEB580500E156ED /* lib */,
-				E904F3561FEB53F400E156ED /* CDChatInputBox */,
 				E904F3551FEB53F400E156ED /* CDChatList.h */,
 				E904F36C1FEB53F400E156ED /* CDChatList.m */,
 				E904F34D1FEB53F400E156ED /* CDChatListHeaders.h */,
@@ -323,55 +302,6 @@
 			path = ChatConfiguration;
 			sourceTree = "<group>";
 		};
-		E904F3561FEB53F400E156ED /* CDChatInputBox */ = {
-			isa = PBXGroup;
-			children = (
-				E904F3571FEB53F400E156ED /* configuration */,
-				E904F35E1FEB53F400E156ED /* CTInputView.m */,
-				E904F35F1FEB53F400E156ED /* CTInputHeaders.h */,
-				E904F3601FEB53F400E156ED /* Server */,
-				E904F3631FEB53F400E156ED /* CTInPutMacro.h */,
-				E904F3641FEB53F400E156ED /* CTInputView.h */,
-				E904F3651FEB53F400E156ED /* view */,
-			);
-			path = CDChatInputBox;
-			sourceTree = "<group>";
-		};
-		E904F3571FEB53F400E156ED /* configuration */ = {
-			isa = PBXGroup;
-			children = (
-				E904F3581FEB53F400E156ED /* CTInputBoxDrawer.h */,
-				E904F3591FEB53F400E156ED /* CTinputHelper.m */,
-				E904F35A1FEB53F400E156ED /* CTInputConfiguration.h */,
-				E904F35B1FEB53F400E156ED /* CTInputBoxDrawer.m */,
-				E904F35C1FEB53F400E156ED /* CTInputConfiguration.m */,
-				E904F35D1FEB53F400E156ED /* CTinputHelper.h */,
-			);
-			path = configuration;
-			sourceTree = "<group>";
-		};
-		E904F3601FEB53F400E156ED /* Server */ = {
-			isa = PBXGroup;
-			children = (
-				E904F3611FEB53F400E156ED /* CTInputCaculator.m */,
-				E904F3621FEB53F400E156ED /* CTInputCaculator.h */,
-			);
-			path = Server;
-			sourceTree = "<group>";
-		};
-		E904F3651FEB53F400E156ED /* view */ = {
-			isa = PBXGroup;
-			children = (
-				E904F3661FEB53F400E156ED /* CTEmojiKeyboard.h */,
-				E904F3671FEB53F400E156ED /* CTTextView.h */,
-				E904F3681FEB53F400E156ED /* CTMoreKeyBoard.m */,
-				E904F3691FEB53F400E156ED /* CTEmojiKeyboard.m */,
-				E904F36A1FEB53F400E156ED /* CTTextView.m */,
-				E904F36B1FEB53F400E156ED /* CTMoreKeyBoard.h */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		E904F36D1FEB53F400E156ED /* MessageCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +329,7 @@
 		E904F4841FEB580500E156ED /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				E904F6FC1FEB835100E156ED /* CDChatInputBox */,
 				E904F4FB1FEB5A1E00E156ED /* AATUtility */,
 			);
 			path = lib;
@@ -468,6 +399,55 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E904F6FC1FEB835100E156ED /* CDChatInputBox */ = {
+			isa = PBXGroup;
+			children = (
+				E904F6FD1FEB835100E156ED /* configuration */,
+				E904F7041FEB835100E156ED /* CTInputView.m */,
+				E904F7051FEB835100E156ED /* CTInputHeaders.h */,
+				E904F7061FEB835100E156ED /* Server */,
+				E904F7091FEB835100E156ED /* CTInPutMacro.h */,
+				E904F70A1FEB835100E156ED /* CTInputView.h */,
+				E904F70B1FEB835100E156ED /* view */,
+			);
+			path = CDChatInputBox;
+			sourceTree = "<group>";
+		};
+		E904F6FD1FEB835100E156ED /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				E904F6FE1FEB835100E156ED /* CTInputBoxDrawer.h */,
+				E904F6FF1FEB835100E156ED /* CTinputHelper.m */,
+				E904F7001FEB835100E156ED /* CTInputConfiguration.h */,
+				E904F7011FEB835100E156ED /* CTInputBoxDrawer.m */,
+				E904F7021FEB835100E156ED /* CTInputConfiguration.m */,
+				E904F7031FEB835100E156ED /* CTinputHelper.h */,
+			);
+			path = configuration;
+			sourceTree = "<group>";
+		};
+		E904F7061FEB835100E156ED /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				E904F7071FEB835100E156ED /* CTInputCaculator.m */,
+				E904F7081FEB835100E156ED /* CTInputCaculator.h */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		E904F70B1FEB835100E156ED /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E904F70D1FEB835100E156ED /* CTTextView.h */,
+				E904F7101FEB835100E156ED /* CTTextView.m */,
+				E904F70C1FEB835100E156ED /* CTEmojiKeyboard.h */,
+				E904F70F1FEB835100E156ED /* CTEmojiKeyboard.m */,
+				E904F7111FEB835100E156ED /* CTMoreKeyBoard.h */,
+				E904F70E1FEB835100E156ED /* CTMoreKeyBoard.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -525,28 +505,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E904F7171FEB835100E156ED /* CTMoreKeyBoard.m in Sources */,
 				E904F3921FEB53F500E156ED /* CDSystemTableViewCell.m in Sources */,
 				E904F3841FEB53F500E156ED /* ChatImageDrawer.m in Sources */,
+				E904F7131FEB835100E156ED /* CTInputBoxDrawer.m in Sources */,
 				E904F3831FEB53F500E156ED /* CellCaculator.m in Sources */,
-				E904F38C1FEB53F500E156ED /* CTMoreKeyBoard.m in Sources */,
-				E904F38B1FEB53F500E156ED /* CTInputCaculator.m in Sources */,
+				E904F7161FEB835100E156ED /* CTInputCaculator.m in Sources */,
 				E904F3941FEB53F500E156ED /* ChatListInfo.m in Sources */,
 				E904F37C1FEB53F500E156ED /* CDLabel.m in Sources */,
-				E904F38A1FEB53F500E156ED /* CTInputView.m in Sources */,
+				E904F7151FEB835100E156ED /* CTInputView.m in Sources */,
 				E904F3861FEB53F500E156ED /* ChatConfiguration.m in Sources */,
+				E904F7191FEB835100E156ED /* CTTextView.m in Sources */,
 				E904F3851FEB53F500E156ED /* ChatHelpr.m in Sources */,
-				E904F3871FEB53F500E156ED /* CTinputHelper.m in Sources */,
 				E904F37E1FEB53F500E156ED /* CTHelper.m in Sources */,
 				E904F3821FEB53F500E156ED /* MagnifiterView.m in Sources */,
 				E904F37F1FEB53F500E156ED /* CDTextParser.m in Sources */,
-				E904F3881FEB53F500E156ED /* CTInputBoxDrawer.m in Sources */,
 				E904F3811FEB53F500E156ED /* CTClickInfo.m in Sources */,
+				E904F7121FEB835100E156ED /* CTinputHelper.m in Sources */,
+				E904F7181FEB835100E156ED /* CTEmojiKeyboard.m in Sources */,
 				E904F3801FEB53F500E156ED /* CTData.m in Sources */,
-				E904F38E1FEB53F500E156ED /* CTTextView.m in Sources */,
-				E904F3891FEB53F500E156ED /* CTInputConfiguration.m in Sources */,
 				E904F3901FEB53F500E156ED /* CDTextTableViewCell.m in Sources */,
 				E904F3931FEB53F500E156ED /* CDBaseMsgCell.m in Sources */,
-				E904F38D1FEB53F500E156ED /* CTEmojiKeyboard.m in Sources */,
+				E904F7141FEB835100E156ED /* CTInputConfiguration.m in Sources */,
 				E904F38F1FEB53F500E156ED /* CDChatList.m in Sources */,
 				E904F3911FEB53F500E156ED /* CDImageTableViewCell.m in Sources */,
 				E904F37D1FEB53F500E156ED /* CoreTextUtils.m in Sources */,
@@ -669,6 +649,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AATChatList/lib/AATUtility",
+					"$(PROJECT_DIR)/PAIM_SDK_iOS_2.3.0",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -686,6 +667,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AATChatList/lib/AATUtility",
+					"$(PROJECT_DIR)/PAIM_SDK_iOS_2.3.0",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

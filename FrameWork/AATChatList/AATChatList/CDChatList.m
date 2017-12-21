@@ -15,7 +15,6 @@
 #import "ChatHelpr.h"
 #import "AATUtility.h"
 
-
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
     CDHeaderLoadStateNoraml,        // 等待下拉加载

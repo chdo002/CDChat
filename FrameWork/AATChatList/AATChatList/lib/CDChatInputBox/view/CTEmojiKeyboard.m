@@ -81,6 +81,7 @@
     
     
     
+    NSDictionary<NSString *,UIImage *> *emojiDic = [CTinputHelper defaultEmoticonDic];
     
     for (int i = 0; i < arrs.count; i++) {
         
@@ -100,7 +101,7 @@
         scrol.contentSize = CGSizeMake(scrollViewSize.width * emojiPages, 0);
         
         NSArray <NSString *>*empjiNames = arrs[i];
-        
+        // 添加每一页的表情
         for (int j = 0; i < empjiNames.count; i++) {
             
         }
