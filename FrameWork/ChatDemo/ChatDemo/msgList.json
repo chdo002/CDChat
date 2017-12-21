@@ -124,7 +124,8 @@
  "messageId": "1243",
  "createTime": "1509634535128",
  "msgType" : 0,
- "msgState": 2,
+ "msgState": 0,
  "isLeft" : 1
  }
 ]
+ 

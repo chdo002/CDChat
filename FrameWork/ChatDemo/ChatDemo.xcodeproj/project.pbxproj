@@ -26,6 +26,7 @@
 		E904F6C31FEB68AB00E156ED /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6C21FEB68AB00E156ED /* libxml2.tbd */; };
 		E904F6C51FEB68B900E156ED /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6C41FEB68B900E156ED /* libz.tbd */; };
 		E904F6C71FEB68C400E156ED /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6C61FEB68C400E156ED /* libresolv.tbd */; };
+		E904F71B1FEB97D200E156ED /* msgList2.json in Resources */ = {isa = PBXBuildFile; fileRef = E904F71A1FEB97D200E156ED /* msgList2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		E904F6C41FEB68B900E156ED /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E904F6C61FEB68C400E156ED /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		E904F6C81FEB68D600E156ED /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		E904F71A1FEB97D200E156ED /* msgList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msgList2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				E904F5C51FEB5E9500E156ED /* chat */,
 				E904F5CA1FEB5E9600E156ED /* input */,
 				E904F5CE1FEB5E9600E156ED /* msgList.json */,
+				E904F71A1FEB97D200E156ED /* msgList2.json */,
 				E904F5CD1FEB5E9600E156ED /* Expression.bundle */,
 				E904F5991FEB5E6D00E156ED /* Main.storyboard */,
 				E904F59C1FEB5E6D00E156ED /* Assets.xcassets */,
@@ -456,6 +459,7 @@
 			files = (
 				E904F5A01FEB5E6D00E156ED /* LaunchScreen.storyboard in Resources */,
 				E904F5D21FEB5E9600E156ED /* Expression.bundle in Resources */,
+				E904F71B1FEB97D200E156ED /* msgList2.json in Resources */,
 				E904F5D31FEB5E9600E156ED /* msgList.json in Resources */,
 				E904F59D1FEB5E6D00E156ED /* Assets.xcassets in Resources */,
 				E904F59B1FEB5E6D00E156ED /* Main.storyboard in Resources */,

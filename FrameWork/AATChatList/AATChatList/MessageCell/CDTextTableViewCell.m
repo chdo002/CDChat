@@ -71,7 +71,7 @@
     self.textContent_left.data = data.textlayout;
     CGRect textRect = self.textContent_left.frame;
     textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
-    textRect.size.height = bubbleRec.size.height - BubbleRoundAnglehorizInset * 2;
+    textRect.size.height = data.textlayout.height;
     self.textContent_left.frame = textRect;
 }
 
@@ -83,7 +83,7 @@
     self.textContent_right.data = data.textlayout;
     CGRect textRect = self.textContent_right.frame;
     textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
-    textRect.size.height = bubbleRec.size.height - BubbleRoundAnglehorizInset * 2;
+    textRect.size.height = data.textlayout.height;
     self.textContent_right.frame = textRect;
 }
 @end

@@ -96,14 +96,17 @@
         scrol.tag = i;
         [conain addSubview:scrol];
         
-        // 表情按钮页数
+        // 表情页数
         NSUInteger emojiPages = (arrs[i].count % 23 != 0 ? 1 : 0) + arrs[i].count / 23;
+        
+        // 设置
         scrol.contentSize = CGSizeMake(scrollViewSize.width * emojiPages, 0);
         
         NSArray <NSString *>*empjiNames = arrs[i];
         // 添加每一页的表情
-        for (int j = 0; i < empjiNames.count; i++) {
-            
+        for (int j = 0; j < empjiNames.count; j++) {
+            NSInteger currentPage = (j % 23 != 0 ? 1 : 0) + j / 23;
+            NSLog(@"scroll：%d   but：%d current：%ld",i,j,(long)currentPage);
         }
         
         UIPageControl *control = [[UIPageControl alloc] initWithFrame:CGRectMake(0, scrol.height, self.width, pageViewH)];
