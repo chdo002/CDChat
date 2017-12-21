@@ -64,7 +64,7 @@
 		E904F5841FEB5AD100E156ED /* CDBaseMsgCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3701FEB53F400E156ED /* CDBaseMsgCell.h */; };
 		E904F5851FEB5AD100E156ED /* CDSystemTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3711FEB53F400E156ED /* CDSystemTableViewCell.h */; };
 		E904F5861FEB5AD100E156ED /* CDTextTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3731FEB53F400E156ED /* CDTextTableViewCell.h */; };
-		E904F6461FEB628900E156ED /* libAATUtility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6221FEB628900E156ED /* libAATUtility.a */; };
+		E904F68F1FEB65BA00E156ED /* libAATUtility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6901FEB65BA00E156ED /* libAATUtility.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,7 +170,6 @@
 		E904F3791FEB53F500E156ED /* CDChatListProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDChatListProtocols.h; sourceTree = "<group>"; };
 		E904F37A1FEB53F500E156ED /* AATChatList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATChatList.h; sourceTree = "<group>"; };
 		E904F37B1FEB53F500E156ED /* CDChatMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDChatMacro.h; sourceTree = "<group>"; };
-		E904F6221FEB628900E156ED /* libAATUtility.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAATUtility.a; sourceTree = "<group>"; };
 		E904F6251FEB628900E156ED /* UITool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITool.h; sourceTree = "<group>"; };
 		E904F6261FEB628900E156ED /* AATWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATWebImageOperation.h; sourceTree = "<group>"; };
 		E904F6271FEB628900E156ED /* AATWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATWebImageManager.h; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		E904F6431FEB628900E156ED /* NSString+AATString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AATString.h"; sourceTree = "<group>"; };
 		E904F6441FEB628900E156ED /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		E904F6451FEB628900E156ED /* AATWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATWebImagePrefetcher.h; sourceTree = "<group>"; };
+		E904F6901FEB65BA00E156ED /* libAATUtility.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAATUtility.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E904F6461FEB628900E156ED /* libAATUtility.a in Frameworks */,
+				E904F68F1FEB65BA00E156ED /* libAATUtility.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +223,7 @@
 			children = (
 				E904F32D1FEB53C900E156ED /* AATChatList */,
 				E904F32C1FEB53C900E156ED /* Products */,
+				E904F68E1FEB65BA00E156ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -407,7 +408,6 @@
 			isa = PBXGroup;
 			children = (
 				E904F6231FEB628900E156ED /* include */,
-				E904F6221FEB628900E156ED /* libAATUtility.a */,
 			);
 			path = AATUtility;
 			sourceTree = "<group>";
@@ -458,6 +458,14 @@
 				E904F6451FEB628900E156ED /* AATWebImagePrefetcher.h */,
 			);
 			path = AATUtility;
+			sourceTree = "<group>";
+		};
+		E904F68E1FEB65BA00E156ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E904F6901FEB65BA00E156ED /* libAATUtility.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
