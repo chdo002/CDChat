@@ -9,7 +9,7 @@
 #import "CTTextView.h"
 #import "AATUtility.h"
 #import "CTEmojiKeyboard.h"
-@interface CTInputView()
+@interface CTInputView()<CTEmojiKeyboardDelegare>
 {
     CGRect originRect;   // 根据键盘是否弹起，整个值有可能是底部的是在底部的rect  也可能是上面的rect
     
@@ -19,7 +19,7 @@
     
     CTEmojiKeyboard *emojiKeyboard;
 }
-@property (nonatomic, strong) UITextView *textView;
+@property (nonatomic, strong) CTTextView *textView;
 @property (nonatomic, strong) UIButton *voiceBut;
 @property (nonatomic, strong) UIButton *recordBut;
 @property (nonatomic, strong) UIButton *emojiBut;
@@ -112,14 +112,14 @@
     
     
     emojiKeyboard = [CTEmojiKeyboard keyBoard];
-
+    emojiKeyboard.emojiDelegate = self;
     return self;
 }
 
 -(NSArray *)buttons{
     return @[self.voiceBut, self.emojiBut, self.moreBut];
 }
-#pragma mark 按钮点击
+#pragma mark 声音，表情  更多  按钮点击
 -(void)tagbut:(UIButton *)but{
     // 切换按钮icon
     [self turnButtonOnAtIndex:(int)but.tag];
@@ -139,6 +139,7 @@
     } else if (but.tag == 1) {
         // 表情
         if (self.emojiBut.isSelected) {
+            [emojiKeyboard updateKeyBoard];
             [self changeKeyBoard:emojiKeyboard];
         } else {
             [self changeKeyBoard:nil];
@@ -161,7 +162,30 @@
     [self.textView becomeFirstResponder];
 }
 
-// 键盘事件
+#pragma mark CTEmojiKeyboardDelegare
+
+-(void)emojiKeyboardSelectKey:(NSString *)key image:(UIImage *)img{
+    
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = img;
+    attachment.bounds = CGRectMake(0, -5, attachment.image.size.width, attachment.image.size.height);
+    NSMutableAttributedString *textAttr = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
+    NSAttributedString *imageAttr = [NSMutableAttributedString attributedStringWithAttachment:attachment];
+    [textAttr replaceCharactersInRange:self.textView.selectedRange withAttributedString:imageAttr];
+    [textAttr addAttributes:@{NSFontAttributeName : self.textView.font} range:NSMakeRange(self.textView.selectedRange.location, 1)];
+    self.textView.attributedText = textAttr;
+    [self.textView textDidChange];
+}
+
+-(void)emojiKeyboardSelectDelete{
+    [self.textView deleteBackward];
+}
+
+-(void)emojiKeyboardSelectSend{
+    
+}
+
+#pragma mark 键盘通知
 -(void)receiveNoitfication:(NSNotification *)noti{
 
     NSDictionary *dic = noti.userInfo;
@@ -183,7 +207,7 @@
     }];
 }
 
-// 适应输入框高度变化
+#pragma mark 适应输入框高度变化
 -(void)updateLayout:(CGFloat)newTextViewHight{
     
     // 输入框默认位置
@@ -205,8 +229,9 @@
     }];
 }
 
-// 让输入框变成第一响应
+#pragma mark 让输入框变成第一响应
 -(BOOL)becomeFirstResponder{
+    self.textView.inputView = nil;
     [self.textView becomeFirstResponder];
     [self turnButtonOnAtIndex:-1];
     [self changeKeyBoard:nil];
@@ -214,6 +239,7 @@
 }
 
 -(BOOL)resignFirstResponder{
+    self.textView.inputView = nil;
     [self.textView setHidden:NO];
     [self turnButtonOnAtIndex:-1];
     [self.textView resignFirstResponder];

@@ -55,6 +55,7 @@
 		E904F7171FEB835100E156ED /* CTMoreKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F70E1FEB835100E156ED /* CTMoreKeyBoard.m */; };
 		E904F7181FEB835100E156ED /* CTEmojiKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F70F1FEB835100E156ED /* CTEmojiKeyboard.m */; };
 		E904F7191FEB835100E156ED /* CTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F7101FEB835100E156ED /* CTTextView.m */; };
+		E9DEE2A51FED00A9009D02AC /* CTinputHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F7031FEB835100E156ED /* CTinputHelper.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +65,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				E9DEE2A51FED00A9009D02AC /* CTinputHelper.h in CopyFiles */,
 				E904F5461FEB5AD100E156ED /* AATChatList.h in CopyFiles */,
 				E904F5721FEB5AD100E156ED /* CDChatList.h in CopyFiles */,
 				E904F5731FEB5AD100E156ED /* CDChatListHeaders.h in CopyFiles */,
@@ -417,11 +419,11 @@
 			isa = PBXGroup;
 			children = (
 				E904F6FE1FEB835100E156ED /* CTInputBoxDrawer.h */,
+				E904F7011FEB835100E156ED /* CTInputBoxDrawer.m */,
+				E904F7031FEB835100E156ED /* CTinputHelper.h */,
 				E904F6FF1FEB835100E156ED /* CTinputHelper.m */,
 				E904F7001FEB835100E156ED /* CTInputConfiguration.h */,
-				E904F7011FEB835100E156ED /* CTInputBoxDrawer.m */,
 				E904F7021FEB835100E156ED /* CTInputConfiguration.m */,
-				E904F7031FEB835100E156ED /* CTinputHelper.h */,
 			);
 			path = configuration;
 			sourceTree = "<group>";

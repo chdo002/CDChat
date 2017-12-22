@@ -36,7 +36,7 @@
     
     
     
-    CTEmojiKeyboard * keyboard = [CTEmojiKeyboard keyBoard];
+//    CTEmojiKeyboard * keyboard = [CTEmojiKeyboard keyBoard];
 //    keyboard.top = 100;
 //    [self.view addSubview:keyboard];
 }

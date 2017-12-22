@@ -39,5 +39,6 @@ typedef void(^CM_textHeightChangedBlock)(NSString *text,CGFloat textHeight);
 
 - (void)textValueDidChanged:(CM_textHeightChangedBlock)block;
 
+-(void)textDidChange;
 
 @end

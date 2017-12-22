@@ -22,9 +22,13 @@
 */
 // 表情字典
 +(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic;
+
 // 表情名数组
 +(NSArray<NSArray<NSString *> *> *)emojiNameArr;
-+(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic emojiNameArrs:(NSArray<NSArray<NSString *> *> *)arrs;
+
++(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic
+               emojiNameArrs:(NSArray<NSArray<NSString *> *> *)arrs ////@[ @[@"[微笑]",@"[呵呵]"],   @[@"[:微笑:",@":呵呵:"] ]
+          emojiNameArrTitles:(NSArray<NSString *> *)arrsTitles;
 
     
 #pragma mark 图片资源
