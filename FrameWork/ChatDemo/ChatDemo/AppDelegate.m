@@ -19,6 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
+    
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSMutableDictionary *dic;
         // 表情bundle地址
@@ -33,7 +35,7 @@
             [dic setValue:img forKey:imagName];//
         }
         [ChatHelpr setDefaultEmoticonDic:dic]; // 设置聊天界面的表情资源
-        [CTinputHelper setDefaultEmoticonDic:dic emojiNameArrs:@[temp.allKeys]];// 设置输入框的表情资源
+        [CTinputHelper setDefaultEmoticonDic:dic emojiNameArrs:@[temp.allKeys,temp.allKeys]];// 设置输入框的表情资源
     });
     
     [ChatHelpr defaultConfiguration].environment = 1;

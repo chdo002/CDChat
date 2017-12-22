@@ -250,8 +250,8 @@
 		E904F5CA1FEB5E9600E156ED /* input */ = {
 			isa = PBXGroup;
 			children = (
-				E904F5CB1FEB5E9600E156ED /* InputBoxViewController.m */,
 				E904F5CC1FEB5E9600E156ED /* InputBoxViewController.h */,
+				E904F5CB1FEB5E9600E156ED /* InputBoxViewController.m */,
 			);
 			path = input;
 			sourceTree = "<group>";

@@ -403,11 +403,11 @@
 			isa = PBXGroup;
 			children = (
 				E904F6FD1FEB835100E156ED /* configuration */,
+				E904F70A1FEB835100E156ED /* CTInputView.h */,
 				E904F7041FEB835100E156ED /* CTInputView.m */,
 				E904F7051FEB835100E156ED /* CTInputHeaders.h */,
 				E904F7061FEB835100E156ED /* Server */,
 				E904F7091FEB835100E156ED /* CTInPutMacro.h */,
-				E904F70A1FEB835100E156ED /* CTInputView.h */,
 				E904F70B1FEB835100E156ED /* view */,
 			);
 			path = CDChatInputBox;

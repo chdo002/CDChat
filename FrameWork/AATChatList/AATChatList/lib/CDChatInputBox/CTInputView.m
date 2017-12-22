@@ -8,13 +8,16 @@
 #import "CTInputView.h"
 #import "CTTextView.h"
 #import "AATUtility.h"
-
+#import "CTEmojiKeyboard.h"
 @interface CTInputView()
 {
     CGRect originRect;   // 根据键盘是否弹起，整个值有可能是底部的是在底部的rect  也可能是上面的rect
     
     
     CGFloat tempTextViewHeight; // 在多行文字切换到语音功能时，需要临时保存textview的高度
+    
+    
+    CTEmojiKeyboard *emojiKeyboard;
 }
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIButton *voiceBut;
@@ -106,6 +109,9 @@
     
     // 键盘注释
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNoitfication:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    
+    emojiKeyboard = [CTEmojiKeyboard keyBoard];
 
     return self;
 }
@@ -133,7 +139,7 @@
     } else if (but.tag == 1) {
         // 表情
         if (self.emojiBut.isSelected) {
-            [self changeKeyBoard:[CTEmojiKeyboard keyBoard]];
+            [self changeKeyBoard:emojiKeyboard];
         } else {
             [self changeKeyBoard:nil];
         }

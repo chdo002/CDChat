@@ -26,7 +26,7 @@
     self.listView = list;
     [self.view addSubview:self.listView];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList2" ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *err;
     NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
