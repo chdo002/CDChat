@@ -5,6 +5,12 @@ iOS 聊天界面的组件
 
 iOS 8 +
 
+## 组件依赖
+
+AATChatList (0.3.0)
+Utility(0.3.0)
+
+
 ## 安装
 <font color="#FF0000">从这个版本开始，使用静态库来管理代码，位置在根目录下的FrameWork下，根录下的其他文件及代码不再维护，除了本文件及CHANGELOG.md</font> 
 
@@ -136,7 +142,6 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 
 ## TODO
 
-- 实现异步加载图片，去除对SDWebImage依赖
 - 添加音频消息类型
 - 自定义消息内容匹配    去人工
 - 头像漏做

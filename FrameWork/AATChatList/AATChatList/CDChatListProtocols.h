@@ -13,6 +13,8 @@
 #import "CTData.h"
 #import "ChatListInfo.h"
 
+static NSString * CDChatListDidScroll = @"CDChatListDidScroll";
+
 typedef enum : NSUInteger {
     CDMessageTypeText,      // 文字类型
     CDMessageTypeImage,     // 图片类型
@@ -48,7 +50,7 @@ typedef enum : NSUInteger {
 @property (copy,nonatomic) NSString *msg;
 
 /**
- 发送时间
+ 发送时间 毫秒
  */
 @property (copy,nonatomic) NSString *createTime;
 

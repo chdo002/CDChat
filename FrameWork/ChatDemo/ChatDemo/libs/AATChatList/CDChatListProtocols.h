@@ -13,6 +13,8 @@
 #import "CTData.h"
 #import "ChatListInfo.h"
 
+static NSString * CDChatListDidScroll = @"CDChatListDidScroll";
+
 typedef enum : NSUInteger {
     CDMessageTypeText,      // 文字类型
     CDMessageTypeImage,     // 图片类型

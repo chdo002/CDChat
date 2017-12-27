@@ -54,7 +54,7 @@
         CDChatMessage previousData = msgArr[index - 1];
         NSInteger lastTime = [previousData.createTime integerValue];
         NSInteger currentTime = [data.createTime integerValue];
-        data.willDisplayTime = ((currentTime - lastTime) > 180000);
+        data.willDisplayTime = ((currentTime - lastTime) > 180000); // 3分钟
     }
     CGSize res = [self caculateCellHeightAndBubleWidth:data];
     

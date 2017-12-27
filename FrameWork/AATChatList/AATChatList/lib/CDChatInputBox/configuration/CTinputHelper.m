@@ -33,7 +33,7 @@
     
     dispatch_once(&onceToken, ^{
         helper = [[CTinputHelper alloc] init];
-        helper->_config = [[CTInputConfiguration alloc] init];
+        helper->_config = [CTInputConfiguration defaultConfig];
         dispatch_async(dispatch_get_main_queue(), ^{
             helper->_imageDic = [CTInputBoxDrawer defaultImageDic];
         });

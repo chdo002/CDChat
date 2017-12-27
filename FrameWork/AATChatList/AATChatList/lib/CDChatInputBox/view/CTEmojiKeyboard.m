@@ -17,11 +17,7 @@
 @implementation EmojiBut
 -(CGRect)imageRectForContentRect:(CGRect)contentRect{
     CGRect oldrect = [super imageRectForContentRect:contentRect];
-    if (ScreenW() > 375) {
-        return CGRectInset(oldrect, -5, -5);
-    } else {
-        return CGRectInset(oldrect, -2, -2);
-    }
+        return CGRectInset(oldrect, -ScreenW() * 0.005, -ScreenW() * 0.005);
 }
 @end
 
@@ -45,7 +41,6 @@
     CGSize emojiSize;  // 表情按钮体积
     CGFloat pageViewH;  // segment高度
     CGFloat bottomBarAeraH; // 底部选择栏的高度
-    
     
 }
 @end
@@ -77,11 +72,7 @@
     }
     
     emojInsetTop = 12.0f;  // 顶部内边距
-    if (ScreenW() > 375) {
-        emojiSize = CGSizeMake(48, 48); // 表情按钮大小
-    } else {
-        emojiSize = CGSizeMake(42, 42); // 表情按钮大小
-    }
+    emojiSize = CGSizeMake(ScreenW() * 0.112, ScreenW() * 0.112);
     emojInsetLeft_Right = (ScreenW() - emojiSize.width * 8) * 0.5; // 左右距离
     emojiLineSpace = 5.0f; // 表情行间距
     emojInsetBottom = 5.0f; // scrollview 底部内边距
@@ -106,7 +97,7 @@
 
     for (int i = 0; i < arrs.count; i++){
         // 每个scroll的container
-        UIView *conain = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height - bottomBarAeraH)];
+        UIView *conain = [[UIView alloc] initWithFrame:CGRectMake(0, 1, self.width, self.height - bottomBarAeraH -1)];
         conain.tag = i;
         [self addSubview:conain];
         UIScrollView *scrol = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, scrollViewSize.width, scrollViewSize.height)];
@@ -197,6 +188,12 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self bringSubviewToFront:sendButton];
     });
+    
+    
+    CALayer *lineLayer = [CALayer layer];
+    lineLayer.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), 1);
+    lineLayer.backgroundColor = CRMHexColor(0xD7D7D9).CGColor;
+    [self.layer insertSublayer:lineLayer atIndex:0];
 }
 
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{

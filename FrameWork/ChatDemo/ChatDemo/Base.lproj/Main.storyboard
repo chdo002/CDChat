@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,15 +43,29 @@
                                     <segue destination="kaC-kc-TsY" kind="show" id="ObH-Qh-TjT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-Fy-Hym">
+                                <rect key="frame" x="0.0" y="501" width="375" height="100"/>
+                                <color key="backgroundColor" red="0.66076847779146064" green="0.30697980755049847" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BYt-9w-kAa"/>
+                                </constraints>
+                                <state key="normal" title="混合"/>
+                                <connections>
+                                    <segue destination="4DX-DV-IiH" kind="show" id="8aQ-qG-ncX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ySM-hf-i7v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2UJ-ob-7Sr"/>
                             <constraint firstItem="F13-PV-bk6" firstAttribute="top" secondItem="ySM-hf-i7v" secondAttribute="bottom" constant="85" id="3Dj-i5-K8V"/>
                             <constraint firstAttribute="trailing" secondItem="ySM-hf-i7v" secondAttribute="trailing" id="BWY-XL-9qc"/>
+                            <constraint firstItem="MQJ-Fy-Hym" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FPL-5d-MX0"/>
                             <constraint firstItem="ySM-hf-i7v" firstAttribute="top" secondItem="4Hb-G4-CjL" secondAttribute="bottom" constant="58" id="OcJ-KS-PPJ"/>
                             <constraint firstAttribute="trailing" secondItem="F13-PV-bk6" secondAttribute="trailing" id="UX2-b4-YF3"/>
+                            <constraint firstItem="MQJ-Fy-Hym" firstAttribute="top" secondItem="F13-PV-bk6" secondAttribute="bottom" constant="53" id="csz-To-gHO"/>
                             <constraint firstItem="F13-PV-bk6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lfI-b4-MCW"/>
+                            <constraint firstAttribute="trailing" secondItem="MQJ-Fy-Hym" secondAttribute="trailing" id="mrx-us-YTa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U4N-h5-tQu"/>
@@ -72,12 +85,12 @@
                     <view key="view" contentMode="scaleToFill" id="Xxq-0v-5Ow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3m-pu-td8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1446" y="-94"/>
+            <point key="canvasLocation" x="1686" y="-839"/>
         </scene>
         <!--Input Box View Controller-->
         <scene sceneID="eZT-BO-PB0">
@@ -113,7 +126,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2b-9q-cXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1446" y="610"/>
+            <point key="canvasLocation" x="1686" y="-135"/>
+        </scene>
+        <!--Mix View Controller-->
+        <scene sceneID="7KN-Xs-7Wh">
+            <objects>
+                <viewController id="4DX-DV-IiH" customClass="MixViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tgu-wZ-oWG"/>
+                        <viewControllerLayoutGuide type="bottom" id="dNl-hU-I0q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lEZ-OV-R6N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="stx-J2-xpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="691"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K0V-7d-YoL">

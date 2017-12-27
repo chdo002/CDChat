@@ -9,7 +9,35 @@
 #import "CTTextView.h"
 #import "AATUtility.h"
 #import "CTEmojiKeyboard.h"
-@interface CTInputView()<CTEmojiKeyboardDelegare>
+
+@interface EmojiTextAttachment : NSTextAttachment
+@property(strong, nonatomic) NSString *emojiTag;
++ (NSString *)getPlainString:(NSAttributedString *)attributString;
+@end
+
+@implementation EmojiTextAttachment
+
+
++ (NSString *)getPlainString:(NSAttributedString *)attributString {
+    
+    NSMutableString *plainString = [NSMutableString stringWithString:attributString.string];
+    __block NSUInteger base = 0;
+    
+    [attributString enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, attributString.length)
+                     options:0
+                  usingBlock:^(id value, NSRange range, BOOL *stop) {
+                      if (value && [value isKindOfClass:[EmojiTextAttachment class]]) {
+                          [plainString replaceCharactersInRange:NSMakeRange(range.location + base, range.length)
+                                                     withString:((EmojiTextAttachment *) value).emojiTag];
+                          base += ((EmojiTextAttachment *) value).emojiTag.length - 1;
+                      }
+                  }];
+    return plainString;
+}
+@end
+
+
+@interface CTInputView()<CTEmojiKeyboardDelegare,CTMoreKeyBoardDelegare,UITextViewDelegate>
 {
     CGRect originRect;   // 根据键盘是否弹起，整个值有可能是底部的是在底部的rect  也可能是上面的rect
     
@@ -18,6 +46,7 @@
     
     
     CTEmojiKeyboard *emojiKeyboard;
+    CTMoreKeyBoard *moreKeyboard;
 }
 @property (nonatomic, strong) CTTextView *textView;
 @property (nonatomic, strong) UIButton *voiceBut;
@@ -35,6 +64,7 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
+    
     self.backgroundColor = CRMHexColor(0xF5F5F7);
     originRect = frame;
     
@@ -51,9 +81,6 @@
     
     // 配置
     CTInputConfiguration *config = [CTinputHelper defaultConfiguration];
-    [config addEmoji];
-    [config addVoice];
-    [config addExtra:@{}];
     
     // 语音按钮
     UIButton *v1 = [[UIButton alloc] initWithFrame:config.voiceButtonRect];
@@ -69,6 +96,8 @@
     textView.font = config.stringFont;
     textView.maxNumberOfLines = 5;
     self.textView = textView;
+    self.textView.returnKeyType = UIReturnKeySend;
+    self.textView.delegate = self;
     [self addSubview:textView];
     __weak __typeof__ (self) wself = self;
     [textView textValueDidChanged:^(NSString *text, CGFloat textHeight) {
@@ -113,6 +142,10 @@
     
     emojiKeyboard = [CTEmojiKeyboard keyBoard];
     emojiKeyboard.emojiDelegate = self;
+    
+    moreKeyboard = [CTMoreKeyBoard keyBoard];
+    moreKeyboard.moreKeyDelegate = self;
+    
     return self;
 }
 
@@ -162,11 +195,22 @@
     [self.textView becomeFirstResponder];
 }
 
+#pragma mark UITextViewDelegate
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]) {
+        [self emojiKeyboardSelectSend];
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark CTEmojiKeyboardDelegare
 
 -(void)emojiKeyboardSelectKey:(NSString *)key image:(UIImage *)img{
     
-    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    EmojiTextAttachment *attachment = [[EmojiTextAttachment alloc] init];
+    attachment.emojiTag = key;
     attachment.image = img;
     attachment.bounds = CGRectMake(0, -5, attachment.image.size.width, attachment.image.size.height);
     NSMutableAttributedString *textAttr = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
@@ -182,7 +226,18 @@
 }
 
 -(void)emojiKeyboardSelectSend{
-    
+    NSString *plainStr = [EmojiTextAttachment getPlainString: [self.textView.attributedText copy]];
+    if ([self.delegate respondsToSelector:@selector(inputViewPopSttring:)]) {
+        [self.delegate inputViewPopSttring:plainStr];
+    }
+    self.textView.text = @"";
+    [self.textView textDidChange];
+}
+
+#pragma mark CTMoreKeyBoardDelegare
+
+-(void)moreKeyBoardSelectKey:(NSString *)key image:(UIImage *)img{
+    [self.delegate inputViewPopCommand:key];
 }
 
 #pragma mark 键盘通知
@@ -199,6 +254,10 @@
                                       self.frame.size.width, self.frame.size.height);
 
     originRect.origin.y = selfNewFrame.origin.y - (originRect.size.height - selfNewFrame.size.height);
+    
+    if ([self.delegate respondsToSelector:@selector(inputViewWillUpdateFrame:animateDuration:animateOption:)]){
+        [self.delegate inputViewWillUpdateFrame:selfNewFrame animateDuration:duration.doubleValue animateOption:curv.integerValue];
+    }
     
     [UIView animateWithDuration:duration.doubleValue delay:0 options:curv.integerValue animations:^{
         self.frame = selfNewFrame;
@@ -223,9 +282,14 @@
     CGRect newRect = CGRectOffset(originRect, 0, delta);
     newRect.size.height = newRect.size.height - delta;
     
-    [UIView animateWithDuration:0.2 animations:^{
+    if ([self.delegate respondsToSelector:@selector(inputViewWillUpdateFrame:animateDuration:animateOption:)]){
+        [self.delegate inputViewWillUpdateFrame:newRect animateDuration:0.25 animateOption:7];
+    }
+    [UIView animateWithDuration:0.25f delay:0 options:7 animations:^{
         self.frame = newRect;
         self.textView.frame = newTextViewRect;
+    } completion:^(BOOL finished) {
+        
     }];
 }
 

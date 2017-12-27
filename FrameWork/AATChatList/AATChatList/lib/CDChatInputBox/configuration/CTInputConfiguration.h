@@ -44,7 +44,9 @@ static CGFloat CTInputViewHeight = 50.0f;
 
 @property(nonatomic, strong) UIFont *stringFont;
 
-// 只有输入框的配置
+@property(nonatomic, assign) NSDictionary<NSString *,UIImage *> *extraInfo;
+
+// 默认配置只有输入框
 +(CTInputConfiguration*)defaultConfig;
 
 // 添加输入语音功能
@@ -53,8 +55,12 @@ static CGFloat CTInputViewHeight = 50.0f;
 // 添加输入表情功能
 -(void)addEmoji;
 
-// 添加更多功能
--(void)addExtra:(NSDictionary *)info;
+/**
+ 添加更多功能
+
+ @param info 标题 对应图片
+ */
+-(void)addExtra:(NSDictionary<NSString *,UIImage *> *)info;
 
 @end
 

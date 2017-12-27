@@ -90,7 +90,7 @@ typedef enum : NSUInteger {
     if (!self.superview) {
         return;
     }
-    NSAssert(self.viewController, @"CDChatList: 一定要传ViewController进来");
+//    NSAssert(self.viewController, @"CDChatList: 一定要传ViewController进来");
 }
 
 #pragma mark 通知
@@ -258,6 +258,7 @@ typedef enum : NSUInteger {
     if (self.tracking) {
         return;
     }
+    
     // 异步让tableview滚到最底部
 //    [self mainAsyQueue:^{
         NSIndexPath *index = [NSIndexPath indexPathForRow:_msgArr.count - 1  inSection:0];
@@ -265,10 +266,13 @@ typedef enum : NSUInteger {
 //    }];
 }
 
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
+    if (scrollView.dragging) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CDChatListDidScroll object:nil];
+    }
     CGFloat offsetY = self.contentOffset.y;
-
     if (offsetY >= pullToLoadMark) {
         return;
     }

@@ -10,14 +10,13 @@
 
 @interface CTInputConfiguration()
 {
-    
     BOOL hasVoice;
     BOOL hasEmoji;
     BOOL hasMore;
     CGFloat inset; // 内边距
     CGSize buttongSize; // 按钮大小
     CGFloat CTInputViewWidth;
-    //CTInputViewHeight
+    NSDictionary<NSString *,UIImage *> *moreInfo;
 }
 @end
 
@@ -115,11 +114,15 @@
 }
 
 // 添加更多功能
--(void)addExtra:(NSDictionary *)info{
+-(void)addExtra:(NSDictionary<NSString *,UIImage *> *)info{
     
     if (!info) return;
-    
+    moreInfo = info;
     hasMore = YES;
+}
+
+-(NSDictionary<NSString *,UIImage *> *)extraInfo{
+    return moreInfo;
 }
 
 @end

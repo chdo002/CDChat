@@ -12,6 +12,7 @@
 #import "CDMessageModal.h"
 
 @interface ViewController ()<ChatListProtocol>
+
 @property(nonatomic, weak)CDChatList *listView;
 @property(nonatomic, strong)NSMutableArray<CDChatMessage> *msgArr;
 @end

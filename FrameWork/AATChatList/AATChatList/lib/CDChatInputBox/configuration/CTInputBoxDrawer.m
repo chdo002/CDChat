@@ -30,9 +30,11 @@
 }
     
 +(NSDictionary<NSString *,UIImage *> *)defaultImageDic{
+    
     if ([CTInputBoxDrawer share].imageDic) {
         return [CTInputBoxDrawer share].imageDic;
     }
+    
     UIImage *emojButtonIcon = [[CTInputBoxDrawer share] emojButtonIcon];
     UIImage *addButtonIcon = [[CTInputBoxDrawer share] addButtonIcon];
     

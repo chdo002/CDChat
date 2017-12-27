@@ -25,16 +25,24 @@
 
 /**
  添加新的数据到底部
-
+ 
  @param newBottomMsgArr 新的消息数组
  */
 -(void)addMessagesToBottom: (CDChatMessageArray)newBottomMsgArr;
 
 /**
  更新数据源中的某条消息
-
+ 
  @param message 消息
  */
 -(void)updateMessage:(CDChatMessage)message;
 
+
+/**
+ 将table滚动到底部
+ 
+ @param animated 是否动画
+ */
+-(void)relayoutTable:(BOOL)animated;
 @end
+

@@ -37,4 +37,11 @@
  */
 -(void)updateMessage:(CDChatMessage)message;
 
+
+/**
+ 将table滚动到底部
+
+ @param animated 是否动画
+ */
+-(void)relayoutTable:(BOOL)animated;
 @end
