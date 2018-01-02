@@ -69,7 +69,7 @@
     CGFloat descent = 0.0f;
     CGFloat leading = 0.0f;
     CGFloat width = (CGFloat)CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
-    CGFloat height = ascent - descent;
+    CGFloat height = fabs(ascent) + fabs(descent);
     return CGRectMake(point.x, point.y - descent, width, height);
 }
 

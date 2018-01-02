@@ -74,20 +74,20 @@
         // 匹配图片(主要是表情) 并返回图片
         imageDataArr = [CDTextParser matchImage:attString configuration:config];
     }
+    
     NSMutableArray <CTLinkData *> *linkDataArr = [NSMutableArray array];
-    if (config.matchLink) {
-        // 匹配链接
-        linkDataArr = [CDTextParser matchLink:attString configuration:config];
-    }
     if (config.matchEmail) {
         // 匹配邮箱
-        NSMutableArray <CTLinkData *> *emailDataArr = [CDTextParser matchEmail:attString configuration:config];
-        [linkDataArr addObjectsFromArray:emailDataArr];
+        [linkDataArr addObjectsFromArray:[CDTextParser matchEmail:attString configuration:config currentMatch:linkDataArr]];
     }
+    if (config.matchLink) {
+        // 匹配链接
+        [linkDataArr addObjectsFromArray:[CDTextParser matchLink:attString configuration:config currentMatch:linkDataArr]];
+    }
+    
     if (config.matchPhone) {
         // 匹配号码
-        NSMutableArray <CTLinkData *> *phoneDataArr = [CDTextParser matchPhone:attString configuration:config];
-        [linkDataArr addObjectsFromArray:phoneDataArr];
+        [linkDataArr addObjectsFromArray:[CDTextParser matchPhone:attString configuration:config currentMatch:linkDataArr]];
     }
     
     /*

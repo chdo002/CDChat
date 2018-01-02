@@ -13,9 +13,9 @@
 +(NSMutableArray *)matchImage:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
 
 // 链接
-+(NSMutableArray *)matchLink:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
++(NSMutableArray *)matchLink:(NSMutableAttributedString *)str configuration:(CTDataConfig)config currentMatch:(NSMutableArray <CTLinkData *> *)matchArr;
 // 邮箱
-+(NSMutableArray *)matchEmail:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
++(NSMutableArray *)matchEmail:(NSMutableAttributedString *)str configuration:(CTDataConfig)config currentMatch:(NSMutableArray <CTLinkData *> *)matchArr;
 // 号码
-+(NSMutableArray *)matchPhone:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
++(NSMutableArray *)matchPhone:(NSMutableAttributedString *)str configuration:(CTDataConfig)config currentMatch:(NSMutableArray <CTLinkData *> *)matchArr;
 @end
