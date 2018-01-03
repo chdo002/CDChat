@@ -23,15 +23,13 @@
 
 - (void)setTouchPoint:(CGPoint)touchPoint {
     _touchPoint = touchPoint;
-    // update the position of the magnifier (to just above what's being magnified)
     self.center = CGPointMake(touchPoint.x, touchPoint.y - 70);
     [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect {
-	// here we're just doing some transforms on the view we're magnifying,
-	// and rendering that view directly into this view,
-	// rather than the previous method of copying an image.
+	
+    
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextTranslateCTM(context, self.bounds.size.width * 0.5, self.bounds.size.height * 0.5);
 	CGContextScaleCTM(context, 1.5, 1.5);

@@ -12,6 +12,7 @@
 typedef struct {    
     CGColorRef textColor;  // 文本颜色
     CGColorRef clickStrColor;// 可点击文本颜色
+    CGColorRef backGroundColor;
     CGColorRef hilightColor;// 高亮文本颜色
     CGFloat textSize;   // 字号
     CGFloat lineSpace;  // 行间距
@@ -67,7 +68,7 @@ typedef struct {
 
 
 +(CTData *)dataWithStr:(NSString *)msgString containerWithSize: (CGSize)size;
-
++(CTDataConfig)defaultConfig;
 /**
  构建富文本对象
 

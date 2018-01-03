@@ -18,11 +18,11 @@
 
 @implementation CTData
 
-+(CTData *)dataWithStr:(NSString *)msgString containerWithSize: (CGSize)size{
-    
++(CTDataConfig)defaultConfig{
     CTDataConfig config;
     config.textColor = [UIColor blackColor].CGColor;
     config.hilightColor = [UIColor lightGrayColor].CGColor;
+    config.backGroundColor = [UIColor whiteColor].CGColor;
     config.clickStrColor = [UIColor blueColor].CGColor;
     config.lineSpace = 2;
     config.textSize = 16;
@@ -31,13 +31,17 @@
     config.matchEmail = YES;
     config.matchEmoji = YES;
     config.matchPhone = YES;
-    return [self dataWithStr:msgString containerWithSize:size configuration:config];
+    return config;
+}
+
++(CTData *)dataWithStr:(NSString *)msgString containerWithSize: (CGSize)size{
+    return [self dataWithStr:msgString containerWithSize:size configuration:[self defaultConfig]];
 }
 
 +(CTData *)dataWithStr:(NSString *)msgString containerWithSize:(CGSize)size configuration:(CTDataConfig)config{
     
     CTData *data = [[CTData alloc] init];
-    
+    data.config = config;
     NSString *originStr = [msgString copy];
 
     originStr = [originStr stringByReplacingOccurrencesOfString:@"</span>" withString:@""];
@@ -57,7 +61,7 @@
     NSDictionary *dic = @{
                           NSFontAttributeName: font,
                           NSForegroundColorAttributeName: [UIColor colorWithCGColor:config.textColor],
-                          NSBackgroundColorAttributeName: [UIColor clearColor],
+                          NSBackgroundColorAttributeName:[UIColor colorWithCGColor:config.backGroundColor],
                           NSParagraphStyleAttributeName: paragraphStyle
                           };
     

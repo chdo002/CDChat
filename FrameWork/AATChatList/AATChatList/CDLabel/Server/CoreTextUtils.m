@@ -27,9 +27,6 @@
 + (CTLinkConfig)touchContentOffsetInView:(UIView *)view atPoint:(CGPoint)point data:(CTData *)data {
     CTFrameRef textFrame = data.ctFrame;
     CFArrayRef lines = CTFrameGetLines(textFrame);
-//    if (!lines) {
-//        return NULL;
-//    }
     CFIndex count = CFArrayGetCount(lines);
 
     // 获得每一行的origin坐标
@@ -56,6 +53,7 @@
             // 获得当前点击坐标对应的字符串偏移
             idx = CTLineGetStringIndexForPosition(line, relativePoint);
             rect = lineRect;
+            break;
         }
     }
     CTLinkConfig config;

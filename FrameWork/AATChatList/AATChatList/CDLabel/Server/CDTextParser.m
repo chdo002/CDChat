@@ -102,6 +102,7 @@ static void deallocfunc(void *ref){
     para.lineBreakMode = config.lineBreakMode;
     NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                       NSFontAttributeName : font,
+                                                                                      NSBackgroundColorAttributeName:[UIColor colorWithCGColor:config.backGroundColor],
                                                                                       NSParagraphStyleAttributeName:para
                                                                                       }];
     NSMutableAttributedString * space = [[NSMutableAttributedString alloc] initWithString:content
