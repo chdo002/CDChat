@@ -8,11 +8,39 @@
 #import "CDTextParser.h"
 #import <CoreText/CoreText.h>
 #import "CDLabelMacro.h"
-
+#import "CTHelper.h"
 
 @implementation CDTextParser
 
 #pragma mark  和表情相关
+
++(void)matchEmoj:(NSMutableAttributedString *)str configuration:(CTDataConfig)config{
+    
+    // 处理表情   将所有[呵呵]换成占位字符  并计算图片位置
+    NSRegularExpression *regEmoji = [NSRegularExpression regularExpressionWithPattern:@"\\[[^\\[\\]]+?\\]"
+                                                                              options:kNilOptions error:NULL];
+    //
+    NSArray<NSTextCheckingResult *> *emoticonResults = [regEmoji matchesInString:str.string
+                                                                         options:kNilOptions
+                                                                           range:NSMakeRange(0, str.string.length)];
+    NSInteger shift = 0;
+    
+    UIFont *font = [UIFont systemFontOfSize:config.textSize];
+    for (NSTextCheckingResult *emo in emoticonResults) {
+        if (emo.range.location == NSNotFound && emo.range.length <= 1) continue;
+        NSRange range = emo.range;
+        range.location += shift;
+        NSString *oldStr = [str attributedSubstringFromRange:range].string;
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+        attachment.image = [CTHelper emoticonDic][oldStr];
+        attachment.bounds = CGRectMake(0, font.descender, font.lineHeight, font.lineHeight);
+        
+        NSAttributedString *imageAttr = [NSMutableAttributedString attributedStringWithAttachment:attachment];
+        [str replaceCharactersInRange:range withAttributedString:imageAttr];
+        shift += imageAttr.length - oldStr.length;
+    }
+}
+
 +(NSMutableArray *)matchImage:(NSMutableAttributedString *)str configuration:(CTDataConfig)config{
     
     /**
@@ -107,6 +135,7 @@ static void deallocfunc(void *ref){
                                                                                       }];
     NSMutableAttributedString * space = [[NSMutableAttributedString alloc] initWithString:content
                                                                                attributes:attributes];
+    
     CFAttributedStringSetAttribute((CFMutableAttributedStringRef)space, CFRangeMake(0, 1),
                                    kCTRunDelegateAttributeName, delegate);
     CFRelease(delegate);

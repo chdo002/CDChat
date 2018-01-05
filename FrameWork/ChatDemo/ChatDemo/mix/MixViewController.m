@@ -32,22 +32,22 @@
     list.msgDelegate = self;
     self.listView = list;
     [self.view addSubview:self.listView];
-    
+
     NSString *path = [[NSBundle mainBundle] pathForResource:@"msgList2" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *err;
     NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
-    
+
     NSMutableArray *msgArr = [NSMutableArray array];
-    
+
     for (NSDictionary *dic in arr) {
         CDMessageModal *modal = [CDMessageModal initWithDic:dic];
         [msgArr addObject:modal];
     }
-    
+
     self.listView.msgArr = msgArr;
-    self.msgArr = msgArr;
-    
+//    self.msgArr = msgArr;
+//
     
     
     NSDictionary *origin = [CTinputHelper defaultImageDic];

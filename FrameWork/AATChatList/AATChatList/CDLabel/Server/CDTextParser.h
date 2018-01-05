@@ -10,6 +10,7 @@
 
 @interface CDTextParser : NSObject
 // 表情
++(void)matchEmoj:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
 +(NSMutableArray *)matchImage:(NSMutableAttributedString *)str configuration:(CTDataConfig)config;
 
 // 链接

@@ -14,10 +14,6 @@
 		E904F3851FEB53F500E156ED /* ChatHelpr.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3501FEB53F400E156ED /* ChatHelpr.m */; };
 		E904F3861FEB53F500E156ED /* ChatConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3541FEB53F400E156ED /* ChatConfiguration.m */; };
 		E904F38F1FEB53F500E156ED /* CDChatList.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F36C1FEB53F400E156ED /* CDChatList.m */; };
-		E904F3901FEB53F500E156ED /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F36F1FEB53F400E156ED /* CDTextTableViewCell.m */; };
-		E904F3911FEB53F500E156ED /* CDImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3721FEB53F400E156ED /* CDImageTableViewCell.m */; };
-		E904F3921FEB53F500E156ED /* CDSystemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3741FEB53F400E156ED /* CDSystemTableViewCell.m */; };
-		E904F3931FEB53F500E156ED /* CDBaseMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3751FEB53F400E156ED /* CDBaseMsgCell.m */; };
 		E904F3941FEB53F500E156ED /* ChatListInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3771FEB53F400E156ED /* ChatListInfo.m */; };
 		E904F5461FEB5AD100E156ED /* AATChatList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F37A1FEB53F500E156ED /* AATChatList.h */; };
 		E904F5721FEB5AD100E156ED /* CDChatList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3551FEB53F400E156ED /* CDChatList.h */; };
@@ -32,10 +28,6 @@
 		E904F5801FEB5AD100E156ED /* ChatImageDrawer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3521FEB53F400E156ED /* ChatImageDrawer.h */; };
 		E904F5811FEB5AD100E156ED /* ChatHelpr.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3531FEB53F400E156ED /* ChatHelpr.h */; };
 		E904F5821FEB5AD100E156ED /* ChatListInfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3781FEB53F400E156ED /* ChatListInfo.h */; };
-		E904F5831FEB5AD100E156ED /* CDImageTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F36E1FEB53F400E156ED /* CDImageTableViewCell.h */; };
-		E904F5841FEB5AD100E156ED /* CDBaseMsgCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3701FEB53F400E156ED /* CDBaseMsgCell.h */; };
-		E904F5851FEB5AD100E156ED /* CDSystemTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3711FEB53F400E156ED /* CDSystemTableViewCell.h */; };
-		E904F5861FEB5AD100E156ED /* CDTextTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3731FEB53F400E156ED /* CDTextTableViewCell.h */; };
 		E904F68F1FEB65BA00E156ED /* libAATUtility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6901FEB65BA00E156ED /* libAATUtility.a */; };
 		E904F7121FEB835100E156ED /* CTinputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F6FF1FEB835100E156ED /* CTinputHelper.m */; };
 		E904F7131FEB835100E156ED /* CTInputBoxDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F7011FEB835100E156ED /* CTInputBoxDrawer.m */; };
@@ -87,6 +79,10 @@
 		E93AD00E1FF241250058FD18 /* NSString+AATString.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F6431FEB628900E156ED /* NSString+AATString.h */; };
 		E93AD00F1FF241250058FD18 /* UIImage+GIF.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F6441FEB628900E156ED /* UIImage+GIF.h */; };
 		E93AD0101FF241250058FD18 /* AATWebImagePrefetcher.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F6451FEB628900E156ED /* AATWebImagePrefetcher.h */; };
+		E95C78E91FFF30F200357678 /* CDBaseMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C78E31FFF30F200357678 /* CDBaseMsgCell.m */; };
+		E95C78EA1FFF30F200357678 /* CDSystemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C78E51FFF30F200357678 /* CDSystemTableViewCell.m */; };
+		E95C78EB1FFF30F200357678 /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C78E61FFF30F200357678 /* CDTextTableViewCell.m */; };
+		E95C78EC1FFF30F200357678 /* CDImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C78E81FFF30F200357678 /* CDImageTableViewCell.m */; };
 		E9DEE2A51FED00A9009D02AC /* CTinputHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F7031FEB835100E156ED /* CTinputHelper.h */; };
 		E9F54C771FFB81FE00207873 /* CDTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F54C731FFB81FD00207873 /* CDTextParser.m */; };
 		E9F54C781FFB81FE00207873 /* CoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F54C751FFB81FD00207873 /* CoreTextUtils.m */; };
@@ -158,10 +154,6 @@
 				E904F5801FEB5AD100E156ED /* ChatImageDrawer.h in CopyFiles */,
 				E904F5811FEB5AD100E156ED /* ChatHelpr.h in CopyFiles */,
 				E904F5821FEB5AD100E156ED /* ChatListInfo.h in CopyFiles */,
-				E904F5831FEB5AD100E156ED /* CDImageTableViewCell.h in CopyFiles */,
-				E904F5841FEB5AD100E156ED /* CDBaseMsgCell.h in CopyFiles */,
-				E904F5851FEB5AD100E156ED /* CDSystemTableViewCell.h in CopyFiles */,
-				E904F5861FEB5AD100E156ED /* CDTextTableViewCell.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,14 +177,6 @@
 		E904F3541FEB53F400E156ED /* ChatConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatConfiguration.m; sourceTree = "<group>"; };
 		E904F3551FEB53F400E156ED /* CDChatList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDChatList.h; sourceTree = "<group>"; };
 		E904F36C1FEB53F400E156ED /* CDChatList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDChatList.m; sourceTree = "<group>"; };
-		E904F36E1FEB53F400E156ED /* CDImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDImageTableViewCell.h; sourceTree = "<group>"; };
-		E904F36F1FEB53F400E156ED /* CDTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
-		E904F3701FEB53F400E156ED /* CDBaseMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBaseMsgCell.h; sourceTree = "<group>"; };
-		E904F3711FEB53F400E156ED /* CDSystemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSystemTableViewCell.h; sourceTree = "<group>"; };
-		E904F3721FEB53F400E156ED /* CDImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDImageTableViewCell.m; sourceTree = "<group>"; };
-		E904F3731FEB53F400E156ED /* CDTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
-		E904F3741FEB53F400E156ED /* CDSystemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSystemTableViewCell.m; sourceTree = "<group>"; };
-		E904F3751FEB53F400E156ED /* CDBaseMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBaseMsgCell.m; sourceTree = "<group>"; };
 		E904F3771FEB53F400E156ED /* ChatListInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListInfo.m; sourceTree = "<group>"; };
 		E904F3781FEB53F400E156ED /* ChatListInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListInfo.h; sourceTree = "<group>"; };
 		E904F3791FEB53F500E156ED /* CDChatListProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDChatListProtocols.h; sourceTree = "<group>"; };
@@ -250,6 +234,14 @@
 		E904F70F1FEB835100E156ED /* CTEmojiKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEmojiKeyboard.m; sourceTree = "<group>"; };
 		E904F7101FEB835100E156ED /* CTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTextView.m; sourceTree = "<group>"; };
 		E904F7111FEB835100E156ED /* CTMoreKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTMoreKeyBoard.h; sourceTree = "<group>"; };
+		E95C78E11FFF30F200357678 /* CDImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDImageTableViewCell.h; sourceTree = "<group>"; };
+		E95C78E21FFF30F200357678 /* CDSystemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSystemTableViewCell.h; sourceTree = "<group>"; };
+		E95C78E31FFF30F200357678 /* CDBaseMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBaseMsgCell.m; sourceTree = "<group>"; };
+		E95C78E41FFF30F200357678 /* CDTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTextTableViewCell.h; sourceTree = "<group>"; };
+		E95C78E51FFF30F200357678 /* CDSystemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSystemTableViewCell.m; sourceTree = "<group>"; };
+		E95C78E61FFF30F200357678 /* CDTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
+		E95C78E71FFF30F200357678 /* CDBaseMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBaseMsgCell.h; sourceTree = "<group>"; };
+		E95C78E81FFF30F200357678 /* CDImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDImageTableViewCell.m; sourceTree = "<group>"; };
 		E9F54C711FFB81FD00207873 /* CTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTHelper.h; sourceTree = "<group>"; };
 		E9F54C721FFB81FD00207873 /* CDTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTextParser.h; sourceTree = "<group>"; };
 		E9F54C731FFB81FD00207873 /* CDTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTextParser.m; sourceTree = "<group>"; };
@@ -381,14 +373,14 @@
 		E904F36D1FEB53F400E156ED /* MessageCell */ = {
 			isa = PBXGroup;
 			children = (
-				E904F36E1FEB53F400E156ED /* CDImageTableViewCell.h */,
-				E904F36F1FEB53F400E156ED /* CDTextTableViewCell.m */,
-				E904F3701FEB53F400E156ED /* CDBaseMsgCell.h */,
-				E904F3711FEB53F400E156ED /* CDSystemTableViewCell.h */,
-				E904F3721FEB53F400E156ED /* CDImageTableViewCell.m */,
-				E904F3731FEB53F400E156ED /* CDTextTableViewCell.h */,
-				E904F3741FEB53F400E156ED /* CDSystemTableViewCell.m */,
-				E904F3751FEB53F400E156ED /* CDBaseMsgCell.m */,
+				E95C78E71FFF30F200357678 /* CDBaseMsgCell.h */,
+				E95C78E31FFF30F200357678 /* CDBaseMsgCell.m */,
+				E95C78E11FFF30F200357678 /* CDImageTableViewCell.h */,
+				E95C78E81FFF30F200357678 /* CDImageTableViewCell.m */,
+				E95C78E21FFF30F200357678 /* CDSystemTableViewCell.h */,
+				E95C78E51FFF30F200357678 /* CDSystemTableViewCell.m */,
+				E95C78E41FFF30F200357678 /* CDTextTableViewCell.h */,
+				E95C78E61FFF30F200357678 /* CDTextTableViewCell.m */,
 			);
 			path = MessageCell;
 			sourceTree = "<group>";
@@ -581,9 +573,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95C78EA1FFF30F200357678 /* CDSystemTableViewCell.m in Sources */,
 				E904F7171FEB835100E156ED /* CTMoreKeyBoard.m in Sources */,
 				E9F54C781FFB81FE00207873 /* CoreTextUtils.m in Sources */,
-				E904F3921FEB53F500E156ED /* CDSystemTableViewCell.m in Sources */,
 				E904F3841FEB53F500E156ED /* ChatImageDrawer.m in Sources */,
 				E904F7131FEB835100E156ED /* CTInputBoxDrawer.m in Sources */,
 				E904F3831FEB53F500E156ED /* CellCaculator.m in Sources */,
@@ -593,19 +585,19 @@
 				E904F7151FEB835100E156ED /* CTInputView.m in Sources */,
 				E904F3861FEB53F500E156ED /* ChatConfiguration.m in Sources */,
 				E904F7191FEB835100E156ED /* CTTextView.m in Sources */,
+				E95C78E91FFF30F200357678 /* CDBaseMsgCell.m in Sources */,
 				E9F54C7E1FFB821400207873 /* CTData.m in Sources */,
 				E904F3851FEB53F500E156ED /* ChatHelpr.m in Sources */,
 				E904F3821FEB53F500E156ED /* MagnifiterView.m in Sources */,
+				E95C78EC1FFF30F200357678 /* CDImageTableViewCell.m in Sources */,
 				E904F7121FEB835100E156ED /* CTinputHelper.m in Sources */,
 				E904F7181FEB835100E156ED /* CTEmojiKeyboard.m in Sources */,
 				E9F54C7F1FFB821400207873 /* CTClickInfo.m in Sources */,
 				E9F54C791FFB81FE00207873 /* CTHelper.m in Sources */,
-				E904F3901FEB53F500E156ED /* CDTextTableViewCell.m in Sources */,
-				E904F3931FEB53F500E156ED /* CDBaseMsgCell.m in Sources */,
 				E904F7141FEB835100E156ED /* CTInputConfiguration.m in Sources */,
 				E904F38F1FEB53F500E156ED /* CDChatList.m in Sources */,
 				E9F54C771FFB81FE00207873 /* CDTextParser.m in Sources */,
-				E904F3911FEB53F500E156ED /* CDImageTableViewCell.m in Sources */,
+				E95C78EB1FFF30F200357678 /* CDTextTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

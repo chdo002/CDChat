@@ -18,11 +18,12 @@
 
 @implementation CTData
 
+
 +(CTDataConfig)defaultConfig{
     CTDataConfig config;
     config.textColor = [UIColor blackColor].CGColor;
     config.hilightColor = [UIColor lightGrayColor].CGColor;
-    config.backGroundColor = [UIColor whiteColor].CGColor;
+    config.backGroundColor = [UIColor clearColor].CGColor;
     config.clickStrColor = [UIColor blueColor].CGColor;
     config.lineSpace = 2;
     config.textSize = 16;
@@ -58,6 +59,7 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = config.lineSpace;
     paragraphStyle.lineBreakMode = config.lineBreakMode;
+    
     NSDictionary *dic = @{
                           NSFontAttributeName: font,
                           NSForegroundColorAttributeName: [UIColor colorWithCGColor:config.textColor],
@@ -66,6 +68,7 @@
                           };
     
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:data.msgString attributes:dic];
+    
     
     /*
      ===========================================================================
@@ -77,8 +80,10 @@
     if (config.matchEmoji) {
         // 匹配图片(主要是表情) 并返回图片
         imageDataArr = [CDTextParser matchImage:attString configuration:config];
+        
     }
     
+    // 
     NSMutableArray <CTLinkData *> *linkDataArr = [NSMutableArray array];
     if (config.matchEmail) {
         // 匹配邮箱
@@ -143,6 +148,30 @@
     
     
     return data;
+}
+
+-(NSAttributedString *)content{
+    if (_content) {
+        return _content;
+    }
+    
+    // 构建富文本
+    UIFont *font = [UIFont systemFontOfSize:_config.textSize];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 0;
+    paragraphStyle.lineBreakMode = _config.lineBreakMode;
+    
+    NSDictionary *dic = @{
+                          NSFontAttributeName: font,
+                          NSForegroundColorAttributeName: [UIColor colorWithCGColor:_config.textColor],
+                          NSBackgroundColorAttributeName:[UIColor colorWithCGColor:_config.backGroundColor],
+                          NSParagraphStyleAttributeName: paragraphStyle
+                          };
+    
+    _content = [[NSMutableAttributedString alloc] initWithString:_msgString attributes:dic];
+    [CDTextParser matchEmoj:_content configuration:_config];
+    
+    return _content;
 }
 
 - (void)setImageArray:(NSArray *)imageArray {

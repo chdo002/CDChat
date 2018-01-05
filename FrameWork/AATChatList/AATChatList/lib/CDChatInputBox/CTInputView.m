@@ -212,7 +212,12 @@
     EmojiTextAttachment *attachment = [[EmojiTextAttachment alloc] init];
     attachment.emojiTag = key;
     attachment.image = img;
-    attachment.bounds = CGRectMake(0, -5, attachment.image.size.width, attachment.image.size.height);
+    
+    attachment.bounds = CGRectMake(0,
+                                   [CTinputHelper defaultConfiguration].stringFont.descender,
+                                   [CTinputHelper defaultConfiguration].stringFont.lineHeight,
+                                   [CTinputHelper defaultConfiguration].stringFont.lineHeight);
+    
     NSMutableAttributedString *textAttr = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
     NSAttributedString *imageAttr = [NSMutableAttributedString attributedStringWithAttachment:attachment];
     [textAttr replaceCharactersInRange:self.textView.selectedRange withAttributedString:imageAttr];

@@ -38,16 +38,8 @@
     self.sysInfoMessageFont = [UIFont systemFontOfSize:14];
     
     CTDataConfig config;
-    config.textColor = [UIColor blackColor].CGColor;
-    config.hilightColor = [UIColor lightGrayColor].CGColor;
-    config.clickStrColor = [UIColor blueColor].CGColor;
-    config.lineSpace = 2;
-    config.textSize = 16;
-    config.lineBreakMode = NSLineBreakByCharWrapping;
-    config.matchLink = YES;
-    config.matchEmail = YES;
-    config.matchEmoji = YES;
-    config.matchPhone = YES;
+    
+    config = [CTData defaultConfig];
     self.ctDataconfig = config;
     
     return self;

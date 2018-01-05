@@ -16,4 +16,6 @@ extern NSString *const  CTCLICKMSGEVENTNOTIFICATION;
 
 @property (strong, nonatomic) CTData * data;
 
+
+
 @end

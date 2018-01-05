@@ -65,7 +65,7 @@ typedef struct {
 @property (assign, nonatomic) CTDataConfig config;
 @property (strong, nonatomic) NSArray<CTImageData *> *imageArray;
 @property (strong, nonatomic) NSArray *linkArray;
-@property (strong, nonatomic) NSAttributedString *content;
+@property (strong, nonatomic) NSMutableAttributedString *content;
 
 
 +(CTData *)dataWithStr:(NSString *)msgString containerWithSize: (CGSize)size;
