@@ -104,6 +104,7 @@ static char TAG_ACTIVITY_SHOW;
     if ([self isKindOfClass:[UIImageView class]]) {
         UIImageView *imageView = (UIImageView *)self;
         imageView.image = image;
+//        [imageView performSelector:@selector(setImage:) withObject:image afterDelay:0 inModes:@[NSDefaultRunLoopMode]];
     }
 #endif
     

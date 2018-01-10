@@ -35,7 +35,7 @@ FOUNDATION_EXPORT const unsigned char AATUtilityVersionString[];
 #import "NSDictionary+Description.h"
 #import "NSArray+Description.h"
 
-
+#import "AATAudioTool.h"
 
 #import "UIImageView+WebCache.h"
 #import "AATWebImageManager.h"

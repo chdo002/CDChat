@@ -44,13 +44,18 @@
 
     CFIndex idx = -1;
     CGRect rect = CGRectNull;
+    CGRect maxRect = CGRectZero;
     for (int i = 0; i < count; i++) {
         CGPoint linePoint = origins[i];
         CTLineRef line = CFArrayGetValueAtIndex(lines, i);
         // 获得每一行的CGRect信息
         CGRect flippedRect = [self getLineBounds:line point:linePoint];
         CGRect lineRect = CGRectApplyAffineTransform(flippedRect, transform);
-
+        
+        maxRect.origin = lineRect.origin;
+        if (lineRect.size.width > maxRect.size.width) {
+            maxRect = lineRect;
+        }
         if (CGRectContainsPoint(lineRect, point)) {
             // 将点击的坐标转换成相对于当前行的坐标
             CGPoint relativePoint = CGPointMake(point.x-CGRectGetMinX(lineRect),
@@ -59,6 +64,13 @@
             idx = CTLineGetStringIndexForPosition(line, relativePoint);
             rect = lineRect;
             break;
+        } else {
+            if (i == count - 1) {
+                if (CGRectContainsPoint(maxRect, point)) {
+                    idx = data.ctFrameLength;
+                    rect = lineRect;
+                }
+            }
         }
     }
     CTLinkConfig config;

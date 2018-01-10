@@ -26,6 +26,9 @@
     
     UIButton *sendButton;
     
+    NSMutableArray <NSMutableArray <UIButton*> *> *emojiButs; // 表情按钮
+
+    
     NSMutableArray <UIView *> *containers; // 包含 scrollview pageView
     NSMutableArray <UIScrollView*> *scrollViews; // 表情scrollview
     NSMutableArray <UIPageControl*> *pageCtrs; // segment
@@ -95,6 +98,8 @@
     emojiDic = [CTinputHelper defaultEmoticonDic];
     UIImage *emojiDelete = [CTinputHelper defaultImageDic][@"emojiDelete"];
 
+    emojiButs = [NSMutableArray array];
+    
     for (int i = 0; i < arrs.count; i++){
         // 每个scroll的container
         UIView *conain = [[UIView alloc] initWithFrame:CGRectMake(0, 1, self.width, self.height - bottomBarAeraH -1)];
@@ -117,6 +122,8 @@
         
         NSArray <NSString *>*empjiNames = arrs[i];
         // 添加每一页的表情
+        NSMutableArray *arr = [NSMutableArray array];
+        [emojiButs addObject: arr];
         for (NSUInteger j = 0; j < empjiNames.count; j++) {
             NSInteger currentPage = j / 23;
             
@@ -140,7 +147,10 @@
                 [delete addTarget:self action:@selector(emojiButtonTabedDelete) forControlEvents:UIControlEventTouchUpInside];
                 [scrol addSubview:delete];
             }
-            [scrol addSubview:but];
+            if (currentPage == 0 && i == 0) {
+                [scrol addSubview:but];
+            }
+            [arr addObject:but];
         }
         // pagecontroll
         UIPageControl *control = [[UIPageControl alloc] initWithFrame:CGRectMake(0, scrol.height, self.width, pageViewH)];
@@ -196,15 +206,19 @@
     [self.layer insertSublayer:lineLayer atIndex:0];
 }
 
--(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    UIView *vv = [super hitTest:point withEvent:event];
-    return vv;
+-(void)didMoveToSuperview {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (int i = 0; i < emojiButs.count; i++) {
+            UIScrollView *scrol = scrollViews[i];
+            for (UIButton *b in emojiButs[i]) {
+                if (!b.superview) {
+                    [scrol addSubview:b];
+                }
+            }
+        }
+    });
 }
 
--(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
-    BOOL bol = [super pointInside:point withEvent:event];
-    return bol;
-}
 -(void)containSelectsss:(UIButton *)but{
     for (UIView *conain in containers) {
         BOOL res = conain.tag != but.tag;

@@ -35,12 +35,15 @@
     
     
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
     CGContextTranslateCTM(context, self.bounds.size.width * 0.5, self.bounds.size.height * 0.5);
     CGContextScaleCTM(context, 1.5, 1.5);
     
-    CGPoint pointInWindow = [self.viewToMagnify convertPoint:self.touchPoint toView:[self frontWindow]];
-    CGContextTranslateCTM(context, -1 * (pointInWindow.x), -1 * (pointInWindow.y));
+    CGPoint pointInWindow = [self.viewToMagnify convertPoint: self.touchPoint toView: [self frontWindow]];
+    CGContextTranslateCTM(context, -pointInWindow.x, -pointInWindow.y);
+    
     [[self frontWindow].layer renderInContext:context];
+    
 }
 
 

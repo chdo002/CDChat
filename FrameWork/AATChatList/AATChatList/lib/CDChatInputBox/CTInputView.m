@@ -9,6 +9,7 @@
 #import "CTTextView.h"
 #import "AATUtility.h"
 #import "CTEmojiKeyboard.h"
+#import "AATUtility.h"
 
 @interface EmojiTextAttachment : NSTextAttachment
 @property(strong, nonatomic) NSString *emojiTag;
@@ -37,19 +38,18 @@
 @end
 
 
-@interface CTInputView()<CTEmojiKeyboardDelegare,CTMoreKeyBoardDelegare,UITextViewDelegate>
+@interface CTInputView()<CTEmojiKeyboardDelegare,CTMoreKeyBoardDelegare,UITextViewDelegate,AATAudioToolProtocol>
 {
     CGRect originRect;   // 根据键盘是否弹起，整个值有可能是底部的是在底部的rect  也可能是上面的rect
     
-    
     CGFloat tempTextViewHeight; // 在多行文字切换到语音功能时，需要临时保存textview的高度
-    
     
     CTEmojiKeyboard *emojiKeyboard;
     CTMoreKeyBoard *moreKeyboard;
 }
 @property (nonatomic, strong) CTTextView *textView;
 @property (nonatomic, strong) UIButton *voiceBut;
+@property BOOL isRecordTouchingOutSide; // 手指是否在输入栏内部
 @property (nonatomic, strong) UIButton *recordBut;
 @property (nonatomic, strong) UIButton *emojiBut;
 @property (nonatomic, strong) UIButton *moreBut;
@@ -108,6 +108,12 @@
     // 按住说话按钮
     UIButton *v2 = [[UIButton alloc] initWithFrame:config.inputViewRect];
     [v2 setTitle:@"按住 说话" forState:UIControlStateNormal];
+    [v2 addTarget:self action:@selector(touchDownRecordButton1:) forControlEvents:UIControlEventTouchDown];
+    [v2 addTarget:self action:@selector(touchDownRecordButton2:) forControlEvents:UIControlEventTouchUpInside];
+    [v2 addTarget:self action:@selector(touchDownRecordButton3:) forControlEvents:UIControlEventTouchUpOutside];
+    [v2 addTarget:self action:@selector(touchDownRecordButton4:) forControlEvents:UIControlEventTouchDragOutside];
+    [v2 addTarget:self action:@selector(touchDownRecordButton5:) forControlEvents:UIControlEventTouchDragInside];
+    
     [v2 setTitleColor:CRMHexColor(0x555555) forState:UIControlStateNormal];
     v2.layer.borderColor = CRMHexColor(0xC1C2C6).CGColor;
     v2.layer.borderWidth = 1;
@@ -193,6 +199,58 @@
     self.textView.inputView = keyboard;
     [self.textView reloadInputViews];
     [self.textView becomeFirstResponder];
+}
+
+#pragma mark 语音输入
+
+-(void)touchDownRecordButton1:(UIButton *)but{
+//    开始录音
+    [[AATAudioTool share] startRecord];
+    [AATAudioTool share].delegate = self;
+}
+
+-(void)touchDownRecordButton2:(UIButton *)but{
+//    结束录音
+    [[AATAudioTool share] stopRecord];
+}
+
+-(void)touchDownRecordButton3:(UIButton *)but{
+//    外部抬起，取消录音
+    [AATAudioTool share].delegate = nil;
+    [[AATAudioTool share] stopRecord];
+    [AATHUD showInfo:@"取消录音" andDismissAfter:0.5];
+}
+
+// 拖动到外部
+-(void)touchDownRecordButton4:(UIButton *)but{
+    self.isRecordTouchingOutSide = YES;
+}
+// 拖回内部
+-(void)touchDownRecordButton5:(UIButton *)but{
+    // 拖拽到内部，如果在录音，则恢复正常显示，否则什么都不做
+    if ([AATAudioTool share].isRecorderRecording) {
+        self.isRecordTouchingOutSide = NO;
+    }
+}
+
+-(void)aatAudioToolDidStartRecord:(NSTimeInterval)currentTime{
+    [AATHUD showInfo:[NSString stringWithFormat:@"开始录音 -- %f",currentTime]];
+    
+}
+
+-(void)aatAudioToolUpdateCurrentTime:(NSTimeInterval)currentTime fromTime:(NSTimeInterval)startTime peakPower:(float)peak averagePower:(float)averagePower{
+    
+    if (self.isRecordTouchingOutSide){
+        [AATHUD showInfo:@"松开手指，取消发送"];
+    } else {
+        
+        
+        [AATHUD showInfo:[NSString stringWithFormat:@"录音中 \n现在时刻：%f  \n开始时间：%f  \npeak: %f   \nava: %f",currentTime,startTime,peak,averagePower]];
+    }
+}
+
+-(void)aatAudioToolDidStopRecord:(NSURL *)dataPath startTime:(NSTimeInterval)start endTime:(NSTimeInterval)end errorInfo:(NSString *)info{
+    [AATHUD showInfo:@"录音结束" andDismissAfter:0.5];
 }
 
 #pragma mark UITextViewDelegate

@@ -55,12 +55,10 @@
         // 左侧
         //     设置消息内容, 并调整UI
         [self configText_Left:data];
-        
     } else {
         // 右侧
         //     设置消息内容, 并调整UI
         [self configText_Right:data];
-        
     }
 }
 
@@ -86,4 +84,6 @@
     textRect.size.height = data.textlayout.height;
     self.textContent_right.frame = textRect;
 }
+
+
 @end

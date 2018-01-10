@@ -71,6 +71,7 @@ typedef enum : NSUInteger {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CTCLICKMSGEVENTNOTIFICATION object:nil];
     return self;
 }
+
 -(void)didMoveToSuperview{
     UIViewController *viewController =  self.viewController;
     if (self.viewController) {
@@ -90,7 +91,6 @@ typedef enum : NSUInteger {
     if (!self.superview) {
         return;
     }
-//    NSAssert(self.viewController, @"CDChatList: 一定要传ViewController进来");
 }
 
 #pragma mark 通知
@@ -272,13 +272,14 @@ typedef enum : NSUInteger {
     if (scrollView.dragging) {
         [[NSNotificationCenter defaultCenter] postNotificationName:CDChatListDidScroll object:nil];
     }
+    
     CGFloat offsetY = self.contentOffset.y;
     if (offsetY >= pullToLoadMark) {
         return;
     }
     
     //  判断在普通状态，则进入加载更多方法
-    if (self.loadHeaderState == CDHeaderLoadStateNoraml) {
+    if (self.loadHeaderState == CDHeaderLoadStateNoraml && scrollView.isDragging) {
         // 将当前状态设为加载中
         self.loadHeaderState = CDHeaderLoadStateLoading;
         

@@ -71,6 +71,8 @@
 		E904F4811FEB57CA00E156ED /* AATWebImageDownloaderOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3E61FEB543D00E156ED /* AATWebImageDownloaderOperation.h */; };
 		E904F4821FEB57CA00E156ED /* AATWebImageDownloader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3E71FEB543D00E156ED /* AATWebImageDownloader.h */; };
 		E904F4831FEB57CA00E156ED /* AATWebImagePrefetcher.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3EB1FEB543D00E156ED /* AATWebImagePrefetcher.h */; };
+		E959287D200465F900D7B44D /* AATAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E959287C200465F900D7B44D /* AATAudioTool.m */; };
+		E959287E2004736100D7B44D /* AATAudioTool.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E959287B200465F900D7B44D /* AATAudioTool.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +82,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				E959287E2004736100D7B44D /* AATAudioTool.h in CopyFiles */,
 				E904F4631FEB57CA00E156ED /* AATUtility.h in CopyFiles */,
 				E904F4641FEB57CA00E156ED /* CRMReachability.h in CopyFiles */,
 				E904F4651FEB57CA00E156ED /* UIView+CRM.h in CopyFiles */,
@@ -184,6 +187,8 @@
 		E904F3ED1FEB543D00E156ED /* AATHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATHUD.m; sourceTree = "<group>"; };
 		E904F3EE1FEB543D00E156ED /* AATHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATHUD.h; sourceTree = "<group>"; };
 		E904F3EF1FEB543D00E156ED /* AATUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATUtility.h; sourceTree = "<group>"; };
+		E959287B200465F900D7B44D /* AATAudioTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATAudioTool.h; sourceTree = "<group>"; };
+		E959287C200465F900D7B44D /* AATAudioTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AATAudioTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				E904F3EF1FEB543D00E156ED /* AATUtility.h */,
+				E95928772004646A00D7B44D /* Tool */,
 				E904F3B21FEB543D00E156ED /* Category */,
 				E904F3AD1FEB543D00E156ED /* CRMLog */,
 				E904F3EC1FEB543D00E156ED /* HUD */,
@@ -332,6 +338,15 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
+		E95928772004646A00D7B44D /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E959287B200465F900D7B44D /* AATAudioTool.h */,
+				E959287C200465F900D7B44D /* AATAudioTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -404,6 +419,7 @@
 				E904F4001FEB543D00E156ED /* UIImage+MultiFormat.m in Sources */,
 				E904F4041FEB543D00E156ED /* UIView+WebCacheOperation.m in Sources */,
 				E904F4081FEB543D00E156ED /* AATWebImagePrefetcher.m in Sources */,
+				E959287D200465F900D7B44D /* AATAudioTool.m in Sources */,
 				E904F40B1FEB543D00E156ED /* AATImageCacheConfig.m in Sources */,
 				E904F4021FEB543D00E156ED /* UIImageView+WebCache.m in Sources */,
 				E904F3F51FEB543D00E156ED /* NSDictionary+DictToJSON.m in Sources */,

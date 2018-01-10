@@ -35,6 +35,10 @@
         // 设置聊天界面的表情资源
         [ChatHelpr setDefaultEmoticonDic:dic];
         
+        NSMutableDictionary *resDic = [NSMutableDictionary dictionaryWithDictionary:[ChatHelpr defaultImageDic]];
+        [resDic setObject:[UIImage imageNamed:@"voice"] forKey:@"voice"];
+        [ChatHelpr setDefaultImageDic:resDic];
+        
         // 设置输入框的表情资源
         [CTinputHelper setDefaultEmoticonDic:dic emojiNameArrs:@[temp.allKeys,temp.allKeys] emojiNameArrTitles:@[@"hhe",@"haha"]];
         
@@ -53,6 +57,15 @@
         
         [[CTinputHelper defaultConfiguration] addEmoji];
         [[CTinputHelper defaultConfiguration] addVoice];
+        
+        NSDictionary *origin = [CTinputHelper defaultImageDic];
+        
+        NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:origin];
+        [newDic setObject:[UIImage imageNamed:@"keyboard"] forKey:@"keyboard"];
+        [newDic setObject:[UIImage imageNamed:@"voice"] forKey:@"voice"];
+        [newDic setObject:[UIImage imageNamed:@"emojiDelete"] forKey:@"emojiDelete"];
+        
+        [CTinputHelper setDefaultImageDic:newDic]; // 设置除表情的图片资源
     });
     
     

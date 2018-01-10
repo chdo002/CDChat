@@ -6,7 +6,7 @@
 //
 
 /*
- http://eim-talk-stg.dmzstg.pingan.com.cn/appim-pir/talk?weAppNo=PAKDZS_09&businessType=KDZS&encryptStr=clientImNo=2E703B3776D5E60A2615DC0CB4B|customerNo=|customerName=|nickName=&extraInfo={%22umId%22:%22LIUFEI004%22,%22flag%22:%22Y%22,%22phoneNumber%22:%2213501020305%22,%22managerName%22:%22%E8%B7%AF%E4%BA%BA%E7%94%B2%22}#
+ http://eim-talk-stg.dmzstg.pingan.com.cn/appim-pir/talk?weAppNo=PAKDZS_09&businessType=KDZS&encryptStr=clientImNo=2E44776D5E60A2615DC0CB4B|customerNo=|customerName=|nickName=&extraInfo={%22umId%22:%22LIUFEI004%22,%22flag%22:%22Y%22,%22phoneNumber%22:%2213501020305%22,%22managerName%22:%22%E8%B7%AF%E4%BA%BA%E7%94%B2%22}#
  
  正在为您转接人工服务
  
@@ -18,7 +18,6 @@
 #import "CDLabelMacro.h"
 #import "CoreTextUtils.h"
 #import "CTClickInfo.h"
-
 
 
 @interface SelectionAnchor: UIImageView
@@ -69,8 +68,6 @@
 
 
 
-
-
 NSString *const  CTCLICKMSGEVENTNOTIFICATION = @"CTCLICKMSGEVENTNOTIFICATION";
 
 typedef enum CTDisplayViewState : NSInteger {
@@ -82,19 +79,31 @@ typedef enum CTDisplayViewState : NSInteger {
 #define ANCHOR_TARGET_TAG 1
 
 @interface CDLabel()<UIGestureRecognizerDelegate>
+{
+    BOOL isLeftAncherSelecting;
+    BOOL isRightAncherSelecting;
+    
+    CFStringRef currentMode;
+}
+// 下标
+@property (nonatomic) NSInteger selectionStartPosition; // 下标  选择起点
+@property (nonatomic) NSInteger selectionEndPosition;   // 下标  选择终点
 
-@property (nonatomic) NSInteger selectionStartPosition; // 选择起点下标
-@property (nonatomic) NSInteger selectionEndPosition;   // 选择终点下标
-
+// 状态
 @property (nonatomic) CTDisplayViewState state;
+
+// 视图
 @property (strong, nonatomic) SelectionAnchor *leftSelectionAnchor;
 @property (strong, nonatomic) SelectionAnchor *rightSelectionAnchor;
+
+// 放大镜
 @property (strong, nonatomic) MagnifiterView *magnifierView;
 
 
 @property(nonatomic, strong) UIGestureRecognizer *tapRecognizer;
 @property(nonatomic, strong) UIGestureRecognizer *longPressRecognizer;
 @property(nonatomic, strong) UIGestureRecognizer *panRecognizer;
+
 @end
 
 @implementation CDLabel
@@ -110,10 +119,26 @@ typedef enum CTDisplayViewState : NSInteger {
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
+    
+    currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
+    
     self.backgroundColor = [UIColor clearColor];
     _selectionStartPosition = 5;
     _selectionEndPosition = 1;
     [self setupGestures];
+    
+    CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+
+        CFComparisonResult rest = CFStringCompare(currentMode, CFRunLoopCopyCurrentMode(CFRunLoopGetMain()), kCFCompareBackwards);
+        if (rest != kCFCompareEqualTo) {
+            currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
+            if ((NSString *)CFBridgingRelease(currentMode) == UITrackingRunLoopMode) {
+                [self scrollDidScroll];
+            }
+        }
+    });
+    
+    CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
     
     return self;
 }
@@ -125,6 +150,7 @@ typedef enum CTDisplayViewState : NSInteger {
     }
     return _magnifierView;
 }
+
 -(UIImageView *)leftSelectionAnchor{
     if (!_leftSelectionAnchor) {
         _leftSelectionAnchor = [SelectionAnchor anchor:YES lineHeight:[UIFont systemFontOfSize:self.data.config.textSize].lineHeight];
@@ -132,8 +158,14 @@ typedef enum CTDisplayViewState : NSInteger {
     if (!_leftSelectionAnchor.superview) {// 若没有在父视图上，则默认在起点位置
         [self addSubview:_leftSelectionAnchor];
     }
+    CGRect rec = _leftSelectionAnchor.frame;
+    if (rec.size.height < 20) {
+        rec.size = CGSizeMake(10, 30);
+    }
+    _leftSelectionAnchor.frame = rec;
     return _leftSelectionAnchor;
 }
+
 -(UIImageView *)rightSelectionAnchor{
     if (!_rightSelectionAnchor) {
         _rightSelectionAnchor = [SelectionAnchor anchor:NO lineHeight:[UIFont systemFontOfSize:self.data.config.textSize].lineHeight];
@@ -141,6 +173,11 @@ typedef enum CTDisplayViewState : NSInteger {
     if (!_rightSelectionAnchor.superview) {
         [self addSubview:_rightSelectionAnchor];
     }
+    CGRect rec = _rightSelectionAnchor.frame;
+    if (rec.size.height < 20) {
+        rec.size = CGSizeMake(10, 30);
+    }
+    _rightSelectionAnchor.frame = rec;
     return _rightSelectionAnchor;
 }
 
@@ -171,6 +208,9 @@ typedef enum CTDisplayViewState : NSInteger {
     _data = data;
     self.layer.contents = (__bridge id)data.contents.CGImage;
     self.state = CTDisplayViewStateNormal;
+    self.selectionStartPosition = 0;
+    self.selectionEndPosition = 0;
+    [self setNeedsDisplay];
 }
 
 - (void)setState:(CTDisplayViewState)state {
@@ -179,14 +219,49 @@ typedef enum CTDisplayViewState : NSInteger {
     }
     _state = state;
     
+    if (_state == CTDisplayViewStateNormal) {
+        [self hidMenu];
+    } else if (_state == CTDisplayViewStateSelected) {
+        [self showMenu];
+    } else {
+        [self hidMenu];
+    }
 }
 
+-(void)showMenu{
+    
+    [self becomeFirstResponder];
+    
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    UIMenuItem *item1 = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(copycontent:)];
+    UIMenuItem *item2 = [[UIMenuItem alloc] initWithTitle:@"全选" action:@selector(selectAllContent:)];
+    [menu setMenuItems:@[item1, item2]];
+    CGRect rec = CGRectMake(self.frame.size.width * 0.5, self.leftSelectionAnchor.frame.origin.y, 10, 10);
+    [menu setTargetRect:rec inView:self];
+    [menu setMenuVisible:YES animated:YES];
+    
+}
+
+-(void)hidMenu{
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+}
+
+-(void)scrollDidScroll {
+    self.state = CTDisplayViewStateNormal;
+    self.selectionStartPosition = 0;
+    self.selectionEndPosition = 0;
+    [self.leftSelectionAnchor removeFromSuperview];
+    [self.rightSelectionAnchor removeFromSuperview];
+    [self setNeedsDisplay];
+}
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
     
     if ([gestureRecognizer isKindOfClass:UITapGestureRecognizer.class]) {
         return NO;
     }
+    
     if ([gestureRecognizer isKindOfClass:UILongPressGestureRecognizer.class]) {
         return YES;
     }
@@ -198,33 +273,36 @@ typedef enum CTDisplayViewState : NSInteger {
         }
         
         if (self.state == CTDisplayViewStateSelected){
-            return YES;
+            
+            CGPoint loc = [touch locationInView:self];
+            
+            CGRect leftRect = CGRectMake(self.leftSelectionAnchor.frame.origin.x - (60 - self.leftSelectionAnchor.frame.size.width) * 0.5,
+                                         self.leftSelectionAnchor.frame.origin.y - 10,
+                                         60,
+                                         self.leftSelectionAnchor.frame.size.height + 10);
+            isLeftAncherSelecting = CGRectContainsPoint(leftRect,loc);
+            
+            CGRect rightRect = CGRectMake(self.rightSelectionAnchor.frame.origin.x - (60 - self.rightSelectionAnchor.frame.size.width) * 0.5,
+                                          self.rightSelectionAnchor.frame.origin.y,
+                                          60,
+                                          self.rightSelectionAnchor.frame.size.height + 10);
+            isRightAncherSelecting = CGRectContainsPoint(rightRect, loc);
+            if (isLeftAncherSelecting || isRightAncherSelecting) {
+//                NSLog(@"......");
+                return YES;
+            } else {
+//                NSLog(@"!!!!!!");
+                return NO;
+            }
         }
     }
     return NO;
 }
 
--(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    UIView *vv = [super hitTest:point withEvent:event];
-    if (!vv) {
-        self.selectionStartPosition = 0;
-        self.selectionEndPosition = 0;
-        [self.leftSelectionAnchor removeFromSuperview];
-        [self.rightSelectionAnchor removeFromSuperview];
-        [self setNeedsDisplay];
-    }
-    return vv;
-}
 
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
-    BOOL res = [super pointInside:point withEvent:event];
-    if (!res) {
-        self.selectionStartPosition = 0;
-        self.selectionEndPosition = 0;
-        [self.leftSelectionAnchor removeFromSuperview];
-        [self.rightSelectionAnchor removeFromSuperview];
-        [self setNeedsDisplay];
-    }
+    CGRect rec = CGRectMake(-10, -10, self.frame.size.width + 20, self.frame.size.height + 20);
+    BOOL res = CGRectContainsPoint(rec, point);
     return res;
 }
 
@@ -235,13 +313,16 @@ typedef enum CTDisplayViewState : NSInteger {
     
     // 文字重新绘制
     [self.data.contents drawInRect:self.bounds];
-    
+
     // 绘制选择区域
-    //    [self drawTempRect];
     [self drawSelectionArea];
 }
+
 #pragma mark 绘制填充区域
 - (void)drawSelectionArea {
+    
+    [self.leftSelectionAnchor removeFromSuperview];
+    [self.rightSelectionAnchor removeFromSuperview];
     
     // 没有文字被选择，则不绘制
     if (_selectionEndPosition <= 0) {
@@ -253,6 +334,7 @@ typedef enum CTDisplayViewState : NSInteger {
     
     CTFrameRef textFrame = self.data.ctFrame;
     CFArrayRef lines = CTFrameGetLines(self.data.ctFrame);
+    
     if (!lines) {
         return;
     }
@@ -317,6 +399,8 @@ typedef enum CTDisplayViewState : NSInteger {
     
 }
 
+#pragma mark  ------------------------------手势 ------------------------------
+
 #pragma mark 长按手势
 - (void)userLongPressedGuestureDetected:(UILongPressGestureRecognizer *)recognizer {
     
@@ -329,9 +413,9 @@ typedef enum CTDisplayViewState : NSInteger {
         case UIGestureRecognizerStateBegan:
         {
             self.selectionStartPosition = 0;
-            self.selectionEndPosition = self.data.msgString.length;
-            self.state = CTDisplayViewStateSelected;
+            self.selectionEndPosition = self.data.ctFrameLength;
             [self setNeedsDisplay];
+            self.state = CTDisplayViewStateSelected;
         }
             break;
         case UIGestureRecognizerStateChanged:
@@ -351,7 +435,7 @@ typedef enum CTDisplayViewState : NSInteger {
 
 #pragma mark 拖动手势
 - (void)userPanGuestureDetected:(UIGestureRecognizer *)recognizer {
-    
+//    NSLog(@"?????2");
     if (self.state == CTDisplayViewStateNormal) {
 //        NSLog(@"不在拖动态");
         return;
@@ -367,13 +451,11 @@ typedef enum CTDisplayViewState : NSInteger {
 //        NSLog(@"不在视图上");
     }
     
-    BOOL inLeft = CGRectContainsPoint(expangRectToRect(self.leftSelectionAnchor.frame, CGSizeMake(60, 150)), loc);
-    BOOL inRight = CGRectContainsPoint(expangRectToRect(self.rightSelectionAnchor.frame, CGSizeMake(60, 50)), loc);
     
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
         {
-            self.magnifierView.touchPoint = loc;
+            
         }
             break;
         case UIGestureRecognizerStateChanged:
@@ -388,15 +470,19 @@ typedef enum CTDisplayViewState : NSInteger {
                 return;
             }
             
-            if (inLeft) {
+            if (isLeftAncherSelecting) {
                 if (config.index >= _selectionEndPosition) {
-//                    NSLog(@"不能拖了");
+//                    NSLog(@"不能拖了2");
                     return;
                 }
                 _selectionStartPosition = config.index;
                 self.magnifierView.touchPoint = loc;
-            } else {
+            }
+            
+            
+            if (isRightAncherSelecting) {
                 if (config.index <= _selectionStartPosition) {
+//                    NSLog(@"不能拖了3");
                     return;
                 }
                 _selectionEndPosition = config.index;
@@ -440,9 +526,10 @@ CGRect expangRectToRect(CGRect originR, CGSize target){
 }
 
 #pragma mark 菜单相关方法
+
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     
-    if (action == @selector(copy:) || action == @selector(selectAll:)) {
+    if (action == @selector(copycontent:) || action == @selector(selectAllContent:)) {
         return YES;
     }
     return NO;
@@ -452,19 +539,42 @@ CGRect expangRectToRect(CGRect originR, CGSize target){
     return YES;
 }
 
-- (void)copy:(UIMenuController *)menu
+- (void)copycontent:(UIMenuController *)menu
 {
-    //复制文字到剪切板
     if (!self.data.msgString) return;
-    //复制文字到剪切板
+    
+    
+    // 选中的富文本
+    NSMutableAttributedString * sub = [[NSMutableAttributedString alloc] initWithAttributedString:[self.data.content attributedSubstringFromRange: NSMakeRange(self.selectionStartPosition, self.selectionEndPosition - self.selectionStartPosition)]];
+    
+    NSUInteger shift = 0;
+    for (CTImageData *imgData in self.data.imageArray) {
+        
+        NSRange rang = NSMakeRange(imgData.position + shift, 1);
+        if (rang.location < _selectionEndPosition + shift) {
+            [sub replaceCharactersInRange:rang withString:imgData.name];
+            shift += [imgData.name length] - 1;
+        }
+    }
+    
     UIPasteboard * paste = [UIPasteboard generalPasteboard];
-    paste.string = self.data.msgString;
+    paste.string = sub.string;
+    
+    [self resignFirstResponder];
+    [self scrollDidScroll];
 }
 
-- (void)selectAll:(UIMenuController *)menu
+- (void)selectAllContent:(UIMenuController *)menu
 {
+    [self resignFirstResponder];
+    [self scrollDidScroll];
     
+    self.selectionStartPosition = 0;
+    self.selectionEndPosition = self.data.ctFrameLength;
+    [self setNeedsDisplay];
+    self.state = CTDisplayViewStateSelected;
 }
+
 
 @end
 

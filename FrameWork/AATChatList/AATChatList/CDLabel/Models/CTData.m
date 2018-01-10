@@ -120,7 +120,7 @@
     CFRelease(framesetter);
     CFRelease(path);
     
-    
+    data.ctFrameLength = [attString length];
     data.width = caSize.width;
     data.height = caSize.height;
     data.ctFrame = frame;

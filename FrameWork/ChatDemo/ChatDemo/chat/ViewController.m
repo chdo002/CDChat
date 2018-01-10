@@ -44,6 +44,38 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+//    UIMenuController *menu = [UIMenuController sharedMenuController];
+//    UIMenuItem *item1 = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(copycontent:)];
+//    UIMenuItem *item2 = [[UIMenuItem alloc] initWithTitle:@"全选" action:@selector(selectAllContent:)];
+//    [menu setMenuItems:@[item1, item2]];
+//    CGRect rec = CGRectMake(0,10,0,0);
+//    [menu setTargetRect:rec inView:self.view];
+//    [menu setMenuVisible:YES animated:YES];
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    
+    if (action == @selector(copycontent:) || action == @selector(selectAllContent:)) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)copycontent:(UIMenuController *)menu
+{
+    //复制文字到剪切板
+}
+
+- (void)selectAllContent:(UIMenuController *)menu
+{
+    
+}
+
 - (void)chatlistClickMsgEvent:(ChatListInfo *)listInfo {
     
 

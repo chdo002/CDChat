@@ -57,7 +57,7 @@ typedef struct {
  绘制在label上的
  */
 @property (assign, nonatomic) CTFrameRef ctFrame;
-
+@property (assign, nonatomic) NSUInteger ctFrameLength;
 @property(nonatomic, strong) UIImage *contents;
 
 @property (assign, nonatomic) CGFloat width;   // 文本宽度

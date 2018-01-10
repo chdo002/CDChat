@@ -276,7 +276,7 @@
         if (data.userThumImage) {
             _headImage_left.image = data.userThumImage;
         } else if (data.userThumImageURL) {
-//            [_headImage_left sd_setImageWithURL:data.userThumImageURL placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+            [_headImage_left aat_setImageWithURL:data.userThumImageURL placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
         } else {
             [_headImage_left setImage:[ChatHelpr defaultImageDic][@"icon_head"]];
         }
@@ -284,7 +284,7 @@
         if (data.userThumImage) {
             _headImage_right.image = data.userThumImage;
         } else if (data.userThumImageURL) {
-//            [_headImage_right sd_setImageWithURL:data.userThumImageURL placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+            [_headImage_right aat_setImageWithURL:data.userThumImageURL placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
         } else {
             [_headImage_right setImage:[ChatHelpr defaultImageDic][@"icon_head"]];
         }

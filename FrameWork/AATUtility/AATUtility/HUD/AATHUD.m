@@ -73,13 +73,16 @@ static const CGFloat AATHUDNONESTOP = -1.0f;
         strongSelf.statusLabel.text = info;
         
         // 确保hud显示
-        [strongSelf updateViewHierarchy];
+        BOOL isNew = [strongSelf updateViewHierarchy];
         
         // 更新位置
         [strongSelf updateHUDFrame:showLoading];
-//        if (!strongSelf.hudView.effect) {
-         strongSelf.hudView.transform = strongSelf.hudView.transform = CGAffineTransformScale(strongSelf.hudView.transform, 1/1.1f, 1/1.1f);
-//        }
+
+        if (isNew) {
+            strongSelf.hudView.transform = strongSelf.hudView.transform = CGAffineTransformScale(strongSelf.hudView.transform, 1/1.1f, 1/1.1f);
+        } else {
+            strongSelf.hudView.transform = CGAffineTransformIdentity;
+        }
         
         [UIView animateWithDuration:0.15
                               delay:0
@@ -336,11 +339,13 @@ static const CGFloat AATHUDNONESTOP = -1.0f;
 
 }
 
--(void)updateViewHierarchy{
+-(BOOL)updateViewHierarchy{
     if (!self.superview) {
         [self.frontWindow addSubview:self];
+        return YES;
     } else {
         [self.superview bringSubviewToFront:self];
+        return NO;
     }
 }
 

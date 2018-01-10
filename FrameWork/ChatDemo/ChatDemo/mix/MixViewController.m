@@ -48,30 +48,19 @@
     self.listView.msgArr = msgArr;
 //    self.msgArr = msgArr;
 //
-    
-    
-    NSDictionary *origin = [CTinputHelper defaultImageDic];
-    
-    NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:origin];
-    [newDic setObject:[UIImage imageNamed:@"keyboard"] forKey:@"keyboard"];
-    [newDic setObject:[UIImage imageNamed:@"voice"] forKey:@"voice"];
-    [newDic setObject:[UIImage imageNamed:@"emojiDelete"] forKey:@"emojiDelete"];
-    
-    [CTinputHelper setDefaultImageDic:newDic]; // 设置除表情的图片资源
-    
     input = [[CTInputView alloc] initWithFrame:CGRectMake(0, ScreenH() - CTInputViewHeight, ScreenW(), CTInputViewHeight)];
     input.delegate = self;
     [self.view addSubview:input];
     
     
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CDChatListDidScroll object:nil];
+    
 }
 
 -(void)receiveNotification:(NSNotification *)noti{
-    if ([noti.name isEqualToString:CDChatListDidScroll]) {
-     [input resignFirstResponder];
+    
+    if ([noti.name isEqualToString: CDChatListDidScroll]) {
+        [input resignFirstResponder];
     }
 }
 
