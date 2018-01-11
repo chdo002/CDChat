@@ -37,12 +37,14 @@
                                              BubbleRoundAnglehorizInset, 0, 0);
     [self.bubbleImage_left addSubview:self.textContent_left];
     self.bubbleImage_left.clipsToBounds = NO;
+    
     // 右侧气泡中添加label
     self.textContent_right = [[CDLabel alloc] init];
     self.textContent_right.frame = CGRectMake(BubbleRoundAnglehorizInset,
                                               BubbleRoundAnglehorizInset, 0, 0);
     [self.bubbleImage_right addSubview:self.textContent_right];
     self.bubbleImage_right.clipsToBounds = NO;
+    
     return self;
 }
 

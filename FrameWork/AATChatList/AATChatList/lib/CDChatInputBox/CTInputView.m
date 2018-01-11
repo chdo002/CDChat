@@ -10,6 +10,7 @@
 #import "AATUtility.h"
 #import "CTEmojiKeyboard.h"
 #import "AATUtility.h"
+#import "AATVoiceHudAlert.h"
 
 @interface EmojiTextAttachment : NSTextAttachment
 @property(strong, nonatomic) NSString *emojiTag;
@@ -201,26 +202,28 @@
     [self.textView becomeFirstResponder];
 }
 
-#pragma mark 语音输入
-
+#pragma mark 语音相关
+// 按下
 -(void)touchDownRecordButton1:(UIButton *)but{
 //    开始录音
     [[AATAudioTool share] startRecord];
+    [AATVoiceHudAlert showPowerHud:1];
+    self.isRecordTouchingOutSide = NO;
     [AATAudioTool share].delegate = self;
+    
 }
-
+// 内部抬起
 -(void)touchDownRecordButton2:(UIButton *)but{
 //    结束录音
     [[AATAudioTool share] stopRecord];
+    [AATVoiceHudAlert hideHUD];
 }
-
+// 外部抬起
 -(void)touchDownRecordButton3:(UIButton *)but{
 //    外部抬起，取消录音
-    [AATAudioTool share].delegate = nil;
-    [[AATAudioTool share] stopRecord];
-    [AATHUD showInfo:@"取消录音" andDismissAfter:0.5];
+    [[AATAudioTool share] intertrptRecord];
+    [AATVoiceHudAlert hideHUD];
 }
-
 // 拖动到外部
 -(void)touchDownRecordButton4:(UIButton *)but{
     self.isRecordTouchingOutSide = YES;
@@ -234,26 +237,29 @@
 }
 
 -(void)aatAudioToolDidStartRecord:(NSTimeInterval)currentTime{
-    [AATHUD showInfo:[NSString stringWithFormat:@"开始录音 -- %f",currentTime]];
-    
+    [AATVoiceHudAlert showPowerHud:1];
 }
 
--(void)aatAudioToolUpdateCurrentTime:(NSTimeInterval)currentTime fromTime:(NSTimeInterval)startTime peakPower:(float)peak averagePower:(float)averagePower{
+-(void)aatAudioToolUpdateCurrentTime:(NSTimeInterval)currentTime fromTime:(NSTimeInterval)startTime power:(float)power{
     
     if (self.isRecordTouchingOutSide){
-        [AATHUD showInfo:@"松开手指，取消发送"];
+        [AATVoiceHudAlert showRevocationHud];
     } else {
-        
-        
-        [AATHUD showInfo:[NSString stringWithFormat:@"录音中 \n现在时刻：%f  \n开始时间：%f  \npeak: %f   \nava: %f",currentTime,startTime,peak,averagePower]];
+        [AATVoiceHudAlert showPowerHud:ceil(power * 10)];
     }
 }
 
 -(void)aatAudioToolDidStopRecord:(NSURL *)dataPath startTime:(NSTimeInterval)start endTime:(NSTimeInterval)end errorInfo:(NSString *)info{
-    [AATHUD showInfo:@"录音结束" andDismissAfter:0.5];
+    [self.delegate inputViewPopAudioath:dataPath];
+    [AATAudioTool share].delegate = nil;
+}
+//
+-(void)aatAudioToolDidSInterrupted{
+    [AATAudioTool share].delegate = nil;
+    [AATVoiceHudAlert showRevocationHud];
 }
 
-#pragma mark UITextViewDelegate
+#pragma mark 文本 UITextViewDelegate
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]) {
@@ -263,7 +269,7 @@
     return YES;
 }
 
-#pragma mark CTEmojiKeyboardDelegare
+#pragma mark 表情 CTEmojiKeyboardDelegare
 
 -(void)emojiKeyboardSelectKey:(NSString *)key image:(UIImage *)img{
     
@@ -297,8 +303,7 @@
     [self.textView textDidChange];
 }
 
-#pragma mark CTMoreKeyBoardDelegare
-
+#pragma mark 更多 CTMoreKeyBoardDelegare
 -(void)moreKeyBoardSelectKey:(NSString *)key image:(UIImage *)img{
     [self.delegate inputViewPopCommand:key];
 }

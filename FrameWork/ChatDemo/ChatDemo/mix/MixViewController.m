@@ -15,6 +15,7 @@
 @interface MixViewController ()<ChatListProtocol,CTInputViewProtocol>
 {
     CTInputView *input;
+    
 }
 @property(nonatomic, weak)CDChatList *listView;
 @property(nonatomic, strong)NSMutableArray<CDChatMessage> *msgArr;
@@ -55,6 +56,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CDChatListDidScroll object:nil];
     
+    
+
+    
 }
 
 -(void)receiveNotification:(NSNotification *)noti{
@@ -92,11 +96,15 @@
     
 }
 
--(void)inputViewPopAudio:(NSData *)data path:(NSString *)path{
-    
+-(void)inputViewPopAudioath:(NSURL *)path{
+    CDMessageModal *mode = [[CDMessageModal alloc] init];
+    mode.msgType = CDMessageTypeAudio;
+    mode.msg = [path absoluteString];
+    mode.isLeft = arc4random() % 2 == 1;
+    mode.messageId = @"52312556";
+    mode.createTime = @"1509634575127";
+    [self.listView addMessagesToBottom:@[mode]];
 }
-
-
 
 #pragma mark ChatListProtocol
 

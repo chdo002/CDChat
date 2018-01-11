@@ -223,14 +223,14 @@ static const CGFloat AATHUDNONESTOP = -1.0f;
     static dispatch_once_t once;
     
     static AATHUD *sharedView;
-    dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; });
+    dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];});
     return sharedView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if((self = [super initWithFrame:frame])) {
-        self.userInteractionEnabled = NO;
         
+        self.userInteractionEnabled = NO;
         _cornerRadius = 14.0f;
         _defaultStyle = AATHUDStyleDark;
         _defaultAnimationType = AATHUDAnimationTypeNative;

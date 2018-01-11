@@ -10,9 +10,6 @@
 		E904F37C1FEB53F500E156ED /* CDLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3381FEB53F400E156ED /* CDLabel.m */; };
 		E904F3821FEB53F500E156ED /* MagnifiterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3481FEB53F400E156ED /* MagnifiterView.m */; };
 		E904F3831FEB53F500E156ED /* CellCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F34C1FEB53F400E156ED /* CellCaculator.m */; };
-		E904F3841FEB53F500E156ED /* ChatImageDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F34F1FEB53F400E156ED /* ChatImageDrawer.m */; };
-		E904F3851FEB53F500E156ED /* ChatHelpr.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3501FEB53F400E156ED /* ChatHelpr.m */; };
-		E904F3861FEB53F500E156ED /* ChatConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3541FEB53F400E156ED /* ChatConfiguration.m */; };
 		E904F38F1FEB53F500E156ED /* CDChatList.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F36C1FEB53F400E156ED /* CDChatList.m */; };
 		E904F3941FEB53F500E156ED /* ChatListInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F3771FEB53F400E156ED /* ChatListInfo.m */; };
 		E904F5461FEB5AD100E156ED /* AATChatList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F37A1FEB53F500E156ED /* AATChatList.h */; };
@@ -24,9 +21,6 @@
 		E904F57C1FEB5AD100E156ED /* MagnifiterView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3471FEB53F400E156ED /* MagnifiterView.h */; };
 		E904F57D1FEB5AD100E156ED /* CDLabelMacro.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3491FEB53F400E156ED /* CDLabelMacro.h */; };
 		E904F57E1FEB5AD100E156ED /* CellCaculator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F34B1FEB53F400E156ED /* CellCaculator.h */; };
-		E904F57F1FEB5AD100E156ED /* ChatConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3511FEB53F400E156ED /* ChatConfiguration.h */; };
-		E904F5801FEB5AD100E156ED /* ChatImageDrawer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3521FEB53F400E156ED /* ChatImageDrawer.h */; };
-		E904F5811FEB5AD100E156ED /* ChatHelpr.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3531FEB53F400E156ED /* ChatHelpr.h */; };
 		E904F5821FEB5AD100E156ED /* ChatListInfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F3781FEB53F400E156ED /* ChatListInfo.h */; };
 		E904F68F1FEB65BA00E156ED /* libAATUtility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F6901FEB65BA00E156ED /* libAATUtility.a */; };
 		E904F7121FEB835100E156ED /* CTinputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E904F6FF1FEB835100E156ED /* CTinputHelper.m */; };
@@ -50,7 +44,12 @@
 		E95C78EA1FFF30F200357678 /* CDSystemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C78E51FFF30F200357678 /* CDSystemTableViewCell.m */; };
 		E95C78EB1FFF30F200357678 /* CDTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C78E61FFF30F200357678 /* CDTextTableViewCell.m */; };
 		E95C78EC1FFF30F200357678 /* CDImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C78E81FFF30F200357678 /* CDImageTableViewCell.m */; };
+		E994383E2007357A0058EA89 /* ChatConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E9943838200735790058EA89 /* ChatConfiguration.m */; };
+		E994383F2007357A0058EA89 /* ChatHelpr.m in Sources */ = {isa = PBXBuildFile; fileRef = E9943839200735790058EA89 /* ChatHelpr.m */; };
+		E99438402007357A0058EA89 /* ChatImageDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E994383C200735790058EA89 /* ChatImageDrawer.m */; };
+		E9C107C42006161B00DDADBF /* CDAudioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C107C32006161B00DDADBF /* CDAudioTableViewCell.m */; };
 		E9DEE2A51FED00A9009D02AC /* CTinputHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E904F7031FEB835100E156ED /* CTinputHelper.h */; };
+		E9E367922005B16900A56B33 /* AATVoiceHudAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E367912005B16900A56B33 /* AATVoiceHudAlert.m */; };
 		E9F54C771FFB81FE00207873 /* CDTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F54C731FFB81FD00207873 /* CDTextParser.m */; };
 		E9F54C781FFB81FE00207873 /* CoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F54C751FFB81FD00207873 /* CoreTextUtils.m */; };
 		E9F54C791FFB81FE00207873 /* CTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F54C761FFB81FE00207873 /* CTHelper.m */; };
@@ -84,9 +83,6 @@
 				E904F57C1FEB5AD100E156ED /* MagnifiterView.h in CopyFiles */,
 				E904F57D1FEB5AD100E156ED /* CDLabelMacro.h in CopyFiles */,
 				E904F57E1FEB5AD100E156ED /* CellCaculator.h in CopyFiles */,
-				E904F57F1FEB5AD100E156ED /* ChatConfiguration.h in CopyFiles */,
-				E904F5801FEB5AD100E156ED /* ChatImageDrawer.h in CopyFiles */,
-				E904F5811FEB5AD100E156ED /* ChatHelpr.h in CopyFiles */,
 				E904F5821FEB5AD100E156ED /* ChatListInfo.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,12 +99,6 @@
 		E904F34B1FEB53F400E156ED /* CellCaculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellCaculator.h; sourceTree = "<group>"; };
 		E904F34C1FEB53F400E156ED /* CellCaculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellCaculator.m; sourceTree = "<group>"; };
 		E904F34D1FEB53F400E156ED /* CDChatListHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDChatListHeaders.h; sourceTree = "<group>"; };
-		E904F34F1FEB53F400E156ED /* ChatImageDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatImageDrawer.m; sourceTree = "<group>"; };
-		E904F3501FEB53F400E156ED /* ChatHelpr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatHelpr.m; sourceTree = "<group>"; };
-		E904F3511FEB53F400E156ED /* ChatConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatConfiguration.h; sourceTree = "<group>"; };
-		E904F3521FEB53F400E156ED /* ChatImageDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatImageDrawer.h; sourceTree = "<group>"; };
-		E904F3531FEB53F400E156ED /* ChatHelpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatHelpr.h; sourceTree = "<group>"; };
-		E904F3541FEB53F400E156ED /* ChatConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatConfiguration.m; sourceTree = "<group>"; };
 		E904F3551FEB53F400E156ED /* CDChatList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDChatList.h; sourceTree = "<group>"; };
 		E904F36C1FEB53F400E156ED /* CDChatList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDChatList.m; sourceTree = "<group>"; };
 		E904F3771FEB53F400E156ED /* ChatListInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListInfo.m; sourceTree = "<group>"; };
@@ -135,40 +125,6 @@
 		E904F70F1FEB835100E156ED /* CTEmojiKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEmojiKeyboard.m; sourceTree = "<group>"; };
 		E904F7101FEB835100E156ED /* CTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTextView.m; sourceTree = "<group>"; };
 		E904F7111FEB835100E156ED /* CTMoreKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTMoreKeyBoard.h; sourceTree = "<group>"; };
-		E9592880200473AE00D7B44D /* UITool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITool.h; sourceTree = "<group>"; };
-		E9592881200473AE00D7B44D /* AATWebImageOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageOperation.h; sourceTree = "<group>"; };
-		E9592882200473AE00D7B44D /* AATWebImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageManager.h; sourceTree = "<group>"; };
-		E9592883200473AE00D7B44D /* AATWebImageDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageDecoder.h; sourceTree = "<group>"; };
-		E9592884200473AE00D7B44D /* CRMReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMReachability.h; sourceTree = "<group>"; };
-		E9592885200473AE00D7B44D /* AATAudioTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATAudioTool.h; sourceTree = "<group>"; };
-		E9592886200473AE00D7B44D /* CRMCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMCrash.h; sourceTree = "<group>"; };
-		E9592887200473AE00D7B44D /* NSImage+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+WebCache.h"; sourceTree = "<group>"; };
-		E9592888200473AE00D7B44D /* UIImageView+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		E9592889200473AE00D7B44D /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
-		E959288A200473AE00D7B44D /* AATWebImageCompat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageCompat.h; sourceTree = "<group>"; };
-		E959288B200473AE00D7B44D /* AATImageCacheConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATImageCacheConfig.h; sourceTree = "<group>"; };
-		E959288C200473AE00D7B44D /* UIView+CRM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CRM.h"; sourceTree = "<group>"; };
-		E959288D200473AE00D7B44D /* NSString+Extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
-		E959288E200473AE00D7B44D /* AATImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATImageCache.h; sourceTree = "<group>"; };
-		E959288F200473AE00D7B44D /* UIButton+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
-		E9592890200473AE00D7B44D /* NSMutableDictionary+checkNil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+checkNil.h"; sourceTree = "<group>"; };
-		E9592891200473AE00D7B44D /* UIView+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCache.h"; sourceTree = "<group>"; };
-		E9592892200473AE00D7B44D /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
-		E9592893200473AE00D7B44D /* NSDictionary+Description.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Description.h"; sourceTree = "<group>"; };
-		E9592894200473AE00D7B44D /* NSDictionary+DictToJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DictToJSON.h"; sourceTree = "<group>"; };
-		E9592895200473AE00D7B44D /* UIScreen+CRM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+CRM.h"; sourceTree = "<group>"; };
-		E9592896200473AE00D7B44D /* NSString+SLMFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SLMFramework.h"; sourceTree = "<group>"; };
-		E9592897200473AE00D7B44D /* AATWebImageDownloaderOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageDownloaderOperation.h; sourceTree = "<group>"; };
-		E9592898200473AE00D7B44D /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
-		E9592899200473AE00D7B44D /* AATHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATHUD.h; sourceTree = "<group>"; };
-		E959289A200473AE00D7B44D /* AATWebImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageDownloader.h; sourceTree = "<group>"; };
-		E959289B200473AE00D7B44D /* NSArray+Description.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Description.h"; sourceTree = "<group>"; };
-		E959289C200473AE00D7B44D /* AATUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATUtility.h; sourceTree = "<group>"; };
-		E959289D200473AE00D7B44D /* CRMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMLog.h; sourceTree = "<group>"; };
-		E959289E200473AE00D7B44D /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
-		E959289F200473AE00D7B44D /* NSString+AATString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AATString.h"; sourceTree = "<group>"; };
-		E95928A0200473AE00D7B44D /* UIImage+GIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
-		E95928A1200473AE00D7B44D /* AATWebImagePrefetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImagePrefetcher.h; sourceTree = "<group>"; };
 		E95C78E11FFF30F200357678 /* CDImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDImageTableViewCell.h; sourceTree = "<group>"; };
 		E95C78E21FFF30F200357678 /* CDSystemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSystemTableViewCell.h; sourceTree = "<group>"; };
 		E95C78E31FFF30F200357678 /* CDBaseMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBaseMsgCell.m; sourceTree = "<group>"; };
@@ -177,6 +133,50 @@
 		E95C78E61FFF30F200357678 /* CDTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
 		E95C78E71FFF30F200357678 /* CDBaseMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBaseMsgCell.h; sourceTree = "<group>"; };
 		E95C78E81FFF30F200357678 /* CDImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDImageTableViewCell.m; sourceTree = "<group>"; };
+		E9943838200735790058EA89 /* ChatConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatConfiguration.m; sourceTree = "<group>"; };
+		E9943839200735790058EA89 /* ChatHelpr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatHelpr.m; sourceTree = "<group>"; };
+		E994383A200735790058EA89 /* ChatImageDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatImageDrawer.h; sourceTree = "<group>"; };
+		E994383B200735790058EA89 /* ChatHelpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatHelpr.h; sourceTree = "<group>"; };
+		E994383C200735790058EA89 /* ChatImageDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatImageDrawer.m; sourceTree = "<group>"; };
+		E994383D200735790058EA89 /* ChatConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatConfiguration.h; sourceTree = "<group>"; };
+		E994384220074D1B0058EA89 /* UITool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITool.h; sourceTree = "<group>"; };
+		E994384320074D1B0058EA89 /* AATWebImageOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageOperation.h; sourceTree = "<group>"; };
+		E994384420074D1B0058EA89 /* AATWebImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageManager.h; sourceTree = "<group>"; };
+		E994384520074D1B0058EA89 /* AATWebImageDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageDecoder.h; sourceTree = "<group>"; };
+		E994384620074D1B0058EA89 /* CRMReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMReachability.h; sourceTree = "<group>"; };
+		E994384720074D1B0058EA89 /* AATAudioTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATAudioTool.h; sourceTree = "<group>"; };
+		E994384820074D1B0058EA89 /* CRMCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMCrash.h; sourceTree = "<group>"; };
+		E994384920074D1B0058EA89 /* NSImage+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+WebCache.h"; sourceTree = "<group>"; };
+		E994384A20074D1B0058EA89 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		E994384B20074D1B0058EA89 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		E994384C20074D1B0058EA89 /* AATWebImageCompat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageCompat.h; sourceTree = "<group>"; };
+		E994384D20074D1B0058EA89 /* AATImageCacheConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATImageCacheConfig.h; sourceTree = "<group>"; };
+		E994384E20074D1B0058EA89 /* UIView+CRM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CRM.h"; sourceTree = "<group>"; };
+		E994384F20074D1B0058EA89 /* NSString+Extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
+		E994385020074D1B0058EA89 /* AATImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATImageCache.h; sourceTree = "<group>"; };
+		E994385120074D1B0058EA89 /* UIButton+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		E994385220074D1B0058EA89 /* NSMutableDictionary+checkNil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+checkNil.h"; sourceTree = "<group>"; };
+		E994385320074D1B0058EA89 /* UIView+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCache.h"; sourceTree = "<group>"; };
+		E994385420074D1B0058EA89 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		E994385520074D1B0058EA89 /* NSDictionary+Description.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Description.h"; sourceTree = "<group>"; };
+		E994385620074D1B0058EA89 /* NSDictionary+DictToJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DictToJSON.h"; sourceTree = "<group>"; };
+		E994385720074D1B0058EA89 /* UIScreen+CRM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+CRM.h"; sourceTree = "<group>"; };
+		E994385820074D1B0058EA89 /* NSString+SLMFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SLMFramework.h"; sourceTree = "<group>"; };
+		E994385920074D1B0058EA89 /* AATWebImageDownloaderOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		E994385A20074D1B0058EA89 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		E994385B20074D1B0058EA89 /* AATHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATHUD.h; sourceTree = "<group>"; };
+		E994385C20074D1B0058EA89 /* AATWebImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImageDownloader.h; sourceTree = "<group>"; };
+		E994385D20074D1B0058EA89 /* NSArray+Description.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Description.h"; sourceTree = "<group>"; };
+		E994385E20074D1B0058EA89 /* AATUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATUtility.h; sourceTree = "<group>"; };
+		E994385F20074D1B0058EA89 /* CRMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMLog.h; sourceTree = "<group>"; };
+		E994386020074D1B0058EA89 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		E994386120074D1B0058EA89 /* NSString+AATString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AATString.h"; sourceTree = "<group>"; };
+		E994386220074D1B0058EA89 /* UIImage+GIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		E994386320074D1B0058EA89 /* AATWebImagePrefetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImagePrefetcher.h; sourceTree = "<group>"; };
+		E9C107C22006161B00DDADBF /* CDAudioTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAudioTableViewCell.h; sourceTree = "<group>"; };
+		E9C107C32006161B00DDADBF /* CDAudioTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAudioTableViewCell.m; sourceTree = "<group>"; };
+		E9E367902005B16900A56B33 /* AATVoiceHudAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATVoiceHudAlert.h; sourceTree = "<group>"; };
+		E9E367912005B16900A56B33 /* AATVoiceHudAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AATVoiceHudAlert.m; sourceTree = "<group>"; };
 		E9F54C711FFB81FD00207873 /* CTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTHelper.h; sourceTree = "<group>"; };
 		E9F54C721FFB81FD00207873 /* CDTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTextParser.h; sourceTree = "<group>"; };
 		E9F54C731FFB81FD00207873 /* CDTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTextParser.m; sourceTree = "<group>"; };
@@ -295,12 +295,12 @@
 		E904F34E1FEB53F400E156ED /* ChatConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				E904F3521FEB53F400E156ED /* ChatImageDrawer.h */,
-				E904F34F1FEB53F400E156ED /* ChatImageDrawer.m */,
-				E904F3501FEB53F400E156ED /* ChatHelpr.m */,
-				E904F3511FEB53F400E156ED /* ChatConfiguration.h */,
-				E904F3531FEB53F400E156ED /* ChatHelpr.h */,
-				E904F3541FEB53F400E156ED /* ChatConfiguration.m */,
+				E994383D200735790058EA89 /* ChatConfiguration.h */,
+				E9943838200735790058EA89 /* ChatConfiguration.m */,
+				E994383B200735790058EA89 /* ChatHelpr.h */,
+				E9943839200735790058EA89 /* ChatHelpr.m */,
+				E994383A200735790058EA89 /* ChatImageDrawer.h */,
+				E994383C200735790058EA89 /* ChatImageDrawer.m */,
 			);
 			path = ChatConfiguration;
 			sourceTree = "<group>";
@@ -316,6 +316,8 @@
 				E95C78E51FFF30F200357678 /* CDSystemTableViewCell.m */,
 				E95C78E41FFF30F200357678 /* CDTextTableViewCell.h */,
 				E95C78E61FFF30F200357678 /* CDTextTableViewCell.m */,
+				E9C107C22006161B00DDADBF /* CDAudioTableViewCell.h */,
+				E9C107C32006161B00DDADBF /* CDAudioTableViewCell.m */,
 			);
 			path = MessageCell;
 			sourceTree = "<group>";
@@ -332,8 +334,8 @@
 		E904F4841FEB580500E156ED /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				E994384120074D1B0058EA89 /* AATUtility */,
 				E904F6FC1FEB835100E156ED /* CDChatInputBox */,
-				E959287F200473AE00D7B44D /* AATUtility */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -391,47 +393,49 @@
 				E904F70F1FEB835100E156ED /* CTEmojiKeyboard.m */,
 				E904F7111FEB835100E156ED /* CTMoreKeyBoard.h */,
 				E904F70E1FEB835100E156ED /* CTMoreKeyBoard.m */,
+				E9E367902005B16900A56B33 /* AATVoiceHudAlert.h */,
+				E9E367912005B16900A56B33 /* AATVoiceHudAlert.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
 		};
-		E959287F200473AE00D7B44D /* AATUtility */ = {
+		E994384120074D1B0058EA89 /* AATUtility */ = {
 			isa = PBXGroup;
 			children = (
-				E9592885200473AE00D7B44D /* AATAudioTool.h */,
-				E9592880200473AE00D7B44D /* UITool.h */,
-				E9592881200473AE00D7B44D /* AATWebImageOperation.h */,
-				E9592882200473AE00D7B44D /* AATWebImageManager.h */,
-				E9592883200473AE00D7B44D /* AATWebImageDecoder.h */,
-				E9592884200473AE00D7B44D /* CRMReachability.h */,
-				E9592886200473AE00D7B44D /* CRMCrash.h */,
-				E9592887200473AE00D7B44D /* NSImage+WebCache.h */,
-				E9592888200473AE00D7B44D /* UIImageView+WebCache.h */,
-				E9592889200473AE00D7B44D /* NSData+ImageContentType.h */,
-				E959288A200473AE00D7B44D /* AATWebImageCompat.h */,
-				E959288B200473AE00D7B44D /* AATImageCacheConfig.h */,
-				E959288C200473AE00D7B44D /* UIView+CRM.h */,
-				E959288D200473AE00D7B44D /* NSString+Extend.h */,
-				E959288E200473AE00D7B44D /* AATImageCache.h */,
-				E959288F200473AE00D7B44D /* UIButton+WebCache.h */,
-				E9592890200473AE00D7B44D /* NSMutableDictionary+checkNil.h */,
-				E9592891200473AE00D7B44D /* UIView+WebCache.h */,
-				E9592892200473AE00D7B44D /* UIView+WebCacheOperation.h */,
-				E9592893200473AE00D7B44D /* NSDictionary+Description.h */,
-				E9592894200473AE00D7B44D /* NSDictionary+DictToJSON.h */,
-				E9592895200473AE00D7B44D /* UIScreen+CRM.h */,
-				E9592896200473AE00D7B44D /* NSString+SLMFramework.h */,
-				E9592897200473AE00D7B44D /* AATWebImageDownloaderOperation.h */,
-				E9592898200473AE00D7B44D /* UIImageView+HighlightedWebCache.h */,
-				E9592899200473AE00D7B44D /* AATHUD.h */,
-				E959289A200473AE00D7B44D /* AATWebImageDownloader.h */,
-				E959289B200473AE00D7B44D /* NSArray+Description.h */,
-				E959289C200473AE00D7B44D /* AATUtility.h */,
-				E959289D200473AE00D7B44D /* CRMLog.h */,
-				E959289E200473AE00D7B44D /* UIImage+MultiFormat.h */,
-				E959289F200473AE00D7B44D /* NSString+AATString.h */,
-				E95928A0200473AE00D7B44D /* UIImage+GIF.h */,
-				E95928A1200473AE00D7B44D /* AATWebImagePrefetcher.h */,
+				E994384720074D1B0058EA89 /* AATAudioTool.h */,
+				E994384220074D1B0058EA89 /* UITool.h */,
+				E994384320074D1B0058EA89 /* AATWebImageOperation.h */,
+				E994384420074D1B0058EA89 /* AATWebImageManager.h */,
+				E994384520074D1B0058EA89 /* AATWebImageDecoder.h */,
+				E994384620074D1B0058EA89 /* CRMReachability.h */,
+				E994384820074D1B0058EA89 /* CRMCrash.h */,
+				E994384920074D1B0058EA89 /* NSImage+WebCache.h */,
+				E994384A20074D1B0058EA89 /* UIImageView+WebCache.h */,
+				E994384B20074D1B0058EA89 /* NSData+ImageContentType.h */,
+				E994384C20074D1B0058EA89 /* AATWebImageCompat.h */,
+				E994384D20074D1B0058EA89 /* AATImageCacheConfig.h */,
+				E994384E20074D1B0058EA89 /* UIView+CRM.h */,
+				E994384F20074D1B0058EA89 /* NSString+Extend.h */,
+				E994385020074D1B0058EA89 /* AATImageCache.h */,
+				E994385120074D1B0058EA89 /* UIButton+WebCache.h */,
+				E994385220074D1B0058EA89 /* NSMutableDictionary+checkNil.h */,
+				E994385320074D1B0058EA89 /* UIView+WebCache.h */,
+				E994385420074D1B0058EA89 /* UIView+WebCacheOperation.h */,
+				E994385520074D1B0058EA89 /* NSDictionary+Description.h */,
+				E994385620074D1B0058EA89 /* NSDictionary+DictToJSON.h */,
+				E994385720074D1B0058EA89 /* UIScreen+CRM.h */,
+				E994385820074D1B0058EA89 /* NSString+SLMFramework.h */,
+				E994385920074D1B0058EA89 /* AATWebImageDownloaderOperation.h */,
+				E994385A20074D1B0058EA89 /* UIImageView+HighlightedWebCache.h */,
+				E994385B20074D1B0058EA89 /* AATHUD.h */,
+				E994385C20074D1B0058EA89 /* AATWebImageDownloader.h */,
+				E994385D20074D1B0058EA89 /* NSArray+Description.h */,
+				E994385E20074D1B0058EA89 /* AATUtility.h */,
+				E994385F20074D1B0058EA89 /* CRMLog.h */,
+				E994386020074D1B0058EA89 /* UIImage+MultiFormat.h */,
+				E994386120074D1B0058EA89 /* NSString+AATString.h */,
+				E994386220074D1B0058EA89 /* UIImage+GIF.h */,
+				E994386320074D1B0058EA89 /* AATWebImagePrefetcher.h */,
 			);
 			path = AATUtility;
 			sourceTree = "<group>";
@@ -493,21 +497,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C107C42006161B00DDADBF /* CDAudioTableViewCell.m in Sources */,
 				E95C78EA1FFF30F200357678 /* CDSystemTableViewCell.m in Sources */,
 				E904F7171FEB835100E156ED /* CTMoreKeyBoard.m in Sources */,
 				E9F54C781FFB81FE00207873 /* CoreTextUtils.m in Sources */,
-				E904F3841FEB53F500E156ED /* ChatImageDrawer.m in Sources */,
 				E904F7131FEB835100E156ED /* CTInputBoxDrawer.m in Sources */,
 				E904F3831FEB53F500E156ED /* CellCaculator.m in Sources */,
 				E904F7161FEB835100E156ED /* CTInputCaculator.m in Sources */,
 				E904F3941FEB53F500E156ED /* ChatListInfo.m in Sources */,
+				E9E367922005B16900A56B33 /* AATVoiceHudAlert.m in Sources */,
+				E99438402007357A0058EA89 /* ChatImageDrawer.m in Sources */,
 				E904F37C1FEB53F500E156ED /* CDLabel.m in Sources */,
 				E904F7151FEB835100E156ED /* CTInputView.m in Sources */,
-				E904F3861FEB53F500E156ED /* ChatConfiguration.m in Sources */,
 				E904F7191FEB835100E156ED /* CTTextView.m in Sources */,
 				E95C78E91FFF30F200357678 /* CDBaseMsgCell.m in Sources */,
 				E9F54C7E1FFB821400207873 /* CTData.m in Sources */,
-				E904F3851FEB53F500E156ED /* ChatHelpr.m in Sources */,
 				E904F3821FEB53F500E156ED /* MagnifiterView.m in Sources */,
 				E95C78EC1FFF30F200357678 /* CDImageTableViewCell.m in Sources */,
 				E904F7121FEB835100E156ED /* CTinputHelper.m in Sources */,
@@ -516,6 +520,8 @@
 				E9F54C791FFB81FE00207873 /* CTHelper.m in Sources */,
 				E904F7141FEB835100E156ED /* CTInputConfiguration.m in Sources */,
 				E904F38F1FEB53F500E156ED /* CDChatList.m in Sources */,
+				E994383E2007357A0058EA89 /* ChatConfiguration.m in Sources */,
+				E994383F2007357A0058EA89 /* ChatHelpr.m in Sources */,
 				E9F54C771FFB81FE00207873 /* CDTextParser.m in Sources */,
 				E95C78EB1FFF30F200357678 /* CDTextTableViewCell.m in Sources */,
 			);

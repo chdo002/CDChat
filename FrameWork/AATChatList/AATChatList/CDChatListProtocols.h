@@ -18,6 +18,7 @@ static NSString * CDChatListDidScroll = @"CDChatListDidScroll";
 typedef enum : NSUInteger {
     CDMessageTypeText,      // 文字类型
     CDMessageTypeImage,     // 图片类型
+    CDMessageTypeAudio,     // 音频类型
     CDMessageTypeSystemInfo // 系统信息类型
 } CDMessageType; // 消息类型
 

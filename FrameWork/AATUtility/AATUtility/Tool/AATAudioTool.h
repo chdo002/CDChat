@@ -10,6 +10,8 @@
 
 //Privacy - Microphone Usage Description
 
+extern  NSNotificationName const AATAudioToolDidStopPlayNoti;
+
 @protocol AATAudioToolProtocol
 
 // 开始录音
@@ -18,8 +20,9 @@
 // 录音时，更新
 -(void)aatAudioToolUpdateCurrentTime:(NSTimeInterval)currentTime
                             fromTime:(NSTimeInterval)startTime
-                           peakPower:(float)peak
-                        averagePower:(float)averagePower;
+                               power:(float)power;
+// 停止录音
+-(void)aatAudioToolDidSInterrupted;
 
 // 停止录音
 -(void)aatAudioToolDidStopRecord:(NSURL *)dataPath
@@ -31,15 +34,22 @@
 @end
 
 @interface AATAudioTool : NSObject
++(instancetype)share;
 
 @property (weak) id<AATAudioToolProtocol>delegate;
-
 @property NSTimeInterval updateInterval;
 
-
-+(instancetype)share;
+// 录音
 -(BOOL)isRecorderRecording;
 - (void)startRecord;
 - (void)stopRecord;
+-(void)intertrptRecord; // 没有回调
+
+// 播放
+@property (copy) NSString *audioPath;
+-(BOOL)isPlaying;
+- (void)play;
+-(void)stopPlay;
+
 @end
 

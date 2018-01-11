@@ -85,6 +85,8 @@
             return [self sizeForImageMessage:data];
         case CDMessageTypeSystemInfo:
             return [self sizeForSysInfoMessage:data];
+        case CDMessageTypeAudio:
+            return [self sizeForAudioMessage:data];
         default:
             return CGSizeMake(150, 170);
     }
@@ -195,6 +197,13 @@
     
     return CGSizeMake(caculateTextSize.width + SysInfoPadding * 2,
                       caculateTextSize.height + SysInfoPadding * 2);
+}
+
+#pragma mark ---计算音频消息消息尺寸方法
++(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
+    
+    return CGSizeMake(200,
+                      MessageContentH);
 }
 
 @end

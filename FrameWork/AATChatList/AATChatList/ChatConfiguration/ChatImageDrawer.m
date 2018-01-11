@@ -101,6 +101,7 @@
              [NSValue valueWithUIEdgeInsets:mask_left]];
 }
 
+#pragma mark 气泡图片
 -(UIImage *)leftBubbleImage{
     
     // 描绘路径
@@ -145,8 +146,8 @@
     CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor.CGColor);//填充色
     
     // 设置边框
-    CGContextSetStrokeColorWithColor(context, CRMHexColor(0xEDEDED).CGColor);
-    CGContextSetLineWidth(context, 1);
+    CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);
+    CGContextSetLineWidth(context, 0.5);
     // 画边框
     CGContextDrawPath(context, kCGPathFillStroke);
     
@@ -177,9 +178,8 @@
     CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor.CGColor);//填充色
     
     // 设置边框
-    CGContextSetStrokeColorWithColor(context, CRMHexColor(0xEDEDED).CGColor);
-    
-    CGContextSetLineWidth(context, 1);
+    CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);
+    CGContextSetLineWidth(context, 0.5);
     // 画边框
     CGContextDrawPath(context, kCGPathFillStroke);
     

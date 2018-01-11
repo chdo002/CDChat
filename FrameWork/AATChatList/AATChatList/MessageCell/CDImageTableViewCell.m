@@ -52,7 +52,7 @@
     
     // 点击手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapContent:)];
-    [self.msgContent_left addGestureRecognizer:tap];
+    [self.bubbleImage_left addGestureRecognizer:tap];
 }
 
 -(void)initRightImageContent{
@@ -72,7 +72,7 @@
     
     // 点击手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapContent:)];
-    [self.msgContent_right addGestureRecognizer:tap];
+    [self.bubbleImage_right addGestureRecognizer:tap];
 }
 
 -(void)configCellByData:(CDChatMessage)data{

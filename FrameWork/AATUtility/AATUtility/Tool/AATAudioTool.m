@@ -9,23 +9,19 @@
 #import "AATAudioTool.h"
 #import "AATUtility.h"
 
+NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlayNoti";
+
 @interface AATAudioTool()<AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 {
-    
     NSTimer *_timer; //定时器
-    
     NSTimeInterval startTime;
     NSString *filePath;
-    
 }
 
 @property (nonatomic, strong) NSURL *recordFileUrl; //文件地址
-
 @property (nonatomic, strong) AVAudioRecorder *recorder;//录音器
-
 @property (nonatomic, strong) AVAudioPlayer *player; //播放器
 @property (nonatomic, strong) AVAudioSession *session;
-
 
 @end
 
@@ -39,7 +35,7 @@
     
     dispatch_once(&onceToken, ^{
         single = [[AATAudioTool alloc] init];
-        single.updateInterval = 0.1;
+        single.updateInterval = 0.01;
         [[NSNotificationCenter defaultCenter] addObserver:single selector:@selector(enterBackGround:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     });
     return single;
@@ -82,7 +78,7 @@
                                    // 音频格式
                                    [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey,
                                    // 采样位数  8、16、24、32 默认为16
-                                   [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
+                                   [NSNumber numberWithInt:32],AVLinearPCMBitDepthKey,
                                    // 音频通道数 1 或 2
                                    [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
                                    // 录音质量
@@ -135,6 +131,18 @@
     
     [self removeTimer];
     if ([self.recorder isRecording]) {
+        CRMLog(@"正常结束录音");
+        [self.recorder stop];
+    }
+}
+
+-(void)intertrptRecord{
+    
+    [self.delegate aatAudioToolDidSInterrupted];
+    self.delegate = nil;
+    [self removeTimer];
+    if ([self.recorder isRecording]) {
+        CRMLog(@"中断了");
         [self.recorder stop];
     }
 }
@@ -160,15 +168,15 @@
 
 -(void)refreshRecord {
     if (startTime < 0 && !self.recorder.isRecording) { // 还未开始录音
-        NSLog(@"还未开始录音");
+        CRMLog(@"还未开始录音");
         return;
     } else if (startTime < 0 && self.recorder.isRecording) { // 开始录音 记录时间
-        NSLog(@"开始录音 记录时间");
+        CRMLog(@"开始录音 记录时间");
         startTime = self.recorder.currentTime;
         [self.delegate aatAudioToolDidStartRecord:startTime];
         return;
     } else if (startTime > 0 && self.recorder.isRecording) { // 录音中
-        NSLog(@"录音中");
+        
         NSTimeInterval duration = self.recorder.currentTime - startTime;
         
         if (duration > 60.0) { // 停止录音
@@ -177,17 +185,16 @@
         }
         
         [self.recorder updateMeters];
+        double lowPassResults = pow(10, (0.05 * [self.recorder peakPowerForChannel:0]));
         [self.delegate aatAudioToolUpdateCurrentTime:self.recorder.currentTime
                                             fromTime:startTime
-                                           peakPower:[self.recorder peakPowerForChannel:0]
-                                        averagePower:[self.recorder averagePowerForChannel:0]];
+                                               power:lowPassResults];
+        CRMLog([NSString stringWithFormat:@"录音中 %f --peakPower:%f",self.recorder.currentTime, lowPassResults]);
     } else {
-        NSLog(@"没有在录音，中断了");
+        CRMLog(@"没有在录音，中断了");
     }
     
 }
-
-
 
 #pragma mark  ---AVAudioRecorderDelegate---
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
@@ -218,42 +225,62 @@
 
 
 #pragma mark ====================================播放====================================
+-(BOOL)isPlaying{
+    return [self.player isPlaying];
+}
 
 -(AVAudioPlayer *)player{
     if (!_player) {
         NSError *err;
-        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recordFileUrl error:&err];
+        NSURL *fileUrl;
+        if ([[NSFileManager defaultManager] fileExistsAtPath: self.audioPath]){
+            fileUrl = [NSURL fileURLWithPath:self.audioPath];
+        } else {
+            fileUrl = [NSURL URLWithString:self.audioPath];
+        }
+        _player = [[AVAudioPlayer alloc] initWithContentsOfURL: fileUrl error: &err];
         _player.delegate = self;
+        [self.session setCategory: AVAudioSessionCategoryPlayback error:&err];
+        [_player prepareToPlay];
         [self handleError:err];
     }
     return _player;
 }
 
-- (void)play:(NSError **)outError {
+- (void)play {
     
-    [self.session setCategory:AVAudioSessionCategoryPlayback error:outError];
+    NSError *outError;
+    [self.session setCategory:AVAudioSessionCategoryPlayback error:&outError];
     
-    [self.recorder stop];
-    
-    if ([self.player isPlaying])return;
-    
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recordFileUrl error:outError];
-    
-    self.player.delegate = self;
-    
-    [self.session setCategory:AVAudioSessionCategoryPlayback error:outError];
+    [self intertrptRecord];
+    if ([self.player isPlaying]){
+        [self stopPlay];
+        self.player = nil;
+    };
     
     [self.player play];
-    
-
 }
 
 -(void)stopPlay{
+    [[NSNotificationCenter defaultCenter] postNotificationName: AATAudioToolDidStopPlayNoti object:nil];
     [self.player stop];
 }
 
-#pragma mark public
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    [[NSNotificationCenter defaultCenter] postNotificationName: AATAudioToolDidStopPlayNoti object:nil];
+}
 
+/* if an error occurs while decoding it will be reported to the delegate. */
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError * __nullable)error{
+    [[NSNotificationCenter defaultCenter] postNotificationName: AATAudioToolDidStopPlayNoti object:nil];
+}
+/* audioPlayerBeginInterruption: is called when the audio session has been interrupted while the player was playing. The player will have been paused. */
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player{
+    [[NSNotificationCenter defaultCenter] postNotificationName: AATAudioToolDidStopPlayNoti object:nil];
+}
+
+
+#pragma mark ====================================public====================================
 -(BOOL)handleError:(NSError *)err{
     if (err) {
         [self.delegate aatAudioToolDidStopRecord:nil startTime:0 endTime:0 errorInfo:[NSString stringWithFormat:@"Error creating session: %@",[err description]]];

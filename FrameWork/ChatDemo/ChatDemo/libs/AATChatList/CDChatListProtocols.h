@@ -18,6 +18,7 @@ static NSString * CDChatListDidScroll = @"CDChatListDidScroll";
 typedef enum : NSUInteger {
     CDMessageTypeText,      // 文字类型
     CDMessageTypeImage,     // 图片类型
+    CDMessageTypeAudio,     // 音频类型
     CDMessageTypeSystemInfo // 系统信息类型
 } CDMessageType; // 消息类型
 
@@ -41,7 +42,7 @@ typedef enum : NSUInteger {
 @required
 /*
  注意：
-    1、发送图片消息 需用 SDImageCache预先缓存，key为messageid
+ 1、发送图片消息 需用 SDImageCache预先缓存，key为messageid
  */
 
 /**
@@ -50,7 +51,7 @@ typedef enum : NSUInteger {
 @property (copy,nonatomic) NSString *msg;
 
 /**
- 发送时间
+ 发送时间 毫秒
  */
 @property (copy,nonatomic) NSString *createTime;
 
@@ -135,7 +136,7 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 
 /**
  消息列表请求加载更多消息
-
+ 
  @param topMessage 目前最早的消息
  @param finnished 加载完成回调
  */
@@ -144,10 +145,11 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 
 /**
  消息中的点击事件
-
+ 
  @param listInfo 点击事件体
  */
 -(void)chatlistClickMsgEvent: (ChatListInfo *)listInfo;
 @end
 
 #endif /* CDChatListProtocols_h */
+

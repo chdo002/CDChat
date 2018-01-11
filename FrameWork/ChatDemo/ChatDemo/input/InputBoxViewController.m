@@ -10,6 +10,25 @@
 #import "CTEmojiKeyboard.h"
 #import "CDLabel.h"
 
+//
+//@interface TEstVV: UIView
+//@end
+//@implementation TEstVV
+//
+//-(void)drawRect:(CGRect)rect{
+//
+//
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//
+//    CGRect rec = CGRectMake(10, 100, 50, 50);
+//    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+//    CGContextAddRect(context,rec);//画方框
+//    CGContextFillRect(context, rec);
+//
+//}
+//
+//@end
+
 @interface InputBoxViewController ()<UITextViewDelegate>
 {
     CTInputView *input;
@@ -35,10 +54,7 @@
     lab.data = data;
     [self.view addSubview:lab];
 
-    
-    
-    
-    
+
     
 //    NSDictionary *origin = [CTinputHelper defaultImageDic];
 //

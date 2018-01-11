@@ -9,6 +9,7 @@
 #import "CDTextTableViewCell.h"
 #import "CDImageTableViewCell.h"
 #import "CDSystemTableViewCell.h"
+#import "CDAudioTableViewCell.h"
 #import "CellCaculator.h"
 #import "CDChatMacro.h"
 #import "CTClickInfo.h"
@@ -56,6 +57,7 @@ typedef enum : NSUInteger {
     [self registerClass:[CDTextTableViewCell class] forCellReuseIdentifier:@"textcell"];
     [self registerClass:[CDImageTableViewCell class] forCellReuseIdentifier:@"imagecell"];
     [self registerClass:[CDSystemTableViewCell class] forCellReuseIdentifier:@"syscell"];
+    [self registerClass:[CDAudioTableViewCell class] forCellReuseIdentifier:@"audiocell"];
     // 下拉loading视图
     CGRect rect = CGRectMake(0, -LoadingH, ScreenW(), LoadingH);
     UIActivityIndicatorView *indicatr = [[UIActivityIndicatorView alloc] initWithFrame:rect];
@@ -200,7 +202,6 @@ typedef enum : NSUInteger {
     [arr addObjectsFromArray:newBottomMsgArr];
     
     [self configTableData:arr completeBlock:^(CGFloat totalHeight){
-//        [MBProgressHUD hideHUDForView:self animated:YES];
         [self relayoutTable:YES];
     }];
     
@@ -348,6 +349,9 @@ typedef enum : NSUInteger {
             break;
         case CDMessageTypeSystemInfo:
             cellType = @"syscell";
+            break;
+        case CDMessageTypeAudio:
+            cellType = @"audiocell";
             break;
         default:
             cellType = @"textcell";
