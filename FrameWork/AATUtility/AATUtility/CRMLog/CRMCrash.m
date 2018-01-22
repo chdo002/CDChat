@@ -27,7 +27,8 @@ static const int32_t UncaughtExceptionMaximum = 10;
 static const NSInteger UncaughtExceptionHandlerSkipAddressCount = 4;
 static const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
-@interface CRMUncaughtExceptionHandler (){
+@interface CRMUncaughtExceptionHandler ()
+{
     BOOL dismissed;
 }
 @end

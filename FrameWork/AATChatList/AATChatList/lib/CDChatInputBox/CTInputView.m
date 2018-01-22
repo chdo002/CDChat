@@ -206,11 +206,14 @@
 // 按下
 -(void)touchDownRecordButton1:(UIButton *)but{
 //    开始录音
-    [[AATAudioTool share] startRecord];
-    [AATVoiceHudAlert showPowerHud:1];
-    self.isRecordTouchingOutSide = NO;
-    [AATAudioTool share].delegate = self;
-    
+    [AATAudioTool checkCameraAuthorizationGrand:^{
+        [[AATAudioTool share] startRecord];
+        [AATVoiceHudAlert showPowerHud:1];
+        self.isRecordTouchingOutSide = NO;
+        [AATAudioTool share].delegate = self;
+    } withNoPermission:^{
+        
+    }];
 }
 // 内部抬起
 -(void)touchDownRecordButton2:(UIButton *)but{

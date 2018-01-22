@@ -92,21 +92,21 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
 
 - (void)startRecord {
     
+    if (_player) {
+        // 停止播放/录音
+        [self stopPlay];
+        
+    }
     // 设置session
     NSError *sessionError;
     [self.session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
     if ([self handleError:sessionError]){
         return;
     }
-    
-    // 停止播放/录音
-    [self stopPlay];
-    
+
     // 设置文件地址
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    path = NSTemporaryDirectory();
-    
-    filePath = [path stringByAppendingString:[NSString stringWithFormat:@"%@.wav",[NSString dateTimeStamp]]];
+    filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",[NSString dateTimeStamp]]];
     self.recordFileUrl = [NSURL fileURLWithPath:filePath];
     
     // 配置录音器
@@ -116,13 +116,17 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
     
     //设置参数
     if (self.recorder) {
+        // 开始录音
         self.recorder.meteringEnabled = YES;
         [self.recorder prepareToRecord];
-        [self.recorder record];
+        BOOL res = [self.recorder record];
+        NSLog(@"?? %d",res);
         startTime = -1;
         [self addTimer];
     } else {
-        [self.delegate aatAudioToolDidStopRecord:nil startTime:0 endTime:0 errorInfo:@"音频格式和文件存储格式不匹配,无法初始化Recorder"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate aatAudioToolDidStopRecord:nil startTime:0 endTime:0 errorInfo:@"音频格式和文件存储格式不匹配,无法初始化Recorder"];
+        });
     }
 }
 
@@ -137,14 +141,15 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
 }
 
 -(void)intertrptRecord{
-    
-    [self.delegate aatAudioToolDidSInterrupted];
-    self.delegate = nil;
-    [self removeTimer];
-    if ([self.recorder isRecording]) {
-        CRMLog(@"中断了");
-        [self.recorder stop];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.delegate aatAudioToolDidSInterrupted];
+        self.delegate = nil;
+        [self removeTimer];
+        if ([self.recorder isRecording]) {
+            CRMLog(@"中断了");
+            [self.recorder stop];
+        }
+    });
 }
 
 
@@ -167,13 +172,16 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
 }
 
 -(void)refreshRecord {
+    
     if (startTime < 0 && !self.recorder.isRecording) { // 还未开始录音
         CRMLog(@"还未开始录音");
         return;
     } else if (startTime < 0 && self.recorder.isRecording) { // 开始录音 记录时间
         CRMLog(@"开始录音 记录时间");
         startTime = self.recorder.currentTime;
-        [self.delegate aatAudioToolDidStartRecord:startTime];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate aatAudioToolDidStartRecord:startTime];
+        });
         return;
     } else if (startTime > 0 && self.recorder.isRecording) { // 录音中
         
@@ -186,9 +194,11 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
         
         [self.recorder updateMeters];
         double lowPassResults = pow(10, (0.05 * [self.recorder peakPowerForChannel:0]));
-        [self.delegate aatAudioToolUpdateCurrentTime:self.recorder.currentTime
-                                            fromTime:startTime
-                                               power:lowPassResults];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate aatAudioToolUpdateCurrentTime:self.recorder.currentTime
+                                                fromTime:startTime
+                                                   power:lowPassResults];
+        });
         CRMLog([NSString stringWithFormat:@"录音中 %f --peakPower:%f",self.recorder.currentTime, lowPassResults]);
     } else {
         CRMLog(@"没有在录音，中断了");
@@ -198,12 +208,15 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
 
 #pragma mark  ---AVAudioRecorderDelegate---
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
-    [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:nil];
+    });
 }
 
 - (void)audioRecorderBeginInterruption:(AVAudioRecorder *)recorder{
-    [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:@"被打断了"];
-
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:@"被打断了"];
+    });
 }
 
 -(void)audioRecorderEndInterruption:(AVAudioRecorder *)recorder{
@@ -219,7 +232,9 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
 }
 
 - (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError * __nullable)error{
-    [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:error.description];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:error.description];
+    });
 }
 
 
@@ -283,11 +298,59 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
 #pragma mark ====================================public====================================
 -(BOOL)handleError:(NSError *)err{
     if (err) {
-        [self.delegate aatAudioToolDidStopRecord:nil startTime:0 endTime:0 errorInfo:[NSString stringWithFormat:@"Error creating session: %@",[err description]]];
-        [self removeTimer];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate aatAudioToolDidStopRecord:nil startTime:0 endTime:0 errorInfo:[NSString stringWithFormat:@"Error creating session: %@",[err description]]];
+            [self removeTimer];
+        });
         return YES;
     }
     return NO;
+}
+
++ (void)checkCameraAuthorizationGrand:(void (^)(void))permissionGranted withNoPermission:(void (^)(void))noPermission{
+    AVAuthorizationStatus videoAuthStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        switch (videoAuthStatus) {
+            case AVAuthorizationStatusNotDetermined:
+            {
+                //第一次提示用户授权
+                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (!granted) {
+                            noPermission();
+                        }else{
+//                            permissionGranted();
+                        }
+                    });
+                }];
+                break;
+            }
+            case AVAuthorizationStatusAuthorized:
+            {
+                //通过授权
+                permissionGranted();
+                break;
+            }
+            case AVAuthorizationStatusRestricted:
+                //不能授权
+                CRMLog(@"不能完成授权，可能开启了访问限制");
+                noPermission();
+            case AVAuthorizationStatusDenied:{
+                [AATHUD alert:@"麦克风授权" message:@"跳转相机授权设置" confirm:^{
+                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                    if ([ [UIApplication sharedApplication] canOpenURL:url])
+                    {
+                        [[UIApplication sharedApplication] openURL:url];
+                    }
+                } cancle:^{
+                    
+                }];
+            }
+                break;
+            default:
+                break;
+        }
+    });
 }
 
 

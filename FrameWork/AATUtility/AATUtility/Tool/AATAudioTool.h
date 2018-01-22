@@ -40,6 +40,7 @@ extern  NSNotificationName const AATAudioToolDidStopPlayNoti;
 @property NSTimeInterval updateInterval;
 
 // 录音
++ (void)checkCameraAuthorizationGrand:(void (^)(void))permissionGranted withNoPermission:(void (^)(void))noPermission;
 -(BOOL)isRecorderRecording;
 - (void)startRecord;
 - (void)stopRecord;
