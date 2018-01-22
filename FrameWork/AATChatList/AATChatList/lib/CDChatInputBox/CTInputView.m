@@ -217,6 +217,7 @@
 }
 // 内部抬起
 -(void)touchDownRecordButton2:(UIButton *)but{
+    
 //    结束录音
     [[AATAudioTool share] stopRecord];
     [AATVoiceHudAlert hideHUD];

@@ -149,18 +149,24 @@
  @param power [1...10]
  */
 +(void)showPowerHud:(NSUInteger) power{
-    AATVoiceHudAlert *this = [AATVoiceHudAlert share];
-    [this updateViewHierarchy:this.voicePower];
-    [this.sigView updatePower:power];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AATVoiceHudAlert *this = [AATVoiceHudAlert share];
+        [this updateViewHierarchy:this.voicePower];
+        [this.sigView updatePower:power];
+    });
 }
 
 +(void)showRevocationHud{
-    AATVoiceHudAlert *this = [AATVoiceHudAlert share];
-    [this updateViewHierarchy:this.voiceRevocation];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AATVoiceHudAlert *this = [AATVoiceHudAlert share];
+        [this updateViewHierarchy:this.voiceRevocation];
+    });
 }
 
 +(void)hideHUD{
-    [[AATVoiceHudAlert share] removeFromSuperview];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[AATVoiceHudAlert share] removeFromSuperview];
+    });
 }
 
 - (void)updateViewHierarchy:(UIView *)tagetView {

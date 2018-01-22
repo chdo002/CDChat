@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:AATChatList/AATChatList.xcodeproj">
+      location = "group:../../Utility/FrameWork/AATUtility/AATUtility.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:AATUtility/AATUtility.xcodeproj">
+      location = "group:AATChatList/AATChatList.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:ChatDemo/ChatDemo.xcodeproj">
