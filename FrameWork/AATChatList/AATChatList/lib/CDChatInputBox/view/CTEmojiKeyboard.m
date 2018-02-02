@@ -70,7 +70,7 @@
         self.backgroundColor = [UIColor whiteColor];
         bottomBarAeraH = 44;
     } else {
-        self.backgroundColor = CRMHexColor(0xF5F5F7);
+        self.backgroundColor = [UIColor whiteColor];;
         bottomBarAeraH = 44;
     }
     
