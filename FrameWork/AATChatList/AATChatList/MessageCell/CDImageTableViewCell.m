@@ -93,8 +93,14 @@
 -(void)configImage_Left:(CDChatMessage)data {
     CGRect bubbleRec = [super updateMsgContentFrame_left:data];
     self.imageContent_left.frame = bubbleRec;
+
     
     UIImage *image = [[AATImageCache sharedImageCache] imageFromCacheForKey:data.msg];
+    
+    if (!image) { // 如果是自己发的图片,则先通过data.messageId缓存，
+        image = [[AATImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
+    }
+    
     if (image) {
         self.imageContent_left.image = image;
     } else {
@@ -111,6 +117,10 @@
     self.imageContent_right.frame = bubbleRec;
     
     UIImage *image = [[AATImageCache sharedImageCache] imageFromCacheForKey:data.msg];
+    
+    if (!image) { // 如果是自己发的图片,则先通过data.messageId缓存，
+        image = [[AATImageCache sharedImageCache] imageFromCacheForKey:data.messageId];
+    }
     
     if (image) {
         self.imageContent_right.image = image;
