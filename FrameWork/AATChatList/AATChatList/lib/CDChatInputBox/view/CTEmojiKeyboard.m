@@ -71,7 +71,7 @@
         bottomBarAeraH = 44;
     } else {
         self.backgroundColor = CRMHexColor(0xF5F5F7);
-        bottomBarAeraH = 14;
+        bottomBarAeraH = 44;
     }
     
     emojInsetTop = 12.0f;  // 顶部内边距
