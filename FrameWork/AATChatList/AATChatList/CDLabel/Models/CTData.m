@@ -43,7 +43,7 @@
     
     CTData *data = [[CTData alloc] init];
     data.config = config;
-    NSString *originStr = [msgString copy];
+    NSString *originStr = msgString ? [msgString copy] : @"";
 
     originStr = [originStr stringByReplacingOccurrencesOfString:@"</span>" withString:@""];
     originStr = [originStr stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\n"];

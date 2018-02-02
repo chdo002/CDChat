@@ -44,7 +44,8 @@
     
     CDChatMessage data = msgArr[index];
     // 返回缓存中的高度
-    if (data.cellHeight) {
+    // cell的高度会被保存，textlayout 目前还没有保存方案，
+    if (data.cellHeight && data.textlayout) {
         return data.cellHeight;
     }
     
@@ -97,7 +98,11 @@
     
     NSMutableAttributedString *msg_attributeText;
 
-    msg_attributeText = [[NSMutableAttributedString alloc] initWithString: msgData.msg];
+    if (msgData.msg) {
+        msg_attributeText = [[NSMutableAttributedString alloc] initWithString: msgData.msg];
+    }else{
+        msg_attributeText = [[NSMutableAttributedString alloc] initWithString: @""];
+    }
     
     // 文字的限制区域，红色部分
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,

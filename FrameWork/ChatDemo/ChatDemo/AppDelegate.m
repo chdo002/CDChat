@@ -47,8 +47,6 @@
         [resDic setObject:[UIImage imageNamed:@"voice_right_3"] forKey:@"voice_right_3"];
         [ChatHelpr setDefaultImageDic:resDic];
         
-        
-        
         // 设置输入框的表情资源
         [CTinputHelper setDefaultEmoticonDic:dic emojiNameArrs:@[temp.allKeys,temp.allKeys] emojiNameArrTitles:@[@"hhe",@"haha"]];
         [[CTinputHelper defaultConfiguration] addExtra:@{

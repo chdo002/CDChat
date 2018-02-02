@@ -93,7 +93,7 @@ typedef enum : NSUInteger {
 /**
  消息对应用户的头像图片地址
  */
-@property (strong, nonatomic) NSURL *userThumImageURL;
+@property (strong, nonatomic) NSString *userThumImageURL;
 
 #pragma mark 缓存，这些字段，存在缓存表中
 
