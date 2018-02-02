@@ -114,6 +114,12 @@
 }
 
 // 添加更多功能
+
+/**
+ // 添加更多功能
+
+ @param info 命令 及  图片
+ */
 -(void)addExtra:(NSDictionary<NSString *,UIImage *> *)info{
     
     if (!info) return;

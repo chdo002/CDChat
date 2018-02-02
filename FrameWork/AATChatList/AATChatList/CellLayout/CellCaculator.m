@@ -159,10 +159,11 @@
     
     // 获得本地缓存的图片
     UIImage *image = [[AATImageCache sharedImageCache] imageFromCacheForKey: msgData.msg];
-
+    if (!image) {
+        image = [[AATImageCache sharedImageCache] imageFromCacheForKey: msgData.messageId];
+    }
     // 如果本地存在图片，则通过图片计算
     if (image) {
-        msgData.msgState = CDMessageStateNormal;
         return caculateImageSize140By140(image);
     } else {
         // 若不存在，则返回占位图大小，并下载
