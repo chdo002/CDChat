@@ -59,6 +59,9 @@
 		E994383E2007357A0058EA89 /* ChatConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E9943838200735790058EA89 /* ChatConfiguration.m */; };
 		E994383F2007357A0058EA89 /* ChatHelpr.m in Sources */ = {isa = PBXBuildFile; fileRef = E9943839200735790058EA89 /* ChatHelpr.m */; };
 		E99438402007357A0058EA89 /* ChatImageDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E994383C200735790058EA89 /* ChatImageDrawer.m */; };
+		E9B8250720284CD8006211C5 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B8250620284CD8006211C5 /* Tests.m */; };
+		E9B8250920284CD8006211C5 /* libAATChatList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E904F32B1FEB53C900E156ED /* libAATChatList.a */; };
+		E9B8251120284EEA006211C5 /* MsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B8251020284EEA006211C5 /* MsgModel.m */; };
 		E9C107C42006161B00DDADBF /* CDAudioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C107C32006161B00DDADBF /* CDAudioTableViewCell.m */; };
 		E9DEE2A51FED00A9009D02AC /* CTinputHelper.h in Copy Files */ = {isa = PBXBuildFile; fileRef = E904F7031FEB835100E156ED /* CTinputHelper.h */; };
 		E9E367922005B16900A56B33 /* AATVoiceHudAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E367912005B16900A56B33 /* AATVoiceHudAlert.m */; };
@@ -68,6 +71,16 @@
 		E9F54C7E1FFB821400207873 /* CTData.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F54C7C1FFB821400207873 /* CTData.m */; };
 		E9F54C7F1FFB821400207873 /* CTClickInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F54C7D1FFB821400207873 /* CTClickInfo.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9B8250A20284CD8006211C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E904F3231FEB53C800E156ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E904F32A1FEB53C900E156ED;
+			remoteInfo = AATChatList;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E904F3291FEB53C900E156ED /* Copy Files */ = {
@@ -199,6 +212,11 @@
 		E994386120074D1B0058EA89 /* NSString+AATString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AATString.h"; sourceTree = "<group>"; };
 		E994386220074D1B0058EA89 /* UIImage+GIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		E994386320074D1B0058EA89 /* AATWebImagePrefetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATWebImagePrefetcher.h; sourceTree = "<group>"; };
+		E9B8250420284CD8006211C5 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B8250620284CD8006211C5 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		E9B8250820284CD8006211C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9B8250F20284EEA006211C5 /* MsgModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgModel.h; sourceTree = "<group>"; };
+		E9B8251020284EEA006211C5 /* MsgModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgModel.m; sourceTree = "<group>"; };
 		E9C107C22006161B00DDADBF /* CDAudioTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAudioTableViewCell.h; sourceTree = "<group>"; };
 		E9C107C32006161B00DDADBF /* CDAudioTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAudioTableViewCell.m; sourceTree = "<group>"; };
 		E9E367902005B16900A56B33 /* AATVoiceHudAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AATVoiceHudAlert.h; sourceTree = "<group>"; };
@@ -223,6 +241,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9B8250120284CD8006211C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B8250920284CD8006211C5 /* libAATChatList.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -230,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				E904F32D1FEB53C900E156ED /* AATChatList */,
+				E9B8250520284CD8006211C5 /* Tests */,
 				E904F32C1FEB53C900E156ED /* Products */,
 				E904F68E1FEB65BA00E156ED /* Frameworks */,
 			);
@@ -239,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				E904F32B1FEB53C900E156ED /* libAATChatList.a */,
+				E9B8250420284CD8006211C5 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -465,6 +493,17 @@
 			path = AATUtility;
 			sourceTree = "<group>";
 		};
+		E9B8250520284CD8006211C5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E9B8250620284CD8006211C5 /* Tests.m */,
+				E9B8250F20284EEA006211C5 /* MsgModel.h */,
+				E9B8251020284EEA006211C5 /* MsgModel.m */,
+				E9B8250820284CD8006211C5 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,6 +524,24 @@
 			productReference = E904F32B1FEB53C900E156ED /* libAATChatList.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		E9B8250320284CD8006211C5 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9B8250E20284CD8006211C5 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				E9B8250020284CD8006211C5 /* Sources */,
+				E9B8250120284CD8006211C5 /* Frameworks */,
+				E9B8250220284CD8006211C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9B8250B20284CD8006211C5 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = E9B8250420284CD8006211C5 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -495,6 +552,10 @@
 				ORGANIZATIONNAME = aat;
 				TargetAttributes = {
 					E904F32A1FEB53C900E156ED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					E9B8250320284CD8006211C5 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -513,9 +574,20 @@
 			projectRoot = "";
 			targets = (
 				E904F32A1FEB53C900E156ED /* AATChatList */,
+				E9B8250320284CD8006211C5 /* Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9B8250220284CD8006211C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E904F3271FEB53C900E156ED /* Sources */ = {
@@ -552,7 +624,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9B8250020284CD8006211C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B8250720284CD8006211C5 /* Tests.m in Sources */,
+				E9B8251120284EEA006211C5 /* MsgModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9B8250B20284CD8006211C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E904F32A1FEB53C900E156ED /* AATChatList */;
+			targetProxy = E9B8250A20284CD8006211C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E904F3321FEB53C900E156ED /* Debug */ = {
@@ -697,6 +786,32 @@
 			};
 			name = Release;
 		};
+		E9B8250C20284CD8006211C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56W7P8272X;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = aat.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E9B8250D20284CD8006211C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56W7P8272X;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = aat.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -714,6 +829,15 @@
 			buildConfigurations = (
 				E904F3351FEB53C900E156ED /* Debug */,
 				E904F3361FEB53C900E156ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9B8250E20284CD8006211C5 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9B8250C20284CD8006211C5 /* Debug */,
+				E9B8250D20284CD8006211C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

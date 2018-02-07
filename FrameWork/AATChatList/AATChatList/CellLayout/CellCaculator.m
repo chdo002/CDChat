@@ -173,7 +173,9 @@
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
                 msgData.msgState = CDMessageStateDownloadFaild;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH object:msgData userInfo:error.userInfo];
+                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
+                                                                    object:msgData
+                                                                  userInfo:error.userInfo];
             } else {
 
                 CGSize size = caculateImageSize140By140(image);
@@ -185,7 +187,9 @@
                 msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
 
                 msgData.msgState = CDMessageStateNormal;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH object:msgData userInfo:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
+                                                                    object:msgData
+                                                                  userInfo:nil];
             }
         }];
         return CGSizeMake(140, 140);

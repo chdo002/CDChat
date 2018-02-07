@@ -126,7 +126,9 @@
         self.imageContent_right.image = image;
     } else {
         [self.imageContent_right aat_setImageWithURL:[NSURL URLWithString:data.msg] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, AATImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            [[AATImageCache sharedImageCache] storeImage:image forKey:data.msg completion:nil];
+            if (!error) {
+                [[AATImageCache sharedImageCache] storeImage:image forKey:data.msg completion:nil];
+            }
         }];
     }
 }

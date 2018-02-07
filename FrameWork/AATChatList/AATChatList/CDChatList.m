@@ -99,10 +99,14 @@ typedef enum : NSUInteger {
 -(void)receiveNotification:(NSNotification *)noti{
     
     if ([noti.name isEqualToString:CHATLISTDOWNLOADLISTFINISH]) {
-        // 下载图片完成通知
-        CDChatMessage msgData = noti.object;
-        [self updateMessage:msgData];
         
+        CDChatMessage msgData = noti.object;
+        if (!noti.userInfo) {
+            // 下载图片完成通知
+            [self updateMessage:msgData];
+        } else {
+            CRMLog([NSString stringWithFormat:@"下载图片%@出现问题%@",msgData.messageId,noti.userInfo]);
+        }
     } else if ([noti.name isEqualToString:CHATLISTCLICKMSGEVENTNOTIFICATION]) {
         
         // 点击消息中可点击区域的通知
@@ -182,6 +186,7 @@ typedef enum : NSUInteger {
     BOOL needAdjust = cellOffset < contentOffset.y;
     
     [self reloadData];
+    
     if (needAdjust) {
         CGRect rect_new = [self rectForRowAtIndexPath:index]; // cell新的位置
         CGFloat adjust = rect_old.size.height - rect_new.size.height;
