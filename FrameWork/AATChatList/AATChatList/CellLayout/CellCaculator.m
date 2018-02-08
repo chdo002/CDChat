@@ -167,7 +167,9 @@
         return caculateImageSize140By140(image);
     } else {
         // 若不存在，则返回占位图大小，并下载
-        msgData.msgState = CDMessageStateDownloading;
+        if (msgData.msgState != CDMessageStateSendFaild) {
+            msgData.msgState = CDMessageStateDownloading;
+        }
         [[AATWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:AATWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
 
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {

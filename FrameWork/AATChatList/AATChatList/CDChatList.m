@@ -65,7 +65,7 @@ typedef enum : NSUInteger {
     [self addSubview:indicatr];
     [indicatr startAnimating];
     self.indicatro = indicatr;
-    
+    self.indicatro.hidesWhenStopped = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTDOWNLOADLISTFINISH object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGEVENTNOTIFICATION object:nil];
@@ -245,6 +245,8 @@ typedef enum : NSUInteger {
         UIEdgeInsets inset = UIEdgeInsetsMake(originInset, 0, 0, 0);
         [self setContentInset:inset];
         [self.indicatro stopAnimating];
+    } else {
+        [self.indicatro startAnimating];
     }
     _loadHeaderState = loadHeaderState;
 }
