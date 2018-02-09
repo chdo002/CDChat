@@ -139,18 +139,13 @@ typedef enum : NSUInteger {
     [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
             
         [self relayoutTable:NO];
-        
-        // 小于tableview高度时，不出现loading，不可下拉加载
-        if (self.bounds.size.height >= totalHeight) {
-            self.loadHeaderState = CDHeaderLoadStateFinished;
-        } else {
             self.loadHeaderState = CDHeaderLoadStateNoraml;
             CGFloat newTopInset = LoadingH + originInset;
             CGFloat left = self.contentInset.left;
             CGFloat right = self.contentInset.right;
             CGFloat bottom = self.contentInset.bottom;
             [self setContentInset:UIEdgeInsetsMake(newTopInset, left, right, bottom)];
-        }
+//        }
     }];
 }
 
@@ -161,7 +156,7 @@ typedef enum : NSUInteger {
  */
 -(void)updateMessage:(CDChatMessage)message{
     
-    // 找到消息ID
+    // 找到消息下标
     NSInteger msgIndex = -1;
     for (int i = 0; i < _msgArr.count; i++) {
         if ([message.messageId isEqualToString:_msgArr[i].messageId]) {
@@ -178,7 +173,6 @@ typedef enum : NSUInteger {
     _msgArr = [mutableMsgArr copy];
     
     // 若待更新的cell在屏幕上方，则可能造成屏幕抖动，需要手动调回contentoffset
-    
     NSIndexPath *index = [NSIndexPath indexPathForRow:msgIndex inSection:0];
     CGRect rect_old = [self rectForRowAtIndexPath:index]; // cell所在位置
     CGFloat cellOffset = rect_old.origin.y + rect_old.size.height;

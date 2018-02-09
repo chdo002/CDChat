@@ -22,7 +22,7 @@
     self.headBackGroundColor = CRMHexColor(0xEBEBEB);
     self.msgTextContentBackGroundColor = CRMHexColor(0xF5F5F5);
     
-    self.msgTimeH = 30.0f;
+    self.msgTimeH = 25.0f;
     self.sysInfoMessageMaxWidth = ScreenW() * 0.64f;
     self.headSideLength = 40.0f;
     self.sysInfoPadding = 8.0f;

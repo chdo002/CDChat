@@ -22,11 +22,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     self.backgroundColor = MsgBackGroundColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.infoBackGround = [[UIView alloc] init];
-    self.infoBackGround.backgroundColor = CRMHexColor(0xCECECE);
-    self.infoBackGround.clipsToBounds = YES;
-    self.infoBackGround.layer.cornerRadius = 5;
+    self.infoBackGround.backgroundColor = [UIColor clearColor];
     [self addSubview:self.infoBackGround];
     
     self.sysInfoLbael = [[UILabel alloc] init];
@@ -35,6 +34,9 @@
     self.sysInfoLbael.textColor = [UIColor whiteColor];
     self.sysInfoLbael.numberOfLines = 0;
     self.sysInfoLbael.backgroundColor = CRMHexColor(0xCECECE);
+    self.sysInfoLbael.clipsToBounds = YES;
+    self.sysInfoLbael.layer.cornerRadius = 5;
+    
     [self.infoBackGround addSubview:self.sysInfoLbael];
     
     return self;
@@ -46,7 +48,7 @@
     self.infoBackGround.center = CGPointMake(ScreenW() / 2, data.cellHeight / 2);
     
     self.sysInfoLbael.text = data.msg;
-    self.sysInfoLbael.frame = CGRectMake(0, 0, data.bubbleWidth - SysInfoPadding * 2, data.cellHeight - SysInfoPadding * 2);
+    self.sysInfoLbael.frame = CGRectMake(0, 0, data.bubbleWidth - SysInfoPadding, data.cellHeight - SysInfoPadding);
     self.sysInfoLbael.center = CGPointMake(data.bubbleWidth / 2, data.cellHeight / 2);
     
 

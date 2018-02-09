@@ -64,7 +64,8 @@
     
     // 加上可能显示的时间视图高度
     CGFloat height = res.height;
-    data.cellHeight = height + (data.willDisplayTime ? MsgTimeH : 0);
+    
+    data.cellHeight = height + (data.willDisplayTime ? (data.msgType != CDMessageTypeSystemInfo ? MsgTimeH : 0) : 0);
     
     return data.cellHeight;
 }
@@ -207,15 +208,14 @@
                                                         options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                      attributes:attri context:nil].size;
     
-    return CGSizeMake(caculateTextSize.width + SysInfoPadding * 2,
-                      caculateTextSize.height + SysInfoPadding * 2);
+    CGFloat height = caculateTextSize.height + SysInfoPadding * 2;
+    return CGSizeMake(caculateTextSize.width + SysInfoPadding * 2 + 10, height);
 }
 
 #pragma mark ---计算音频消息消息尺寸方法
 +(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
     
-    return CGSizeMake(200,
-                      MessageContentH);
+    return CGSizeMake(200, MessageContentH);
 }
 
 @end

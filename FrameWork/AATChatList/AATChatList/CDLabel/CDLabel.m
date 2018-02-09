@@ -229,8 +229,9 @@ typedef enum CTDisplayViewState : NSInteger {
 }
 
 -(void)showMenu{
-    
-    [self becomeFirstResponder];
+    if ([self canBecomeFirstResponder]) {
+        [self becomeFirstResponder];
+    }
     
     UIMenuController *menu = [UIMenuController sharedMenuController];
     UIMenuItem *item1 = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(copycontent:)];

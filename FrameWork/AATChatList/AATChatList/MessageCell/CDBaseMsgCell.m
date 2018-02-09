@@ -31,7 +31,7 @@
     _timeLabel.backgroundColor = CRMHexColor(0xCECECE);
     _timeLabel.layer.cornerRadius = 5;
     _timeLabel.clipsToBounds = YES;
-    _timeLabel.font = [UIFont systemFontOfSize:14];
+    _timeLabel.font = [UIFont systemFontOfSize:12];
     _timeLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_timeLabel];
     
