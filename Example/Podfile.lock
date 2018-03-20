@@ -1,0 +1,21 @@
+PODS:
+  - CDChatList (0.1.0):
+    - SDWebImage (= 4.2.3)
+  - SDWebImage (4.2.3):
+    - SDWebImage/Core (= 4.2.3)
+  - SDWebImage/Core (4.2.3)
+
+DEPENDENCIES:
+  - CDChatList (from `../`)
+
+EXTERNAL SOURCES:
+  CDChatList:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CDChatList: d2d3388bcb25cb7fdca2367de50196aad62ac916
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+
+PODFILE CHECKSUM: 35b3685a7a9210b39d35fb42b9d7d5cd8870c769
+
+COCOAPODS: 1.4.0.beta.2
