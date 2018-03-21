@@ -267,6 +267,9 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = chdo002;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 56W7P8272X;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -358,11 +361,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CDChatList/CDChatList.framework",
+				"${BUILT_PRODUCTS_DIR}/GDPerformanceView/GDPerformanceView.framework",
+				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDChatList.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +584,7 @@
 			baseConfigurationReference = 1B96FCFE89C44ABF9446EBE3 /* Pods-CDChatList_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 56W7P8272X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDChatList/CDChatList-Prefix.pch";
 				INFOPLIST_FILE = "CDChatList/CDChatList-Info.plist";
@@ -592,6 +600,7 @@
 			baseConfigurationReference = FD2F9DE9351C9A0D9D52388A /* Pods-CDChatList_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 56W7P8272X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDChatList/CDChatList-Prefix.pch";
 				INFOPLIST_FILE = "CDChatList/CDChatList-Info.plist";

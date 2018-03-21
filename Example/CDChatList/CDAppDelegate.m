@@ -13,10 +13,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     
     // 配置聊天列表环境
     [ChatHelpr defaultConfiguration].environment = 1;
-    
     
     // 聊天页面图片资源配置
     [self configResource];

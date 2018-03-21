@@ -8,6 +8,8 @@
 
 #import "CDViewController.h"
 #import "CDChatList.h"
+#import <GDPerformanceView/GDPerformanceMonitor.h>
+
 #define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
@@ -22,7 +24,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
+    [[GDPerformanceMonitor sharedInstance] startMonitoringWithConfiguration:^(UILabel *textLabel) {
+        textLabel.font = [UIFont systemFontOfSize:10];
+        textLabel.numberOfLines = 1;
+    }];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     CDChatListView *list = [[CDChatListView alloc] initWithFrame:CGRectMake(0, NaviH, ScreenW, ScreenH - NaviH - CTInputViewHeight)];
     list.msgDelegate = self;
@@ -67,7 +74,15 @@
 }
 
 - (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished {
-    finnished(@[]);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
+        NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        
+        CDMessageModel *model = [[CDMessageModel alloc] init];
+        model.msg = array[1][@"msg"];;
+        finnished(@[model]);
+    });
 }
 
 #pragma mark CTInputViewProtocol
