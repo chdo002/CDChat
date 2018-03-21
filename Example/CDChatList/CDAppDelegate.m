@@ -74,7 +74,7 @@
                                                          @"图片": photo
                                                          }];
         
-        //        [[CTinputHelper defaultConfiguration] addEmoji];
+        [[CTinputHelper defaultConfiguration] addEmoji];
         [[CTinputHelper defaultConfiguration] addVoice];
         
         //

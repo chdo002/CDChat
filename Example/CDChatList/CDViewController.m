@@ -33,8 +33,32 @@
     input.delegate = self;
     self.inputView = input;
     [self.view addSubview:input];
+    
+    
+    // 通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name: CDChatListDidScroll object:nil];
+    
+    
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    NSMutableArray *msgs = [NSMutableArray arrayWithCapacity:array.count];
+    for (NSDictionary *dic in array) {
+        NSString *msg = dic[@"msg"];
+        CDMessageModel *model = [[CDMessageModel alloc] init];
+        model.msg = msg;
+        [msgs addObject:model];
+    }
+    self.listView.msgArr = msgs;
 }
 
+
+
+-(void)receiveNotification:(NSNotification *)noti{
+    if ([noti.name isEqualToString: CDChatListDidScroll]) {
+        [self.inputView resignFirstResponder];
+    }
+}
 
 #pragma mark ChatListProtocol
 
@@ -43,7 +67,7 @@
 }
 
 - (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished {
-    
+    finnished(@[]);
 }
 
 #pragma mark CTInputViewProtocol
@@ -53,7 +77,7 @@
 }
 
 - (void)inputViewPopCommand:(NSString *)string {
-
+    
 }
 
 - (void)inputViewPopSttring:(NSString *)string {

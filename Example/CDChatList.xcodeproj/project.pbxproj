@@ -24,6 +24,7 @@
 		79026568F12ACF562C96E3CE /* Pods_CDChatList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9487E674511DDEC0C83B765A /* Pods_CDChatList_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9DF2458C7F76D80FA280F0D2 /* Pods_CDChatList_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7D68B1DE9E87DFF7E55A5D /* Pods_CDChatList_Tests.framework */; };
+		E9AC85892062072A002025DF /* messageHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = E9AC85882062072A002025DF /* messageHistory.json */; };
 		E9B02A182060EFBC00A22541 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A172060EFBC00A22541 /* Expression.bundle */; };
 		E9B02A1B2060F28100A22541 /* InputViewBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		9C7E8A2BC99C14EA8E3EB891 /* Pods-CDChatList_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Tests/Pods-CDChatList_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B88244055E8DB937766003D6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C3BC17C89EA4DFDA57C54D8D /* Pods-CDChatList_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Tests/Pods-CDChatList_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E9AC85882062072A002025DF /* messageHistory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = messageHistory.json; sourceTree = "<group>"; };
 		E9B02A172060EFBC00A22541 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InputViewBundle.bundle; sourceTree = "<group>"; };
 		FD2F9DE9351C9A0D9D52388A /* Pods-CDChatList_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */,
 				E9B02A172060EFBC00A22541 /* Expression.bundle */,
+				E9AC85882062072A002025DF /* messageHistory.json */,
 			);
 			name = resource;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				E9AC85892062072A002025DF /* messageHistory.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E9B02A1B2060F28100A22541 /* InputViewBundle.bundle in Resources */,
 				E9B02A182060EFBC00A22541 /* Expression.bundle in Resources */,
