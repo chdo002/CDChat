@@ -6,8 +6,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/CDChatList.svg?style=flat)](http://cocoapods.org/pods/CDChatList)
 
 
-![(GIF1)](https://github.com/chdo002/CDChatList/blob/master/gif1.GIF?raw=true =56x100)
-![(GIF1)](https://github.com/chdo002/CDChatList/blob/master/gif2.GIF?raw=true =56x100)
+
+ <img src="https://github.com/chdo002/CDChatList/blob/master/gif1.GIF?raw=true" width = "56" height = "100" alt="图片名称" align=center />
+ 
+![(GIF1)](https://github.com/chdo002/CDChatList/blob/master/gif1.GIF?raw=true )
+![(GIF1)](https://github.com/chdo002/CDChatList/blob/master/gif2.GIF?raw=true)
 
 ## Example
 
