@@ -10,41 +10,13 @@
  <img src="https://github.com/chdo002/CDResources/blob/master/gif1.GIF?raw=true" width = "224" height = "400" alt="图片名称" align=center />
  <img src="https://github.com/chdo002/CDResources/blob/master/gif2.GIF?raw=true" width = "224" height = "400" alt="图片名称" align=center />
 
-## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
-## Installation
-
-CDChatList is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## 安装
 
 ```ruby
 pod 'CDChatList'
 ```
-
-## Author
-
-chdo002, 1107661983@qq.com
-
-## License
-
-CDChatList is available under the MIT license. See the LICENSE file for more info.
-
-
-
-
-
-
-## 安装
-<font color="#FF0000">从这个版本开始，使用静态库来管理代码，位置在根目录下的FrameWork下，根录下的其他文件及代码不再维护，除了本文件及CHANGELOG.md</font>
-
-编译静态库工程得到静态库，或直接拖动工程文件到主工程中
-
-在静态库封装过程中，如果静态库文件包含类别，在主工程将无法使用。
-解决方法为：找到主工程的 target －－Build Setting－－Linking－－更改其 Other Linker Flags 为： -ObjC 或 -all_load 或 -force_load 即可。
 
 ## 使用
 
@@ -57,7 +29,7 @@ UI配置及资源文件都有默认，所以无需自定义的话，就可以跳
 
 
 ```
-CDChatList *list = [[CDChatList alloc] initWithFrame:self.view.bounds];
+CDChatListView *list = [[CDChatListView alloc] initWithFrame:self.view.bounds];
 list.msgDelegate = self;
 self.listView = list;
 [self.view addSubview:self.listView];
@@ -169,7 +141,4 @@ listInfo.msgImageRectInTableView
 
 ## TODO
 
-- 自定义消息内容匹配    去人工
-- 消息中添加extra类型
-
-
+- 自定义消息内容匹配
