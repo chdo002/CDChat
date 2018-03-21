@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/CDChatList.svg?style=flat)](http://cocoapods.org/pods/CDChatList)
 [![Platform](https://img.shields.io/cocoapods/p/CDChatList.svg?style=flat)](http://cocoapods.org/pods/CDChatList)
 
+
+![(GIF1)](https://github.com/chdo002/CDChatList/blob/master/gif1.GIF?raw=true)
+![(GIF1)](https://github.com/chdo002/CDChatList/blob/master/gif2.GIF?raw=true)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
