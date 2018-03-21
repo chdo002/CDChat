@@ -129,10 +129,10 @@ typedef enum CTDisplayViewState : NSInteger {
     
     CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
 
-        CFComparisonResult rest = CFStringCompare(currentMode, CFRunLoopCopyCurrentMode(CFRunLoopGetMain()), kCFCompareBackwards);
+        CFComparisonResult rest = CFStringCompare(self->currentMode, CFRunLoopCopyCurrentMode(CFRunLoopGetMain()), kCFCompareBackwards);
         if (rest != kCFCompareEqualTo) {
-            currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
-            if ((NSString *)CFBridgingRelease(currentMode) == UITrackingRunLoopMode) {
+            self->currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
+            if ((NSString *)CFBridgingRelease(self->currentMode) == UITrackingRunLoopMode) {
                 [self scrollDidScroll];
             }
         }

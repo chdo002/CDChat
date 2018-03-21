@@ -2,7 +2,6 @@ PODS:
   - CDChatList (0.1.0):
     - SDWebImage (= 4.2.3)
   - GDPerformanceView (1.3.1)
-  - JPFPSStatus (0.1.1)
   - SDWebImage (4.2.3):
     - SDWebImage/Core (= 4.2.3)
   - SDWebImage/Core (4.2.3)
@@ -10,18 +9,17 @@ PODS:
 DEPENDENCIES:
   - CDChatList (from `../`)
   - GDPerformanceView (~> 1.3.1)
-  - JPFPSStatus (~> 0.1.1)
+  - SDWebImage
 
 EXTERNAL SOURCES:
   CDChatList:
     :path: ../
 
 SPEC CHECKSUMS:
-  CDChatList: d2d3388bcb25cb7fdca2367de50196aad62ac916
+  CDChatList: 5ee94921af0c149d4d8e960e989d0a646b155bdc
   GDPerformanceView: d70d646bf7022a3dfd64222e4966f403bfffef19
-  JPFPSStatus: 03f32aa3d4d7d0c5bf56f6f3e7cf8b7280a5f52c
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
 
-PODFILE CHECKSUM: 11b73bd14ca201766aa3df0cc8a1fe63479219c3
+PODFILE CHECKSUM: 5b27e4dc50129f022a2198d285322ed181082532
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.4.0

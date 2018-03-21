@@ -69,6 +69,7 @@
 		9C7E8A2BC99C14EA8E3EB891 /* Pods-CDChatList_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Tests/Pods-CDChatList_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B88244055E8DB937766003D6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C3BC17C89EA4DFDA57C54D8D /* Pods-CDChatList_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Tests/Pods-CDChatList_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E95D412C206265F200161E69 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AC85882062072A002025DF /* messageHistory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = messageHistory.json; sourceTree = "<group>"; };
 		E9B02A172060EFBC00A22541 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InputViewBundle.bundle; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E95D412C206265F200161E69 /* SDWebImage.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -362,14 +364,12 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CDChatList/CDChatList.framework",
 				"${BUILT_PRODUCTS_DIR}/GDPerformanceView/GDPerformanceView.framework",
-				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDChatList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

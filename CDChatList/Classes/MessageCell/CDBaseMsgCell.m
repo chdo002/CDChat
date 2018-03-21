@@ -7,7 +7,7 @@
 
 #import "CDBaseMsgCell.h"
 #import "ChatHelpr.h"
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "UITool.h"
 
 @interface CDBaseMsgCell()

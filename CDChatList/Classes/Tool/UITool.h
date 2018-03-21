@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "UIView+CRM.h"
 #import "AATHUD.h"
 #import "NSString+Extend.h"

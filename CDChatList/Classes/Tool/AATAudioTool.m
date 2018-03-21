@@ -178,7 +178,7 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
         NSLog(@"开始录音 记录时间");
         startTime = self.recorder.currentTime;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate aatAudioToolDidStartRecord:startTime];
+            [self.delegate aatAudioToolDidStartRecord:self->startTime];
         });
         return;
     } else if (startTime > 0 && self.recorder.isRecording) { // 录音中
@@ -208,21 +208,9 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
     [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:nil];
 }
 
-- (void)audioRecorderBeginInterruption:(AVAudioRecorder *)recorder{
-    [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:@"被打断了"];
-}
-
--(void)audioRecorderEndInterruption:(AVAudioRecorder *)recorder{
-    
-}
-
--(void)audioRecorderEndInterruption:(AVAudioRecorder *)recorder withFlags:(NSUInteger)flags{
-    
-}
-
--(void)audioRecorderEndInterruption:(AVAudioRecorder *)recorder withOptions:(NSUInteger)flags{
-    
-}
+//- (void)audioRecorderBeginInterruption:(AVAudioRecorder *)recorder{
+//    [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:@"被打断了"];
+//}
 
 - (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError * __nullable)error{
     [self.delegate aatAudioToolDidStopRecord:recorder.url startTime:startTime endTime:recorder.currentTime errorInfo:error.description];
@@ -281,9 +269,9 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
     [[NSNotificationCenter defaultCenter] postNotificationName: AATAudioToolDidStopPlayNoti object:nil];
 }
 /* audioPlayerBeginInterruption: is called when the audio session has been interrupted while the player was playing. The player will have been paused. */
-- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player{
-    [[NSNotificationCenter defaultCenter] postNotificationName: AATAudioToolDidStopPlayNoti object:nil];
-}
+//- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player{
+//    [[NSNotificationCenter defaultCenter] postNotificationName: AATAudioToolDidStopPlayNoti object:nil];
+//}
 
 
 #pragma mark ====================================public====================================

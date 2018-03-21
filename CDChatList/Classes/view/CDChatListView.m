@@ -139,7 +139,7 @@ typedef enum : NSUInteger {
             
         [self relayoutTable:NO];
             self.loadHeaderState = CDHeaderLoadStateNoraml;
-            CGFloat newTopInset = LoadingH + originInset;
+            CGFloat newTopInset = LoadingH + self->originInset;
             CGFloat left = self.contentInset.left;
             CGFloat right = self.contentInset.right;
             CGFloat bottom = self.contentInset.bottom;
@@ -217,13 +217,13 @@ typedef enum : NSUInteger {
     [self mainAsyQueue:^{
         
         if (msgArr.count == 0) {
-            _msgArr = msgArr;
+            self->_msgArr = msgArr;
             [self reloadData];
             callBack(0);
         } else {
             dispatch_async(dispatch_get_global_queue(0, 0), ^{                
                 [CellCaculator caculatorAllCellHeight:msgArr callBackOnMainThread:^(CGFloat totalHeight) {
-                    _msgArr = msgArr;
+                    self->_msgArr = msgArr;
                     [self reloadData];
                     callBack(totalHeight);
                 }];
@@ -292,8 +292,8 @@ typedef enum : NSUInteger {
         
         [self.msgDelegate chatlistLoadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
            
-            if (!_msgArr) {
-                _msgArr = [NSMutableArray array];
+            if (!self->_msgArr) {
+                self->_msgArr = [NSMutableArray array];
             }
             
             if (!newMessages || newMessages.count == 0) {
@@ -302,12 +302,12 @@ typedef enum : NSUInteger {
             
             // 将旧消息加入当前消息数据中
             NSMutableArray *arr = [NSMutableArray arrayWithArray:newMessages];
-            [arr addObjectsFromArray:_msgArr];
+            [arr addObjectsFromArray:self->_msgArr];
             // 计算消息高度
             [CellCaculator caculatorAllCellHeight:arr callBackOnMainThread:^(CGFloat totalHeight)
             {
                 // 全部消息重新赋值
-                _msgArr = arr;
+                self->_msgArr = arr;
                 
                 // 记录刷新table前的contentoffset.y
                 CGFloat oldOffsetY = self.contentOffset.y;
@@ -318,7 +318,7 @@ typedef enum : NSUInteger {
                 // 新消息的总高度
                 CGFloat newMessageTotalHeight = 0.0f;
                 for (int i = 0; i < newMessages.count; i++) {
-                    newMessageTotalHeight = newMessageTotalHeight + _msgArr[i].cellHeight;
+                    newMessageTotalHeight = newMessageTotalHeight + self->_msgArr[i].cellHeight;
                 }
                 
                 // 重新回到当前看的消息位置(把loading过程中，table的offset计算在中)

@@ -196,7 +196,7 @@
     [sendButton addTarget:self action:@selector(emojiButtonTabedSend) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:sendButton];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self bringSubviewToFront:sendButton];
+        [self bringSubviewToFront:self->sendButton];
     });
     
     
@@ -208,9 +208,9 @@
 
 -(void)didMoveToSuperview {
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (int i = 0; i < emojiButs.count; i++) {
-            UIScrollView *scrol = scrollViews[i];
-            for (UIButton *b in emojiButs[i]) {
+        for (int i = 0; i < self->emojiButs.count; i++) {
+            UIScrollView *scrol = self->scrollViews[i];
+            for (UIButton *b in self->emojiButs[i]) {
                 if (!b.superview) {
                     [scrol addSubview:b];
                 }
