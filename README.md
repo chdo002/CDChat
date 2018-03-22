@@ -7,8 +7,8 @@
 
 
 
- <img src="https://github.com/chdo002/CDResources/blob/master/gif1.GIF?raw=true" width = "224" height = "400" alt="图片名称" align=center />
- <img src="https://github.com/chdo002/CDResources/blob/master/gif2.GIF?raw=true" width = "224" height = "400" alt="图片名称" align=center />
+ <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif1.GIF" width = "224" height = "400" alt="图片名称" align=center />
+ <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif2.GIF" width = "224" height = "400" alt="图片名称" align=center />
 
 
 
