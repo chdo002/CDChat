@@ -92,7 +92,7 @@
 }
 
 - (void)inputViewPopCommand:(NSString *)string {
-    
+    // 图片消息类型已 支持，demo中还未给出
 }
 
 - (void)inputViewPopSttring:(NSString *)string {
