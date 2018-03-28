@@ -11,7 +11,11 @@
  <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif2.GIF" width = "224" height = "400" alt="图片名称" align=center display=inlie-block/>
 
 
+高性能的聊天页面解决方案
+对聊天列表的高度封装，可灵活配置页面样式
+支持 Cocoapods
 
+https://github.com/chdo002/CDChatList
 ## 安装
 
 ```ruby
