@@ -13,10 +13,29 @@
 
 高性能的聊天页面解决方案
 对聊天列表的高度封装，可灵活配置页面样式
-支持 Cocoapods
 
-https://github.com/chdo002/CDChatList
+聊天界面其实大同小异，所以这里封装了一个聊天的组件，使用CoreText和手动代码布局，尽量实现简单，通用，高效，易于维护。
+
+# 项目结构
+
+CDChatListView: UITableView 视图，聊天页面主体
+
+CDBaseMsgCell: 实现消息气泡基本视图
+
+CDTextTableViewCell、CDImageTableViewCell、CDAudioTableViewCell: 继承自CDBaseMsgCell，实现响应功能。
+CDSystemTableViewCell: 特殊消息气泡，实现系统通知
+
+CellCaculator： tableview布局计算，并提前渲染cell
+
+ChatConfiguration： chatlist配置类组，UI定制，及资源等
+
+#### 子组件
+CDLabel： 富文本标签
+CDChatInputBox： 输入框封装组件
+
 ## 安装
+
+支持至iOS 11
 
 ```ruby
 pod 'CDChatList'
@@ -27,6 +46,7 @@ pod 'CDChatList'
 ### 配置 CDChatList
 
 ChatHelpr负责ChatHelpr的UI配置，及组件的资源文件设置
+
 UI配置及资源文件都有默认，所以无需自定义的话，就可以跳过组件的配置
 
 ### 添加 CDChatList 视图
@@ -43,7 +63,7 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 
 ### 消息模型  MessageModalProtocal
 
-消息模型需遵守MessageModalProtocal，实现相关属性
+可以使用自己的消息模型，消息模型需遵守MessageModalProtocal，实现相关属性
 
 ### 组件事件 ChatListProtocol
 
@@ -67,7 +87,6 @@ callback: (void(^)(CDChatMessageArray))finnished;
 -(void)addMessagesToBottom: (CDChatMessageArray)newBottomMsgArr;
 ```
 
-
 更新数据源中的某条消息模型(主要是为了更新UI上的消息状态)
 
 ```
@@ -81,27 +100,27 @@ callback: (void(^)(CDChatMessageArray))finnished;
 ```Objective-C
 // 发
 {
-MessageModal *modal;
+	MessageModal *modal;
 }
 -(void)send{
-modal = [[MessageModal alloc] init];
-modal.msgState = CDMessageStateSending;
-modal.createTime = ...;
-modal.msg = ...;
-modal.msgType = ...;
-[chatList addMessagesToBottom: modal];
+	modal = [[MessageModal alloc] init];
+	modal.msgState = CDMessageStateSending;
+	modal.createTime = ...;
+	modal.msg = ...;
+	modal.msgType = ...;
+	[chatList addMessagesToBottom: modal];
 }
 
 -(void)sendCallBack:(BOOL)isSuccess{
-modal.msgState = isSuccess;  // 此处应处理成枚举
-[chatList updateMessage: modal];
+	modal.msgState = isSuccess;  // 此处应处理成枚举
+	[chatList updateMessage: modal];
 }
 
 
 
 // 收
 -(void)receivedNewMessage:(MessageModal *)modal{
-[chatList addMessagesToBottom: modal];
+	[chatList addMessagesToBottom: modal];
 }
 
 ```
@@ -113,9 +132,9 @@ modal.msgState = isSuccess;  // 此处应处理成枚举
 -(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
 callback: (void(^)(CDChatMessageArray))finnished
 {
-// 根据topMessage 获取更多消息
-NSArray *msgArr = [self getMoreMessageFrom: topMessage amount: 10];
-callback(msgArr);
+	// 根据topMessage 获取更多消息
+	NSArray *msgArr = [self getMoreMessageFrom: topMessage amount: 10];
+	callback(msgArr);
 }
 ```
 
@@ -125,19 +144,19 @@ callback(msgArr);
 
 ```
 -(void)chatlistClickMsgEvent: (ChatListInfo *)listInfo{
-if (listInfo.eventType == ChatClickEventTypeTEXT){
-// 点击的文本
-listInfo.clickedText
-// 点击的文字位置  防止有相同的可点击文字
-listInfo.range
-// 被点击文本的隐藏信息   e.g.  <a title="转人工" href="doTransfer">
-listInfo.clickedTextContent
-} else if (listInfo.eventType == ChatClickEventTypeIMAGE){
-// 图片
-listInfo.image
-// 图片在tableview中的位置
-listInfo.msgImageRectInTableView
-}
+	if (listInfo.eventType == ChatClickEventTypeTEXT){
+		// 点击的文本
+		listInfo.clickedText
+		// 点击的文字位置  防止有相同的可点击文字
+		listInfo.range
+		// 被点击文本的隐藏信息   e.g.  <a title="转人工" href="doTransfer">
+		listInfo.clickedTextContent
+	} else if (listInfo.eventType == ChatClickEventTypeIMAGE){
+		// 图片
+		listInfo.image
+		// 图片在tableview中的位置
+		listInfo.msgImageRectInTableView
+	}
 }
 ```
 
