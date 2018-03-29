@@ -22,5 +22,15 @@
     "SDWebImage": [
       "4.2.3"
     ]
-  }
+  },
+  "subspecs": [
+    {
+      "name": "CDLabel",
+      "source_files": "CDChatList/Classes/CDLabel/**/*.{h,m}"
+    },
+    {
+      "name": "CDChatInputBox",
+      "source_files": "CDChatList/Classes/CDChatInputBox/**/*.{h,m}"
+    }
+  ]
 }

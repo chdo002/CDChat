@@ -12,6 +12,13 @@ Pod::Spec.new do |s|
 
   s.source_files = 'CDChatList/Classes/**/**/*.{h,m}'
 
+  s.subspec 'CDLabel' do |label|
+    label.source_files = 'CDChatList/Classes/CDLabel/**/*.{h,m}'
+  end
+
+  s.subspec 'CDChatInputBox' do |input|
+    input.source_files = 'CDChatList/Classes/CDChatInputBox/**/*.{h,m}'
+  end
   # s.resource_bundles = {
   #   'CDChatList' => ['CDChatList/Assets/*.png']
   # }
