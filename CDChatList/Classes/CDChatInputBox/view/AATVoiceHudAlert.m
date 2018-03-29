@@ -8,7 +8,7 @@
 
 #import "AATVoiceHudAlert.h"
 #import "CTinputHelper.h"
-#import "UITool.h"
+#import "CTInPutMacro.h"
 
 @interface SingleView:UIView
 @property NSUInteger power;
@@ -38,11 +38,11 @@
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGFloat blockH = 4.0f;
-    CGFloat blockGap = (self.height - blockH * 10) * (1.0f/9.0f);
+    CGFloat blockGap = (self.frame.size.height - blockH * 10) * (1.0f/9.0f);
 
     for (NSUInteger i = 0 ; i < self.power; i++) {
         CGFloat blockY = (9 - i) * (blockGap +  blockH);
-        CGFloat width =  ((i + 1.0f) / 10.0f) * self.width * 0.4 + 10.0f;
+        CGFloat width =  ((i + 1.0f) / 10.0f) * self.frame.size.width * 0.4 + 10.0f;
         CGRect rec = CGRectMake(0, blockY, width, blockH);
         CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
         CGContextAddRect(ctx,rec);//画方框
@@ -75,9 +75,9 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     
-    self = [super initWithFrame:CGRectMake(0, 0, ScreenW() * 0.4, ScreenW() * 0.4)];
+    self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth * 0.4, ScreenHeight * 0.4)];
     self.backgroundColor = [UIColor clearColor];
-    self.center = CGPointMake(ScreenW() * 0.5, ScreenH() * 0.4);
+    self.center = CGPointMake(ScreenWidth * 0.5, ScreenHeight * 0.4);
     
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *efView = [[UIVisualEffectView alloc] initWithEffect:effect];
@@ -100,8 +100,8 @@
         microphone.center = CGPointMake(self.bounds.size.width * 0.4, self.bounds.size.height * 0.45);
         [power addSubview:microphone];
         
-        SingleView *sig = [[SingleView alloc] initWithFrame:CGRectMake(self.width * 0.55, microphone.top,
-                                                                       self.width * 0.2, microphone.height)];
+        SingleView *sig = [[SingleView alloc] initWithFrame:CGRectMake(self.frame.size.width * 0.55, microphone.frame.origin.y,
+                                                                       self.frame.size.width * 0.2, microphone.frame.size.height)];
         [power insertSubview:sig belowSubview:microphone];
         self.sigView = sig;
 
@@ -129,7 +129,7 @@
         UILabel *revoclabel = [[UILabel alloc] init];
         revoclabel.frame = CGRectMake(5, self.bounds.size.height - 35, self.bounds.size.width - 10, 30);
         revoclabel.text = @"松开手指，取消发送";
-        revoclabel.backgroundColor = CRMHexColor(0x9D432C);
+        revoclabel.backgroundColor = HexColor(0x9D432C);
         revoclabel.textColor = [UIColor whiteColor];
         revoclabel.textAlignment = NSTextAlignmentCenter;
         revoclabel.font = [UIFont systemFontOfSize:14];

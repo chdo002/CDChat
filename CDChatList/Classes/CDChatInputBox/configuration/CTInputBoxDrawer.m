@@ -6,7 +6,7 @@
 //
 
 #import "CTInputBoxDrawer.h"
-#import "UITool.h"
+#import "CTInPutMacro.h"
 
 @interface CTInputBoxDrawer()
 {
@@ -48,19 +48,19 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // 外圆
-    CGContextSetStrokeColorWithColor(context, CRMHexColor(0x878A91).CGColor);
+    CGContextSetStrokeColorWithColor(context, HexColor(0x878A91).CGColor);
     CGContextSetLineWidth(context, 1);
     CGContextAddArc(context, butIconSize.width * 0.5, butIconSize.height * 0.5, (butIconSize.width - 2) * 0.5, 0, M_PI * 2, 0);
     CGContextStrokePath(context);
 
     // 左眼
     CGContextAddEllipseInRect(context, CGRectMake(8, 8, 3, 4));
-    CGContextSetFillColorWithColor(context, CRMHexColor(0x878A91).CGColor);
+    CGContextSetFillColorWithColor(context, HexColor(0x878A91).CGColor);
     
     
     // 右眼
     CGContextAddEllipseInRect(context, CGRectMake(18, 8, 3, 4));
-    CGContextSetFillColorWithColor(context, CRMHexColor(0x878A91).CGColor);
+    CGContextSetFillColorWithColor(context, HexColor(0x878A91).CGColor);
     
     CGMutablePathRef path = CGPathCreateMutable();
     // 嘴
@@ -83,7 +83,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // 外圆
-    CGContextSetStrokeColorWithColor(context, CRMHexColor(0x878A91).CGColor);
+    CGContextSetStrokeColorWithColor(context, HexColor(0x878A91).CGColor);
     CGContextSetLineWidth(context, 1);
     CGContextAddArc(context, butIconSize.width * 0.5, butIconSize.height * 0.5, (butIconSize.width - 2) * 0.5, 0, M_PI * 2, 0);
     CGContextStrokePath(context);

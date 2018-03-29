@@ -6,9 +6,8 @@
 //
 
 #import "CTEmojiKeyboard.h"
-#import "UITool.h"
 #import "CTinputHelper.h"
-
+#import "CTInPutMacro.h"
 
 @interface EmojiBut: UIButton
 
@@ -17,7 +16,7 @@
 @implementation EmojiBut
 -(CGRect)imageRectForContentRect:(CGRect)contentRect{
     CGRect oldrect = [super imageRectForContentRect:contentRect];
-        return CGRectInset(oldrect, -ScreenW() * 0.005, -ScreenW() * 0.005);
+        return CGRectInset(oldrect, -ScreenWidth * 0.005, -ScreenWidth * 0.005);
 }
 @end
 
@@ -75,8 +74,8 @@
     }
     
     emojInsetTop = 12.0f;  // 顶部内边距
-    emojiSize = CGSizeMake(ScreenW() * 0.112, ScreenW() * 0.112);
-    emojInsetLeft_Right = (ScreenW() - emojiSize.width * 8) * 0.5; // 左右距离
+    emojiSize = CGSizeMake(ScreenWidth * 0.112, ScreenWidth * 0.112);
+    emojInsetLeft_Right = (ScreenWidth - emojiSize.width * 8) * 0.5; // 左右距离
     emojiLineSpace = 5.0f; // 表情行间距
     emojInsetBottom = 5.0f; // scrollview 底部内边距
     
@@ -84,10 +83,10 @@
     
 
     // scrollview大小
-    CGSize scrollViewSize = CGSizeMake(ScreenW(), emojInsetTop + emojiSize.height * 3 + emojiLineSpace * 2 + emojInsetBottom);
+    CGSize scrollViewSize = CGSizeMake(ScreenWidth, emojInsetTop + emojiSize.height * 3 + emojiLineSpace * 2 + emojInsetBottom);
 
     // 底部键盘大小
-    self.frame = CGRectMake(0, 0, ScreenW(), scrollViewSize.height + pageViewH + bottomBarAeraH);
+    self.frame = CGRectMake(0, 0, ScreenWidth, scrollViewSize.height + pageViewH + bottomBarAeraH);
     
     
     containers = [NSMutableArray arrayWithCapacity:arrs.count];
@@ -102,11 +101,11 @@
     
     for (int i = 0; i < arrs.count; i++){
         // 每个scroll的container
-        UIView *conain = [[UIView alloc] initWithFrame:CGRectMake(0, 1, self.width, self.height - bottomBarAeraH -1)];
+        UIView *conain = [[UIView alloc] initWithFrame:CGRectMake(0, 1, self.frame.size.width, self.frame.size.height - bottomBarAeraH -1)];
         conain.tag = i;
         [self addSubview:conain];
         UIScrollView *scrol = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, scrollViewSize.width, scrollViewSize.height)];
-        scrol.backgroundColor = CRMHexColor(0xF5F5F7);
+        scrol.backgroundColor = HexColor(0xF5F5F7);
         scrol.showsHorizontalScrollIndicator = NO;
         scrol.delegate = self;
         scrol.pagingEnabled = YES;
@@ -137,7 +136,9 @@
             [but setImage:emojiDic[empjiNames[j]] forState:UIControlStateNormal];
             but.tag = i * 1000 + j;
             [but addTarget:self action:@selector(emojiButtonTabed:) forControlEvents:UIControlEventTouchUpInside];
-            but.imageView.size = CGSizeMake(40, 40);
+            CGRect rect = but.imageView.frame;
+            rect.size = CGSizeMake(40, 40);
+            [but.imageView setFrame:rect];
             if (j % 22 == 0 || j == empjiNames.count - 1) {
                 UIButton *delete = [[UIButton alloc] initWithFrame:CGRectMake(emojInsetLeft_Right + emojiSize.width * 7 + currentPage * scrollViewSize.width,
                                                                               emojInsetTop + emojiLineSpace * 2 + emojiSize.height * 2,
@@ -153,22 +154,22 @@
             [arr addObject:but];
         }
         // pagecontroll
-        UIPageControl *control = [[UIPageControl alloc] initWithFrame:CGRectMake(0, scrol.height, self.width, pageViewH)];
-        control.backgroundColor = CRMHexColor(0xF5F5F7);
+        UIPageControl *control = [[UIPageControl alloc] initWithFrame:CGRectMake(0, scrol.frame.size.height, self.frame.size.width, pageViewH)];
+        control.backgroundColor = HexColor(0xF5F5F7);
         control.numberOfPages = emojiPages;
         control.pageIndicatorTintColor = [UIColor lightGrayColor];
         control.currentPageIndicatorTintColor = [UIColor blackColor];
         [conain addSubview:control];
         
         // 选择按钮
-        UIButton *tabBut = [[UIButton alloc] initWithFrame:CGRectMake(60 * i, conain.height, 60, bottomBarAeraH)];
+        UIButton *tabBut = [[UIButton alloc] initWithFrame:CGRectMake(60 * i, conain.frame.size.height, 60, bottomBarAeraH)];
         tabBut.tag = i;
         
         [tabBut setTitle:[CTinputHelper emojiNameArrTitles][i] forState:UIControlStateNormal];
         [tabBut addTarget:self action:@selector(containSelectsss:) forControlEvents:UIControlEventTouchUpInside];
         [tabBut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         if (i == 0) {
-            [tabBut setBackgroundColor:CRMHexColor(0xF5F5F7)];
+            [tabBut setBackgroundColor:HexColor(0xF5F5F7)];
         } else {
             [tabBut setBackgroundColor:[UIColor whiteColor]];
         }
@@ -190,7 +191,7 @@
     }
     
     // 发送按钮
-    sendButton = [[UIButton alloc] initWithFrame:CGRectMake(self.width -100, self.height - 44, 100, 44)];
+    sendButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width -100, self.frame.size.height - 44, 100, 44)];
     [sendButton setTitle:@"发送" forState:UIControlStateNormal];
     [sendButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [sendButton addTarget:self action:@selector(emojiButtonTabedSend) forControlEvents:UIControlEventTouchUpInside];
@@ -202,7 +203,7 @@
     
     CALayer *lineLayer = [CALayer layer];
     lineLayer.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), 1);
-    lineLayer.backgroundColor = CRMHexColor(0xD7D7D9).CGColor;
+    lineLayer.backgroundColor = HexColor(0xD7D7D9).CGColor;
     [self.layer insertSublayer:lineLayer atIndex:0];
 }
 
@@ -228,7 +229,7 @@
     for (UIButton *conain in tabButtons) {
         BOOL res = conain.tag == but.tag;
         if (res) {
-            conain.backgroundColor = CRMHexColor(0xF5F5F7);
+            conain.backgroundColor = HexColor(0xF5F5F7);
         } else {
             conain.backgroundColor = [UIColor whiteColor];
         }
@@ -251,7 +252,7 @@
 -(void)updateKeyBoard{
     for (UIButton *but in tabButtons) {
         if (but.tag == 0) {
-            but.backgroundColor = CRMHexColor(0xF5F5F7);
+            but.backgroundColor = HexColor(0xF5F5F7);
         } else {
             but.backgroundColor = [UIColor whiteColor];
         }
