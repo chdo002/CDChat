@@ -40,13 +40,12 @@ typedef enum : NSUInteger {
 @protocol MessageModalProtocal
 
 @required
-/*
- 注意：
-    1、发送图片消息 需用 SDImageCache预先缓存，key为messageid
- */
+
 
 /**
  消息内容
+    发送图片消息时，为了达到消息还没发出就已经展示在页面上的效果，需要SDImageCache预先缓存，用messageid作为Key，
+    发送完成后，将图片的完整地址保存到此字段中。
  */
 @property (copy,nonatomic) NSString *msg;
 
