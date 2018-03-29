@@ -167,7 +167,6 @@
     UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
     double timeInter = recordTime;
     NSString *timestamp = [NSString stringWithFormat:@"%0.f" ,timeInter] ;
-    
     return timestamp;
 }
 @end

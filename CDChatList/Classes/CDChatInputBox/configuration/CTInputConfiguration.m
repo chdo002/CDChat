@@ -6,8 +6,7 @@
 //
 
 #import "CTInputConfiguration.h"
-#import "UITool.h"
-
+#import "CTInPutMacro.h"
 @interface CTInputConfiguration()
 {
     BOOL hasVoice;
@@ -40,7 +39,7 @@
     hasEmoji = NO;;
     hasMore = NO;;
     buttongSize = CGSizeMake(30, 30);
-    CTInputViewWidth = ScreenW();
+    CTInputViewWidth = ScreenWidth;
     self.messageTextDefaultFontSize = 16;
     return self;
 }

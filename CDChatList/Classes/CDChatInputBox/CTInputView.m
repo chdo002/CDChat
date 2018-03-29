@@ -7,11 +7,10 @@
 
 #import "CTInputView.h"
 #import "CTTextView.h"
-#import "UITool.h"
 #import "CTEmojiKeyboard.h"
-#import "UITool.h"
 #import "AATVoiceHudAlert.h"
 #import "AATAudioTool.h"
+#import "CTInPutMacro.h"
 
 @interface EmojiTextAttachment : NSTextAttachment
 @property(strong, nonatomic) NSString *emojiTag;
@@ -67,7 +66,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-    self.backgroundColor = CRMHexColor(0xF5F5F7);
+    self.backgroundColor = HexColor(0xF5F5F7);
     originRect = frame;
     
     // 三个按钮容器
@@ -116,11 +115,11 @@
     [v2 addTarget:self action:@selector(touchDownRecordButton4:) forControlEvents:UIControlEventTouchDragOutside];
     [v2 addTarget:self action:@selector(touchDownRecordButton5:) forControlEvents:UIControlEventTouchDragInside];
     
-    [v2 setTitleColor:CRMHexColor(0x555555) forState:UIControlStateNormal];
-    v2.layer.borderColor = CRMHexColor(0xC1C2C6).CGColor;
+    [v2 setTitleColor:HexColor(0x555555) forState:UIControlStateNormal];
+    v2.layer.borderColor = HexColor(0xC1C2C6).CGColor;
     v2.layer.borderWidth = 1;
     v2.layer.cornerRadius = 5;
-    v2.backgroundColor = CRMHexColor(0xF6F6F8);
+    v2.backgroundColor = HexColor(0xF6F6F8);
     [self.containerView addSubview:v2];
     self.recordBut = v2;
     
@@ -168,7 +167,7 @@
     if (but.tag == 0) {
         // 语音
         if (self.voiceBut.isSelected) {
-            tempTextViewHeight = self.textView.height;
+            tempTextViewHeight = self.textView.frame.size.height;
             [self updateLayout:[CTinputHelper defaultConfiguration].emojiButtonRect.size.height];
             [self.textView resignFirstResponder];
             [self.textView setHidden:YES];

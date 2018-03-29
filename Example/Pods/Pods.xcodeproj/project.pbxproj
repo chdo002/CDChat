@@ -23,7 +23,6 @@
 		19B7C3B362974E1499C193B9C120B064 /* CDImageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 949E49B899A3E22F1B8513F9FBFCBC5A /* CDImageTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A71DD25B64D606B43476A8F29B0422A /* GDPerformanceView.h in Headers */ = {isa = PBXBuildFile; fileRef = F3B3056EE3A7B0032CA4D81503576CFA /* GDPerformanceView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7EC6956707339FE16CDA352DAC7170 /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6971FB5F7C210A2C696EFC1C7042EA /* NSString+Extend.m */; };
-		1CB1246C09024760E9F42F14C77F00E5 /* AATAudioTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F40EE1863450D3C0B9BA3030078E48AE /* AATAudioTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CDA879CF83D36BE5596209E932AC7BC /* CDAudioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A51FB177754C201B7977EE0A32C6DB /* CDAudioTableViewCell.m */; };
 		1E7B79703B6FC50162FF886E262B5851 /* CTData.h in Headers */ = {isa = PBXBuildFile; fileRef = 77416CF60E48B4DF4A55E973915C7F24 /* CTData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FDC3C01619D240FDF9785DD9B6770F6 /* CTClickInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CC61E16E1C3E5C08563EB124CDC5C4C7 /* CTClickInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -116,7 +115,6 @@
 		C021A345D0446D2DC48879E8C3F6AF05 /* CTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B29F2C57B07B93072DD0B3A1E4DC8DC1 /* CTTextView.m */; };
 		C061571C27CCFD23D4FA57E433B8A122 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF5200754D0B9D92DC638B7B0D95978 /* UIView+WebCacheOperation.m */; };
 		C1BAD651CE0EC3524E8818FC0B80ABD8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7597808603B4FFEC74D8020E46D20B01 /* UIImageView+WebCache.m */; };
-		C35B03DEF3EB6D5EA7FEE306820BBDA4 /* AATAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E441D29A3EF0D6B8E5C2A7D0644885EE /* AATAudioTool.m */; };
 		C4B76982B1491C7846FA9D8FB7C69CAD /* CTinputHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B453D0C58BB9F4601A60B912447BC5CD /* CTinputHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C68EB70F90779E0ABDE1850FD272680A /* ChatHelpr.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A72A1CE14B0DC42ED8CAF3B772CF69 /* ChatHelpr.m */; };
 		C6AA02EDD6579629A74DA664117D07C3 /* CDChatList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E2315A5E737B22230772B8BFA138BD /* CDChatList-dummy.m */; };
@@ -140,6 +138,8 @@
 		E075FD947A8E897F0C5E0F94C13C5801 /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 41932BA90575099D5534CA328A3B8674 /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2F3895FB8CADD739680246C62A050EB /* GDPerformanceView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EB88C5CC2E77AFFBA2A4B5B5DCD38CE5 /* GDPerformanceView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E340F39CBA27615FEDA5A4E76A905E57 /* CTinputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5438EF05AA8366E3F4F490C31B7164 /* CTinputHelper.m */; };
+		E97275E7206CD34A000F93A4 /* AATAudioTool.h in Headers */ = {isa = PBXBuildFile; fileRef = E97275E5206CD349000F93A4 /* AATAudioTool.h */; };
+		E97275E8206CD34A000F93A4 /* AATAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E97275E6206CD34A000F93A4 /* AATAudioTool.m */; };
 		E9F1318DEAAFDF537A4B4E7B95BEB824 /* ChatConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = D349060B8CE843EFBB9372CBE515F50E /* ChatConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDC25FFF441CFB632A7AB4AFD3EB84BB /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A1516C070A181F178A2B68172987B37 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE1722D28E5378AC93E1173535A0E272 /* CTClickInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CBC1CC3BFFD8B3B5722230D1062FE5 /* CTClickInfo.m */; };
@@ -247,7 +247,7 @@
 		54219B02E1D909F9E512695983C7826A /* NSImage+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+WebCache.m"; path = "SDWebImage/NSImage+WebCache.m"; sourceTree = "<group>"; };
 		54E0596BE1CEE7882F2D3358DABDE00E /* ChatHelpr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ChatHelpr.h; sourceTree = "<group>"; };
 		55E4F5AB5DA899D3841CFA8DCE42A57E /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
-		57563A3BA3467BFCCC3F334C34EE8DEC /* GDPerformanceView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GDPerformanceView.framework; path = GDPerformanceView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57563A3BA3467BFCCC3F334C34EE8DEC /* GDPerformanceView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDPerformanceView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B1EBA01E307A76D35F27CDAF4E0CDC /* CDTextTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDTextTableViewCell.m; sourceTree = "<group>"; };
 		587C19BFEA118C7E51C0F7A1A0A2B5A8 /* SDWebImageImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageImageIOCoder.h; path = SDWebImage/SDWebImageImageIOCoder.h; sourceTree = "<group>"; };
 		58AC55B28015C0C00AD46C5C16BC8D92 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		5C0C7B92BD94EE291C59CBD2F9CF287D /* GDPerformanceMonitorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDPerformanceMonitorProtocol.h; path = GDPerformanceView/GDPerformanceMonitoring/GDPerformanceMonitorProtocol.h; sourceTree = "<group>"; };
 		62564C824885C1A1DD2E9C833A1ED648 /* Pods-CDChatList_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CDChatList_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6525B4D68DA6E5ADDEBFFDE438665C8C /* CDMessageModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDMessageModel.h; sourceTree = "<group>"; };
-		65FF64AE94730EF7EF1AF46926BB78F8 /* Pods_CDChatList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CDChatList_Tests.framework; path = "Pods-CDChatList_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65FF64AE94730EF7EF1AF46926BB78F8 /* Pods_CDChatList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67BF1F5EE5C268E66D9734C00C62AA2D /* CTHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTHelper.h; sourceTree = "<group>"; };
 		69617103DB2597A38497E2BD76B393AB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		6A24065703C8801DE8EDA603EA3E8E59 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
@@ -279,13 +279,13 @@
 		8413DEB636A24845819A8302AAB63BF5 /* SDWebImageCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCoder.m; path = SDWebImage/SDWebImageCoder.m; sourceTree = "<group>"; };
 		8B573370B13276C9904E3145431CFFE4 /* CTInPutMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTInPutMacro.h; sourceTree = "<group>"; };
 		8C10753360FA99EADD54E7507D2F7785 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CA5E7CB621A03BDD1913AB48946CCB9 /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CDChatList.framework; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA5E7CB621A03BDD1913AB48946CCB9 /* CDChatList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CDChatList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D668AAC1A742D4F94E432BA61ADEE4D /* Pods-CDChatList_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CDChatList_Tests-dummy.m"; sourceTree = "<group>"; };
-		908501B8171762632E5F3710B140CE7D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CDChatList_Example.framework; path = "Pods-CDChatList_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		908501B8171762632E5F3710B140CE7D /* Pods_CDChatList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDChatList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9110502B9BABEA0C3A63AD99F0FEDE35 /* Pods-CDChatList_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CDChatList_Example-umbrella.h"; sourceTree = "<group>"; };
 		91EB7EF46A260CD9059AB9C8CD34AA7B /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		926F623E6CA5E997080B01DFAD324A53 /* AATHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AATHUD.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		949E49B899A3E22F1B8513F9FBFCBC5A /* CDImageTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDImageTableViewCell.h; sourceTree = "<group>"; };
 		94E2525134ACB77C6ADDD2B2C03D7F7D /* SDImageCacheConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheConfig.h; path = SDWebImage/SDImageCacheConfig.h; sourceTree = "<group>"; };
 		959AB6CDBE3D0E696B1DF493320B1E9A /* ChatImageDrawer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ChatImageDrawer.m; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 		9BA844F8D4A587C9317625E9AD9D26F6 /* CellCaculator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CellCaculator.h; sourceTree = "<group>"; };
 		9F52FE50FEB3FBD91D7C290645CE005B /* SDWebImageFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageFrame.m; path = SDWebImage/SDWebImageFrame.m; sourceTree = "<group>"; };
 		9FA7A338A176E844FFE12BD49E59507D /* Pods-CDChatList_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CDChatList_Example.modulemap"; sourceTree = "<group>"; };
-		A0CB6FF2DC02E68E918C74DEFA04C6DD /* CDChatList.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = CDChatList.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0CB6FF2DC02E68E918C74DEFA04C6DD /* CDChatList.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = CDChatList.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1BB05D866AFFE734FF18F0D40A737C0 /* CTInputCaculator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTInputCaculator.h; sourceTree = "<group>"; };
 		A4A95A434E17E83EDE8D24312F2CCB0D /* CDChatListView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDChatListView.h; sourceTree = "<group>"; };
 		A51A6951F703417039A3B2A14E194C8C /* CTInputHeaders.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTInputHeaders.h; sourceTree = "<group>"; };
@@ -317,11 +317,11 @@
 		BA2E4A38866DF57014152757E4B00E63 /* GDPerformanceView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GDPerformanceView.modulemap; sourceTree = "<group>"; };
 		BDF5200754D0B9D92DC638B7B0D95978 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		BFF5DECF61E2E5D4CA5DD76DA8110CA3 /* UIView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCache.h"; path = "SDWebImage/UIView+WebCache.h"; sourceTree = "<group>"; };
-		C16EA6C26D6F7FA891CBF6377F13D4A8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C16EA6C26D6F7FA891CBF6377F13D4A8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C1CE32086771BEBCEE41540DACAE098E /* CDChatList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDChatList.xcconfig; sourceTree = "<group>"; };
 		C2A04608B18A033DE4AAB80B2D8812FF /* SDWebImageCoderHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCoderHelper.h; path = SDWebImage/SDWebImageCoderHelper.h; sourceTree = "<group>"; };
 		C335DF174026885EAEC1136D84CFE5CC /* UIImage+ForceDecode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ForceDecode.h"; path = "SDWebImage/UIImage+ForceDecode.h"; sourceTree = "<group>"; };
-		C397944B2BC6FD4E3C00E53BA6A13E3D /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C397944B2BC6FD4E3C00E53BA6A13E3D /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C709690DF90D2741766884134B4F3C60 /* Pods-CDChatList_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CDChatList_Example-resources.sh"; sourceTree = "<group>"; };
 		CC0BB66EF9B6E3B4AE49C563C0815628 /* CTInputCaculator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CTInputCaculator.m; sourceTree = "<group>"; };
 		CC61E16E1C3E5C08563EB124CDC5C4C7 /* CTClickInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTClickInfo.h; sourceTree = "<group>"; };
@@ -343,13 +343,14 @@
 		E14214094C55D7DD1598DB445157B903 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		E3236B33E9AA1B961740115C39BC9CA7 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		E41E44DFFACA93608A31F87C16361641 /* ChatListInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ChatListInfo.m; sourceTree = "<group>"; };
-		E441D29A3EF0D6B8E5C2A7D0644885EE /* AATAudioTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AATAudioTool.m; sourceTree = "<group>"; };
 		E57113FF2E0D260351C73299A3A89B7F /* CDMessageModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDMessageModel.m; sourceTree = "<group>"; };
 		E6207BCDFB6D4908A6B7DE38A0C5CE39 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		E6284BC4030D14728883D0336416DAC8 /* CTEmojiKeyboard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CTEmojiKeyboard.m; sourceTree = "<group>"; };
 		E7C214A7DE50DD1B88FC88D3B6B84276 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E968C7A65EA6FBBC7E5E1D1FF3BDDCD4 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
-		EADA86CF4BA641E28BE7FCF7D74C399E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E97275E5206CD349000F93A4 /* AATAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATAudioTool.h; sourceTree = "<group>"; };
+		E97275E6206CD34A000F93A4 /* AATAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATAudioTool.m; sourceTree = "<group>"; };
+		EADA86CF4BA641E28BE7FCF7D74C399E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EB14EF8A769A73724F05096E4A9E0F12 /* Pods-CDChatList_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CDChatList_Example-dummy.m"; sourceTree = "<group>"; };
 		EB88C5CC2E77AFFBA2A4B5B5DCD38CE5 /* GDPerformanceView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GDPerformanceView-umbrella.h"; sourceTree = "<group>"; };
 		EC6971FB5F7C210A2C696EFC1C7042EA /* NSString+Extend.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
@@ -357,7 +358,6 @@
 		EFFB44A463515EEF7C24B64BCA2AD11B /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
 		F2A1AE75F0C7569ADAB84F2FCFDF7B64 /* ChatMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChatMacros.h; path = CDChatList/Classes/ChatMacros.h; sourceTree = "<group>"; };
 		F3B3056EE3A7B0032CA4D81503576CFA /* GDPerformanceView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDPerformanceView.h; path = GDPerformanceView/GDPerformanceMonitoring/GDPerformanceView.h; sourceTree = "<group>"; };
-		F40EE1863450D3C0B9BA3030078E48AE /* AATAudioTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AATAudioTool.h; sourceTree = "<group>"; };
 		F49259703593C69AF18382FDB2A53070 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		F768180FA0DDE7A72166B13886DDB95A /* GDPerformanceView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GDPerformanceView-dummy.m"; sourceTree = "<group>"; };
 		FD55A89B7035A4D21BBB20F4F44E5F54 /* CDLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDLabel.h; sourceTree = "<group>"; };
@@ -591,7 +591,6 @@
 				3F2A31ABBAF79837681C016D6AE5FA35 /* Core */,
 				9A9D0CFDE6F43A987E4C521233B39F35 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -609,17 +608,17 @@
 				AE95E22A28D98C5E48BF257FC63BCD49 /* GDWindowViewController.m */,
 				5D1B3728FD0E78E03CD119ADA6E0ABEB /* Support Files */,
 			);
-			name = GDPerformanceView;
 			path = GDPerformanceView;
 			sourceTree = "<group>";
 		};
 		6DB242947F5B86733D67CC4EABE2B877 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				E97275E5206CD349000F93A4 /* AATAudioTool.h */,
+				E97275E6206CD34A000F93A4 /* AATAudioTool.m */,
 				A1BB05D866AFFE734FF18F0D40A737C0 /* CTInputCaculator.h */,
 				CC0BB66EF9B6E3B4AE49C563C0815628 /* CTInputCaculator.m */,
 			);
-			name = Server;
 			path = Server;
 			sourceTree = "<group>";
 		};
@@ -664,7 +663,6 @@
 				B453D0C58BB9F4601A60B912447BC5CD /* CTinputHelper.h */,
 				4D5438EF05AA8366E3F4F490C31B7164 /* CTinputHelper.m */,
 			);
-			name = configuration;
 			path = configuration;
 			sourceTree = "<group>";
 		};
@@ -731,7 +729,6 @@
 				67BF1F5EE5C268E66D9734C00C62AA2D /* CTHelper.h */,
 				6CFD98BB5810F963F4696EDE7739BA1E /* CTHelper.m */,
 			);
-			name = Server;
 			path = Server;
 			sourceTree = "<group>";
 		};
@@ -741,7 +738,6 @@
 				B328E592DE5D60DAEF17EF69D1A7E009 /* MagnifiterView.h */,
 				DD1BF293A3944DBC0834C638F2C3D93D /* MagnifiterView.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -753,7 +749,6 @@
 				77416CF60E48B4DF4A55E973915C7F24 /* CTData.h */,
 				5B9DDEE08121B1288EF341F991FA40F9 /* CTData.m */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -780,8 +775,6 @@
 		E6F52BB9E610D78DC8E2F59B135DE464 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				F40EE1863450D3C0B9BA3030078E48AE /* AATAudioTool.h */,
-				E441D29A3EF0D6B8E5C2A7D0644885EE /* AATAudioTool.m */,
 				B79DD5031188C41754998E62A90918B8 /* AATHUD.h */,
 				926F623E6CA5E997080B01DFAD324A53 /* AATHUD.m */,
 				747688BB0F9228403E6601B1B079FB43 /* NSString+Extend.h */,
@@ -825,7 +818,6 @@
 				6DD87D96C56062C98E2CF1761623EAF4 /* CTTextView.h */,
 				B29F2C57B07B93072DD0B3A1E4DC8DC1 /* CTTextView.m */,
 			);
-			name = view;
 			path = view;
 			sourceTree = "<group>";
 		};
@@ -882,7 +874,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CB1246C09024760E9F42F14C77F00E5 /* AATAudioTool.h in Headers */,
 				A7860B9CD2599A9A0FDBA9E599C6DBCF /* AATHUD.h in Headers */,
 				83480B66D4D0EBAAD409C49FC5641125 /* AATVoiceHudAlert.h in Headers */,
 				2E1DBECE195B99EA22A92953A64D1305 /* CDAudioTableViewCell.h in Headers */,
@@ -916,6 +907,7 @@
 				C4B76982B1491C7846FA9D8FB7C69CAD /* CTinputHelper.h in Headers */,
 				D498552FD35F4DD90CE47D751C74E06E /* CTInPutMacro.h in Headers */,
 				C77241A310579491DA1AD3DA24DC9B6C /* CTInputView.h in Headers */,
+				E97275E7206CD34A000F93A4 /* AATAudioTool.h in Headers */,
 				9E77E30BADD0D204A53AFD9121F4B906 /* CTMoreKeyBoard.h in Headers */,
 				72CC1A1EB1F83FD0558CD1087D27CF03 /* CTTextView.h in Headers */,
 				02CEC43F08FBDA6679A283C7E57B2B42 /* MagnifiterView.h in Headers */,
@@ -1113,7 +1105,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C35B03DEF3EB6D5EA7FEE306820BBDA4 /* AATAudioTool.m in Sources */,
 				78128B14D01FB5D1413F728E3EC53389 /* AATHUD.m in Sources */,
 				8577CBB8BB85DA03DD247B96ACD0823C /* AATVoiceHudAlert.m in Sources */,
 				1CDA879CF83D36BE5596209E932AC7BC /* CDAudioTableViewCell.m in Sources */,
@@ -1124,6 +1115,7 @@
 				ABA1707235B75578FBAEBBDE224E289C /* CDLabel.m in Sources */,
 				B91F89CF401B062424544136BDF42484 /* CDMessageModel.m in Sources */,
 				7C79FDC7A9E76A60468EEDAB0509CC93 /* CDSystemTableViewCell.m in Sources */,
+				E97275E8206CD34A000F93A4 /* AATAudioTool.m in Sources */,
 				5A11B0CE84243B7A1FCC8746C0FF21CD /* CDTextParser.m in Sources */,
 				A273662FB9588906E847372F19B92B0B /* CDTextTableViewCell.m in Sources */,
 				7BB4AAAEE458CC351A06768A45A59BBD /* CellCaculator.m in Sources */,

@@ -6,9 +6,8 @@
 //
 
 #import "CTMoreKeyBoard.h"
-#import "UITool.h"
 #import "CTInputConfiguration.h"
-
+#import "CTInPutMacro.h"
 @interface MoreKeyBoardButton: UIButton
 
 @end
@@ -47,7 +46,7 @@
     dispatch_once(&onceToken, ^{
         single = [[CTMoreKeyBoard alloc] init];
         single.backgroundColor = [UIColor blueColor];
-        single.frame = CGRectMake(0, 0, ScreenW(), ScreenH() * 0.3);
+        single.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight * 0.3);
         [single initUI];
     });
     return single;
@@ -56,7 +55,7 @@
 -(void)initUI{
     
     containerView = [[UIScrollView alloc] initWithFrame: self.bounds];
-    containerView.backgroundColor = CRMHexColor(0xF5F5F7);
+    containerView.backgroundColor = HexColor(0xF5F5F7);
     containerView.pagingEnabled = YES;
     containerView.delegate = self;
     containerView.showsHorizontalScrollIndicator = NO;
@@ -66,11 +65,11 @@
     NSDictionary<NSString *,UIImage *> * dic = [CTInputConfiguration defaultConfig].extraInfo;
     
     NSUInteger emojiPages = (dic.allKeys.count % 8 != 0 ? 1 : 0) + dic.allKeys.count / 8;
-    containerView.contentSize = CGSizeMake(containerView.width * emojiPages, 0);
+    containerView.contentSize = CGSizeMake(containerView.frame.size.width * emojiPages, 0);
     
-    CGFloat butW = containerView.width * 0.232;
-    CGFloat butH = containerView.height * 0.46;
-    CGFloat inset_Hori = (ScreenW() - (4 * butW)) * 0.5;
+    CGFloat butW = containerView.frame.size.width * 0.232;
+    CGFloat butH = containerView.frame.size.height * 0.46;
+    CGFloat inset_Hori = (ScreenWidth - (4 * butW)) * 0.5;
     
     allKeyNames = dic.allKeys;
     allKeyImages = dic.allValues;
@@ -78,7 +77,7 @@
         
         
         NSInteger currentPage = i / 8;
-        CGRect butRect = CGRectMake(inset_Hori + (i % 8 % 4) * butW + currentPage * containerView.width,
+        CGRect butRect = CGRectMake(inset_Hori + (i % 8 % 4) * butW + currentPage * containerView.frame.size.width,
                                     (i % 8 / 4) * butH,
                                     butW,
                                     butH);
@@ -96,12 +95,12 @@
     
     CALayer *lineLayer = [CALayer layer];
     lineLayer.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), 1);
-    lineLayer.backgroundColor = CRMHexColor(0xD7D7D9).CGColor;
+    lineLayer.backgroundColor = HexColor(0xD7D7D9).CGColor;
     [self.layer addSublayer:lineLayer];
     
     
-    segmentC = [[UIPageControl alloc] initWithFrame:CGRectMake(0, butH * 2, containerView.width, containerView.height - butH * 2)];
-    segmentC.backgroundColor = CRMHexColor(0xF5F5F7);
+    segmentC = [[UIPageControl alloc] initWithFrame:CGRectMake(0, butH * 2, containerView.frame.size.width, containerView.frame.size.height - butH * 2)];
+    segmentC.backgroundColor = HexColor(0xF5F5F7);
     segmentC.numberOfPages = emojiPages;
     segmentC.pageIndicatorTintColor = [UIColor lightGrayColor];
     segmentC.currentPageIndicatorTintColor = [UIColor blackColor];

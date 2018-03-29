@@ -7,7 +7,6 @@
 //
 
 #import "AATAudioTool.h"
-#import "UITool.h"
 
 NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlayNoti";
 
@@ -106,7 +105,9 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
 
     // 设置文件地址
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",[NSString dateTimeStamp]]];
+    UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
+    double timeInter = recordTime;
+    filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",[NSString stringWithFormat:@"%0.f" ,timeInter]]];
     self.recordFileUrl = [NSURL fileURLWithPath:filePath];
     
     // 配置录音器
@@ -310,15 +311,7 @@ NSNotificationName const AATAudioToolDidStopPlayNoti = @"AATAudioToolDidStopPlay
                 NSLog(@"不能完成授权，可能开启了访问限制");
                 noPermission();
             case AVAuthorizationStatusDenied:{
-                [AATHUD alert:@"麦克风授权" message:@"跳转相机授权设置" confirm:^{
-                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                    if ([ [UIApplication sharedApplication] canOpenURL:url])
-                    {
-                        [[UIApplication sharedApplication] openURL:url];
-                    }
-                } cancle:^{
-                    
-                }];
+                NSLog(@"跳转相机授权设置");
             }
                 break;
             default:
