@@ -7,7 +7,7 @@
 
 
 
- <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif1.GIF" width="375"> <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif2.GIF" width="375">
+ <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif1.GIF" width="300"> <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif2.GIF" width="275">
 
 
 高性能的聊天页面解决方案
