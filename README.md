@@ -7,7 +7,7 @@
 
 
 
- <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif1.GIF" width="150"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/gif2.GIF" width="150">
+ <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static1.heic" width="150"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static2.heic" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static3.heic" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static4.heic" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static5.heic" width="150">
 
 
 高性能的聊天页面解决方案
