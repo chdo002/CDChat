@@ -75,7 +75,7 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     
-    self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth * 0.4, ScreenHeight * 0.4)];
+    self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth * 0.4, ScreenWidth * 0.4)];
     self.backgroundColor = [UIColor clearColor];
     self.center = CGPointMake(ScreenWidth * 0.5, ScreenHeight * 0.4);
     
