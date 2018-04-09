@@ -72,6 +72,12 @@ typedef enum : NSUInteger {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CTCLICKMSGEVENTNOTIFICATION object:nil];
     return self;
 }
+// 防止用户将scrollsToTop改为YES
+-(void)setScrollsToTop:(BOOL)scrollsToTop{
+    
+}
+
+static UIWindow *topWindow_;
 
 -(void)didMoveToSuperview{
     UIViewController *viewController =  self.viewController;
@@ -92,6 +98,20 @@ typedef enum : NSUInteger {
     if (!self.superview) {
         return;
     }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        topWindow_ = [[UIWindow alloc] init];
+        topWindow_.windowLevel = UIWindowLevelAlert;
+        topWindow_.frame = [UIApplication sharedApplication].statusBarFrame;
+        topWindow_.backgroundColor = [UIColor clearColor];
+        topWindow_.hidden = NO;
+        [topWindow_ addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(topWindowClick)]];
+    });
+}
+
+-(void)topWindowClick
+{
+    [self scrollRectToVisible:CGRectMake(0, originInset, 1, 1) animated:YES];
 }
 
 #pragma mark 通知

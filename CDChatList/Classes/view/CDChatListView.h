@@ -24,6 +24,11 @@
 @property(nonatomic, copy) CDChatMessageArray msgArr;
 
 /**
+ 是否可以点击顶部返回列表顶部
+ */
+@property(nonatomic, assign) BOOL tapStatusBarToTop;
+
+/**
  添加新的数据到底部
 
  @param newBottomMsgArr 新的消息数组
