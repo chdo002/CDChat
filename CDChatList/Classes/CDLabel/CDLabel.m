@@ -5,13 +5,6 @@
 //  Created by chdo on 2017/12/1.
 //
 
-/*
- http://eim-talk-stg.dmzstg.pingan.com.cn/appim-pir/talk?weAppNo=PAKDZS_09&businessType=KDZS&encryptStr=clientImNo=2E44776D5E60A2615DC0CB4B|customerNo=|customerName=|nickName=&extraInfo={%22umId%22:%22LIUFEI004%22,%22flag%22:%22Y%22,%22phoneNumber%22:%2213501020305%22,%22managerName%22:%22%E8%B7%AF%E4%BA%BA%E7%94%B2%22}#
- 
- 正在为您转接人工服务
- 
- */
-
 #import "CDLabel.h"
 #import "MagnifiterView.h"
 #import "CTHelper.h"
@@ -34,8 +27,6 @@
     anc.contentMode = UIViewContentModeScaleAspectFit;
     return anc;
 }
-
-
 
 - (UIImage *)cursorWithFontHeight:(CGFloat)height isTop:(BOOL)top {
     
@@ -127,13 +118,14 @@ typedef enum CTDisplayViewState : NSInteger {
     _selectionEndPosition = 1;
     [self setupGestures];
     
+    __weak typeof(self) weakS = self;
     CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
-
-        CFComparisonResult rest = CFStringCompare(self->currentMode, CFRunLoopCopyCurrentMode(CFRunLoopGetMain()), kCFCompareBackwards);
+        __strong typeof(weakS) strongS = weakS;
+        CFComparisonResult rest = CFStringCompare(strongS->currentMode, CFRunLoopCopyCurrentMode(CFRunLoopGetMain()), kCFCompareBackwards);
         if (rest != kCFCompareEqualTo) {
-            self->currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
-            if ((NSString *)CFBridgingRelease(self->currentMode) == UITrackingRunLoopMode) {
-                [self scrollDidScroll];
+            strongS->currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
+            if ((NSString *)CFBridgingRelease(strongS->currentMode) == UITrackingRunLoopMode) {
+                [strongS scrollDidScroll];
             }
         }
     });

@@ -16,7 +16,7 @@
 
 @interface CDViewController ()<ChatListProtocol,CTInputViewProtocol>
 @property(nonatomic, weak)CDChatListView *listView;
-@property(nonatomic, weak)CTInputView *inputView;
+@property(nonatomic, weak)CTInputView *msginputView;
 @end
 
 @implementation CDViewController
@@ -38,7 +38,7 @@
     
     CTInputView *input = [[CTInputView alloc] initWithFrame:CGRectMake(0,ScreenH - CTInputViewHeight, ScreenW, CTInputViewHeight)];
     input.delegate = self;
-    self.inputView = input;
+    self.msginputView = input;
     [self.view addSubview:input];
     
     
@@ -59,8 +59,6 @@
     self.listView.msgArr = msgs;
 }
 
-
-
 -(void)receiveNotification:(NSNotification *)noti{
     if ([noti.name isEqualToString: CDChatListDidScroll]) {
         [self.inputView resignFirstResponder];
@@ -79,9 +77,13 @@
         NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
         NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
         
-        CDMessageModel *model = [[CDMessageModel alloc] init];
-        model.msg = array[1][@"msg"];;
-        finnished(@[model]);
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:5];
+        for (int i = 0; i<11; i++) {
+            CDMessageModel *model = [[CDMessageModel alloc] init];
+            model.msg = array[0][@"msg"];
+            [arr addObject:model];
+        }
+        finnished(arr);
     });
 }
 
@@ -110,7 +112,7 @@
                                           inset_bot,
                                           self.listView.contentInset.right);
     [self.listView setContentInset:inset];
-    [self.listView relayoutTable:YES];
+    [self.listView relayoutTable:YES ];
 }
 
 @end

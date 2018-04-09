@@ -26,7 +26,7 @@ typedef enum : NSUInteger {
 
 @interface CDChatListView()<UITableViewDelegate, UITableViewDataSource>
 {
-    CGFloat originInset;
+    CGFloat originInset; // 导航栏遮住的高度，作为tableview的顶部内边距
     CGFloat pullToLoadMark; // 下拉距离超过这个，则开始计入加载方法
 }
 @property(assign, nonatomic) CDHeaderLoadState loadHeaderState;
@@ -64,7 +64,7 @@ typedef enum : NSUInteger {
     [self addSubview:indicatr];
     [indicatr startAnimating];
     self.indicatro = indicatr;
-    self.indicatro.hidesWhenStopped = NO;
+    self.indicatro.hidesWhenStopped = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTDOWNLOADLISTFINISH object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGEVENTNOTIFICATION object:nil];
@@ -156,15 +156,17 @@ static UIWindow *topWindow_;
 -(void)setMsgArr:(CDChatMessageArray)msgArr{
     
     [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
-            
+        
+        self.loadHeaderState = CDHeaderLoadStateNoraml;
+        CGFloat newTopInset = LoadingH + self->originInset;
+        CGFloat left = self.contentInset.left;
+        CGFloat right = self.contentInset.right;
+        CGFloat bottom = self.contentInset.bottom;
+        [self setContentInset:UIEdgeInsetsMake(newTopInset, left, right, bottom)];
         [self relayoutTable:NO];
-            self.loadHeaderState = CDHeaderLoadStateNoraml;
-            CGFloat newTopInset = LoadingH + self->originInset;
-            CGFloat left = self.contentInset.left;
-            CGFloat right = self.contentInset.right;
-            CGFloat bottom = self.contentInset.bottom;
-            [self setContentInset:UIEdgeInsetsMake(newTopInset, left, right, bottom)];
-//        }
+        if (totalHeight < self.frame.size.height - newTopInset - bottom) {
+            [self setContentOffset:CGPointZero];
+        }
     }];
 }
 
@@ -281,10 +283,8 @@ static UIWindow *topWindow_;
     }
     
     // 异步让tableview滚到最底部
-//    [self mainAsyQueue:^{
-        NSIndexPath *index = [NSIndexPath indexPathForRow:_msgArr.count - 1  inSection:0];
-        [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
-//    }];
+    NSIndexPath *index = [NSIndexPath indexPathForRow:_msgArr.count - 1  inSection:0];
+    [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 }
 
 
@@ -295,7 +295,7 @@ static UIWindow *topWindow_;
     }
     
     CGFloat offsetY = self.contentOffset.y;
-    if (offsetY >= pullToLoadMark) {
+    if (offsetY >= 0) {
         return;
     }
     
@@ -342,17 +342,16 @@ static UIWindow *topWindow_;
                 }
                 
                 // 重新回到当前看的消息位置(把loading过程中，table的offset计算在中)
-                [self setContentOffset:CGPointMake(0, newMessageTotalHeight + oldOffsetY)];
-                
-                // 异步调用
-//                [self mainAsyQueue:^{
-                    // 判断是否要结束下拉加载功能
-//                    if (newMessages.count < 10) {
-//                        self.loadHeaderState = CDHeaderLoadStateFinished;
-//                    } else {
-                        self.loadHeaderState = CDHeaderLoadStateNoraml;
-//                    }
-//                }];
+                CGFloat newOffset = newMessageTotalHeight + oldOffsetY;
+                [self setContentOffset:CGPointMake(0, newOffset)];
+
+                // 判断是否要结束下拉加载功能
+                // 当新消息的数量小于10条时，则认为没有旧消息了
+                if (newMessages.count < 10) {
+                    self.loadHeaderState = CDHeaderLoadStateFinished;
+                } else {
+                    self.loadHeaderState = CDHeaderLoadStateNoraml;
+                }
             }];
         }];
     }

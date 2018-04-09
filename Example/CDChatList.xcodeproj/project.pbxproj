@@ -270,7 +270,7 @@
 				ORGANIZATIONNAME = chdo002;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = 62N6ZZKK9A;
+						DevelopmentTeam = 56W7P8272X;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -588,7 +588,7 @@
 			baseConfigurationReference = 1B96FCFE89C44ABF9446EBE3 /* Pods-CDChatList_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 62N6ZZKK9A;
+				DEVELOPMENT_TEAM = 56W7P8272X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDChatList/CDChatList-Prefix.pch";
 				INFOPLIST_FILE = "CDChatList/CDChatList-Info.plist";
@@ -604,7 +604,7 @@
 			baseConfigurationReference = FD2F9DE9351C9A0D9D52388A /* Pods-CDChatList_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 62N6ZZKK9A;
+				DEVELOPMENT_TEAM = 56W7P8272X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDChatList/CDChatList-Prefix.pch";
 				INFOPLIST_FILE = "CDChatList/CDChatList-Info.plist";

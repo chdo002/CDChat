@@ -20,6 +20,10 @@
 
 @end
 
+/**
+ !!!!! 此类的实例请不要命名为inputView
+ https://stackoverflow.com/questions/26928849/error-when-try-becomefirstresponder-call-for-uimenucontroller
+ */
 @interface CTInputView : UIView
 @property(nonatomic, weak) id<CTInputViewProtocol>delegate;
 @end
