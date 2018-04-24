@@ -9,12 +9,13 @@
 #import "CDViewController.h"
 #import "CDChatList.h"
 #import <GDPerformanceView/GDPerformanceMonitor.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 
-@interface CDViewController ()<ChatListProtocol,CTInputViewProtocol>
+@interface CDViewController ()<ChatListProtocol,CTInputViewProtocol,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property(nonatomic, weak)CDChatListView *listView;
 @property(nonatomic, weak)CTInputView *msginputView;
 @end
@@ -61,7 +62,7 @@
 
 -(void)receiveNotification:(NSNotification *)noti{
     if ([noti.name isEqualToString: CDChatListDidScroll]) {
-        [self.inputView resignFirstResponder];
+        [self.msginputView resignFirstResponder];
     }
 }
 
@@ -90,12 +91,43 @@
 #pragma mark CTInputViewProtocol
 
 - (void)inputViewPopAudioath:(NSURL *)path {
-    
+    CDMessageModel *model = [[CDMessageModel alloc] init];
+    model.msg = @"fsdfdf";
+    model.msgType = CDMessageTypeAudio;
+    model.isLeft = YES;
+    [self.listView addMessagesToBottom:@[model]];
 }
 
 - (void)inputViewPopCommand:(NSString *)string {
     // 图片消息类型已 支持，demo中还未给出
+    
+    UIImagePickerController *imagePick = [[UIImagePickerController alloc] init];
+    imagePick.delegate = self;
+    [self.navigationController presentViewController:imagePick animated:YES completion:^{}];
 }
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *img = info[UIImagePickerControllerOriginalImage];
+    /*
+     发送图片消息时，为了达到消息还没发出就已经展示在页面上的效果，需要SDImageCache预先缓存，用messageid作为Key，
+     发送完成后，将图片的完整地址保存到此字段中。
+     */
+    CDMessageModel *model = [[CDMessageModel alloc] init];
+    model.msgType = CDMessageTypeImage;
+    model.msgState = CDMessageStateSending;
+    model.messageId = @"2938429384924";
+    [[SDImageCache sharedImageCache] storeImage:img forKey:model.messageId completion:nil];
+    [self.listView addMessagesToBottom:@[model]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        model.msgState = CDMessageStateNormal;
+        [self.listView updateMessage:model];
+    });
+}
+
 
 - (void)inputViewPopSttring:(NSString *)string {
     CDMessageModel *model = [[CDMessageModel alloc] init];

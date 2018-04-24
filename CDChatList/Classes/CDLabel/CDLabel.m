@@ -120,12 +120,14 @@ typedef enum CTDisplayViewState : NSInteger {
     
     __weak typeof(self) weakS = self;
     CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
-        __strong typeof(weakS) strongS = weakS;
-        CFComparisonResult rest = CFStringCompare(strongS->currentMode, CFRunLoopCopyCurrentMode(CFRunLoopGetMain()), kCFCompareBackwards);
-        if (rest != kCFCompareEqualTo) {
-            strongS->currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
-            if ((NSString *)CFBridgingRelease(strongS->currentMode) == UITrackingRunLoopMode) {
-                [strongS scrollDidScroll];
+        if (weakS) {
+            __strong typeof(weakS) strongS = weakS;
+            CFComparisonResult rest = CFStringCompare(strongS->currentMode, CFRunLoopCopyCurrentMode(CFRunLoopGetMain()), kCFCompareBackwards);
+            if (rest != kCFCompareEqualTo) {
+                strongS->currentMode = CFRunLoopCopyCurrentMode(CFRunLoopGetMain());
+                if ((NSString *)CFBridgingRelease(strongS->currentMode) == UITrackingRunLoopMode) {
+                    [strongS scrollDidScroll];
+                }
             }
         }
     });
