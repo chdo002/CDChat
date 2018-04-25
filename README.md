@@ -39,6 +39,9 @@ CDChatInputBox： 输入框封装组件
 ```ruby
 pod 'CDChatList'
 ```
+```
+#import <CDChatList/CDChatList.h>
+```
 
 ## 使用
 

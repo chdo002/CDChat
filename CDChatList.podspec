@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CDChatList'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Awesome chatlist component for iOS.'
   s.homepage         = 'https://github.com/chdo002/CDChatList'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -19,11 +19,6 @@ Pod::Spec.new do |s|
   s.subspec 'CDChatInputBox' do |input|
     input.source_files = 'CDChatList/Classes/CDChatInputBox/**/*.{h,m}'
   end
-  # s.resource_bundles = {
-  #   'CDChatList' => ['CDChatList/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SDWebImage', '4.2.3'
+  
+  s.dependency 'SDWebImage', '4.3.3'
 end

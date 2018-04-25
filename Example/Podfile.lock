@@ -1,30 +1,35 @@
 PODS:
-  - CDChatList (0.1.0):
-    - CDChatList/CDChatInputBox (= 0.1.0)
-    - CDChatList/CDLabel (= 0.1.0)
-    - SDWebImage (= 4.2.3)
-  - CDChatList/CDChatInputBox (0.1.0):
-    - SDWebImage (= 4.2.3)
-  - CDChatList/CDLabel (0.1.0):
-    - SDWebImage (= 4.2.3)
+  - CDChatList (0.1.2):
+    - CDChatList/CDChatInputBox (= 0.1.2)
+    - CDChatList/CDLabel (= 0.1.2)
+    - SDWebImage (= 4.3.3)
+  - CDChatList/CDChatInputBox (0.1.2):
+    - SDWebImage (= 4.3.3)
+  - CDChatList/CDLabel (0.1.2):
+    - SDWebImage (= 4.3.3)
   - GDPerformanceView (1.3.1)
-  - SDWebImage (4.2.3):
-    - SDWebImage/Core (= 4.2.3)
-  - SDWebImage/Core (4.2.3)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
 
 DEPENDENCIES:
   - CDChatList (from `../`)
   - GDPerformanceView (~> 1.3.1)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - GDPerformanceView
+    - SDWebImage
+
 EXTERNAL SOURCES:
   CDChatList:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  CDChatList: fff49cc31431d69ab1d9f5746e632239f7b00e21
+  CDChatList: 509d1440fd7a2667d36becc666183105d4c395c4
   GDPerformanceView: d70d646bf7022a3dfd64222e4966f403bfffef19
-  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
 PODFILE CHECKSUM: 80876f57cd9a5f03788556314659c1a94633b27b
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
