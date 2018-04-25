@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
     input.source_files = 'CDChatList/Classes/CDChatInputBox/**/*.{h,m}'
   end
   
-  s.dependency 'SDWebImage', '4.3.3'
+  s.dependency 'SDWebImage'
 end

@@ -2,11 +2,11 @@ PODS:
   - CDChatList (0.1.2):
     - CDChatList/CDChatInputBox (= 0.1.2)
     - CDChatList/CDLabel (= 0.1.2)
-    - SDWebImage (= 4.3.3)
+    - SDWebImage
   - CDChatList/CDChatInputBox (0.1.2):
-    - SDWebImage (= 4.3.3)
+    - SDWebImage
   - CDChatList/CDLabel (0.1.2):
-    - SDWebImage (= 4.3.3)
+    - SDWebImage
   - GDPerformanceView (1.3.1)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CDChatList: 509d1440fd7a2667d36becc666183105d4c395c4
+  CDChatList: ecaf640b7a82c669c76d397191ed2e117662d4a3
   GDPerformanceView: d70d646bf7022a3dfd64222e4966f403bfffef19
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 

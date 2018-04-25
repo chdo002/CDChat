@@ -20,7 +20,7 @@
   "source_files": "CDChatList/Classes/**/**/*.{h,m}",
   "dependencies": {
     "SDWebImage": [
-      "4.3.3"
+
     ]
   },
   "subspecs": [
