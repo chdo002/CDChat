@@ -10,6 +10,7 @@
 #import "CDChatList.h"
 #import <GDPerformanceView/GDPerformanceMonitor.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MsgPicViewController.h"
 
 #define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)
 #define ScreenW [UIScreen mainScreen].bounds.size.width
@@ -68,8 +69,18 @@
 
 #pragma mark ChatListProtocol
 
+//cell 的点击事件
 - (void)chatlistClickMsgEvent:(ChatListInfo *)listInfo {
-    
+    switch (listInfo.eventType) {
+        case ChatClickEventTypeIMAGE:
+            {
+                [MsgPicViewController addToRootViewController:listInfo.image in:listInfo.msgImageRectInTableView from: self.listView.msgArr];
+            }
+            break;
+        case ChatClickEventTypeTEXT:
+            
+            break;
+    }
 }
 
 - (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished {
@@ -125,7 +136,6 @@
         [self.listView updateMessage:model];
     });
 }
-
 
 - (void)inputViewPopSttring:(NSString *)string {
     CDMessageModel *model = [[CDMessageModel alloc] init];

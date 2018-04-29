@@ -150,6 +150,9 @@
         info.containerView = self.bubbleImage_right;
     }
     info.image = [[SDImageCache sharedImageCache] imageFromCacheForKey:self.msgModal.msg];
+    if (!info.image) {
+        info.image = [[SDImageCache sharedImageCache] imageFromCacheForKey:self.msgModal.messageId];
+    }
     info.msgText = self.msgModal.msg;
     [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENTNOTIFICATION object:info];
 }

@@ -27,6 +27,7 @@
 		E9AC85892062072A002025DF /* messageHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = E9AC85882062072A002025DF /* messageHistory.json */; };
 		E9B02A182060EFBC00A22541 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A172060EFBC00A22541 /* Expression.bundle */; };
 		E9B02A1B2060F28100A22541 /* InputViewBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */; };
+		E9E488402095B15F007E619C /* MsgPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E4883F2095B15F007E619C /* MsgPicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		E9AC85882062072A002025DF /* messageHistory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = messageHistory.json; sourceTree = "<group>"; };
 		E9B02A172060EFBC00A22541 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InputViewBundle.bundle; sourceTree = "<group>"; };
+		E9E4883E2095B15F007E619C /* MsgPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgPicViewController.h; sourceTree = "<group>"; };
+		E9E4883F2095B15F007E619C /* MsgPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgPicViewController.m; sourceTree = "<group>"; };
 		FD2F9DE9351C9A0D9D52388A /* Pods-CDChatList_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +149,7 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CDViewController.h */,
 				6003F5A6195388D20070C39A /* CDViewController.m */,
+				E9E488412095B167007E619C /* msgview */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -213,6 +217,15 @@
 				E9AC85882062072A002025DF /* messageHistory.json */,
 			);
 			name = resource;
+			sourceTree = "<group>";
+		};
+		E9E488412095B167007E619C /* msgview */ = {
+			isa = PBXGroup;
+			children = (
+				E9E4883E2095B15F007E619C /* MsgPicViewController.h */,
+				E9E4883F2095B15F007E619C /* MsgPicViewController.m */,
+			);
+			name = msgview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +400,7 @@
 				6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CDViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				E9E488402095B15F007E619C /* MsgPicViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
