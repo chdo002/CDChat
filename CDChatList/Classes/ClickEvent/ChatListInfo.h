@@ -57,11 +57,6 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, strong, nullable) UIImage *image;
 
-/**
- 图片在tableview中的位置
- */
-@property (nonatomic, assign) CGRect msgImageRectInTableView;
-
 
 +(ChatListInfo *_Nullable)info:(ChatClickEventType)type
                        msgText:(NSString *_Nullable)msgText

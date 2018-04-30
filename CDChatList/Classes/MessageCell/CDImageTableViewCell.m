@@ -146,13 +146,12 @@
     info.eventType = ChatClickEventTypeIMAGE;
     if (self.msgModal.isLeft) {
         info.containerView = self.bubbleImage_left;
+        info.image = self.imageContent_left.image;
     } else {
         info.containerView = self.bubbleImage_right;
+        info.image = self.imageContent_right.image;
     }
-    info.image = [[SDImageCache sharedImageCache] imageFromCacheForKey:self.msgModal.msg];
-    if (!info.image) {
-        info.image = [[SDImageCache sharedImageCache] imageFromCacheForKey:self.msgModal.messageId];
-    }
+    
     info.msgText = self.msgModal.msg;
     [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENTNOTIFICATION object:info];
 }

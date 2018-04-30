@@ -74,7 +74,8 @@
     switch (listInfo.eventType) {
         case ChatClickEventTypeIMAGE:
             {
-                [MsgPicViewController addToRootViewController:listInfo.image in:listInfo.msgImageRectInTableView from: self.listView.msgArr];
+                CGRect newe =  [listInfo.containerView.superview convertRect:listInfo.containerView.frame toView:self.view];
+                [MsgPicViewController addToRootViewController:listInfo.image in:newe from: self.listView.msgArr];
             }
             break;
         case ChatClickEventTypeTEXT:

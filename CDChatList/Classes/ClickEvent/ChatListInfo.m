@@ -19,8 +19,6 @@
     info.clickedText = clickedTitle;
     info.range = rang;
     info.clickedTextContent = clickedTextContent;
-    info.image = image;
-    info.msgImageRectInTableView = rect;
     return info;
 }
 

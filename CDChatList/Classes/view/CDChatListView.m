@@ -131,8 +131,6 @@ static UIWindow *topWindow_;
         // 点击消息中可点击区域的通知
         ChatListInfo *info = noti.object;
         if (info.eventType == ChatClickEventTypeIMAGE){
-            CGRect cellRect = [info.containerView.superview convertRect:info.containerView.frame toView:self];
-            info.msgImageRectInTableView = cellRect;
             if ([self.msgDelegate respondsToSelector:@selector(chatlistClickMsgEvent:)]) {
                 [self.msgDelegate chatlistClickMsgEvent:info];
             }
