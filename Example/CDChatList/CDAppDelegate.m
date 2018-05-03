@@ -14,6 +14,28 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+//    dispatch_queue_t seielque = dispatch_queue_create("sel", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_queue_t concurrque = dispatch_queue_create("sel", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_semaphore_t semdd = dispatch_semaphore_create(10);
+//    dispatch_group_t groupp = dispatch_group_create();
+//    
+//    
+//    for (int i = 0; i< 5; i++) {
+//        __block int res = i;
+//        dispatch_group_async(groupp, seielque, ^{
+//            dispatch_semaphore_wait(semdd, DISPATCH_TIME_FOREVER);
+//            dispatch_group_async(groupp, concurrque, ^{
+//                sleep(1);
+//                NSLog(@"%d",res);
+//                dispatch_semaphore_signal(semdd);
+//            });
+//        });
+//    }
+//    
+//    dispatch_group_notify(groupp, concurrque, ^{
+//        NSLog(@"ok?");
+//    });
+    
     
     // 配置聊天列表环境
     [ChatHelpr defaultConfiguration].environment = 1;

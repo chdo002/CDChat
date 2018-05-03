@@ -18,25 +18,46 @@
 
 @implementation CellCaculator
 
+static dispatch_queue_t controlQueue;
+static dispatch_queue_t calQueue;
+static dispatch_semaphore_t semdd;
+static dispatch_group_t groupp;
 
 +(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_queue_t  queue = dispatch_get_global_queue(0, 0);
-    // 此处为同步计算所有高度
+    if (!calQueue) {
+        calQueue = dispatch_queue_create("calQueue", DISPATCH_QUEUE_CONCURRENT);
+    }
+    if (!controlQueue) {
+        controlQueue = dispatch_queue_create("controlQueue", DISPATCH_QUEUE_SERIAL);
+    }
+    if (!semdd) {
+        semdd = dispatch_semaphore_create(10);
+    }
+    if (!groupp) {
+        groupp = dispatch_group_create();
+    }
+    
     for (int i = 0; i < msgArr.count; i++) {
-        dispatch_group_async(group, queue, ^{
-            [self fetchCellHeight:i of:msgArr];
+        
+        dispatch_group_async(groupp, controlQueue, ^{
+            dispatch_semaphore_wait(semdd, DISPATCH_TIME_FOREVER);
+            dispatch_group_async(groupp, calQueue, ^{
+                [self fetchCellHeight:i of:msgArr];
+                dispatch_semaphore_signal(semdd);
+            });
         });
     }
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        // 总共高度
+    
+    dispatch_group_notify(groupp, calQueue, ^{
         CGFloat totalHeight = 0.0f;
         for (CDChatMessage msg in msgArr) {
             totalHeight = totalHeight + msg.cellHeight;
         }
-        completeBlock(totalHeight);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           completeBlock(totalHeight);
+        });
     });
 }
 
