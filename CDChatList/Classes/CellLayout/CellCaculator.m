@@ -189,6 +189,11 @@ static dispatch_group_t groupp;
     if (image) {
         return caculateImageSize140By140(image);
     } else {
+        
+        CGSize defaulutSize = CGSizeMake(140, 140);
+        if (msgData.msgState == CDMessageStateDownloading) {
+            return defaulutSize;
+        }
         // 若不存在，则返回占位图大小，并下载
         if (msgData.msgState != CDMessageStateSendFaild) {
             msgData.msgState = CDMessageStateDownloading;
@@ -217,7 +222,7 @@ static dispatch_group_t groupp;
                                                                   userInfo:nil];
             }
         }];
-        return CGSizeMake(140, 140);
+        return defaulutSize;
     }
 }
 #pragma mark ---计算系统消息消息尺寸方法
