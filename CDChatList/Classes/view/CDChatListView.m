@@ -256,8 +256,14 @@ static UIWindow *topWindow_;
     
     if (loadHeaderState == CDHeaderLoadStateFinished) {
         UIEdgeInsets inset = UIEdgeInsetsMake(originInset, 0, 0, 0);
-        [self setContentInset:inset];
+        
         [self.indicatro stopAnimating];
+        
+        [UIView animateWithDuration:0.35 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [self setContentInset:inset];
+        } completion:^(BOOL finished) {
+            
+        }];
     } else {
         [self.indicatro startAnimating];
     }
@@ -316,6 +322,7 @@ static UIWindow *topWindow_;
             
             if (!newMessages || newMessages.count == 0) {
                 self.loadHeaderState = CDHeaderLoadStateFinished;
+                return;
             }
             
             // 将旧消息加入当前消息数据中
