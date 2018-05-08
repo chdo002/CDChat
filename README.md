@@ -36,6 +36,8 @@ CDChatInputBox： 输入框封装组件
 
 支持至iOS 11
 
+有时候需要清一下cocoapods的缓存，`pod cache clean --all`
+
 ```ruby
 pod 'CDChatList'
 ```
