@@ -55,7 +55,9 @@
     
     dispatch_once(&onceToken, ^{
         single = [[CTEmojiKeyboard alloc] init];
-        [single initUI];
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [single initUI];
+        });
     });
     return single;
 }

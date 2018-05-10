@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "CDLabel.h"
 #import "CDLabelMacro.h"
+#import "CDChatListProtocols.h"
 
 typedef enum : NSUInteger {
     CTClickEventTypeTEXT, // 文本点击
@@ -19,6 +20,7 @@ typedef enum : NSUInteger {
  */
 @interface CTClickInfo: NSObject
 
+@property (nonatomic, strong) CDChatMessage msgModel;
 /**
  事件类型
  */

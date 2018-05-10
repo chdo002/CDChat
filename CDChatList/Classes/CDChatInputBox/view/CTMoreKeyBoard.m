@@ -47,7 +47,9 @@
         single = [[CTMoreKeyBoard alloc] init];
         single.backgroundColor = [UIColor blueColor];
         single.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight * 0.3);
-        [single initUI];
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [single initUI];
+        });
     });
     return single;
 }

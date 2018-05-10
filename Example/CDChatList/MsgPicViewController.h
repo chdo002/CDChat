@@ -13,7 +13,12 @@
 @property(nonatomic, strong) UIImage *img;
 @property(nonatomic, assign) CGRect imgRectIntTableView;
 @property(nonatomic, copy) CDChatMessageArray msgs;
+@property(nonatomic, copy) NSString *msgId;
 
-+(void)addToRootViewController:(UIImage *)img in :(CGRect)imgRectIntTableView from: (CDChatMessageArray) msgs;
+@property(nonatomic, strong) UIImageView *imgView;
 
++(void)addToRootViewController:(UIImage *)img
+                       ofMsgId:(NSString *)msgId
+                            in:(CGRect)imgRectIntTableView
+                          from: (CDChatMessageArray) msgs;
 @end

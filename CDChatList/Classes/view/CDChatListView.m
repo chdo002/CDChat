@@ -15,6 +15,10 @@
 #import "CTClickInfo.h"
 #import "ChatHelpr.h"
 #import "UIView+CRM.h"
+#import "CDTextTableViewCell.h"
+#import "CDChatListProtocols.h"
+#import "ChatListInfo.h"
+
 typedef enum : NSUInteger {
     CDHeaderLoadStateInitializting, // 界面初始化中
     CDHeaderLoadStateNoraml,        // 等待下拉加载

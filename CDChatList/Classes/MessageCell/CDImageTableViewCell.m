@@ -10,6 +10,7 @@
 #import "UITool.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIView+WebCache.h"
+#import "ChatListInfo.h"
 
 @interface CDImageTableViewCell()
 
@@ -153,6 +154,7 @@
     }
     
     info.msgText = self.msgModal.msg;
+    info.msgModel = self.msgModal;
     [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENTNOTIFICATION object:info];
 }
 

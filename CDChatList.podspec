@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
 
   s.source_files = 'CDChatList/Classes/**/**/*.{h,m}'
-
+  s.public_header_files = 'CDChatList/Classes/**/**/*.h'
+  
   s.subspec 'CDLabel' do |label|
     label.source_files = 'CDChatList/Classes/CDLabel/**/*.{h,m}'
   end

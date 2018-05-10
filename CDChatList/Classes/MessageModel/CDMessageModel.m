@@ -35,4 +35,15 @@
 
 @synthesize userThumImageURL;
 
+-(instancetype)init:(NSDictionary *)dic{
+    self = [super init];
+    
+    self.msg  = dic[@"msg"];
+    self.msgType = [dic[@"msgType"] integerValue];
+    if (dic[@"isLeft"]) {
+        self.isLeft = [dic[@"isLeft"] integerValue];
+    }
+    return self;
+}
+
 @end

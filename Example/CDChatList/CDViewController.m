@@ -7,7 +7,6 @@
 //
 
 #import "CDViewController.h"
-#import "CDChatList.h"
 #import <GDPerformanceView/GDPerformanceMonitor.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MsgPicViewController.h"
@@ -43,7 +42,6 @@
     self.msginputView = input;
     [self.view addSubview:input];
     
-    
     // 通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name: CDChatListDidScroll object:nil];
     
@@ -51,11 +49,11 @@
     NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
     NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    NSMutableArray *msgs = [NSMutableArray arrayWithCapacity:array.count];
+    NSMutableArray <CDMessageModel *>*msgs = [NSMutableArray arrayWithCapacity:array.count];
+    NSInteger autoInc = 1;
     for (NSDictionary *dic in array) {
-        NSString *msg = dic[@"msg"];
-        CDMessageModel *model = [[CDMessageModel alloc] init];
-        model.msg = msg;
+        CDMessageModel *model = [[CDMessageModel alloc] init:dic];
+        model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
         [msgs addObject:model];
     }
     self.listView.msgArr = msgs;
@@ -75,7 +73,7 @@
         case ChatClickEventTypeIMAGE:
             {
                 CGRect newe =  [listInfo.containerView.superview convertRect:listInfo.containerView.frame toView:self.view];
-//                [MsgPicViewController addToRootViewController:listInfo.image in:newe from: self.listView.msgArr];
+                [MsgPicViewController addToRootViewController:listInfo.image ofMsgId:listInfo.msgModel.messageId in:newe from:self.listView.msgArr];
             }
             break;
         case ChatClickEventTypeTEXT:
@@ -127,8 +125,9 @@
      */
     CDMessageModel *model = [[CDMessageModel alloc] init];
     model.msgType = CDMessageTypeImage;
+    model.msg = info[UIImagePickerControllerMediaURL];
     model.msgState = CDMessageStateSending;
-    model.messageId = @"2938429384924";
+    model.messageId = [NSString dateTimeStamp];
     [[SDImageCache sharedImageCache] storeImage:img forKey:model.messageId completion:nil];
     [self.listView addMessagesToBottom:@[model]];
     

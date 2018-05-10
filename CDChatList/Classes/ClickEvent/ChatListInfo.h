@@ -6,7 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CDChatList.h"
 #import "CTClickInfo.h"
+#import "CDChatListProtocols.h"
 
 typedef enum : NSUInteger {
     ChatClickEventTypeTEXT,
@@ -18,7 +20,7 @@ typedef enum : NSUInteger {
  */
 @interface ChatListInfo: NSObject
 
-
+@property (nonatomic) CDChatMessage msgModel;
 /**
  事件类型
  */

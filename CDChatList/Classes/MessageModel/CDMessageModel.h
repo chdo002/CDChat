@@ -8,5 +8,5 @@
 #import "CDChatListProtocols.h"
 
 @interface CDMessageModel : NSObject<MessageModalProtocal>
-
+-(instancetype)init:(NSDictionary *)dic;
 @end

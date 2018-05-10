@@ -11,7 +11,6 @@
 
 #import "ChatMacros.h"
 #import "CTData.h"
-#import "ChatListInfo.h"
 
 static NSString * CDChatListDidScroll = @"CDChatListDidScroll";
 
@@ -21,6 +20,7 @@ typedef enum : NSUInteger {
     CDMessageTypeAudio,     // 音频类型
     CDMessageTypeSystemInfo // 系统信息类型
 } CDMessageType; // 消息类型
+
 
 typedef enum : NSUInteger {
     
@@ -40,12 +40,13 @@ typedef enum : NSUInteger {
 @protocol MessageModalProtocal
 
 @required
-
+/*
+ 注意：
+ 1、发送图片消息 需用 SDImageCache预先缓存，key为messageid
+ */
 
 /**
  消息内容
-    发送图片消息时，为了达到消息还没发出就已经展示在页面上的效果，需要SDImageCache预先缓存，用messageid作为Key，
-    发送完成后，将图片的完整地址保存到此字段中。
  */
 @property (copy,nonatomic) NSString *msg;
 
@@ -129,13 +130,13 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 -(void)configCellByData:(CDChatMessage)data;
 
 @end
-
+@class ChatListInfo;
 @protocol ChatListProtocol <NSObject>
 
 
 /**
  消息列表请求加载更多消息
-
+ 
  @param topMessage 目前最早的消息
  @param finnished 加载完成回调
  */
@@ -144,7 +145,7 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 
 /**
  消息中的点击事件
-
+ 
  @param listInfo 点击事件体
  */
 -(void)chatlistClickMsgEvent: (ChatListInfo *)listInfo;
