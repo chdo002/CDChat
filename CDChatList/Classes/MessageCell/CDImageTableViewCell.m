@@ -40,7 +40,7 @@
 
 -(void)initLeftImageContent{
     // 将气泡图换位透明图
-    UIImage *left_box = [ChatHelpr defaultImageDic][@"bg_mask_left"];
+    UIImage *left_box = ChatHelpr.share.imageDic[@"bg_mask_left"];
     self.bubbleImage_left.image = left_box;
     
     // 在气泡图下面添加信息图片
@@ -60,7 +60,7 @@
 
 -(void)initRightImageContent{
     // 将气泡图换位透明图
-    UIImage *right_box = [ChatHelpr defaultImageDic][@"bg_mask_right"];
+    UIImage *right_box = ChatHelpr.share.imageDic[@"bg_mask_right"];
     self.bubbleImage_right.image = right_box;
     
     // 在气泡图下面添加信息图片

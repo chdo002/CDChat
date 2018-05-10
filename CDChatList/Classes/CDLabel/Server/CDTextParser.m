@@ -32,7 +32,7 @@
         range.location += shift;
         NSString *oldStr = [str attributedSubstringFromRange:range].string;
         NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-        attachment.image = [CTHelper emoticonDic][oldStr];
+        attachment.image = CTHelper.share.emojDic[oldStr];
         attachment.bounds = CGRectMake(0, font.descender, font.lineHeight, font.lineHeight);
         
         NSAttributedString *imageAttr = [NSMutableAttributedString attributedStringWithAttachment:attachment];

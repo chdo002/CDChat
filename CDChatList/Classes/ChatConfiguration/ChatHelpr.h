@@ -10,22 +10,13 @@
 
 @interface ChatHelpr : NSObject
 
-#pragma mark 组件配置相关
-+(ChatConfiguration *)defaultConfiguration;
-+(void)setDefaultConfiguration:(ChatConfiguration *)config;
-
-
-#pragma mark  表情相关
-/**
- 表情字典
- */
-+(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic;
+@property(nonatomic, class, readonly, strong) ChatHelpr *share;
 
 #pragma mark 图片资源
-+(NSDictionary<NSString *,UIImage *> *)defaultImageDic;
-+(void)setDefaultImageDic:(NSDictionary<NSString *,UIImage *> *)dic;
+@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *emojDic;
+@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *imageDic;
 
-
-
+#pragma mark 组件配置相关
+@property(nonatomic, strong) ChatConfiguration *config;
 
 @end

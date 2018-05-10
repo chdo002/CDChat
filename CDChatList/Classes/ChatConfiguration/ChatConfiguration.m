@@ -17,10 +17,11 @@
     
     self.environment = 1;
     
-    self.msgBackGroundColor = CRMHexColor(0xEBEBEB);
-    self.msgContentBackGroundColor = CRMHexColor(0xEBEBEB);
-    self.headBackGroundColor = CRMHexColor(0xEBEBEB);
-    self.msgTextContentBackGroundColor = CRMHexColor(0xF5F5F5);
+    self.msgBackGroundColor = CRMHexColor(0xF3F3F3);
+    self.msgContentBackGroundColor = self.msgBackGroundColor;
+    self.headBackGroundColor = self.msgBackGroundColor;
+    self.msgTextContentBackGroundColor_left = CRMHexColor(0xFFFFFF);
+    self.msgTextContentBackGroundColor_right = CRMHexColor(0xA0E75A);
     
     self.msgTimeH = 25.0f;
     self.sysInfoMessageMaxWidth = ScreenW() * 0.64f;
@@ -75,11 +76,19 @@
     }
 }
 
--(UIColor *)msgTextContentBackGroundColor{
+-(UIColor *)msgTextContentBackGroundColor_left{
     if ([self isDebug]) {
         return [UIColor redColor];
     } else {
-        return _msgTextContentBackGroundColor;
+        return _msgTextContentBackGroundColor_left;
+    }
+}
+
+-(UIColor *)msgTextContentBackGroundColor_right{
+    if ([self isDebug]) {
+        return [UIColor redColor];
+    } else {
+        return _msgTextContentBackGroundColor_right;
     }
 }
 

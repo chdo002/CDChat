@@ -10,30 +10,29 @@
 
 @interface CTinputHelper : NSObject
 
-    
+@property(nonatomic, strong, class, readonly) CTinputHelper *share;
+
 #pragma mark 组件配置相关
-+(CTInputConfiguration *)defaultConfiguration;
-+(void)setDefaultConfiguration:(CTInputConfiguration *)config;
-    
+@property(nonatomic, strong) CTInputConfiguration *config;
+
 #pragma mark  表情相关
+
 /**
-表情字典
-@return <NameString: UIImage>
-*/
+ 表情字典
+ @return <NameString: UIImage>
+ */
 // 表情字典
-+(NSDictionary<NSString *,UIImage *> *)defaultEmoticonDic;
+@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *emojDic;
+#pragma mark  资源图片
+@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *imageDic;
 
-// 表情名数组
-+(NSArray<NSArray<NSString *> *> *)emojiNameArr;
-+(NSArray<NSString *> *)emojiNameArrTitles;
-+(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic
-               emojiNameArrs:(NSArray<NSArray<NSString *> *> *)arrs ////@[ @[@"[微笑]",@"[呵呵]"],   @[@"[:微笑:",@":呵呵:"] ]
-          emojiNameArrTitles:(NSArray<NSString *> *)arrsTitles;
+#pragma mark 表情名数组
+/**
+ @[ @[@"[微笑]",@"[呵呵]"],   @[@"[:微笑:",@":呵呵:"] ]
+ */
+@property(nonatomic, copy) NSArray<NSArray<NSString *> *> *emojiNameArr; // 表情图片名组成的数组  可对应多个集合
+@property(nonatomic, copy) NSArray<NSString *> *emojiNameArrTitles;
 
-    
-#pragma mark 图片资源
-+(NSDictionary<NSString *,UIImage *> *)defaultImageDic;
-+(void)setDefaultImageDic:(NSDictionary<NSString *,UIImage *> *)dic;
-    
+
     
 @end

@@ -33,7 +33,8 @@
 /**
  文字背景色
  */
-@property (nonatomic, strong) UIColor *msgTextContentBackGroundColor;
+@property (nonatomic, strong) UIColor *msgTextContentBackGroundColor_left;
+@property (nonatomic, strong) UIColor *msgTextContentBackGroundColor_right;
 
 
 #pragma mark 所有视图的尺寸自定义

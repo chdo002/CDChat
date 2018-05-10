@@ -7,7 +7,7 @@
 //
 
 #import "CDAppDelegate.h"
-#import "CDChatList.h"
+#import <CDChatList/CDChatList.h>
 
 @implementation CDAppDelegate
 
@@ -15,11 +15,14 @@
 {
 
     // 配置聊天列表环境
-    [ChatHelpr defaultConfiguration].environment = 1;
-    
+    ChatHelpr.share.config.environment = 1;
+
+
+
+
     // 聊天页面图片资源配置
     NSMutableDictionary *dic;
-    
+
     /// 表情bundle地址
     NSString *emojiBundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Expression.bundle"];
     /// 表情键值对
@@ -32,43 +35,38 @@
         [dic setValue:img forKey:imagName];//
     }
     /// 设置聊天界面的表情资源
-    [ChatHelpr setDefaultEmoticonDic:dic];
-    
-    
+    CTHelper.share.emojDic = dic;
+
+
     /// 设置除表情的图片资源
     NSString *resouceBundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"InputViewBundle.bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithPath:resouceBundlePath];
-    NSMutableDictionary *resDic = [NSMutableDictionary dictionaryWithDictionary:[ChatHelpr defaultImageDic]];
+
     
-    [resDic setObject:[UIImage imageNamed:@"voice_left_1" inBundle:resourceBundle compatibleWithTraitCollection:nil]
-               forKey:@"voice_left_1"];
-    [resDic setObject:[UIImage imageNamed:@"voice_left_1" inBundle:resourceBundle compatibleWithTraitCollection:nil]
-               forKey:@"voice_left_2"];
-    [resDic setObject:[UIImage imageNamed:@"voice_left_1" inBundle:resourceBundle compatibleWithTraitCollection:nil]
-               forKey:@"voice_left_3"];
-    [resDic setObject:[UIImage imageNamed:@"voice_right_1" inBundle:resourceBundle compatibleWithTraitCollection:nil]
-               forKey:@"voice_right_1"];
-    [resDic setObject:[UIImage imageNamed:@"voice_right_1" inBundle:resourceBundle compatibleWithTraitCollection:nil]
-               forKey:@"voice_right_2"];
-    [resDic setObject:[UIImage imageNamed:@"voice_right_1" inBundle:resourceBundle compatibleWithTraitCollection:nil]
-               forKey:@"voice_right_3"];
-    [ChatHelpr setDefaultImageDic:resDic];
-    
+    NSMutableDictionary *resDic = [NSMutableDictionary dictionaryWithDictionary:ChatHelpr.share.imageDic];
+
+    [resDic setObject:[UIImage imageNamed:@"voice_left_1" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_left_1"];
+    [resDic setObject:[UIImage imageNamed:@"voice_left_2" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_left_2"];
+    [resDic setObject:[UIImage imageNamed:@"voice_left_3" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_left_3"];
+    [resDic setObject:[UIImage imageNamed:@"voice_right_1" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_right_1"];
+    [resDic setObject:[UIImage imageNamed:@"voice_right_2" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_right_2"];
+    [resDic setObject:[UIImage imageNamed:@"voice_right_3" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_right_3"];
+
+    ChatHelpr.share.imageDic = resDic;
+
     // 设置输入框的表情资源
-    [CTinputHelper setDefaultEmoticonDic:dic emojiNameArrs:@[temp.allKeys,temp.allKeys] emojiNameArrTitles:@[@"hhe",@"haha"]];
+    CTinputHelper.share.emojDic = dic;
+    CTinputHelper.share.emojiNameArr = @[temp.allKeys,temp.allKeys];
+    CTinputHelper.share.emojiNameArrTitles = @[@"hhe",@"haha"];
     UIImage *photo = [UIImage imageNamed:@"keyboard_photo" inBundle:resourceBundle compatibleWithTraitCollection:nil];
-    //        UIImage *news = [UIImage imageNamed:@"icon_news" inBundle:resourceBundle compatibleWithTraitCollection:nil];
-    
-    // 配置 ‘’更多‘’  功能
-    [[CTinputHelper defaultConfiguration] addExtra:@{
-                                                     @"图片": photo
-                                                     }];
-    
-    [[CTinputHelper defaultConfiguration] addEmoji];
-    [[CTinputHelper defaultConfiguration] addVoice];
-    
-    //
-    NSDictionary *origin = [CTinputHelper defaultImageDic];
+//    //        UIImage *news = [UIImage imageNamed:@"icon_news" inBundle:resourceBundle compatibleWithTraitCollection:nil];
+    // 配置 ‘’更多‘’  功能;
+    [CTinputHelper.share.config addExtra:@{@"图片": photo}];
+    [CTinputHelper.share.config addEmoji];
+    [CTinputHelper.share.config addVoice];
+
+    NSDictionary *origin = CTinputHelper.share.imageDic;
+
     NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:origin];
     [newDic setObject:[UIImage imageNamed:@"keyboard" inBundle:resourceBundle compatibleWithTraitCollection:nil]
                forKey:@"keyboard"];
@@ -80,8 +78,10 @@
                forKey:@"voice_revocation_alert"];
     [newDic setObject:[UIImage imageNamed:@"emojiDelete" inBundle:resourceBundle compatibleWithTraitCollection:nil]
                forKey:@"emojiDelete"];
-    [CTinputHelper setDefaultImageDic:newDic]; /// 设置除表情的图片资源
-    
+    [newDic setObject:[UIImage imageNamed:@"voice" inBundle:resourceBundle compatibleWithTraitCollection:nil]
+               forKey:@"voice"];
+    /// 设置除表情的图片资源
+    CTinputHelper.share.imageDic = newDic;
     return YES;
 }
 

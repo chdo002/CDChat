@@ -10,11 +10,7 @@
 #import "ChatImageDrawer.h"
 #import "CTinputHelper.h"
 
-@interface ChatHelpr()
-@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *emojDic;
-@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *imageDic;
-@property(nonatomic, strong) ChatConfiguration *config;
-@end
+
 
 @implementation ChatHelpr
 
@@ -33,26 +29,4 @@
     return helper;
 }
 
-#pragma mark 聊天组件配置相关
-+(ChatConfiguration *)defaultConfiguration{
-    return [ChatHelpr share].config;
-}
-
-+(void)setDefaultConfiguration:(ChatConfiguration *)config{
-    [ChatHelpr share].config = config;
-}
-
-#pragma mark  表情图片相关
-
-+(void)setDefaultEmoticonDic:(NSDictionary<NSString *,UIImage *> *)dic{
-    [CTHelper loadImageDic:dic]; //   CDLabel 组件设置资源
-}
-
-#pragma mark  资源图片
-+(NSDictionary<NSString *,UIImage *> *)defaultImageDic{
-    return [ChatHelpr share].imageDic;
-}
-+(void)setDefaultImageDic:(NSDictionary<NSString *,UIImage *> *)dic{
-    [ChatHelpr share].imageDic = dic;
-}
 @end

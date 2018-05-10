@@ -94,7 +94,7 @@
         /// 音量视图
         UIView *power = [[UIView alloc] initWithFrame:self.bounds];
         // icon
-        UIImageView *microphone = [[UIImageView alloc] initWithImage: [CTinputHelper defaultImageDic][@"voice_microphone_alert"]];
+        UIImageView *microphone = [[UIImageView alloc] initWithImage: CTinputHelper.share.imageDic[@"voice_microphone_alert"]];
         microphone.contentMode = UIViewContentModeScaleAspectFit;
         microphone.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height * 0.35);
         microphone.center = CGPointMake(self.bounds.size.width * 0.4, self.bounds.size.height * 0.45);
@@ -119,7 +119,7 @@
         /// 松开手指提示 视图
         UIView *revoc = [[UIView alloc] initWithFrame: self.bounds];
         // icon
-        UIImageView *revocation = [[UIImageView alloc] initWithImage: [CTinputHelper defaultImageDic][@"voice_revocation_alert"]];
+        UIImageView *revocation = [[UIImageView alloc] initWithImage: CTinputHelper.share.imageDic[@"voice_revocation_alert"]];
         revocation.contentMode = UIViewContentModeScaleAspectFit;
         revocation.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height * 0.35);
         revocation.center = CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height * 0.45);

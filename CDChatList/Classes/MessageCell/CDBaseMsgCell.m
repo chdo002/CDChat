@@ -52,7 +52,7 @@
     [self addSubview:_msgContent_left];
     
     // 头像
-    UIImage *left_head = [ChatHelpr defaultImageDic][@"icon_head"];
+    UIImage *left_head = ChatHelpr.share.imageDic[@"icon_head"];
     _headImage_left = [[UIImageView alloc] initWithImage:left_head];
     _headImage_left.frame = CGRectMake(MessageMargin, MessageMargin,
                                        HeadSideLength, HeadSideLength);
@@ -61,7 +61,7 @@
     [_msgContent_left addSubview:_headImage_left];
     
     // 气泡
-    UIImage *left_box = [ChatHelpr defaultImageDic][@"left_box"];
+    UIImage *left_box = ChatHelpr.share.imageDic[@"left_box"];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
     _bubbleImage_left.userInteractionEnabled = YES;
     _bubbleImage_left.frame = CGRectMake(MessageMargin * 2 + HeadSideLength - BubbleShareAngleWidth,
@@ -105,7 +105,7 @@
     [self addSubview:_msgContent_right];
 
     // 头像
-    UIImage *right_head = [ChatHelpr defaultImageDic][@"icon_head"];
+    UIImage *right_head = ChatHelpr.share.imageDic[@"icon_head"];
     
     _headImage_right = [[UIImageView alloc] initWithImage:right_head];
     _headImage_right.frame = CGRectMake(ScreenW() - (HeadSideLength + MessageMargin), MessageMargin,
@@ -115,7 +115,7 @@
     [_msgContent_right addSubview:_headImage_right];
     
     // 气泡
-    UIImage *right_box = [ChatHelpr defaultImageDic][@"right_box"];
+    UIImage *right_box = ChatHelpr.share.imageDic[@"right_box"];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
     _bubbleImage_right.userInteractionEnabled = YES;
     _bubbleImage_right.frame = CGRectMake(ScreenW() - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth,
@@ -278,18 +278,18 @@
         } else if (data.userThumImageURL) {
             
             [_headImage_left sd_setImageWithURL:[NSURL URLWithString:data.userThumImageURL]
-                                placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+                                placeholderImage:ChatHelpr.share.imageDic[@"icon_head"]];
         } else {
-            [_headImage_left setImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+            [_headImage_left setImage:ChatHelpr.share.imageDic[@"icon_head"]];
         }
     } else {
         if (data.userThumImage) {
             _headImage_right.image = data.userThumImage;
         } else if (data.userThumImageURL) {
             [_headImage_right sd_setImageWithURL:[NSURL URLWithString:data.userThumImageURL]
-                                 placeholderImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+                                 placeholderImage:ChatHelpr.share.imageDic[@"icon_head"]];
         } else {
-            [_headImage_right setImage:[ChatHelpr defaultImageDic][@"icon_head"]];
+            [_headImage_right setImage:ChatHelpr.share.imageDic[@"icon_head"]];
         }
     }
     

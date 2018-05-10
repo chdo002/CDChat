@@ -50,7 +50,7 @@ typedef enum : NSUInteger {
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
     
-    self.backgroundColor =  isChatListDebug ? CRMHexColor(0xB5E7E1) : CRMHexColor(0xEBEBEB);
+    self.backgroundColor =  isChatListDebug ? CRMHexColor(0xB5E7E1) : ChatHelpr.share.config.msgBackGroundColor;
     if (!isChatListDebug) {
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }

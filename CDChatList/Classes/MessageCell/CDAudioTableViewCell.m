@@ -33,9 +33,10 @@
 
 -(UIImage *)wave_left_image{
     if (!_wave_left_image) {
-        NSArray *arr =@[[ChatHelpr defaultImageDic][@"voice_left_1"],
-                        [ChatHelpr defaultImageDic][@"voice_left_2"],
-                        [ChatHelpr defaultImageDic][@"voice_left_3"]];
+        
+        NSArray *arr =@[ChatHelpr.share.imageDic[@"voice_left_1"],
+                        ChatHelpr.share.imageDic[@"voice_left_2"],
+                        ChatHelpr.share.imageDic[@"voice_left_3"]];
         _wave_left_image = [UIImage animatedImageWithImages:arr duration:1];
     }
     return _wave_left_image;
@@ -43,9 +44,9 @@
 
 -(UIImage *)wave_right_image{
     if (!_wave_right_image) {
-        NSArray *arr = @[[ChatHelpr defaultImageDic][@"voice_right_1"],
-                         [ChatHelpr defaultImageDic][@"voice_right_2"],
-                         [ChatHelpr defaultImageDic][@"voice_right_3"]];
+        NSArray *arr = @[ChatHelpr.share.imageDic[@"voice_right_1"],
+                         ChatHelpr.share.imageDic[@"voice_right_2"],
+                         ChatHelpr.share.imageDic[@"voice_right_3"]];
         _wave_right_image = [UIImage animatedImageWithImages: arr duration: 1];
     }
     return _wave_right_image;
