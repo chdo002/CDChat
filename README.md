@@ -22,6 +22,7 @@ CDChatListView: UITableView 视图，聊天页面主体
 CDBaseMsgCell: 实现消息气泡基本视图
 
 CDTextTableViewCell、CDImageTableViewCell、CDAudioTableViewCell: 继承自CDBaseMsgCell，实现响应功能。
+
 CDSystemTableViewCell: 特殊消息气泡，实现系统通知
 
 CellCaculator： tableview布局计算，并提前渲染cell
