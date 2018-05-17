@@ -1,17 +1,25 @@
 
 # 第一个参数记为commit 默认update
 param=$1
-if [[ $param = '' ]]
+if [[ $1 = '' ]]
 then
-	param='update'
+	read -p "commit 提交说明（默认update）：" cmmm;  
+	param=$cmmm;
+	if [[ $param = '' ]]; then
+		param='update';
+	fi
 fi
 
 
 # 第二个参数记为tag版本，默认0.0.1
 param2=$2
-if [[ $param2 = '' ]]
+if [[ $2 = '' ]]
 then
-	param2=0.1.0
+	read -p "tag 版本(默认0.1.0) ：" taggg;
+	param2=$taggg;
+	if [[ $param2 = '' ]]; then
+		param2='0.1.0';
+	fi
 fi
 
 
