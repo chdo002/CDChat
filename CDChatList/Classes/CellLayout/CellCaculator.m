@@ -131,7 +131,7 @@ static dispatch_group_t groupp;
     CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
     
-    CTData *data = [CTData dataWithStr:msgData.msg containerWithSize:maxTextSize configuration:[ChatHelpr defaultConfiguration].ctDataconfig];
+    CTData *data = [CTData dataWithStr:msgData.msg containerWithSize:maxTextSize configuration:ChatHelpr.share.config.ctDataconfig];
     
     msgData.textlayout = data;
     

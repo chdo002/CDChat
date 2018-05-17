@@ -49,7 +49,7 @@
         helper = [[ChatImageDrawer alloc] init];
         helper->bubbleCornerRadius = 5;
         helper->bubbleUppereight = 10;
-        helper->bubbleAngleWidth = [ChatHelpr defaultConfiguration].bubbleShareAngleWidth;
+        helper->bubbleAngleWidth = ChatHelpr.share.config.bubbleShareAngleWidth;
         helper->bubbleAngleHeight = 10;
     });
     return helper;
@@ -143,7 +143,7 @@
     CGContextAddPath(context, path);
     
     // 设置填充色
-    CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor.CGColor);//填充色
+    CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor_left.CGColor);//填充色
     
     // 设置边框
     CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);
@@ -175,7 +175,7 @@
     CGContextAddPath(context, rpath);
     
     // 设置填充色
-    CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor.CGColor);//填充色
+    CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor_right.CGColor);//填充色
     
     // 设置边框
     CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);

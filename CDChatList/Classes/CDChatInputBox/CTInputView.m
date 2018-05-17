@@ -75,13 +75,14 @@
     [self addSubview:self.containerView];
     
     // 图片资源
-    UIImage *emojIcon = [CTinputHelper defaultImageDic][@"emojIcon"];
-    UIImage *moreIcon = [CTinputHelper defaultImageDic][@"addIcon"];
-    UIImage *keyboardIcon = [CTinputHelper defaultImageDic][@"keyboard"];
-    UIImage *voice = [CTinputHelper defaultImageDic][@"voice"];
+    
+    UIImage *emojIcon = CTinputHelper.share.imageDic[@"emojIcon"];
+    UIImage *moreIcon = CTinputHelper.share.imageDic[@"addIcon"];
+    UIImage *keyboardIcon = CTinputHelper.share.imageDic[@"keyboard"];
+    UIImage *voice = CTinputHelper.share.imageDic[@"voice"];
     
     // 配置
-    CTInputConfiguration *config = [CTinputHelper defaultConfiguration];
+    CTInputConfiguration *config = CTinputHelper.share.config;
     
     // 语音按钮
     UIButton *v1 = [[UIButton alloc] initWithFrame:config.voiceButtonRect];
@@ -168,7 +169,8 @@
         // 语音
         if (self.voiceBut.isSelected) {
             tempTextViewHeight = self.textView.frame.size.height;
-            [self updateLayout:[CTinputHelper defaultConfiguration].emojiButtonRect.size.height];
+            
+            [self updateLayout:CTinputHelper.share.config.emojiButtonRect.size.height];
             [self.textView resignFirstResponder];
             [self.textView setHidden:YES];
         } else {
@@ -282,9 +284,9 @@
     attachment.image = img;
     
     attachment.bounds = CGRectMake(0,
-                                   [CTinputHelper defaultConfiguration].stringFont.descender,
-                                   [CTinputHelper defaultConfiguration].stringFont.lineHeight,
-                                   [CTinputHelper defaultConfiguration].stringFont.lineHeight);
+                                   CTinputHelper.share.config.stringFont.descender,
+                                   CTinputHelper.share.config.stringFont.lineHeight,
+                                   CTinputHelper.share.config.stringFont.lineHeight);
     
     NSMutableAttributedString *textAttr = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
     NSAttributedString *imageAttr = [NSMutableAttributedString attributedStringWithAttachment:attachment];
@@ -342,7 +344,7 @@
 -(void)updateLayout:(CGFloat)newTextViewHight{
     
     // 输入框默认位置
-    CTInputConfiguration *config = [CTinputHelper defaultConfiguration];
+    CTInputConfiguration *config = CTinputHelper.share.config;
     
     // 更新后的输入框的位置
     CGRect newTextViewRect = self.textView.frame;

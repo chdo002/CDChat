@@ -136,7 +136,7 @@
     CTFrameDraw(frame, context);
     
     for (CTImageData * imageData in data.imageArray) {
-        UIImage *image = [CTHelper emoticonDic][imageData.name];
+        UIImage *image = CTHelper.share.emojDic[imageData.name];
         if (image) {
             CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
         }

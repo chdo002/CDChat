@@ -7,9 +7,6 @@
 
 #import "CTHelper.h"
 
-@interface CTHelper()
-@property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *emojDic;
-@end
 
 @implementation CTHelper
 
@@ -22,12 +19,5 @@
     return helper;
 }
 
-+(void)loadImageDic: (NSDictionary<NSString*, UIImage *> *)emjDic{
-    [CTHelper share].emojDic = emjDic;
-}
 
-#pragma mark  表情替换
-+(NSDictionary *)emoticonDic {
-    return [CTHelper share].emojDic;
-}
 @end

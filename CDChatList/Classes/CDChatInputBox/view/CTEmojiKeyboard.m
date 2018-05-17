@@ -65,7 +65,8 @@
 -(void)initUI{
     
     // 表情名数组 @[ @[@"[微笑]",@"[呵呵]"],   @[@"[:微笑:",@":呵呵:"] ]
-    arrs = [CTinputHelper emojiNameArr] ? [CTinputHelper emojiNameArr] : @[[CTinputHelper defaultEmoticonDic].allKeys] ;
+    
+    arrs = CTinputHelper.share.emojiNameArr ?: @[CTinputHelper.share.emojDic.allKeys];
     
     if (arrs.count != 1) {
         self.backgroundColor = [UIColor whiteColor];
@@ -96,8 +97,8 @@
     pageCtrs = [NSMutableArray arrayWithCapacity:arrs.count];
     tabButtons = [NSMutableArray arrayWithCapacity:arrs.count];
     
-    emojiDic = [CTinputHelper defaultEmoticonDic];
-    UIImage *emojiDelete = [CTinputHelper defaultImageDic][@"emojiDelete"];
+    emojiDic = CTinputHelper.share.emojDic;
+    UIImage *emojiDelete = CTinputHelper.share.imageDic[@"emojiDelete"];
 
     emojiButs = [NSMutableArray array];
     
@@ -167,7 +168,7 @@
         UIButton *tabBut = [[UIButton alloc] initWithFrame:CGRectMake(60 * i, conain.frame.size.height, 60, bottomBarAeraH)];
         tabBut.tag = i;
         
-        [tabBut setTitle:[CTinputHelper emojiNameArrTitles][i] forState:UIControlStateNormal];
+        [tabBut setTitle:CTinputHelper.share.emojiNameArrTitles[i] forState:UIControlStateNormal];
         [tabBut addTarget:self action:@selector(containSelectsss:) forControlEvents:UIControlEventTouchUpInside];
         [tabBut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         if (i == 0) {
