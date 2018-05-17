@@ -11,7 +11,7 @@ fi
 param2=$2
 if [[ $param2 = '' ]]
 then
-	param2=0.0.1
+	param2=0.1.0
 fi
 
 

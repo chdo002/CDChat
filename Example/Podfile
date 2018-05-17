@@ -5,7 +5,9 @@ target 'CDChatList_Example' do
   pod 'SDWebImage', '~> 4.3.3'
   pod 'CDChatList', :path => '../'
   pod 'GDPerformanceView', '~> 1.3.1'
-  
+#  pod 'SocketRocket', :inhibit_warnings => true
+#  pod 'Socket.IO-Client-Swift', :inhibit_warnings => true
+
   target 'CDChatList_Tests' do
     inherit! :search_paths
 

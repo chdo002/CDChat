@@ -31,6 +31,7 @@ ChatConfiguration： chatlist配置类组，UI定制，及资源等
 
 #### 子组件
 CDLabel： 富文本标签
+
 CDChatInputBox： 输入框封装组件
 
 ## 安装
@@ -54,8 +55,9 @@ ChatHelpr负责ChatHelpr的UI配置，及组件的资源文件设置
 
 UI配置及资源文件都有默认，所以无需自定义的话，就可以跳过组件的配置
 
-### 添加 CDChatList 视图
+具体详情可以看demo
 
+### 添加 CDChatList 视图
 
 ```
 CDChatListView *list = [[CDChatListView alloc] initWithFrame:self.view.bounds];
@@ -68,23 +70,29 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 
 ### 消息模型  MessageModalProtocal
 
-可以使用自己的消息模型，消息模型需遵守MessageModalProtocal，实现相关属性
+聊天组件提供了一个写好的消息Model：CDMessageModel
+
+也可以使用自己的消息模型，实现相关的解析方法，
+
+不管什么消息模型，都需遵守MessageModalProtocal，实现相关属性
 
 ### 组件事件 ChatListProtocol
 
-#### 从组件发出的消息
+#### 从聊天组件触发的消息
 
 消息列表请求加载更多消息
+
 ```
--(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
-callback: (void(^)(CDChatMessageArray))finnished;
+-(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage callback: (void(^)(CDChatMessageArray))finnished;
 ```
 
-消息中的点击事件
+消息气泡上的的点击事件
+
 ```
 -(void)chatlistClickMsgEvent: (ChatListInfo *)listInfo;
 ```
-#### 向组件发消息
+
+#### 调用聊天组件功能
 
 添加新的数据到底部
 
@@ -121,8 +129,6 @@ callback: (void(^)(CDChatMessageArray))finnished;
 	[chatList updateMessage: modal];
 }
 
-
-
 // 收
 -(void)receivedNewMessage:(MessageModal *)modal{
 	[chatList addMessagesToBottom: modal];
@@ -134,8 +140,7 @@ callback: (void(^)(CDChatMessageArray))finnished;
 消息列表被下拉时，触发此回调
 
 ```
--(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
-callback: (void(^)(CDChatMessageArray))finnished
+-(void)chatlistLoadMoreMsg: (CDChatMessage)topMessa callback: (void(^)(CDChatMessageArray))finnished
 {
 	// 根据topMessage 获取更多消息
 	NSArray *msgArr = [self getMoreMessageFrom: topMessage amount: 10];
@@ -169,4 +174,4 @@ callback: (void(^)(CDChatMessageArray))finnished
 
 ## TODO
 
-- 自定义消息内容匹配
+- 自定义消息气泡扩展
