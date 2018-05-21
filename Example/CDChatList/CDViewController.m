@@ -111,7 +111,7 @@
 - (void)inputViewPopCommand:(NSString *)string {
     UIImagePickerController *imagePick = [[UIImagePickerController alloc] init];
     imagePick.delegate = self;
-    [self.navigationController presentViewController:imagePick animated:YES completion:^{}];
+    [self presentViewController:imagePick animated:YES completion:^{}];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
@@ -130,7 +130,7 @@
     model.messageId = [NSString dateTimeStamp];
     [[SDImageCache sharedImageCache] storeImage:img forKey:model.messageId completion:nil];
     [self.listView addMessagesToBottom:@[model]];
-    
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         model.msgState = CDMessageStateNormal;
         [self.listView updateMessage:model];
