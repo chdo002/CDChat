@@ -140,8 +140,9 @@
                     self.imgView.transform = CGAffineTransformIdentity;
                     self.view.alpha = 0;
                     self.imgView.frame = self->originRect;
-                } completion:^(BOOL finished) {
                     
+                } completion:^(BOOL finished) {
+                    [self removeFromParentViewController];
                 }];
             } else {
                 [UIView animateWithDuration:0.3 animations:^{
