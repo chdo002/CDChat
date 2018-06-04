@@ -138,7 +138,7 @@
     // '更多'按钮
     UIButton *v4 = [[UIButton alloc] initWithFrame:config.moreButtonRect];
     [v4 setImage:moreIcon forState:UIControlStateNormal];
-    [v4 setImage:moreIcon forState:UIControlStateSelected];
+    [v4 setImage:keyboardIcon forState:UIControlStateSelected];
     v4.tag = 2;
     [v4 addTarget:self action:@selector(tagbut:) forControlEvents:UIControlEventTouchUpInside];
     [self.containerView addSubview:v4];

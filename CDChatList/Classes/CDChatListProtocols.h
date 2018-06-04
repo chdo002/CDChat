@@ -143,12 +143,19 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 -(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
                   callback: (void(^)(CDChatMessageArray))finnished;
 
+@optional
+
 /**
  消息中的点击事件
  
  @param listInfo 点击事件体
  */
 -(void)chatlistClickMsgEvent: (ChatListInfo *)listInfo;
+
+/**
+ 当用户操作list时，会回调此方法，针对输入框问题
+ */
+-(void)chatlistBecomeFirstResponder;
 @end
 
 #endif /* CDChatListProtocols_h */

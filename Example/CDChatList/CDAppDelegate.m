@@ -52,7 +52,15 @@
     [resDic setObject:[UIImage imageNamed:@"voice_right_2" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_right_2"];
     [resDic setObject:[UIImage imageNamed:@"voice_right_3" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_right_3"];
 
+    
+    NSDictionary *drawImages = [ChatImageDrawer defaultImageDic];
+    for (NSString *imageName in drawImages) {
+        resDic[imageName] = drawImages[imageName];
+    }
+    
     ChatHelpr.share.imageDic = resDic;
+    
+    
 
     // 设置输入框的表情资源
     CTinputHelper.share.emojDic = dic;

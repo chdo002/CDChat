@@ -298,8 +298,10 @@ static UIWindow *topWindow_;
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    if (scrollView.dragging) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:CDChatListDidScroll object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CDChatListDidScroll object:nil];
+    
+    if (scrollView.tracking) {
+        return;
     }
     
     CGFloat offsetY = self.contentOffset.y;
@@ -308,7 +310,7 @@ static UIWindow *topWindow_;
     }
     
     //  判断在普通状态，则进入加载更多方法
-    if (self.loadHeaderState == CDHeaderLoadStateNoraml && scrollView.isDragging) {
+    if (self.loadHeaderState == CDHeaderLoadStateNoraml) {
         // 将当前状态设为加载中
         self.loadHeaderState = CDHeaderLoadStateLoading;
         
@@ -365,6 +367,16 @@ static UIWindow *topWindow_;
         }];
     }
 }
+
+
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
+    BOOL res = [super pointInside:point withEvent:event];
+    if ([self.msgDelegate respondsToSelector:@selector(chatlistBecomeFirstResponder)]) {
+        [self.msgDelegate chatlistBecomeFirstResponder];
+    }
+    return res;
+}
+
 
 #pragma mark table 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

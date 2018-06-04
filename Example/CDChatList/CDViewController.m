@@ -42,10 +42,6 @@
     self.msginputView = input;
     [self.view addSubview:input];
     
-    // 通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name: CDChatListDidScroll object:nil];
-    
-    
     NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
     NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
@@ -59,13 +55,12 @@
     self.listView.msgArr = msgs;
 }
 
--(void)receiveNotification:(NSNotification *)noti{
-    if ([noti.name isEqualToString: CDChatListDidScroll]) {
-        [self.msginputView resignFirstResponder];
-    }
-}
 
 #pragma mark ChatListProtocol
+
+-(void)chatlistBecomeFirstResponder{
+    [self.msginputView resignFirstResponder];
+}
 
 //cell 的点击事件
 - (void)chatlistClickMsgEvent:(ChatListInfo *)listInfo {
