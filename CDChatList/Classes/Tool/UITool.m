@@ -55,7 +55,9 @@ CGFloat ScreenH(void){
     return [UIScreen mainScreen].bounds.size.height;
 }
 
-
+CGFloat StatusH(void){
+    return [[UIApplication sharedApplication] statusBarFrame].size.height;
+}
 
 NSInteger getSizeOfFilePath(NSString *filePath){
     /** 定义记录大小 */

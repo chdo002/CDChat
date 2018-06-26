@@ -11,7 +11,7 @@
 #import "AATVoiceHudAlert.h"
 #import "AATAudioTool.h"
 #import "CTInPutMacro.h"
-
+#import "UITool.h"
 @interface EmojiTextAttachment : NSTextAttachment
 @property(strong, nonatomic) NSString *emojiTag;
 + (NSString *)getPlainString:(NSAttributedString *)attributString;
@@ -316,28 +316,39 @@
 
 #pragma mark 键盘通知
 -(void)receiveNoitfication:(NSNotification *)noti{
-
-    NSDictionary *dic = noti.userInfo;
-    NSNumber *curv = dic[UIKeyboardAnimationCurveUserInfoKey];
-    NSNumber *duration = dic[UIKeyboardAnimationDurationUserInfoKey];
-    // 键盘Rect
-    CGRect keyBoardEndFrmae = ((NSValue * )dic[UIKeyboardFrameEndUserInfoKey]).CGRectValue;
     
-    CGRect selfNewFrame = CGRectMake(self.frame.origin.x,
-                                      keyBoardEndFrmae.origin.y - self.frame.size.height,
-                                      self.frame.size.width, self.frame.size.height);
-
-    originRect.origin.y = selfNewFrame.origin.y - (originRect.size.height - selfNewFrame.size.height);
-    
-    if ([self.delegate respondsToSelector:@selector(inputViewWillUpdateFrame:animateDuration:animateOption:)]){
-        [self.delegate inputViewWillUpdateFrame:selfNewFrame animateDuration:duration.doubleValue animateOption:curv.integerValue];
-    }
-    
-    [UIView animateWithDuration:duration.doubleValue delay:0 options:curv.integerValue animations:^{
-        self.frame = selfNewFrame;
-    } completion:^(BOOL finished) {
+    if ([noti.name isEqualToString:UIKeyboardWillChangeFrameNotification]) {
         
-    }];
+        NSDictionary *dic = noti.userInfo;
+        NSNumber *curv = dic[UIKeyboardAnimationCurveUserInfoKey];
+        NSNumber *duration = dic[UIKeyboardAnimationDurationUserInfoKey];
+        // 键盘Rect
+        CGRect keyBoardEndFrmae = ((NSValue * )dic[UIKeyboardFrameEndUserInfoKey]).CGRectValue;
+        
+        CGRect selfNewFrame = CGRectMake(self.frame.origin.x,
+                                         keyBoardEndFrmae.origin.y - self.frame.size.height,
+                                         self.frame.size.width, self.frame.size.height);
+        BOOL isIphoneX = ScreenH() >= 812;
+        if (isIphoneX) {
+            // 输入框距离底边距离
+            CGFloat bottomHeight = ScreenH() - (selfNewFrame.origin.y + selfNewFrame.size.height);
+            // 小于激活区高度，则保持激活区高度
+            if (bottomHeight < StatusH()) {
+                selfNewFrame.origin.y = keyBoardEndFrmae.origin.y - self.frame.size.height - StatusH();
+            }
+        }
+        originRect.origin.y = selfNewFrame.origin.y - (originRect.size.height - selfNewFrame.size.height);
+        
+        if ([self.delegate respondsToSelector:@selector(inputViewWillUpdateFrame:animateDuration:animateOption:)]){
+            [self.delegate inputViewWillUpdateFrame:selfNewFrame animateDuration:duration.doubleValue animateOption:curv.integerValue];
+        }
+        
+        [UIView animateWithDuration:duration.doubleValue delay:0 options:curv.integerValue animations:^{
+            self.frame = selfNewFrame;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
 }
 
 #pragma mark 适应输入框高度变化
@@ -378,8 +389,6 @@
 
 -(BOOL)resignFirstResponder{
     self.textView.inputView = nil;
-    [self.textView setHidden:NO];
-    [self turnButtonOnAtIndex:-1];
     [self.textView resignFirstResponder];
     return [super resignFirstResponder];
 }

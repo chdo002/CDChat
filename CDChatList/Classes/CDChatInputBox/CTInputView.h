@@ -26,4 +26,5 @@
  */
 @interface CTInputView : UIView
 @property(nonatomic, weak) id<CTInputViewProtocol>delegate;
+-(void)turnButtonOnAtIndex:(NSInteger)idx;
 @end

@@ -11,7 +11,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MsgPicViewController.h"
 
-#define NaviH (44 + [[UIApplication sharedApplication] statusBarFrame].size.height)
+#define StatusH [[UIApplication sharedApplication] statusBarFrame].size.height
+#define NaviH (44 + StatusH)
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 
@@ -32,12 +33,20 @@
     }];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    CDChatListView *list = [[CDChatListView alloc] initWithFrame:CGRectMake(0, NaviH, ScreenW, ScreenH - NaviH - CTInputViewHeight)];
+    
+    BOOL isIphoneX = ScreenH >= 812;
+    CDChatListView *list = [[CDChatListView alloc] initWithFrame:CGRectMake(0,
+                                                                            NaviH,
+                                                                            ScreenW,
+                                                            ScreenH - NaviH - CTInputViewHeight - (isIphoneX ? StatusH : 0))];
     list.msgDelegate = self;
     self.listView = list;
     [self.view addSubview:list];
     
-    CTInputView *input = [[CTInputView alloc] initWithFrame:CGRectMake(0,ScreenH - CTInputViewHeight, ScreenW, CTInputViewHeight)];
+    CTInputView *input = [[CTInputView alloc] initWithFrame:CGRectMake(0,
+                                                                       list.bottom,
+                                                                       ScreenW,
+                                                                       CTInputViewHeight)];
     input.delegate = self;
     self.msginputView = input;
     [self.view addSubview:input];
@@ -141,7 +150,9 @@
 
 - (void)inputViewWillUpdateFrame:(CGRect)newFrame animateDuration:(double)duration animateOption:(NSInteger)opti {
     //  当输入框因为多行文本变高时，listView需要做响应变化
-    CGFloat inset_bot = ScreenH - CTInputViewHeight - newFrame.origin.y;
+    BOOL isIphoneX = ScreenH >= 812;
+    CGFloat inset_bot = ScreenH - CTInputViewHeight - newFrame.origin.y - (isIphoneX ? StatusH : 0);
+    
     UIEdgeInsets inset = UIEdgeInsetsMake(self.listView.contentInset.top,
                                           self.listView.contentInset.left,
                                           inset_bot,
