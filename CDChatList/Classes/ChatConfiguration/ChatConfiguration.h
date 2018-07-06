@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CTData.h"
+#import <CDLabel/CTData.h>
 #import "ChatMacros.h"
 
 @interface ChatConfiguration : NSObject

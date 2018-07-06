@@ -15,6 +15,10 @@
 
 聊天界面其实大同小异，所以这里封装了一个聊天的组件，使用CoreText和手动代码布局，尽量实现简单，通用，高效，易于维护。
 
+> 版本更新
+
+* 0.1.3： 将CDLabel分离出去：[CDLabel](https://github.com/chdo002/cdlabel)
+
 # 项目结构
 
 CDChatListView: UITableView 视图，聊天页面主体

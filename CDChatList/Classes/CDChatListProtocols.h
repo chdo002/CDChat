@@ -10,7 +10,7 @@
 
 
 #import "ChatMacros.h"
-#import "CTData.h"
+#import <CDLabel/CTData.h>
 
 static NSString * CDChatListDidScroll = @"CDChatListDidScroll";
 
