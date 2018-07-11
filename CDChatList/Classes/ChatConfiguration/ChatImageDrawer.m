@@ -35,7 +35,7 @@
 
 }
 
-@property(nonatomic, strong) NSDictionary<NSString *,UIImage *> * imageDic;
+@property(nonatomic, strong) NSMutableDictionary<NSString *,UIImage *> * imageDic;
 
 @end
 @implementation ChatImageDrawer
@@ -55,7 +55,7 @@
     return helper;
 }
 
-+(NSDictionary<NSString *,UIImage *> *)defaultImageDic{
++(NSMutableDictionary<NSString *,UIImage *> *)defaultImageDic{
     if ([ChatImageDrawer share].imageDic) {
         return [ChatImageDrawer share].imageDic;
     }
@@ -71,13 +71,14 @@
     UIImage *right_mask = [[ChatImageDrawer share] right_mask];
     right_mask = [right_mask resizableImageWithCapInsets:[insets[3] UIEdgeInsetsValue] resizingMode:UIImageResizingModeStretch];
     
-    [ChatImageDrawer share].imageDic = @{
-                                         @"left_box": leftBubble,
-                                         @"right_box": rightBubble,
-                                         @"bg_mask_right":right_mask,
-                                         @"bg_mask_left":left_mask,
-                                         @"icon_head":[[ChatImageDrawer share] icon_head],
-                                         };
+    [ChatImageDrawer share].imageDic =
+    [NSMutableDictionary dictionaryWithDictionary:@{
+                                                    @"left_box": leftBubble,
+                                                    @"right_box": rightBubble,
+                                                    @"bg_mask_right":right_mask,
+                                                    @"bg_mask_left":left_mask,
+                                                    @"icon_head":[[ChatImageDrawer share] icon_head],
+                                                    }];
     
     return [ChatImageDrawer share].imageDic;
 }

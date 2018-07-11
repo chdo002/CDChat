@@ -15,7 +15,7 @@
  @"bg_mask_left":left_mask,
  @"icon_head":[[ChatImageDrawer share] icon_head],
  */
-+(NSDictionary<NSString *, UIImage *>*)defaultImageDic;
++(NSMutableDictionary<NSString *, UIImage *>*)defaultImageDic;
 
 
 @end

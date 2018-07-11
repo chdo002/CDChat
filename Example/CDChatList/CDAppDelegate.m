@@ -16,10 +16,6 @@
 
     // 配置聊天列表环境
     ChatHelpr.share.config.environment = 1;
-
-
-
-
     // 聊天页面图片资源配置
     NSMutableDictionary *dic;
 
@@ -42,9 +38,8 @@
     NSString *resouceBundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"InputViewBundle.bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithPath:resouceBundlePath];
 
-    
-    NSMutableDictionary *resDic = [NSMutableDictionary dictionaryWithDictionary:ChatHelpr.share.imageDic];
 
+    NSMutableDictionary *resDic = [NSMutableDictionary dictionaryWithDictionary:ChatHelpr.share.imageDic];
     [resDic setObject:[UIImage imageNamed:@"voice_left_1" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_left_1"];
     [resDic setObject:[UIImage imageNamed:@"voice_left_2" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_left_2"];
     [resDic setObject:[UIImage imageNamed:@"voice_left_3" inBundle:resourceBundle compatibleWithTraitCollection:nil] forKey:@"voice_left_3"];
@@ -58,8 +53,8 @@
         resDic[imageName] = drawImages[imageName];
     }
     
-    ChatHelpr.share.imageDic = resDic;
     
+    ChatHelpr.share.imageDic = resDic;
     
 
     // 设置输入框的表情资源
@@ -74,6 +69,7 @@
     [CTinputHelper.share.config addVoice];
 
     NSDictionary *origin = CTinputHelper.share.imageDic;
+
 
     NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:origin];
     [newDic setObject:[UIImage imageNamed:@"keyboard" inBundle:resourceBundle compatibleWithTraitCollection:nil]
@@ -90,9 +86,8 @@
                forKey:@"voice"];
     /// 设置除表情的图片资源
     CTinputHelper.share.imageDic = newDic;
+    
     return YES;
 }
-
-
 
 @end
