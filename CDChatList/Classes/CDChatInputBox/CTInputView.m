@@ -7,11 +7,12 @@
 
 #import "CTInputView.h"
 #import "CTTextView.h"
+#import "UITool.h"
 #import "CTEmojiKeyboard.h"
 #import "AATVoiceHudAlert.h"
+#import "CTInputConfiguration.h"
 #import "AATAudioTool.h"
-#import "CTInPutMacro.h"
-#import "UITool.h"
+
 @interface EmojiTextAttachment : NSTextAttachment
 @property(strong, nonatomic) NSString *emojiTag;
 + (NSString *)getPlainString:(NSAttributedString *)attributString;
@@ -26,14 +27,14 @@
     __block NSUInteger base = 0;
     
     [attributString enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, attributString.length)
-                     options:0
-                  usingBlock:^(id value, NSRange range, BOOL *stop) {
-                      if (value && [value isKindOfClass:[EmojiTextAttachment class]]) {
-                          [plainString replaceCharactersInRange:NSMakeRange(range.location + base, range.length)
-                                                     withString:((EmojiTextAttachment *) value).emojiTag];
-                          base += ((EmojiTextAttachment *) value).emojiTag.length - 1;
-                      }
-                  }];
+                               options:0
+                            usingBlock:^(id value, NSRange range, BOOL *stop) {
+                                if (value && [value isKindOfClass:[EmojiTextAttachment class]]) {
+                                    [plainString replaceCharactersInRange:NSMakeRange(range.location + base, range.length)
+                                                               withString:((EmojiTextAttachment *) value).emojiTag];
+                                    base += ((EmojiTextAttachment *) value).emojiTag.length - 1;
+                                }
+                            }];
     return plainString;
 }
 @end
@@ -66,7 +67,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-    self.backgroundColor = HexColor(0xF5F5F7);
+    self.backgroundColor = CRMHexColor(0xF5F5F7);
     originRect = frame;
     
     // 三个按钮容器
@@ -96,7 +97,6 @@
     // 输入框
     CTTextView *textView = [[CTTextView alloc] initWithFrame:config.inputViewRect];
     textView.font = config.stringFont;
-    textView.maxNumberOfLines = 5;
     self.textView = textView;
     self.textView.returnKeyType = UIReturnKeySend;
     self.textView.delegate = self;
@@ -108,22 +108,21 @@
     }];
     
     // 按住说话按钮
-    UIButton *v2 = [[UIButton alloc] initWithFrame:config.inputViewRect];
-    [v2 setTitle:@"按住 说话" forState:UIControlStateNormal];
-    [v2 addTarget:self action:@selector(touchDownRecordButton1:) forControlEvents:UIControlEventTouchDown];
-    [v2 addTarget:self action:@selector(touchDownRecordButton2:) forControlEvents:UIControlEventTouchUpInside];
-    [v2 addTarget:self action:@selector(touchDownRecordButton3:) forControlEvents:UIControlEventTouchUpOutside];
-    [v2 addTarget:self action:@selector(touchDownRecordButton4:) forControlEvents:UIControlEventTouchDragOutside];
-    [v2 addTarget:self action:@selector(touchDownRecordButton5:) forControlEvents:UIControlEventTouchDragInside];
-    
-    [v2 setTitleColor:HexColor(0x555555) forState:UIControlStateNormal];
-    v2.layer.borderColor = HexColor(0xC1C2C6).CGColor;
+    UIView *v2 = [[UIView alloc] initWithFrame:config.inputViewRect];
+    UILabel *labl = [[UILabel alloc] initWithFrame:v2.bounds];
+    [v2 addSubview:labl];
+    labl.textAlignment = NSTextAlignmentCenter;
+    labl.text = @"按住 说话";
+    labl.textColor = CRMHexColor(0x555555);
+    v2.layer.borderColor = CRMHexColor(0xC1C2C6).CGColor;
     v2.layer.borderWidth = 1;
     v2.layer.cornerRadius = 5;
-    v2.backgroundColor = HexColor(0xF6F6F8);
+    v2.backgroundColor = CRMHexColor(0xF6F6F8);
     [self.containerView addSubview:v2];
-    self.recordBut = v2;
     
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesAction:)];
+    longPress.minimumPressDuration = 0.1;
+    [v2 addGestureRecognizer:longPress];
     
     // 表情按钮
     UIButton *v3 = [[UIButton alloc] initWithFrame:config.emojiButtonRect];
@@ -145,8 +144,10 @@
     self.moreBut = v4;
     
     // 键盘注释
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNoitfication:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNoitfication:)
+                                                 name:UIKeyboardWillChangeFrameNotification
+                                               object:nil];
     
     emojiKeyboard = [CTEmojiKeyboard keyBoard];
     emojiKeyboard.emojiDelegate = self;
@@ -157,9 +158,22 @@
     return self;
 }
 
+-(void)didMoveToWindow{
+    [super didMoveToWindow];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+    });
+}
+
+-(BOOL)isFirstResponder{
+    return [self.textView isFirstResponder];
+}
+
 -(NSArray *)buttons{
     return @[self.voiceBut, self.emojiBut, self.moreBut];
 }
+
 #pragma mark 声音，表情  更多  按钮点击
 -(void)tagbut:(UIButton *)but{
     // 切换按钮icon
@@ -168,8 +182,12 @@
     if (but.tag == 0) {
         // 语音
         if (self.voiceBut.isSelected) {
-            tempTextViewHeight = self.textView.frame.size.height;
-            
+            [AATAudioTool checkCameraAuthorizationGrand:^{
+                
+            } withNoPermission:^{
+                
+            }];
+            tempTextViewHeight = self.textView.height;
             [self updateLayout:CTinputHelper.share.config.emojiButtonRect.size.height];
             [self.textView resignFirstResponder];
             [self.textView setHidden:YES];
@@ -186,7 +204,7 @@
         } else {
             [self changeKeyBoard:nil];
         }
-
+        
     } else if (but.tag == 2) {
         // 更多
         if (self.moreBut.isSelected) {
@@ -205,48 +223,74 @@
 }
 
 #pragma mark 语音相关
-// 按下
--(void)touchDownRecordButton1:(UIButton *)but{
-//    开始录音
-    [AATAudioTool checkCameraAuthorizationGrand:^{
-        [[AATAudioTool share] startRecord];
-        [AATVoiceHudAlert showPowerHud:1];
-        self.isRecordTouchingOutSide = NO;
-        [AATAudioTool share].delegate = self;
-    } withNoPermission:^{
-        
-    }];
-}
-// 内部抬起
--(void)touchDownRecordButton2:(UIButton *)but{
+
+-(void)longPressGesAction:(UILongPressGestureRecognizer *)ges{
     
-//    结束录音
-    [[AATAudioTool share] stopRecord];
-    [AATVoiceHudAlert hideHUD];
-}
-// 外部抬起
--(void)touchDownRecordButton3:(UIButton *)but{
-//    外部抬起，取消录音
-    [[AATAudioTool share] intertrptRecord];
-    [AATVoiceHudAlert hideHUD];
-}
-// 拖动到外部
--(void)touchDownRecordButton4:(UIButton *)but{
-    self.isRecordTouchingOutSide = YES;
-}
-// 拖回内部
--(void)touchDownRecordButton5:(UIButton *)but{
-    // 拖拽到内部，如果在录音，则恢复正常显示，否则什么都不做
-    if ([AATAudioTool share].isRecorderRecording) {
-        self.isRecordTouchingOutSide = NO;
+    switch (ges.state) {
+        case  UIGestureRecognizerStatePossible:
+            
+            break;
+        case UIGestureRecognizerStateBegan:
+        {
+            
+            //    开始录音
+            [AATAudioTool checkCameraAuthorizationGrand:^{
+                [[AATAudioTool share] startRecord];
+                [AATVoiceHudAlert showPowerHud:1];
+                self.isRecordTouchingOutSide = NO;
+                [AATAudioTool share].delegate = self;
+            } withNoPermission:^{
+                
+            }];
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            CGPoint loca = [ges locationInView:ges.view];
+            BOOL bol = CGRectContainsPoint(ges.view.bounds, loca);
+            if (bol) {
+                // 拖拽到内部，如果在录音，则恢复正常显示，否则什么都不做
+                if ([AATAudioTool share].isRecorderRecording) {
+                    self.isRecordTouchingOutSide = NO;
+                }
+            } else {
+                self.isRecordTouchingOutSide = YES;
+            }
+        }
+            break;
+        case  UIGestureRecognizerStateEnded:
+        {
+            CGPoint loca = [ges locationInView:ges.view];
+            BOOL bol = CGRectContainsPoint(ges.view.bounds, loca);
+            if (bol) {
+                //    结束录音
+                [[AATAudioTool share] stopRecord];
+                [AATVoiceHudAlert hideHUD];
+            } else {
+                //    外部抬起，取消录音
+                [[AATAudioTool share] intertrptRecord];
+                [AATVoiceHudAlert hideHUD];
+            }
+        }
+            break;
+        case  UIGestureRecognizerStateCancelled:
+            
+            break;
+        case  UIGestureRecognizerStateFailed:
+            
+            break;
+        default:
+            break;
     }
 }
-
+// 开始录音回调
 -(void)aatAudioToolDidStartRecord:(NSTimeInterval)currentTime{
     [AATVoiceHudAlert showPowerHud:1];
 }
 
--(void)aatAudioToolUpdateCurrentTime:(NSTimeInterval)currentTime fromTime:(NSTimeInterval)startTime power:(float)power{
+-(void)aatAudioToolUpdateCurrentTime:(NSTimeInterval)currentTime
+                            fromTime:(NSTimeInterval)startTime
+                               power:(float)power{
     
     if (self.isRecordTouchingOutSide){
         [AATVoiceHudAlert showRevocationHud];
@@ -255,8 +299,15 @@
     }
 }
 
--(void)aatAudioToolDidStopRecord:(NSURL *)dataPath startTime:(NSTimeInterval)start endTime:(NSTimeInterval)end errorInfo:(NSString *)info{
-    [self.delegate inputViewPopAudioath:dataPath];
+-(void)aatAudioToolDidStopRecord:(NSURL *)dataPath
+                       startTime:(NSTimeInterval)start
+                         endTime:(NSTimeInterval)end
+                       errorInfo:(NSString *)info{
+    if (info) {
+        [AATHUD showInfo:info andDismissAfter:0.5];
+    } else {
+        [self.delegate inputViewPopAudioath:dataPath];
+    }
     [AATAudioTool share].delegate = nil;
 }
 //
@@ -282,7 +333,6 @@
     EmojiTextAttachment *attachment = [[EmojiTextAttachment alloc] init];
     attachment.emojiTag = key;
     attachment.image = img;
-    
     attachment.bounds = CGRectMake(0,
                                    CTinputHelper.share.config.stringFont.descender,
                                    CTinputHelper.share.config.stringFont.lineHeight,
@@ -316,18 +366,19 @@
 
 #pragma mark 键盘通知
 -(void)receiveNoitfication:(NSNotification *)noti{
-    
     if ([noti.name isEqualToString:UIKeyboardWillChangeFrameNotification]) {
-        
         NSDictionary *dic = noti.userInfo;
         NSNumber *curv = dic[UIKeyboardAnimationCurveUserInfoKey];
         NSNumber *duration = dic[UIKeyboardAnimationDurationUserInfoKey];
         // 键盘Rect
         CGRect keyBoardEndFrmae = ((NSValue * )dic[UIKeyboardFrameEndUserInfoKey]).CGRectValue;
         
+        
+        
         CGRect selfNewFrame = CGRectMake(self.frame.origin.x,
                                          keyBoardEndFrmae.origin.y - self.frame.size.height,
                                          self.frame.size.width, self.frame.size.height);
+        
         BOOL isIphoneX = ScreenH() >= 812;
         if (isIphoneX) {
             // 输入框距离底边距离
@@ -337,6 +388,7 @@
                 selfNewFrame.origin.y = keyBoardEndFrmae.origin.y - self.frame.size.height - StatusH();
             }
         }
+        
         originRect.origin.y = selfNewFrame.origin.y - (originRect.size.height - selfNewFrame.size.height);
         
         if ([self.delegate respondsToSelector:@selector(inputViewWillUpdateFrame:animateDuration:animateOption:)]){
@@ -360,7 +412,7 @@
     // 更新后的输入框的位置
     CGRect newTextViewRect = self.textView.frame;
     newTextViewRect.size.height = newTextViewHight;
-
+    
     // 输入框的高度变化
     CGFloat delta = config.inputViewRect.size.height - newTextViewHight;
     // 根据输入框的变化修改整个视图的位置
@@ -390,6 +442,9 @@
 -(BOOL)resignFirstResponder{
     self.textView.inputView = nil;
     [self.textView resignFirstResponder];
+    
+    self.emojiBut.selected = NO;
+    self.moreBut.selected = NO;
     return [super resignFirstResponder];
 }
 

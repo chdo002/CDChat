@@ -17,11 +17,11 @@
     
     self.environment = 1;
     
-    self.msgBackGroundColor = CRMHexColor(0xF3F3F3);
-    self.msgContentBackGroundColor = self.msgBackGroundColor;
-    self.headBackGroundColor = self.msgBackGroundColor;
-    self.msgTextContentBackGroundColor_left = CRMHexColor(0xFFFFFF);
-    self.msgTextContentBackGroundColor_right = CRMHexColor(0xA0E75A);
+    self.msgBackGroundColor = CRMHexColor(0xEBEBEB);
+    self.msgContentBackGroundColor = CRMHexColor(0xEBEBEB);
+    self.headBackGroundColor = CRMHexColor(0xEBEBEB);
+    self.msgTextContentBackGroundColor_right = CRMHexColor(0x06C0B5);
+    self.msgTextContentBackGroundColor_left = CRMHexColor(0xF5F7FA);
     
     self.msgTimeH = 25.0f;
     self.sysInfoMessageMaxWidth = ScreenW() * 0.64f;
@@ -33,11 +33,24 @@
     self.messageMargin = 10.0f;
     self.bubbleMaxWidth = ScreenW() * 0.64f;
     self.bubbleSharpAngleHeighInset = 25.0f;
+    self.nickNameHeight = 25.0f;
     
     self.messageTextDefaultFontSize = 16;
     self.messageTextDefaultFont = [UIFont systemFontOfSize: self.messageTextDefaultFontSize];
     self.sysInfoMessageFont = [UIFont systemFontOfSize:14];
     
+    self.left_box = @"left_box";
+    self.right_box = @"right_box";
+    self.bg_mask_right = @"bg_mask_right";
+    self.bg_mask_left = @"bg_mask_left";
+    self.icon_head = @"icon_head";
+    self.msgImagePlaceHolder = @"msgImagePlaceHolder";
+    self.voice_right_1 = @"voice_right_1";
+    self.voice_right_2 = @"voice_right_2";
+    self.voice_right_3 = @"voice_right_3";
+    self.voice_left_1 = @"voice_left_1";
+    self.voice_left_2 = @"voice_left_2";
+    self.voice_left_3 = @"voice_left_3";
     CTDataConfig config;
     
     config = [CTData defaultConfig];
@@ -76,19 +89,19 @@
     }
 }
 
--(UIColor *)msgTextContentBackGroundColor_left{
+-(UIColor *)msgTextContentBackGroundColor_right{
     if ([self isDebug]) {
-        return [UIColor redColor];
+        return [UIColor cyanColor];
     } else {
-        return _msgTextContentBackGroundColor_left;
+        return _msgTextContentBackGroundColor_right;
     }
 }
 
--(UIColor *)msgTextContentBackGroundColor_right{
+-(UIColor *)msgTextContentBackGroundColor_left{
     if ([self isDebug]) {
-        return [UIColor redColor];
+        return [UIColor magentaColor];
     } else {
-        return _msgTextContentBackGroundColor_right;
+        return _msgTextContentBackGroundColor_left;
     }
 }
 

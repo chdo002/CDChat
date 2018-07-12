@@ -50,8 +50,8 @@
 
 #pragma mark MessageCellDelegate
 
-- (void)configCellByData:(CDChatMessage)data {
-    [super configCellByData:data];
+- (void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table{
+    [super configCellByData:data table:table];
 
     if (data.isLeft) {
         // 左侧

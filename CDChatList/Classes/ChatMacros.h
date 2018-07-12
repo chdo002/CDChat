@@ -42,7 +42,6 @@
 #define HeadBackGroundColor ChatHelpr.share.config.headBackGroundColor             // 头像背景色
 
 #define MsgTextContentBackGroundColor_left ChatHelpr.share.config.msgTextContentBackGroundColor_left       // 文字背景色
-#define MsgTextContentBackGroundColor_right ChatHelpr.share.config.msgTextContentBackGroundColor_right       // 文字背景色
 // 长度
 #define SysInfoMessageMaxWidth ChatHelpr.share.config.sysInfoMessageMaxWidth    // 系统消息最大边长
 

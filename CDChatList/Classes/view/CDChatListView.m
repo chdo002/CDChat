@@ -320,7 +320,7 @@ static UIWindow *topWindow_;
             return;
         }
         
-        [self.msgDelegate chatlistLoadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages) {
+        [self.msgDelegate chatlistLoadMoreMsg:lastMsg callback:^(CDChatMessageArray newMessages, BOOL hasMore) {
            
             if (!self->_msgArr) {
                 self->_msgArr = [NSMutableArray array];
@@ -399,7 +399,7 @@ static UIWindow *topWindow_;
     }
     
     UITableViewCell<MessageCellProtocal> *cell = [tableView dequeueReusableCellWithIdentifier: cellType];
-    [cell configCellByData:data];
+    [cell configCellByData:data table:self];
     
     return cell;
 }

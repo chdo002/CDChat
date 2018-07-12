@@ -86,7 +86,7 @@
     }
 }
 
-- (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray))finnished {
+- (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray,BOOL))finnished {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
         NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
@@ -98,18 +98,41 @@
             model.msg = array[0][@"msg"];
             [arr addObject:model];
         }
-        finnished(arr);
+        finnished(arr,YES);
     });
 }
 
 #pragma mark CTInputViewProtocol
 
 - (void)inputViewPopAudioath:(NSURL *)path {
-    CDMessageModel *model = [[CDMessageModel alloc] init];
-    model.msg = @"fsdfdf";
-    model.msgType = CDMessageTypeAudio;
-    model.isLeft = YES;
-    [self.listView addMessagesToBottom:@[model]];
+//    CDMessageModel *model = [[CDMessageModel alloc] init];
+//    model.msg = @"fsdfdf";
+//    model.msgType = CDMessageTypeAudio;
+//    model.isLeft = YES;
+//    [self.listView addMessagesToBottom:@[model]];
+//    
+//    
+//    
+    // 此处会存到内存和本地， 内存地址不会加密，本地地址会加密
+    NSData *data = [NSData dataWithContentsOfURL:path];
+    
+    NSString *createTtime = [NSString stringWithFormat:@"%ld",(long)[[NSDate date] timeIntervalSince1970]];
+    
+    NSString *sufix = [path.absoluteString componentsSeparatedByString:@"."].lastObject;
+    
+    [[SDImageCache sharedImageCache] cd_storeImageData:data forKey:[NSString stringWithFormat:@"%@.%@",createTtime,sufix] toDisk:YES completion:^{
+        
+        CDMessageModel *mode = [[CDMessageModel alloc] init];
+        mode.msgType = CDMessageTypeAudio;
+        mode.msgState = CDMessageStateNormal;
+        mode.msg = [path absoluteString];
+        //        mode.isLeft = arc4random() % 2 == 1;
+        mode.createTime = createTtime;
+        mode.messageId = createTtime;
+        mode.audioSufix = sufix;
+        [self.listView addMessagesToBottom:@[mode]];
+        
+    }];
 }
 
 - (void)inputViewPopCommand:(NSString *)string {

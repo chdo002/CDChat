@@ -61,3 +61,6 @@ FOUNDATION_EXPORT const unsigned char CDChatListVersionString[];
 #import "CTEmojiKeyboard.h"
 #import "CTMoreKeyBoard.h"
 #import "CTTextView.h"
+
+#import "SDImageCache+ChatCaculator.h"
+

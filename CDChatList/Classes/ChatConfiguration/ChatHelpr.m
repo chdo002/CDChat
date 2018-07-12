@@ -24,8 +24,8 @@
 +(void)load
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        ChatHelpr.share.imageDic = [ChatImageDrawer defaultImageDic];
         ChatHelpr.share.config = [[ChatConfiguration alloc] init];
+        ChatHelpr.share.imageDic = [ChatImageDrawer defaultImageDic];
     });
 }
 

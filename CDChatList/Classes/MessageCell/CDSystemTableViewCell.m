@@ -42,7 +42,7 @@
     return self;
 }
 
-- (void)configCellByData:(CDChatMessage)data {
+- (void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table{
     
     self.infoBackGround.frame = CGRectMake(0, 0, data.bubbleWidth, data.cellHeight);
     self.infoBackGround.center = CGPointMake(ScreenW() / 2, data.cellHeight / 2);

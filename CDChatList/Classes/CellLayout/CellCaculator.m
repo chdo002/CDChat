@@ -11,6 +11,8 @@
 #import "CTData.h"
 #import "ChatHelpr.h"
 #import "UITool.h"
+#import <AVFoundation/AVFoundation.h>
+#import "SDImageCache+ChatCaculator.h"
 
 @interface CellCaculator()
 
@@ -240,9 +242,90 @@ static dispatch_group_t groupp;
 }
 
 #pragma mark ---计算音频消息消息尺寸方法
+
+CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
+    
+    // 以后这里需要从内存中获取data， 需要改
+    AVURLAsset *audioAsset=[AVURLAsset assetWithURL:[NSURL fileURLWithPath:path]];
+    CMTime durationTime = audioAsset.duration;
+    float reultTime = [[NSString stringWithFormat:@"%.2f",CMTimeGetSeconds(durationTime)] floatValue];
+    float audioTimeinSecs = ceilf(reultTime);
+    // res: 0.5...1 ,  从0.5 趋近于 1, 在audioTimeinSecs = 14秒左右res到达1 调整2.71828可控制速度
+    float res = (1 / (0.14 + (pow(1.71828, -audioTimeinSecs))));
+    NSLog(@"\nac:%f\nceil:%f\nres:%f",reultTime,audioTimeinSecs,res);
+    msg.audioTime = audioTimeinSecs;
+    msg.audioTime = msg.audioTime > 0 ? msg.audioTime : 1;
+    return CGSizeMake(ScreenW() * 0.015 + res * 22, MessageContentH);
+}
+
+#pragma mark ---计算音频消息消息尺寸方法
 +(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
     
-    return CGSizeMake(200, MessageContentH);
+    
+    //     从内存取  因为AVURLAsset 无法从data初始化，先不读取内存 以后看是否可以调用私有方法
+    //    NSData *data = (NSData *)[[AATImageCache sharedImageCache] imageFromMemoryCacheForKey:msgData.messageId];
+    
+    //    从本地取,如果是自己发的会通过messageId缓存， messageId
+    //    if (!data) {
+    NSString *key = [NSString stringWithFormat:@"%@.%@",msgData.messageId, msgData.audioSufix];
+    NSString *path = [[SDImageCache sharedImageCache] defaultCachePathForKey:key];
+
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored"-Wundeclared-selector"
+    NSData *data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:key];
+    //    }
+    // 通过msg取缓存
+    if (!data) {
+        path = [[SDImageCache sharedImageCache] defaultCachePathForKey:msgData.msg];
+        
+        data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:msgData.msg];
+    }
+    #pragma clang diagnostic pop
+    
+    if (data) {
+        return caculateAudioCellSize(msgData,path);
+    } else {
+        
+        CGSize defaulutSize = CGSizeMake(ScreenW() * 0.4, MessageContentH);
+        if (msgData.msgState == CDMessageStateDownloading) {
+            return defaulutSize;
+        }
+        // 若不存在，则返回占位图大小，并下载
+        if (msgData.msgState != CDMessageStateSendFaild) {
+            msgData.msgState = CDMessageStateDownloading;
+        }
+        
+        [[[NSURLSession sharedSession] downloadTaskWithURL:[NSURL URLWithString:msgData.msg] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            if(error){
+                msgData.msgState = CDMessageStateDownloadFaild;
+                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
+                                                                    object:msgData
+                                                                  userInfo:error.userInfo];
+            } else {
+                
+                NSData *data = [NSData dataWithContentsOfURL:location];
+                CGSize size = caculateAudioCellSize(msgData,location.absoluteString);
+                
+                [[SDImageCache sharedImageCache] cd_storeImageData:data forKey:msgData.msg toDisk:YES completion:^{
+                    
+                }];
+                msgData.bubbleWidth = size.width;
+                // 加上可能显示的时间视图高度
+                CGFloat height = size.height;
+                msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
+                
+                msgData.msgState = CDMessageStateNormal;
+                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
+                                                                    object:msgData
+                                                                  userInfo:nil];
+            }
+        }] resume];
+        
+        return CGSizeMake(ScreenW() * 0.4, MessageContentH);
+    }
 }
 
 @end
+
+

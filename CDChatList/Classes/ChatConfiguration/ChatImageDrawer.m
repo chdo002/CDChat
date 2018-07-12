@@ -176,7 +176,7 @@
     CGContextAddPath(context, rpath);
     
     // 设置填充色
-    CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor_right.CGColor);//填充色
+    CGContextSetFillColorWithColor(context, ChatHelpr.share.config.msgTextContentBackGroundColor_right.CGColor);//填充色
     
     // 设置边框
     CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);

@@ -33,12 +33,16 @@ extern  NSNotificationName const AATAudioToolDidStopPlayNoti;
 
 @end
 
+
+// 音频录播
 @interface AATAudioTool : NSObject
 +(instancetype)share;
 
 @property (weak) id<AATAudioToolProtocol>delegate;
-@property NSTimeInterval updateInterval;
-
+@property NSTimeInterval updateInterval; //音频响度更新频率，默认0.01s
+@property NSTimeInterval minimumAudioDuration; // 默认1s
+@property (copy, nonatomic) NSString *tooShortInfo; // 录音时间太短，提示语
+@property NSDictionary *recordFormatDictionary;
 // 录音
 + (void)checkCameraAuthorizationGrand:(void (^)(void))permissionGranted withNoPermission:(void (^)(void))noPermission;
 -(BOOL)isRecorderRecording;
@@ -47,9 +51,9 @@ extern  NSNotificationName const AATAudioToolDidStopPlayNoti;
 -(void)intertrptRecord; // 没有回调
 
 // 播放
-@property (copy) NSString *audioPath;
+@property (copy, nonatomic) NSString *audioPath;
 -(BOOL)isPlaying;
-- (void)play;
+-(void)play;
 -(void)stopPlay;
 
 @end

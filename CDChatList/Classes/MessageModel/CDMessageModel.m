@@ -35,6 +35,17 @@
 
 @synthesize userThumImageURL;
 
+@synthesize audioSufix;
+
+@synthesize audioText;
+
+@synthesize audioTime;
+
+@synthesize ctDataconfig;
+
+@synthesize userName;
+
+
 -(instancetype)init:(NSDictionary *)dic{
     self = [super init];
     
@@ -45,5 +56,6 @@
     }
     return self;
 }
+
 
 @end

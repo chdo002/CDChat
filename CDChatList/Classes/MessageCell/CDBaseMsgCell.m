@@ -264,7 +264,7 @@
 }
 
 #pragma mark 设置消息data
-- (void)configCellByData:(CDChatMessage)data{
+- (void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table {
     self.msgModal = data;
     
     // 设置显示或隐藏  左右气泡
@@ -377,5 +377,7 @@
     
     return timeString;
 }
+ 
+
 
 @end

@@ -42,4 +42,6 @@
  */
 -(CGRect)updateMsgContentFrame_right:(CDChatMessage) data;
 
+- (void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table;
+
 @end
