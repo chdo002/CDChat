@@ -15,10 +15,10 @@ fi
 param2=$2
 if [[ $2 = '' ]]
 then
-	read -p "tag 版本(默认0.1.3) ：" taggg;
+	read -p "tag 版本(默认0.2.4) ：" taggg;
 	param2=$taggg;
 	if [[ $param2 = '' ]]; then
-		param2='0.1.3';
+		param2='0.2.4';
 	fi
 fi
 
