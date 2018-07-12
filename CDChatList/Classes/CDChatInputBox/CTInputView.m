@@ -7,7 +7,6 @@
 
 #import "CTInputView.h"
 #import "CTTextView.h"
-#import "UITool.h"
 #import "CTEmojiKeyboard.h"
 #import "AATVoiceHudAlert.h"
 #import "CTInputConfiguration.h"
@@ -63,11 +62,14 @@
 @end
 
 @implementation CTInputView
-
+static UIColor *InputHexColor(int hexColor){
+    UIColor *color = [UIColor colorWithRed:((float)((hexColor & 0xFF0000) >> 16))/255.0 green:((float)((hexColor & 0xFF00) >> 8))/255.0 blue:((float)(hexColor & 0xFF))/255.0 alpha:1];
+    return color;
+}
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-    self.backgroundColor = CRMHexColor(0xF5F5F7);
+    self.backgroundColor = InputHexColor(0xF5F5F7);
     originRect = frame;
     
     // 三个按钮容器
@@ -113,11 +115,11 @@
     [v2 addSubview:labl];
     labl.textAlignment = NSTextAlignmentCenter;
     labl.text = @"按住 说话";
-    labl.textColor = CRMHexColor(0x555555);
-    v2.layer.borderColor = CRMHexColor(0xC1C2C6).CGColor;
+    labl.textColor = InputHexColor(0x555555);
+    v2.layer.borderColor = InputHexColor(0xC1C2C6).CGColor;
     v2.layer.borderWidth = 1;
     v2.layer.cornerRadius = 5;
-    v2.backgroundColor = CRMHexColor(0xF6F6F8);
+    v2.backgroundColor = InputHexColor(0xF6F6F8);
     [self.containerView addSubview:v2];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesAction:)];
@@ -187,7 +189,7 @@
             } withNoPermission:^{
                 
             }];
-            tempTextViewHeight = self.textView.height;
+            tempTextViewHeight = self.textView.frame.size.height;
             [self updateLayout:CTinputHelper.share.config.emojiButtonRect.size.height];
             [self.textView resignFirstResponder];
             [self.textView setHidden:YES];
@@ -304,7 +306,7 @@
                          endTime:(NSTimeInterval)end
                        errorInfo:(NSString *)info{
     if (info) {
-        [AATHUD showInfo:info andDismissAfter:0.5];
+//        [AATHUD showInfo:info andDismissAfter:0.5];
     } else {
         [self.delegate inputViewPopAudioath:dataPath];
     }
@@ -379,13 +381,13 @@
                                          keyBoardEndFrmae.origin.y - self.frame.size.height,
                                          self.frame.size.width, self.frame.size.height);
         
-        BOOL isIphoneX = ScreenH() >= 812;
+        BOOL isIphoneX = [UIScreen mainScreen].bounds.size.height >= 812;
         if (isIphoneX) {
             // 输入框距离底边距离
-            CGFloat bottomHeight = ScreenH() - (selfNewFrame.origin.y + selfNewFrame.size.height);
+            CGFloat bottomHeight = [UIScreen mainScreen].bounds.size.height - (selfNewFrame.origin.y + selfNewFrame.size.height);
             // 小于激活区高度，则保持激活区高度
-            if (bottomHeight < StatusH()) {
-                selfNewFrame.origin.y = keyBoardEndFrmae.origin.y - self.frame.size.height - StatusH();
+            if (bottomHeight < [UIScreen mainScreen].bounds.size.height) {
+                selfNewFrame.origin.y = keyBoardEndFrmae.origin.y - self.frame.size.height - [UIScreen mainScreen].bounds.size.height;
             }
         }
         
