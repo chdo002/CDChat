@@ -25,21 +25,15 @@ static dispatch_queue_t calQueue;
 static dispatch_semaphore_t semdd;
 static dispatch_group_t groupp;
 
-+(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
+-(void)loadCaculator{
+    calQueue = dispatch_queue_create("calQueue", DISPATCH_QUEUE_CONCURRENT);
+    controlQueue = dispatch_queue_create("controlQueue", DISPATCH_QUEUE_SERIAL);
+    semdd = dispatch_semaphore_create(10);
+    groupp = dispatch_group_create();
+}
+
+-(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
-    
-    if (!calQueue) {
-        calQueue = dispatch_queue_create("calQueue", DISPATCH_QUEUE_CONCURRENT);
-    }
-    if (!controlQueue) {
-        controlQueue = dispatch_queue_create("controlQueue", DISPATCH_QUEUE_SERIAL);
-    }
-    if (!semdd) {
-        semdd = dispatch_semaphore_create(10);
-    }
-    if (!groupp) {
-        groupp = dispatch_group_create();
-    }
     
     for (int i = 0; i < msgArr.count; i++) {
         
@@ -58,13 +52,13 @@ static dispatch_group_t groupp;
             totalHeight = totalHeight + msg.cellHeight;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-           completeBlock(totalHeight);
+            completeBlock(totalHeight);
         });
     });
 }
 
 //TODO: 获取cell的高度方式
-+(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr{
+-(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr{
     
     CDChatMessage data = msgArr[index];
     // 返回缓存中的高度
@@ -73,7 +67,7 @@ static dispatch_group_t groupp;
         return data.cellHeight;
     }
     
-//     计算高度
+    //     计算高度
     // 和上一条信息对比判断cell上是否显示时间label
     if (index > 0) {
         CDChatMessage previousData = msgArr[index - 1];
@@ -102,8 +96,8 @@ static dispatch_group_t groupp;
  @param data 消息模型
  @return cell高度
  */
-+(CGSize)caculateCellHeightAndBubleWidth:(CDChatMessage)data{
-
+-(CGSize)caculateCellHeightAndBubleWidth:(CDChatMessage)data{
+    
     switch (data.msgType) {
         case CDMessageTypeText:
             return [self sizeForTextMessage:data];
@@ -119,10 +113,10 @@ static dispatch_group_t groupp;
 }
 
 #pragma mark ---计算文字消息尺寸方法
-+(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
+-(CGSize)sizeForTextMessage:(CDChatMessage)msgData{
     
     NSMutableAttributedString *msg_attributeText;
-
+    
     if (msgData.msg) {
         msg_attributeText = [[NSMutableAttributedString alloc] initWithString: msgData.msg];
     }else{
@@ -141,7 +135,7 @@ static dispatch_group_t groupp;
     CGFloat bubbleWidth = ceilf(data.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
     // 计算整个cell高度
     CGFloat cellheight = ceilf(data.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
-
+    
     // 如果 cellheight小于最小cell高度
     if (cellheight < MessageContentH) {
         cellheight = MessageContentH;
@@ -155,7 +149,7 @@ static dispatch_group_t groupp;
 /**
  根据图片大小计算气泡宽度和cell高度
  */
- CGSize caculateImageSize140By140(UIImage *image) {
+CGSize caculateImageSize140By140(UIImage *image) {
     
     // 图片将被限制在140*140的区域内，按比例显示
     CGFloat width = image.size.width;
@@ -180,7 +174,7 @@ static dispatch_group_t groupp;
     }
 }
 
-+(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
+-(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
     
     // 获得本地缓存的图片
     UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.msg];
@@ -201,7 +195,7 @@ static dispatch_group_t groupp;
             msgData.msgState = CDMessageStateDownloading;
         }
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-
+            
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
                 msgData.msgState = CDMessageStateDownloadFaild;
@@ -209,15 +203,15 @@ static dispatch_group_t groupp;
                                                                     object:msgData
                                                                   userInfo:error.userInfo];
             } else {
-
+                
                 CGSize size = caculateImageSize140By140(image);
                 [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
-
+                
                 msgData.bubbleWidth = size.width;
                 // 加上可能显示的时间视图高度
                 CGFloat height = size.height;
                 msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
-
+                
                 msgData.msgState = CDMessageStateNormal;
                 [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
                                                                     object:msgData
@@ -229,7 +223,7 @@ static dispatch_group_t groupp;
 }
 #pragma mark ---计算系统消息消息尺寸方法
 
-+(CGSize)sizeForSysInfoMessage:(CDChatMessage)msgData{
+-(CGSize)sizeForSysInfoMessage:(CDChatMessage)msgData{
     
     NSDictionary *attri = @{NSFontAttributeName: SysInfoMessageFont};
     CGSize maxTextSize = CGSizeMake(SysInfoMessageMaxWidth, CGFLOAT_MAX);
@@ -259,7 +253,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
 }
 
 #pragma mark ---计算音频消息消息尺寸方法
-+(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
+-(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
     
     
     //     从内存取  因为AVURLAsset 无法从data初始化，先不读取内存 以后看是否可以调用私有方法
@@ -269,9 +263,9 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
     //    if (!data) {
     NSString *key = [NSString stringWithFormat:@"%@.%@",msgData.messageId, msgData.audioSufix];
     NSString *path = [[SDImageCache sharedImageCache] defaultCachePathForKey:key];
-
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored"-Wundeclared-selector"
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wundeclared-selector"
     NSData *data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:key];
     //    }
     // 通过msg取缓存
@@ -280,7 +274,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
         
         data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:msgData.msg];
     }
-    #pragma clang diagnostic pop
+#pragma clang diagnostic pop
     
     if (data) {
         return caculateAudioCellSize(msgData,path);

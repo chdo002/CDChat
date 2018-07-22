@@ -35,7 +35,7 @@ typedef enum : NSUInteger {
 }
 @property(assign, nonatomic) CDHeaderLoadState loadHeaderState;
 @property(weak,   nonatomic) UIActivityIndicatorView *indicatro;
-
+@property(strong, nonatomic) CellCaculator *caculator;
 @end
 
 @implementation CDChatListView
@@ -50,10 +50,14 @@ typedef enum : NSUInteger {
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
     
+    self.caculator = [[CellCaculator alloc] init];
+    [self.caculator loadCaculator];
+    
     self.backgroundColor =  isChatListDebug ? CRMHexColor(0xB5E7E1) : ChatHelpr.share.config.msgBackGroundColor;
     if (!isChatListDebug) {
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
+    
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     // 注册cell类
@@ -246,7 +250,7 @@ static UIWindow *topWindow_;
             callBack(0);
         } else {
             dispatch_async(dispatch_get_global_queue(0, 0), ^{                
-                [CellCaculator caculatorAllCellHeight:msgArr callBackOnMainThread:^(CGFloat totalHeight) {
+                [self.caculator caculatorAllCellHeight:msgArr callBackOnMainThread:^(CGFloat totalHeight) {
                     self->_msgArr = msgArr;
                     [self reloadData];
                     callBack(totalHeight);
@@ -335,7 +339,7 @@ static UIWindow *topWindow_;
             NSMutableArray *arr = [NSMutableArray arrayWithArray:newMessages];
             [arr addObjectsFromArray:self->_msgArr];
             // 计算消息高度
-            [CellCaculator caculatorAllCellHeight:arr callBackOnMainThread:^(CGFloat totalHeight)
+            [self.caculator caculatorAllCellHeight:arr callBackOnMainThread:^(CGFloat totalHeight)
             {
                 // 全部消息重新赋值
                 self->_msgArr = arr;
@@ -410,9 +414,10 @@ static UIWindow *topWindow_;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    CGFloat height = [CellCaculator fetchCellHeight:indexPath.row of:_msgArr];
+    CGFloat height = [self.caculator fetchCellHeight:indexPath.row of:_msgArr];
     return height;
 }
+
 
 -(void)mainAsyQueue:(dispatch_block_t)block{
     dispatch_async(dispatch_get_main_queue(), ^{
