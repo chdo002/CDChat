@@ -162,7 +162,6 @@ static UIWindow *topWindow_;
 -(void)setMsgArr:(CDChatMessageArray)msgArr{
     
     [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
-        
         self.loadHeaderState = CDHeaderLoadStateNoraml;
         CGFloat newTopInset = LoadingH + self->originInset;
         CGFloat left = self.contentInset.left;
@@ -226,6 +225,7 @@ static UIWindow *topWindow_;
     
     NSMutableArray *arr = [NSMutableArray arrayWithArray:_msgArr];
     [arr addObjectsFromArray:newBottomMsgArr];
+    _msgArr = arr;
     
     [self configTableData:arr completeBlock:^(CGFloat totalHeight){
         [self relayoutTable:YES];
@@ -295,7 +295,8 @@ static UIWindow *topWindow_;
     }
     
     // 异步让tableview滚到最底部
-    NSIndexPath *index = [NSIndexPath indexPathForRow:_msgArr.count - 1  inSection:0];
+    NSInteger num = [self numberOfRowsInSection:0] - 1 > 0 ?: 0;
+    NSIndexPath *index = [NSIndexPath indexPathForRow:num  inSection:0];
     [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 }
 
