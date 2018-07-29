@@ -295,8 +295,10 @@ static UIWindow *topWindow_;
     }
     
     // 异步让tableview滚到最底部
-    NSInteger num = [self numberOfRowsInSection:0] - 1 > 0 ?: 0;
+    NSInteger cellCount = [self numberOfRowsInSection:0];
+    NSInteger num = cellCount - 1 > 0 ? cellCount - 1 : 0;
     NSIndexPath *index = [NSIndexPath indexPathForRow:num  inSection:0];
+    
     [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 }
 
