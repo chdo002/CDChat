@@ -25,7 +25,7 @@ static dispatch_queue_t calQueue;
 static dispatch_semaphore_t semdd;
 static dispatch_group_t groupp;
 
-+(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
+-(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
     
     if (!calQueue) {
@@ -64,7 +64,7 @@ static dispatch_group_t groupp;
 }
 
 //TODO: 获取cell的高度方式
-+(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr{
+-(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr{
     
     CDChatMessage data = msgArr[index];
     // 返回缓存中的高度
@@ -102,7 +102,7 @@ static dispatch_group_t groupp;
  @param data 消息模型
  @return cell高度
  */
-+(CGSize)caculateCellHeightAndBubleWidth:(CDChatMessage)data{
+-(CGSize)caculateCellHeightAndBubleWidth:(CDChatMessage)data{
 
     switch (data.msgType) {
         case CDMessageTypeText:
@@ -119,7 +119,7 @@ static dispatch_group_t groupp;
 }
 
 #pragma mark ---计算文字消息尺寸方法
-+(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
+-(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
     NSMutableAttributedString *msg_attributeText;
 
@@ -180,7 +180,7 @@ static dispatch_group_t groupp;
     }
 }
 
-+(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
+-(CGSize) sizeForImageMessage: (CDChatMessage)msgData {
     
     // 获得本地缓存的图片
     UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey: msgData.msg];
@@ -229,7 +229,7 @@ static dispatch_group_t groupp;
 }
 #pragma mark ---计算系统消息消息尺寸方法
 
-+(CGSize)sizeForSysInfoMessage:(CDChatMessage)msgData{
+-(CGSize)sizeForSysInfoMessage:(CDChatMessage)msgData{
     
     NSDictionary *attri = @{NSFontAttributeName: SysInfoMessageFont};
     CGSize maxTextSize = CGSizeMake(SysInfoMessageMaxWidth, CGFLOAT_MAX);
@@ -259,7 +259,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
 }
 
 #pragma mark ---计算音频消息消息尺寸方法
-+(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
+-(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
     
     
     //     从内存取  因为AVURLAsset 无法从data初始化，先不读取内存 以后看是否可以调用私有方法

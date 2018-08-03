@@ -118,12 +118,12 @@
 }
 
 -(void)configAudio_Left:(CDChatMessage)data{
-    [super updateMsgContentFrame_left:data];
+    
     if (!self.wave_left.superview) {
-        self.wave_left.frame = CGRectMake(BubbleRoundAnglehorizInset,
-                                          BubbleRoundAnglehorizInset,
-                                          HeadSideLength,
-                                          HeadSideLength - 2 * BubbleRoundAnglehorizInset);
+        self.wave_left.frame = CGRectMake(data.chatConfig.bubbleRoundAnglehorizInset,
+                                          data.chatConfig.bubbleRoundAnglehorizInset,
+                                          data.chatConfig.headSideLength,
+                                          data.chatConfig.headSideLength - 2 * data.chatConfig.bubbleRoundAnglehorizInset);
         [self.bubbleImage_left addSubview:self.wave_left];
     }
     
@@ -154,14 +154,13 @@
 }
 
 -(void)configAudio_Right:(CDChatMessage)data {
-    CGRect bubbleRec = [super updateMsgContentFrame_right:data];
     if (!self.wave_right.superview) {
         [self.bubbleImage_right addSubview:self.wave_right];
     }
-    self.wave_right.frame = CGRectMake(bubbleRec.size.width - BubbleRoundAnglehorizInset - HeadSideLength,
-                                       BubbleRoundAnglehorizInset,
-                                       HeadSideLength,
-                                       HeadSideLength - 2 * BubbleRoundAnglehorizInset);
+    self.wave_right.frame = CGRectMake(self.bubbleImage_right.frame.size.width - data.chatConfig.bubbleRoundAnglehorizInset - data.chatConfig.headSideLength,
+                                       data.chatConfig.bubbleRoundAnglehorizInset,
+                                       data.chatConfig.headSideLength,
+                                       data.chatConfig.headSideLength - 2 * data.chatConfig.bubbleRoundAnglehorizInset);
     
     self.audioTimeLabel_right.frame = self.indicator_right.frame;
     CGRect fra = self.audioTimeLabel_right.frame;

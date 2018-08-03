@@ -26,21 +26,21 @@
 @property(nonatomic,strong) UIImageView *headImage_right;             // 头像视图
 @property(nonatomic,strong) UIActivityIndicatorView *indicator_right; // loading视图
 @property(nonatomic,strong) UILabel *failLabel_right;             // 消息失败转台视图
-/**
- 根据消息中缓存的消息高度，气泡宽度重新设置msgContent_left的frame
-
- @param data 消息内容
- */
-
--(CGRect)updateMsgContentFrame_left:(CDChatMessage) data;
-
-
-/**
- 根据消息中缓存的消息高度，气泡宽度重新设置msgContent_right的frame
- 
- @param data 消息内容
- */
--(CGRect)updateMsgContentFrame_right:(CDChatMessage) data;
+///**
+// 根据消息中缓存的消息高度，气泡宽度重新设置msgContent_left的frame
+//
+// @param data 消息内容
+// */
+//
+//-(CGRect)updateMsgContentFrame_left:(CDChatMessage) data;
+//
+//
+///**
+// 根据消息中缓存的消息高度，气泡宽度重新设置msgContent_right的frame
+//
+// @param data 消息内容
+// */
+//-(CGRect)updateMsgContentFrame_right:(CDChatMessage) data;
 
 - (void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table;
 

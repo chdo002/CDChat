@@ -144,7 +144,7 @@
     CGContextAddPath(context, path);
     
     // 设置填充色
-    CGContextSetFillColorWithColor(context, MsgTextContentBackGroundColor_left.CGColor);//填充色
+    CGContextSetFillColorWithColor(context, ChatHelpr.share.config.msgTextContentBackGroundColor_left.CGColor);//填充色
     
     // 设置边框
     CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);
@@ -200,7 +200,7 @@
     CGContextAddPath(context, [path CGPath]);
     
     // 设置填充色
-    CGContextSetFillColorWithColor(context, MsgBackGroundColor.CGColor);//填充色
+    CGContextSetFillColorWithColor(context, ChatHelpr.share.config.msgBackGroundColor.CGColor);//填充色
     CGContextFillPath(context);
     
     // 绘制透明区域
@@ -226,7 +226,7 @@
     CGContextAddPath(context, [path CGPath]);
     
     // 设置填充色
-    CGContextSetFillColorWithColor(context, MsgBackGroundColor.CGColor);//填充色
+    CGContextSetFillColorWithColor(context, ChatHelpr.share.config.msgBackGroundColor.CGColor);//填充色
     CGContextFillPath(context);
     
     // 绘制透明区域

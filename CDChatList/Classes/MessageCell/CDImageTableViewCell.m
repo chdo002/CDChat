@@ -94,7 +94,7 @@
 }
 
 -(void)configImage_Left:(CDChatMessage)data {
-    CGRect bubbleRec = [super updateMsgContentFrame_left:data];
+    CGRect bubbleRec = self.bubbleImage_left.frame;
     self.imageContent_left.frame = bubbleRec;
 
     
@@ -115,7 +115,7 @@
 
 -(void)configImage_Right:(CDChatMessage)data {
     
-    CGRect bubbleRec = [super updateMsgContentFrame_right:data];
+    CGRect bubbleRec = self.bubbleImage_right.frame;
     
     self.imageContent_right.frame = bubbleRec;
     

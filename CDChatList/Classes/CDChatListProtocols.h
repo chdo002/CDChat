@@ -11,6 +11,9 @@
 
 #import "ChatMacros.h"
 #import <CDLabel/CTData.h>
+@class ChatConfiguration;
+
+
 
 static NSString * CDChatListDidScroll = @"CDChatListDidScroll";
 
@@ -19,7 +22,7 @@ typedef enum : NSUInteger {
     CDMessageTypeImage,     // 图片类型
     CDMessageTypeAudio,     // 音频类型
     CDMessageTypeSystemInfo, // 系统信息类型
-//    CDMessageTypeCustome,     // 自定义类型
+    CDMessageTypeCustome,     // 自定义类型
 } CDMessageType; // 消息类型
 
 typedef enum : NSUInteger {
@@ -99,6 +102,10 @@ typedef enum : NSUInteger {
  */
 @property (strong, nonatomic) NSString *userThumImageURL;
 
+/**
+ cell自定义配置，可选
+ */
+@property (nonatomic, strong) ChatConfiguration *chatConfig;
 
 /**
  文字配置，可选，默认使用ChatHelpr中的ctDataconfig配置

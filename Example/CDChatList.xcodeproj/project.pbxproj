@@ -27,6 +27,7 @@
 		E9AC85892062072A002025DF /* messageHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = E9AC85882062072A002025DF /* messageHistory.json */; };
 		E9B02A182060EFBC00A22541 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A172060EFBC00A22541 /* Expression.bundle */; };
 		E9B02A1B2060F28100A22541 /* InputViewBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */; };
+		E9B1D32620F8B4AC00A16C0A /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = E9B1D32520F8B4AC00A16C0A /* CHANGELOG.md */; };
 		E9E488402095B15F007E619C /* MsgPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E4883F2095B15F007E619C /* MsgPicViewController.m */; };
 		E9FC2CE020C7B2B10064A243 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FC2CDF20C7B2B10064A243 /* TestViewController.m */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		E9AC85882062072A002025DF /* messageHistory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = messageHistory.json; sourceTree = "<group>"; };
 		E9B02A172060EFBC00A22541 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InputViewBundle.bundle; sourceTree = "<group>"; };
+		E9B1D32520F8B4AC00A16C0A /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		E9E4883E2095B15F007E619C /* MsgPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgPicViewController.h; sourceTree = "<group>"; };
 		E9E4883F2095B15F007E619C /* MsgPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgPicViewController.m; sourceTree = "<group>"; };
 		E9FC2CDE20C7B2B10064A243 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				34D2B967511C21CBF4C81671 /* CDChatList.podspec */,
 				4F1ABF8C99942A90CD885379 /* README.md */,
+				E9B1D32520F8B4AC00A16C0A /* CHANGELOG.md */,
 				B88244055E8DB937766003D6 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -319,6 +322,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E9AC85892062072A002025DF /* messageHistory.json in Resources */,
+				E9B1D32620F8B4AC00A16C0A /* CHANGELOG.md in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E9B02A1B2060F28100A22541 /* InputViewBundle.bundle in Resources */,
 				E9B02A182060EFBC00A22541 /* Expression.bundle in Resources */,

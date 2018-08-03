@@ -302,6 +302,12 @@
     }
     [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + SysInfoPadding * 2, textSize.height)];
     _timeLabel.center = CGPointMake(ScreenW() / 2, MsgTimeH / 2);
+    
+    if (data.isLeft) {
+        [self updateMsgContentFrame_left:data];
+    }else{
+        [self updateMsgContentFrame_right:data];
+    }
 }
 
 #pragma mark 根据消息时间，计算需要显示的消息时间格式

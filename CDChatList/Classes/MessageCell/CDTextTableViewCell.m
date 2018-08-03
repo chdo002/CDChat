@@ -65,7 +65,7 @@
 }
 
 -(void)configText_Left:(CDChatMessage)data{
-    CGRect bubbleRec = [super updateMsgContentFrame_left:data];
+    CGRect bubbleRec = self.bubbleImage_left.frame;
     
     // 给label复制文字内容
     self.textContent_left.data = data.textlayout;
@@ -77,7 +77,7 @@
 
 -(void)configText_Right:(CDChatMessage)data{
     
-    CGRect bubbleRec = [super updateMsgContentFrame_right:data];
+    CGRect bubbleRec = self.bubbleImage_right.frame;
     
     // 给label复制文字内容
     self.textContent_right.data = data.textlayout;

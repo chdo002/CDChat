@@ -10,13 +10,20 @@
 
 @interface ChatHelpr : NSObject
 
-@property(nonatomic, class, readonly, strong) ChatHelpr *share;
 
-#pragma mark 图片资源
+@property(class, nonatomic, strong, readonly) ChatHelpr *share;
+#pragma mark 环境
+/**
+ 环境  // 0 调试 1 生产
+ */
+@property(nonatomic, assign) int environment;
+@property(nonatomic, strong) ChatConfiguration *config;
 @property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *emojDic;
 @property(nonatomic, strong) NSDictionary<NSString*, UIImage *> *imageDic;
 
-#pragma mark 组件配置相关
-@property(nonatomic, strong) ChatConfiguration *config;
+/**
+ CDMessageType : @"" : CDMessageCellType
+ */
+@property(nonatomic, strong) NSArray<Class> *customMsgCell; //自定义消息cell
 
 @end

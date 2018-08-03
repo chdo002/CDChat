@@ -21,14 +21,6 @@
 
 @implementation ChatHelpr
 
-+(void)load
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        ChatHelpr.share.config = [[ChatConfiguration alloc] init];
-        ChatHelpr.share.imageDic = [ChatImageDrawer defaultImageDic];
-    });
-}
-
 +(instancetype)share{
     
     static dispatch_once_t onceToken;
@@ -36,8 +28,16 @@
     
     dispatch_once(&onceToken, ^{
         helper = [[ChatHelpr alloc] init];
+        helper.environment = 1;
+        helper->_config = [[ChatConfiguration alloc] init];
     });
     return helper;
 }
+
+-(void)setEnvironment:(int)environment{
+    CTHelper.share.environment = environment;
+    _environment = environment;
+}
+
 
 @end

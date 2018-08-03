@@ -58,4 +58,6 @@
 }
 
 
+@synthesize chatConfig;
+
 @end

@@ -7,14 +7,18 @@
 
 #import <UIKit/UIKit.h>
 #import "CDChatListProtocols.h"
+#import "CDChatListView.h"
 
 @interface CellCaculator : NSObject
+
+@property(nonatomic, weak) CDChatListView *list;
+
 /**
  计算所有的cell高度
 
  @param msgArr 消息数组
  */
-+(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
+-(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock;
 
 /**
@@ -22,10 +26,10 @@
  
  @return cell高度
  */
-+(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr;
+-(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr;
 
 
-+(CGSize) sizeForTextMessage:(CDChatMessage)msgData;
+-(CGSize) sizeForTextMessage:(CDChatMessage)msgData;
 @end
 
 
