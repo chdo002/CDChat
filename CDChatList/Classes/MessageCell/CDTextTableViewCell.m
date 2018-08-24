@@ -33,15 +33,13 @@
     
     // 左侧气泡中添加label
     self.textContent_left = [[CDLabel alloc] init];
-    self.textContent_left.frame = CGRectMake(BubbleSharpAnglehorizInset,
-                                             BubbleRoundAnglehorizInset, 0, 0);
+    self.textContent_left.frame = CGRectZero;
     [self.bubbleImage_left addSubview:self.textContent_left];
     self.bubbleImage_left.clipsToBounds = NO;
     
     // 右侧气泡中添加label
     self.textContent_right = [[CDLabel alloc] init];
-    self.textContent_right.frame = CGRectMake(BubbleRoundAnglehorizInset,
-                                              BubbleRoundAnglehorizInset, 0, 0);
+    self.textContent_right.frame = CGRectZero;
     [self.bubbleImage_right addSubview:self.textContent_right];
     self.bubbleImage_right.clipsToBounds = NO;
     
@@ -70,7 +68,7 @@
     // 给label复制文字内容
     self.textContent_left.data = data.textlayout;
     CGRect textRect = self.textContent_left.frame;
-    textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
+    textRect.size.width = bubbleRec.size.width - data.chatConfig.bubbleSharpAnglehorizInset - data.chatConfig.bubbleRoundAnglehorizInset;
     textRect.size.height = data.textlayout.height;
     self.textContent_left.frame = textRect;
 }
@@ -82,7 +80,7 @@
     // 给label复制文字内容
     self.textContent_right.data = data.textlayout;
     CGRect textRect = self.textContent_right.frame;
-    textRect.size.width = bubbleRec.size.width - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset;
+    textRect.size.width = bubbleRec.size.width - data.chatConfig.bubbleSharpAnglehorizInset - data.chatConfig.bubbleRoundAnglehorizInset;
     textRect.size.height = data.textlayout.height;
     self.textContent_right.frame = textRect;
 }

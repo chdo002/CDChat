@@ -12,6 +12,8 @@
 @interface CellCaculator : NSObject
 
 @property(nonatomic, weak) CDChatListView *list;
+@property (nonatomic, strong) dispatch_group_t calcuGroup;
+@property (nonatomic, strong) dispatch_queue_t serialQueue;
 
 /**
  计算所有的cell高度
@@ -28,8 +30,8 @@
  */
 -(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr;
 
-
 -(CGSize) sizeForTextMessage:(CDChatMessage)msgData;
+
 @end
 
 

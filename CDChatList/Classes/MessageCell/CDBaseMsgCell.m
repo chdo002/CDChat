@@ -7,7 +7,6 @@
 
 #import "CDBaseMsgCell.h"
 #import "ChatHelpr.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "UITool.h"
 
 @interface CDBaseMsgCell()
@@ -20,12 +19,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.backgroundColor = MsgBackGroundColor;
     
     // 1 消息时间初始化
     _timeLabel = [[UILabel alloc] init];
-    [_timeLabel setFrame:CGRectMake(0, 0, 100, MsgTimeH)];
-    _timeLabel.center = CGPointMake(ScreenW() / 2, MsgTimeH / 2);
+    [_timeLabel setFrame:CGRectMake(0, 0, 100, 0)];
+    _timeLabel.center = CGPointMake(ScreenW() / 2, 0 / 2);
     _timeLabel.text = @"星期一 下午 2:38";
     _timeLabel.textColor = [UIColor whiteColor];
     _timeLabel.backgroundColor = CRMHexColor(0xCECECE);
@@ -36,36 +34,40 @@
     [self addSubview:_timeLabel];
     
     // 2 左边 消息内容初始化  头像  气泡
-    [self initLeftMessageContent];
+    [self initMessageContent_Left];
     
     // 3 右边 消息内容初始化  头像  气泡
-    [self initRightMessageContent];
+    [self initMessageContent_Right];
     
     return self;
 }
 #pragma mark 初始化左侧消息UI
--(void)initLeftMessageContent {
+-(void)initMessageContent_Left {
     
     // 视图容器
-    _msgContent_left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW(), MessageContentH)];
-    _msgContent_left.backgroundColor = MsgContentBackGroundColor;
+    _msgContent_left = [[UIView alloc] initWithFrame:CGRectZero];
     [self addSubview:_msgContent_left];
     
     // 头像
-    UIImage *left_head = ChatHelpr.share.imageDic[@"icon_head"];
+    
+    UIImage *left_head = ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head];
     _headImage_left = [[UIImageView alloc] initWithImage:left_head];
-    _headImage_left.frame = CGRectMake(MessageMargin, MessageMargin,
-                                       HeadSideLength, HeadSideLength);
+    _headImage_left.frame = CGRectZero;
     _headImage_left.contentMode = UIViewContentModeScaleAspectFit;
-    _headImage_left.backgroundColor = HeadBackGroundColor;
     [_msgContent_left addSubview:_headImage_left];
     
+    // 昵称
+    _userName_left = [[UILabel alloc] initWithFrame:CGRectZero];
+    _userName_left.textAlignment = NSTextAlignmentLeft;
+    _userName_left.textColor = CRMHexColor(0x787878);
+    _userName_left.font = [UIFont systemFontOfSize:12];
+    [_msgContent_left addSubview:_userName_left];
+    
     // 气泡
-    UIImage *left_box = ChatHelpr.share.imageDic[@"left_box"];
+    UIImage *left_box = ChatHelpr.share.imageDic[ChatHelpr.share.config.left_box];
     _bubbleImage_left = [[UIImageView alloc] initWithImage:left_box];
     _bubbleImage_left.userInteractionEnabled = YES;
-    _bubbleImage_left.frame = CGRectMake(MessageMargin * 2 + HeadSideLength - BubbleShareAngleWidth,
-                                         MessageMargin, BubbleMaxWidth, HeadSideLength);
+    _bubbleImage_left.frame = CGRectZero;
     [_msgContent_left addSubview:_bubbleImage_left];
     
     //消息失败icon
@@ -94,32 +96,35 @@
     [_indicator_left startAnimating];
     _indicator_left.frame = _failLabel_left.frame;
     _indicator_left.center = _failLabel_left.center;
-
+    
 }
 #pragma mark 初始化右侧消息UI
--(void)initRightMessageContent{
+-(void)initMessageContent_Right{
     
     // 视图容器
-    _msgContent_right = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW(), MessageContentH)];
-    _msgContent_right.backgroundColor = MsgContentBackGroundColor;
+    _msgContent_right = [[UIView alloc] initWithFrame:CGRectZero];
     [self addSubview:_msgContent_right];
-
+    
     // 头像
-    UIImage *right_head = ChatHelpr.share.imageDic[@"icon_head"];
+    UIImage *right_head = ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head];
     
     _headImage_right = [[UIImageView alloc] initWithImage:right_head];
-    _headImage_right.frame = CGRectMake(ScreenW() - (HeadSideLength + MessageMargin), MessageMargin,
-                                        HeadSideLength, HeadSideLength);
+    _headImage_right.frame = CGRectZero;
     _headImage_right.contentMode = UIViewContentModeScaleAspectFit;
-    _headImage_right.backgroundColor = HeadBackGroundColor;
     [_msgContent_right addSubview:_headImage_right];
     
+    // 昵称
+    _userName_right = [[UILabel alloc] initWithFrame:CGRectZero];
+    _userName_right.textAlignment = NSTextAlignmentRight;
+    _userName_right.textColor = CRMHexColor(0x787878);
+    _userName_right.font = [UIFont systemFontOfSize:12];
+    [_msgContent_right addSubview:_userName_right];
+    
     // 气泡
-    UIImage *right_box = ChatHelpr.share.imageDic[@"right_box"];
+    UIImage *right_box = ChatHelpr.share.imageDic[ChatHelpr.share.config.right_box];
     _bubbleImage_right = [[UIImageView alloc] initWithImage:right_box];
     _bubbleImage_right.userInteractionEnabled = YES;
-    _bubbleImage_right.frame = CGRectMake(ScreenW() - (BubbleMaxWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth,
-                                          MessageMargin, BubbleMaxWidth, HeadSideLength);
+    _bubbleImage_right.frame = CGRectZero;
     [_msgContent_right addSubview:_bubbleImage_right];
     
     //消息失败icon
@@ -153,11 +158,22 @@
 #pragma mark 根据消息中的cellHeight  bubbleWidth 更新左侧UI
 /**
  根据消息中的cellHeight  bubbleWidth 更新UI
-
+ 
  @param data 消息体
- @return 气泡宽高
  */
--(CGRect)updateMsgContentFrame_left:(CDChatMessage) data{
+-(void)updateMsgContentFrame_left:(CDChatMessage) data{
+    
+    // 头像
+    if (data.userThumImage || data.userThumImageURL){
+        _headImage_left.frame = CGRectMake(data.chatConfig.messageMargin, data.chatConfig.messageMargin, data.chatConfig.headSideLength, data.chatConfig.headSideLength);
+    } else {
+        _headImage_left.frame = CGRectZero;
+    }
+    
+    // 昵称
+    _userName_left.frame = CGRectMake(data.chatConfig.messageMargin + _headImage_left.width + data.chatConfig.bubbleShareAngleWidth, 0, data.chatConfig.bubbleMaxWidth, data.chatConfig.nickNameHeight);
+    _userName_left.textColor = data.chatConfig.nickNameColor;
+    
     // 左侧
     // 设置消息内容的总高度
     CGRect msgRect = self.msgContent_left.frame;
@@ -165,18 +181,26 @@
     
     // 根据是否显示时间，调整msgContent_left位置
     if (data.willDisplayTime) {
-        msgRect.origin = CGPointMake(msgRect.origin.x, MsgTimeH);
-        msgContentHeight = msgContentHeight - MsgTimeH; //
+        msgRect.origin = CGPointMake(0, data.chatConfig.msgTimeH);
+        msgContentHeight = msgContentHeight - data.chatConfig.msgTimeH; //
     } else {
-        msgRect.origin = CGPointMake(msgRect.origin.x, 0);
+        msgRect.origin = CGPointZero;
     }
+    msgRect.size.width = ScreenW();
     msgRect.size.height = msgContentHeight;
     self.msgContent_left.frame = msgRect;
     
-    // 更新气泡的高度和宽度
+    // 更新消息气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_left.frame;
+    bubbleRec.origin.x = data.chatConfig.messageMargin * 2 + _headImage_left.width - data.chatConfig.bubbleShareAngleWidth;
+    bubbleRec.origin.y = data.userName.length == 0 ? data.chatConfig.messageMargin : data.chatConfig.nickNameHeight;
     bubbleRec.size.width = data.bubbleWidth;
-    bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
+    if (data.userName.length == 0) {
+        bubbleRec.size.height = msgContentHeight - data.chatConfig.messageMargin * 2;
+    } else {
+        bubbleRec.size.height = msgContentHeight - data.chatConfig.messageMargin - data.chatConfig.nickNameHeight;
+    }
+    
     self.bubbleImage_left.frame = bubbleRec;
     
     // 更新loading位置
@@ -204,8 +228,6 @@
         [_indicator_left startAnimating];
         [_failLabel_left setHidden: YES];
     }
-    
-    return bubbleRec;
 }
 
 #pragma mark 根据消息中的cellHeight  bubbleWidth 更新右侧UI
@@ -213,27 +235,45 @@
  根据消息中的cellHeight  bubbleWidth 更新UI
  
  @param data 消息体
- @return 气泡宽高
  */
--(CGRect)updateMsgContentFrame_right:(CDChatMessage) data{
+-(void)updateMsgContentFrame_right:(CDChatMessage) data{
+    
+    // 头像
+    if (data.userThumImage || data.userThumImageURL){
+        _headImage_right.frame = CGRectMake(ScreenW() - (data.chatConfig.headSideLength + data.chatConfig.messageMargin), data.chatConfig.messageMargin, data.chatConfig.headSideLength, data.chatConfig.headSideLength);
+    } else {
+        _headImage_right.frame = CGRectMake(ScreenW(), data.chatConfig.messageMargin, 0, data.chatConfig.headSideLength);
+    }
+    
+    // 昵称
+    _userName_right.frame = CGRectMake(_headImage_right.left - data.chatConfig.messageMargin - data.chatConfig.bubbleMaxWidth, 0, data.chatConfig.bubbleMaxWidth, data.chatConfig.nickNameHeight);
+    _userName_right.textColor = data.chatConfig.nickNameColor;
+    
     // 右侧
     // 设置消息内容的总高度
     CGRect msgRect = self.msgContent_right.frame;
     CGFloat msgContentHeight = data.cellHeight;
     if (data.willDisplayTime) {
-        msgRect.origin = CGPointMake(msgRect.origin.x, MsgTimeH);
-        msgContentHeight = msgContentHeight - MsgTimeH; //
+        msgRect.origin = CGPointMake(0, data.chatConfig.msgTimeH);
+        msgContentHeight = msgContentHeight - data.chatConfig.msgTimeH; //
     } else {
-        msgRect.origin = CGPointMake(msgRect.origin.x, 0);
+        msgRect.origin = CGPointZero;
     }
+    
+    msgRect.size.width = ScreenW();
     msgRect.size.height = msgContentHeight;
     self.msgContent_right.frame = msgRect;
     
-    // 设置气泡的高度和宽度
+    // 更新气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_right.frame;
+    bubbleRec.origin.x = ScreenW() - (data.bubbleWidth + _headImage_right.width) - data.chatConfig.messageMargin * 2 + data.chatConfig.bubbleShareAngleWidth;
+    bubbleRec.origin.y = data.userName.length == 0 ? data.chatConfig.messageMargin : data.chatConfig.nickNameHeight;
     bubbleRec.size.width = data.bubbleWidth;
-    bubbleRec.size.height = msgContentHeight - MessageMargin * 2;
-    bubbleRec.origin.x = ScreenW() - (data.bubbleWidth + MessageMargin * 2 + HeadSideLength) + BubbleShareAngleWidth;
+    if (data.userName.length == 0) {
+        bubbleRec.size.height = msgContentHeight - data.chatConfig.messageMargin * 2;
+    } else {
+        bubbleRec.size.height = msgContentHeight - data.chatConfig.messageMargin - data.chatConfig.nickNameHeight;
+    }
     self.bubbleImage_right.frame = bubbleRec;
     
     // 设置loading位置
@@ -259,53 +299,71 @@
         [_indicator_right startAnimating];
         [_failLabel_right setHidden: YES];
     }
-    
-    return bubbleRec;
 }
 
 #pragma mark 设置消息data
-- (void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table {
+-(void)configCellByData:(CDChatMessage)data table:(CDChatList *)table{
+    
+    self.backgroundColor = data.chatConfig.msgBackGroundColor;
+    
     self.msgModal = data;
+    self.tableView = table;
     
     // 设置显示或隐藏  左右气泡
     [self.msgContent_left setHidden:!data.isLeft];
+    self.msgContent_left.backgroundColor = data.chatConfig.msgContentBackGroundColor;
     [self.msgContent_right setHidden:data.isLeft];
+    self.msgContent_right.backgroundColor = data.chatConfig.msgContentBackGroundColor;
     
     // 设置头像
+    _headImage_right.backgroundColor = data.chatConfig.headBackGroundColor;
+    _headImage_left.backgroundColor = data.chatConfig.headBackGroundColor;
+    
+    if (data.userThumImage || data.userThumImageURL){
+        if (data.isLeft) {
+            if (data.userThumImage) {
+                _headImage_left.image = data.userThumImage;
+            } else if (data.userThumImageURL) {
+                [_headImage_left aat_setImageWithURL:[NSURL URLWithString:data.userThumImageURL] placeholderImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
+            } else {
+                [_headImage_left setImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
+            }
+        } else {
+            if (data.userThumImage) {
+                _headImage_right.image = data.userThumImage;
+            } else if (data.userThumImageURL) {
+                [_headImage_right aat_setImageWithURL:[NSURL URLWithString:data.userThumImageURL] placeholderImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
+            } else {
+                [_headImage_right setImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
+            }
+        }
+    }
+    
+    // 设置昵称
     if (data.isLeft) {
-        if (data.userThumImage) {
-            _headImage_left.image = data.userThumImage;
-        } else if (data.userThumImageURL) {
-            
-            [_headImage_left sd_setImageWithURL:[NSURL URLWithString:data.userThumImageURL]
-                                placeholderImage:ChatHelpr.share.imageDic[@"icon_head"]];
-        } else {
-            [_headImage_left setImage:ChatHelpr.share.imageDic[@"icon_head"]];
-        }
+        _userName_left.text = data.userName;
     } else {
-        if (data.userThumImage) {
-            _headImage_right.image = data.userThumImage;
-        } else if (data.userThumImageURL) {
-            [_headImage_right sd_setImageWithURL:[NSURL URLWithString:data.userThumImageURL]
-                                 placeholderImage:ChatHelpr.share.imageDic[@"icon_head"]];
-        } else {
-            [_headImage_right setImage:ChatHelpr.share.imageDic[@"icon_head"]];
-        }
+        _userName_right.text = data.userName;
     }
     
     // 设置顶部时间Label
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];
-    self.timeLabel.text = [self checkDateDisplay:date];
-    CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(ScreenW(), MsgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
-    if (textSize.height < MsgTimeH) {
-        textSize.height = MsgTimeH;
+    NSDate *date;
+    if (data.createTime.length == 10) {
+        date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue]];
+    } else {
+        date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];
     }
-    [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + SysInfoPadding * 2, textSize.height)];
-    _timeLabel.center = CGPointMake(ScreenW() / 2, MsgTimeH / 2);
+    self.timeLabel.text = [self checkDateDisplay:date msg:data];
+    CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(ScreenW(), data.chatConfig.msgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
+    if (textSize.height < data.chatConfig.msgTimeH) {
+        textSize.height = data.chatConfig.msgTimeH;
+    }
+    [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + data.chatConfig.sysInfoPadding * 2, textSize.height)];
+    _timeLabel.center = CGPointMake(ScreenW() / 2, data.chatConfig.msgTimeH / 2);
     
     if (data.isLeft) {
         [self updateMsgContentFrame_left:data];
-    }else{
+    } else {
         [self updateMsgContentFrame_right:data];
     }
 }
@@ -313,11 +371,17 @@
 #pragma mark 根据消息时间，计算需要显示的消息时间格式
 /**
  根据消息时间，计算需要显示的消息时间格式
-
+ 
  @param thisDate 消息时间
  @return 显示在label上的
  */
-- (NSString*)checkDateDisplay:(NSDate *) thisDate {
+- (NSString*)checkDateDisplay:(NSDate *)thisDate msg:(CDChatMessage)data{
+    
+    if (data.ctDataconfig.matchLink) {
+        NSDateFormatter *formate = [[NSDateFormatter alloc] init];
+        formate.dateFormat = @"MM-dd HH:mm";
+        return [formate stringFromDate:thisDate];
+    }
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
     NSDate *nowDate =  [NSDate date];
@@ -383,7 +447,5 @@
     
     return timeString;
 }
- 
-
 
 @end

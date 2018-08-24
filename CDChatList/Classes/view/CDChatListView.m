@@ -50,10 +50,13 @@ typedef enum : NSUInteger {
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
     
+    self.caculator = [[CellCaculator alloc] init];
+    
     self.backgroundColor =  isChatListDebug ? CRMHexColor(0xB5E7E1) : ChatHelpr.share.config.msgBackGroundColor;
     if (!isChatListDebug) {
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
+    
     self.loadHeaderState = CDHeaderLoadStateInitializting;
     
     // 注册cell类
@@ -162,7 +165,6 @@ static UIWindow *topWindow_;
 -(void)setMsgArr:(CDChatMessageArray)msgArr{
     
     [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
-        
         self.loadHeaderState = CDHeaderLoadStateNoraml;
         CGFloat newTopInset = LoadingH + self->originInset;
         CGFloat left = self.contentInset.left;
@@ -226,6 +228,7 @@ static UIWindow *topWindow_;
     
     NSMutableArray *arr = [NSMutableArray arrayWithArray:_msgArr];
     [arr addObjectsFromArray:newBottomMsgArr];
+    _msgArr = arr;
     
     [self configTableData:arr completeBlock:^(CGFloat totalHeight){
         [self relayoutTable:YES];
@@ -295,7 +298,10 @@ static UIWindow *topWindow_;
     }
     
     // 异步让tableview滚到最底部
-    NSIndexPath *index = [NSIndexPath indexPathForRow:_msgArr.count - 1  inSection:0];
+    NSInteger cellCount = [self numberOfRowsInSection:0];
+    NSInteger num = cellCount - 1 > 0 ? cellCount - 1 : 0;
+    NSIndexPath *index = [NSIndexPath indexPathForRow:num  inSection:0];
+    
     [self scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 }
 
@@ -417,6 +423,7 @@ static UIWindow *topWindow_;
     CGFloat height = [self.caculator fetchCellHeight:indexPath.row of:_msgArr];
     return height;
 }
+
 
 -(void)mainAsyQueue:(dispatch_block_t)block{
     dispatch_async(dispatch_get_main_queue(), ^{

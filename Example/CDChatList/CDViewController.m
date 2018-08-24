@@ -64,6 +64,25 @@
     self.listView.msgArr = msgs;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+   
+    self.listView.msgArr = @[];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
+        NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        NSMutableArray <CDMessageModel *>*msgs = [NSMutableArray arrayWithCapacity:array.count];
+        NSInteger autoInc = 1;
+        for (NSDictionary *dic in array) {
+            CDMessageModel *model = [[CDMessageModel alloc] init:dic];
+            model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
+            [msgs addObject:model];
+        }
+        self.listView.msgArr = msgs;
+    });
+    
+}
 
 #pragma mark ChatListProtocol
 
