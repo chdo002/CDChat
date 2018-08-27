@@ -147,7 +147,7 @@
     CGContextSetFillColorWithColor(context, ChatHelpr.share.config.msgTextContentBackGroundColor_left.CGColor);//填充色
     
     // 设置边框
-    CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);
+    CGContextSetStrokeColorWithColor(context, CDHexColor(0xD1CECE).CGColor);
     CGContextSetLineWidth(context, 0.5);
     // 画边框
     CGContextDrawPath(context, kCGPathFillStroke);
@@ -179,7 +179,7 @@
     CGContextSetFillColorWithColor(context, ChatHelpr.share.config.msgTextContentBackGroundColor_right.CGColor);//填充色
     
     // 设置边框
-    CGContextSetStrokeColorWithColor(context, CRMHexColor(0xD1CECE).CGColor);
+    CGContextSetStrokeColorWithColor(context, CDHexColor(0xD1CECE).CGColor);
     CGContextSetLineWidth(context, 0.5);
     // 画边框
     CGContextDrawPath(context, kCGPathFillStroke);
@@ -248,15 +248,15 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextAddRect(context, CGRectMake(0, 0, 40, 40));
-    CGContextSetFillColorWithColor(context, CRMHexColor(0xE8EEF5).CGColor);//填充色
+    CGContextSetFillColorWithColor(context, CDHexColor(0xE8EEF5).CGColor);//填充色
     CGContextFillPath(context);
     
     CGContextAddArc(context, 20, 10, 8, 0, M_PI * 2, 0);
-    CGContextSetFillColorWithColor(context, CRMHexColor(0xC8CEDB).CGColor);//填充色
+    CGContextSetFillColorWithColor(context, CDHexColor(0xC8CEDB).CGColor);//填充色
     CGContextFillPath(context);
     
     CGContextAddEllipseInRect(context, CGRectMake(5, 18, 30, 16));
-    CGContextSetFillColorWithColor(context, CRMHexColor(0xC8CEDB).CGColor);//填充色
+    CGContextSetFillColorWithColor(context, CDHexColor(0xC8CEDB).CGColor);//填充色
     CGContextFillPath(context);
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

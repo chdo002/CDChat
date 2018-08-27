@@ -1,4 +1,4 @@
-//
+    //
 //  CDChatList.m
 //  CDChatList
 //
@@ -14,7 +14,6 @@
 #import "UITool.h"
 #import "CTClickInfo.h"
 #import "ChatHelpr.h"
-#import "UIView+CRM.h"
 #import "CDTextTableViewCell.h"
 #import "CDChatListProtocols.h"
 #import "ChatListInfo.h"
@@ -52,7 +51,7 @@ typedef enum : NSUInteger {
     
     self.caculator = [[CellCaculator alloc] init];
     
-    self.backgroundColor =  isChatListDebug ? CRMHexColor(0xB5E7E1) : ChatHelpr.share.config.msgBackGroundColor;
+    self.backgroundColor =  isChatListDebug ? CDHexColor(0xB5E7E1) : ChatHelpr.share.config.msgBackGroundColor;
     if (!isChatListDebug) {
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
@@ -65,7 +64,7 @@ typedef enum : NSUInteger {
     [self registerClass:[CDSystemTableViewCell class] forCellReuseIdentifier:@"syscell"];
     [self registerClass:[CDAudioTableViewCell class] forCellReuseIdentifier:@"audiocell"];
     // 下拉loading视图
-    CGRect rect = CGRectMake(0, -LoadingH, ScreenW(), LoadingH);
+    CGRect rect = CGRectMake(0, -LoadingH, cd_ScreenW(), LoadingH);
     UIActivityIndicatorView *indicatr = [[UIActivityIndicatorView alloc] initWithFrame:rect];
     indicatr.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self addSubview:indicatr];
@@ -91,8 +90,8 @@ typedef enum : NSUInteger {
 static UIWindow *topWindow_;
 
 -(void)didMoveToSuperview{
-    UIViewController *viewController =  self.viewController;
-    if (self.viewController) {
+    UIViewController *viewController =  self.cd_viewController;
+    if (self.cd_viewController) {
         viewController.automaticallyAdjustsScrollViewInsets = NO;
         //适配
         if (@available(iOS 11, *)) {
@@ -100,7 +99,7 @@ static UIWindow *topWindow_;
         }
         pullToLoadMark = -LoadingH;
         if (viewController.navigationController) {
-            originInset = NaviH() - self.frame.origin.y;
+            originInset = cd_NaviH() - self.frame.origin.y;
             self.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         } else {
             originInset = 0;

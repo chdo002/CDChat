@@ -7,7 +7,7 @@
 
 #import "UITool.h"
 
-double CRMDeviceSystemVersion(void) {
+double CDDeviceSystemVersion(void) {
     static double version;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -17,7 +17,7 @@ double CRMDeviceSystemVersion(void) {
 }
 
 
-CGSize CRMScreenSize(void) {
+CGSize CDScreenSize(void) {
     
     static CGSize size;
     static dispatch_once_t onceToken;
@@ -33,76 +33,113 @@ CGSize CRMScreenSize(void) {
 }
 
 
-UIColor *CRMHexColor(int hexColor){
+UIColor *CDHexColor(int hexColor){
     UIColor *color = [UIColor colorWithRed:((float)((hexColor & 0xFF0000) >> 16))/255.0 green:((float)((hexColor & 0xFF00) >> 8))/255.0 blue:((float)(hexColor & 0xFF))/255.0 alpha:1];
     return color;
 }
 
-UIColor *CRMRadomColor(){
-    return [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
-}
-//UIColor *RGB(CGFloat A, CGFloat B, CGFloat C){
-//    return [UIColor colorWithRed:A/255.0 green:B/255.0 blue:C/255.0 alpha:1.0];
-//}
-CGFloat NaviH(void){
+
+CGFloat cd_NaviH(void){
     return 44 + [[UIApplication sharedApplication] statusBarFrame].size.height;
 }
 
-CGFloat ScreenW(void){
+CGFloat cd_ScreenW(void){
     return [UIScreen mainScreen].bounds.size.width;
 }
-CGFloat ScreenH(void){
+CGFloat cd_ScreenH(void){
     return [UIScreen mainScreen].bounds.size.height;
 }
 
-CGFloat StatusH(void){
+CGFloat cd_StatusH(void){
     return [[UIApplication sharedApplication] statusBarFrame].size.height;
 }
 
-NSInteger getSizeOfFilePath(NSString *filePath){
-    /** 定义记录大小 */
-    NSInteger totalSize = 0;
-    /** 创建一个文件管理对象 */
-    NSFileManager * manager = [NSFileManager defaultManager];
-    /**获取文件下的所有路径包括子路径 */
-    NSArray * subPaths = [manager subpathsAtPath:filePath];
-    
-    /** 遍历获取文件名称 */
-    for (NSString * fileName in subPaths) {
-        /** 拼接获取完整路径 */
-        NSString * subPath = [filePath stringByAppendingPathComponent:fileName];
-        /** 判断是否是隐藏文件 */
-        if ([fileName hasPrefix:@".DS"]) {
-            continue;
+@implementation UIView (CD)
+
+
+- (UIViewController *)cd_viewController {
+    for (UIView *view = self; view; view = view.superview) {
+        UIResponder *nextResponder = [view nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
         }
-        /** 判断是否是文件夹 */
-        BOOL isDirectory;
-        [manager fileExistsAtPath:subPath isDirectory:&isDirectory];
-        if (isDirectory) {
-            continue;
-        }
-        /** 获取文件属性 */
-        NSDictionary *dict = [manager attributesOfItemAtPath:subPath error:nil];
-        /** 累加 */
-        totalSize += [dict fileSize];
-        
     }
-    if (subPaths.count == 0) {
-        NSDictionary *dict = [manager attributesOfItemAtPath:filePath error:nil];
-        /** 累加 */
-        totalSize += [dict fileSize];
-    }
-    /** 返回 */
-    return totalSize;
+    return nil;
 }
 
-NSInteger CRMFileSizeByFileUrl(NSURL *filePath){
-    return CRMFileSizeByFilePath(filePath.absoluteString);
+- (CGFloat)cd_left {
+    return self.frame.origin.x;
 }
 
-NSInteger CRMFileSizeByFilePath(NSString *filePath){
-    return getSizeOfFilePath(filePath);
+- (void)setCd_left:(CGFloat)x {
+    CGRect frame = self.frame;
+    frame.origin.x = x;
+    self.frame = frame;
 }
+
+- (CGFloat)cd_top {
+    return self.frame.origin.y;
+}
+
+- (void)setCd_top:(CGFloat)y {
+    CGRect frame = self.frame;
+    frame.origin.y = y;
+    self.frame = frame;
+}
+
+- (CGFloat)cd_right {
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+- (void)setCd_right:(CGFloat)right {
+    CGRect frame = self.frame;
+    frame.origin.x = right - frame.size.width;
+    self.frame = frame;
+}
+
+- (CGFloat)cd_bottom {
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+- (void)setCd_bottom:(CGFloat)bottom {
+    CGRect frame = self.frame;
+    frame.origin.y = bottom - frame.size.height;
+    self.frame = frame;
+}
+
+- (CGFloat)cd_width {
+    return self.frame.size.width;
+}
+
+- (void)setCd_width:(CGFloat)width {
+    CGRect frame = self.frame;
+    frame.size.width = width;
+    self.frame = frame;
+}
+
+- (CGFloat)cd_height {
+    return self.frame.size.height;
+}
+
+- (void)setCd_height:(CGFloat)height {
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    self.frame = frame;
+}
+
+- (CGSize)cd_size {
+    return self.frame.size;
+}
+
+- (void)setCd_size:(CGSize)size {
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+}
+
+
+@end
+
 
 
 

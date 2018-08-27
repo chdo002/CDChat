@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     
+    
     [[GDPerformanceMonitor sharedInstance] startMonitoringWithConfiguration:^(UILabel *textLabel) {
         textLabel.font = [UIFont systemFontOfSize:10];
         textLabel.numberOfLines = 1;
@@ -44,7 +45,7 @@
     [self.view addSubview:list];
     
     CTInputView *input = [[CTInputView alloc] initWithFrame:CGRectMake(0,
-                                                                       list.bottom,
+                                                                       list.cd_bottom,
                                                                        ScreenW,
                                                                        CTInputViewHeight)];
     input.delegate = self;

@@ -33,7 +33,7 @@
     self.sysInfoLbael.textAlignment = NSTextAlignmentCenter;
     self.sysInfoLbael.textColor = [UIColor whiteColor];
     self.sysInfoLbael.numberOfLines = 0;
-    self.sysInfoLbael.backgroundColor = CRMHexColor(0xCECECE);
+    self.sysInfoLbael.backgroundColor = CDHexColor(0xCECECE);
     self.sysInfoLbael.clipsToBounds = YES;
     self.sysInfoLbael.layer.cornerRadius = 5;
     
@@ -47,7 +47,7 @@
     
     self.backgroundColor = data.chatConfig.msgBackGroundColor;
     self.infoBackGround.frame = CGRectMake(0, 0, data.bubbleWidth, data.cellHeight);
-    self.infoBackGround.center = CGPointMake(ScreenW() / 2, data.cellHeight / 2);
+    self.infoBackGround.center = CGPointMake(cd_ScreenW() / 2, data.cellHeight / 2);
     
     self.sysInfoLbael.text = data.msg;
     self.sysInfoLbael.font = data.chatConfig.sysInfoMessageFont;

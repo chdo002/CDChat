@@ -121,7 +121,7 @@
         case UIGestureRecognizerStateChanged:
         {
             CGPoint trans = [ges translationInView:self.view];
-            CGFloat per = trans.y / ScreenH() / 0.6;
+            CGFloat per = trans.y / cd_ScreenH() / 0.6;
 
             if (per > 0) {
 

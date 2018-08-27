@@ -93,8 +93,12 @@
     // 加上可能显示的时间视图高度
     CGFloat height = res.height;
     
-    data.cellHeight = height + (data.willDisplayTime ? (data.msgType != CDMessageTypeSystemInfo ? MsgTimeH : 0) : 0);
+    data.cellHeight = height + (data.willDisplayTime ? (data.msgType != CDMessageTypeSystemInfo ? data.chatConfig.msgTimeH : 0) : 0);
     
+    // 加上可能显示的昵称高度
+    if (data.userName.length > 0) {
+        data.cellHeight = data.cellHeight + data.chatConfig.nickNameHeight - data.chatConfig.messageMargin;
+    }
     return data.cellHeight;
 }
 
@@ -121,33 +125,36 @@
     }
 }
 
+
 #pragma mark ---计算文字消息尺寸方法
--(CGSize)sizeForTextMessage:(CDChatMessage)msgData{
+-(CGSize) sizeForTextMessage:(CDChatMessage)msgData{
     
     NSMutableAttributedString *msg_attributeText;
     
     if (msgData.msg) {
         msg_attributeText = [[NSMutableAttributedString alloc] initWithString: msgData.msg];
     }else{
-        msg_attributeText = [[NSMutableAttributedString alloc] initWithString: @""];
+        msg_attributeText = [[NSMutableAttributedString alloc] initWithString: @" "];
     }
     
     // 文字的限制区域，红色部分
-    CGSize maxTextSize = CGSizeMake(BubbleMaxWidth - BubbleSharpAnglehorizInset - BubbleRoundAnglehorizInset,
+    CGSize maxTextSize = CGSizeMake(msgData.chatConfig.bubbleMaxWidth - msgData.chatConfig.bubbleSharpAnglehorizInset - msgData.chatConfig.bubbleRoundAnglehorizInset,
                                     CGFLOAT_MAX);
     
-    CTData *data = [CTData dataWithStr:msgData.msg containerWithSize:maxTextSize configuration:ChatHelpr.share.config.ctDataconfig];
+    CTData *data = [CTData dataWithStr:msgData.msg
+                     containerWithSize:maxTextSize
+                         configuration:msgData.ctDataconfig];
     
     msgData.textlayout = data;
     
     // 计算气泡宽度
-    CGFloat bubbleWidth = ceilf(data.width) + BubbleSharpAnglehorizInset + BubbleRoundAnglehorizInset;
+    CGFloat bubbleWidth = ceilf(data.width) + msgData.chatConfig.bubbleSharpAnglehorizInset + msgData.chatConfig.bubbleRoundAnglehorizInset;
     // 计算整个cell高度
-    CGFloat cellheight = ceilf(data.height) + BubbleRoundAnglehorizInset * 2 + MessageMargin * 2;
+    CGFloat cellheight = ceilf(data.height) + msgData.chatConfig.bubbleRoundAnglehorizInset * 2 + msgData.chatConfig.messageMargin * 2;
     
     // 如果 cellheight小于最小cell高度
-    if (cellheight < MessageContentH) {
-        cellheight = MessageContentH;
+    if (cellheight < msgData.chatConfig.messageContentH) {
+        cellheight = msgData.chatConfig.messageContentH;
     }
     
     return CGSizeMake(bubbleWidth, cellheight);
@@ -158,7 +165,7 @@
 /**
  根据图片大小计算气泡宽度和cell高度
  */
-CGSize caculateImageSize140By140(UIImage *image) {
+CGSize caculateImageSize140By140(UIImage *image, CDChatMessage msgData) {
     
     // 图片将被限制在140*140的区域内，按比例显示
     CGFloat width = image.size.width;
@@ -177,9 +184,9 @@ CGSize caculateImageSize140By140(UIImage *image) {
     
     // 返回的高度是图片高度，需加上消息内边距变成消息体高度
     if (maxSide == width) {
-        return CGSizeMake(140, actuallMiniSide + MessageMargin * 2);
+        return CGSizeMake(140, actuallMiniSide + msgData.chatConfig.messageMargin * 2);
     } else {
-        return CGSizeMake(actuallMiniSide, 140 + MessageMargin * 2);
+        return CGSizeMake(actuallMiniSide, 140 + msgData.chatConfig.messageMargin * 2);
     }
 }
 
@@ -192,7 +199,7 @@ CGSize caculateImageSize140By140(UIImage *image) {
     }
     // 如果本地存在图片，则通过图片计算
     if (image) {
-        return caculateImageSize140By140(image);
+        return caculateImageSize140By140(image,msgData);
     } else {
         
         CGSize defaulutSize = CGSizeMake(140, 140);
@@ -213,14 +220,13 @@ CGSize caculateImageSize140By140(UIImage *image) {
                                                                   userInfo:error.userInfo];
             } else {
                 
-                CGSize size = caculateImageSize140By140(image);
+                CGSize size = caculateImageSize140By140(image,msgData);
                 [[SDImageCache sharedImageCache] storeImage:image forKey:msgData.msg completion:nil];
                 
                 msgData.bubbleWidth = size.width;
                 // 加上可能显示的时间视图高度
                 CGFloat height = size.height;
-                msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
-                
+                msgData.cellHeight = height + (msgData.willDisplayTime ? msgData.chatConfig.msgTimeH : 0);
                 msgData.msgState = CDMessageStateNormal;
                 [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
                                                                     object:msgData
@@ -230,20 +236,17 @@ CGSize caculateImageSize140By140(UIImage *image) {
         return defaulutSize;
     }
 }
-#pragma mark ---计算系统消息消息尺寸方法
 
+#pragma mark ---计算系统消息消息尺寸方法
 -(CGSize)sizeForSysInfoMessage:(CDChatMessage)msgData{
-    
-    NSDictionary *attri = @{NSFontAttributeName: SysInfoMessageFont};
-    CGSize maxTextSize = CGSizeMake(SysInfoMessageMaxWidth, CGFLOAT_MAX);
+    NSDictionary *attri = @{NSFontAttributeName: msgData.chatConfig.sysInfoMessageFont};
+    CGSize maxTextSize = CGSizeMake(msgData.chatConfig.sysInfoMessageMaxWidth, CGFLOAT_MAX);
     CGSize caculateTextSize = [msgData.msg boundingRectWithSize: maxTextSize
                                                         options: NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                      attributes:attri context:nil].size;
-    
-    CGFloat height = caculateTextSize.height + SysInfoPadding * 2;
-    return CGSizeMake(caculateTextSize.width + SysInfoPadding * 2 + 10, height);
+    CGFloat height = caculateTextSize.height + msgData.chatConfig.sysInfoPadding * 2;
+    return CGSizeMake(caculateTextSize.width + msgData.chatConfig.sysInfoPadding * 2 + 10, height);
 }
-
 #pragma mark ---计算音频消息消息尺寸方法
 
 CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
@@ -258,7 +261,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
     NSLog(@"\nac:%f\nceil:%f\nres:%f",reultTime,audioTimeinSecs,res);
     msg.audioTime = audioTimeinSecs;
     msg.audioTime = msg.audioTime > 0 ? msg.audioTime : 1;
-    return CGSizeMake(ScreenW() * 0.015 + res * 22, MessageContentH);
+    return CGSizeMake(cd_ScreenW() * 0.015 + res * 22, msg.chatConfig.messageContentH);
 }
 
 #pragma mark ---计算音频消息消息尺寸方法
@@ -289,7 +292,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
         return caculateAudioCellSize(msgData,path);
     } else {
         
-        CGSize defaulutSize = CGSizeMake(ScreenW() * 0.4, MessageContentH);
+        CGSize defaulutSize = CGSizeMake(cd_ScreenW() * 0.4, msgData.chatConfig.messageContentH);
         if (msgData.msgState == CDMessageStateDownloading) {
             return defaulutSize;
         }
@@ -316,8 +319,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
                 msgData.bubbleWidth = size.width;
                 // 加上可能显示的时间视图高度
                 CGFloat height = size.height;
-                msgData.cellHeight = height + (msgData.willDisplayTime ? MsgTimeH : 0);
-                
+                msgData.cellHeight = height + (msgData.willDisplayTime ? msgData.chatConfig.msgTimeH : 0);
                 msgData.msgState = CDMessageStateNormal;
                 [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
                                                                     object:msgData
@@ -325,7 +327,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
             }
         }] resume];
         
-        return CGSizeMake(ScreenW() * 0.4, MessageContentH);
+        return CGSizeMake(cd_ScreenW() * 0.4, msgData.chatConfig.messageContentH);
     }
 }
 

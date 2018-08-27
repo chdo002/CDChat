@@ -77,6 +77,11 @@
  */
 @property (nonatomic, assign) CGFloat nickNameHeight;
 
+/**
+ 昵称颜色
+ */
+@property (nonatomic, strong) UIColor *nickNameColor;
+
 #pragma mark 所有图片的名称，在 ChatHelperdefaultImageDic中获取图片
 /**
  气泡右侧遮罩图片

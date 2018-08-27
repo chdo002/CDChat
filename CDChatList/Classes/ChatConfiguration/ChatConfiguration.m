@@ -17,21 +17,21 @@
     
     self.environment = 1;
     
-    self.msgBackGroundColor = CRMHexColor(0xEBEBEB);
-    self.msgContentBackGroundColor = CRMHexColor(0xEBEBEB);
-    self.headBackGroundColor = CRMHexColor(0xEBEBEB);
-    self.msgTextContentBackGroundColor_right = CRMHexColor(0x06C0B5);
-    self.msgTextContentBackGroundColor_left = CRMHexColor(0xF5F7FA);
+    self.msgBackGroundColor = CDHexColor(0xEBEBEB);
+    self.msgContentBackGroundColor = CDHexColor(0xEBEBEB);
+    self.headBackGroundColor = CDHexColor(0xEBEBEB);
+    self.msgTextContentBackGroundColor_right = CDHexColor(0x06C0B5);
+    self.msgTextContentBackGroundColor_left = CDHexColor(0xF5F7FA);
     
     self.msgTimeH = 25.0f;
-    self.sysInfoMessageMaxWidth = ScreenW() * 0.64f;
+    self.sysInfoMessageMaxWidth = cd_ScreenW() * 0.64f;
     self.headSideLength = 40.0f;
     self.sysInfoPadding = 8.0f;
     
     self.bubbleRoundAnglehorizInset = 10.0f;
     self.bubbleShareAngleWidth = 6.0f;
     self.messageMargin = 10.0f;
-    self.bubbleMaxWidth = ScreenW() * 0.64f;
+    self.bubbleMaxWidth = cd_ScreenW() * 0.64f;
     self.bubbleSharpAngleHeighInset = 25.0f;
     self.nickNameHeight = 25.0f;
     
@@ -67,7 +67,7 @@
 
 -(UIColor *)msgBackGroundColor{
     if ([self isDebug]) {
-        return CRMHexColor(0xB5E7E1);
+        return CDHexColor(0xB5E7E1);
     } else {
         return _msgBackGroundColor;
     }
@@ -75,7 +75,7 @@
 
 -(UIColor *)msgContentBackGroundColor{
     if ([self isDebug]) {
-        return CRMHexColor(0x9E7777);
+        return CDHexColor(0x9E7777);
     } else {
         return _msgContentBackGroundColor;
     }

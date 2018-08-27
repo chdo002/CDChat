@@ -67,7 +67,7 @@
     self.imageContent_right = [[UIImageView alloc] initWithFrame:self.bubbleImage_right.frame];
     self.imageContent_right.contentMode = UIViewContentModeScaleAspectFill;
     self.imageContent_right.clipsToBounds = YES;
-    self.imageContent_right.backgroundColor = CRMHexColor(0x808080);
+    self.imageContent_right.backgroundColor = CDHexColor(0x808080);
     [self.msgContent_right insertSubview:self.imageContent_right
                             belowSubview:self.bubbleImage_right];
     [self.msgContent_right sd_setShowActivityIndicatorView:YES];

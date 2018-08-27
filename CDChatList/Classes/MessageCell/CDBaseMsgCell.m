@@ -23,10 +23,10 @@
     // 1 消息时间初始化
     _timeLabel = [[UILabel alloc] init];
     [_timeLabel setFrame:CGRectMake(0, 0, 100, 0)];
-    _timeLabel.center = CGPointMake(ScreenW() / 2, 0 / 2);
+    _timeLabel.center = CGPointMake(cd_ScreenW() / 2, 0 / 2);
     _timeLabel.text = @"星期一 下午 2:38";
     _timeLabel.textColor = [UIColor whiteColor];
-    _timeLabel.backgroundColor = CRMHexColor(0xCECECE);
+    _timeLabel.backgroundColor = CDHexColor(0xCECECE);
     _timeLabel.layer.cornerRadius = 5;
     _timeLabel.clipsToBounds = YES;
     _timeLabel.font = [UIFont systemFontOfSize:12];
@@ -59,7 +59,7 @@
     // 昵称
     _userName_left = [[UILabel alloc] initWithFrame:CGRectZero];
     _userName_left.textAlignment = NSTextAlignmentLeft;
-    _userName_left.textColor = CRMHexColor(0x787878);
+    _userName_left.textColor = CDHexColor(0x787878);
     _userName_left.font = [UIFont systemFontOfSize:12];
     [_msgContent_left addSubview:_userName_left];
     
@@ -116,7 +116,7 @@
     // 昵称
     _userName_right = [[UILabel alloc] initWithFrame:CGRectZero];
     _userName_right.textAlignment = NSTextAlignmentRight;
-    _userName_right.textColor = CRMHexColor(0x787878);
+    _userName_right.textColor = CDHexColor(0x787878);
     _userName_right.font = [UIFont systemFontOfSize:12];
     [_msgContent_right addSubview:_userName_right];
     
@@ -171,7 +171,7 @@
     }
     
     // 昵称
-    _userName_left.frame = CGRectMake(data.chatConfig.messageMargin + _headImage_left.width + data.chatConfig.bubbleShareAngleWidth, 0, data.chatConfig.bubbleMaxWidth, data.chatConfig.nickNameHeight);
+    _userName_left.frame = CGRectMake(data.chatConfig.messageMargin + _headImage_left.cd_width + data.chatConfig.bubbleShareAngleWidth, 0, data.chatConfig.bubbleMaxWidth, data.chatConfig.nickNameHeight);
     _userName_left.textColor = data.chatConfig.nickNameColor;
     
     // 左侧
@@ -186,13 +186,13 @@
     } else {
         msgRect.origin = CGPointZero;
     }
-    msgRect.size.width = ScreenW();
+    msgRect.size.width = cd_ScreenW();
     msgRect.size.height = msgContentHeight;
     self.msgContent_left.frame = msgRect;
     
     // 更新消息气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_left.frame;
-    bubbleRec.origin.x = data.chatConfig.messageMargin * 2 + _headImage_left.width - data.chatConfig.bubbleShareAngleWidth;
+    bubbleRec.origin.x = data.chatConfig.messageMargin * 2 + _headImage_left.cd_width - data.chatConfig.bubbleShareAngleWidth;
     bubbleRec.origin.y = data.userName.length == 0 ? data.chatConfig.messageMargin : data.chatConfig.nickNameHeight;
     bubbleRec.size.width = data.bubbleWidth;
     if (data.userName.length == 0) {
@@ -240,13 +240,13 @@
     
     // 头像
     if (data.userThumImage || data.userThumImageURL){
-        _headImage_right.frame = CGRectMake(ScreenW() - (data.chatConfig.headSideLength + data.chatConfig.messageMargin), data.chatConfig.messageMargin, data.chatConfig.headSideLength, data.chatConfig.headSideLength);
+        _headImage_right.frame = CGRectMake(cd_ScreenW() - (data.chatConfig.headSideLength + data.chatConfig.messageMargin), data.chatConfig.messageMargin, data.chatConfig.headSideLength, data.chatConfig.headSideLength);
     } else {
-        _headImage_right.frame = CGRectMake(ScreenW(), data.chatConfig.messageMargin, 0, data.chatConfig.headSideLength);
+        _headImage_right.frame = CGRectMake(cd_ScreenW(), data.chatConfig.messageMargin, 0, data.chatConfig.headSideLength);
     }
     
     // 昵称
-    _userName_right.frame = CGRectMake(_headImage_right.left - data.chatConfig.messageMargin - data.chatConfig.bubbleMaxWidth, 0, data.chatConfig.bubbleMaxWidth, data.chatConfig.nickNameHeight);
+    _userName_right.frame = CGRectMake(_headImage_right.cd_left - data.chatConfig.messageMargin - data.chatConfig.bubbleMaxWidth, 0, data.chatConfig.bubbleMaxWidth, data.chatConfig.nickNameHeight);
     _userName_right.textColor = data.chatConfig.nickNameColor;
     
     // 右侧
@@ -260,13 +260,13 @@
         msgRect.origin = CGPointZero;
     }
     
-    msgRect.size.width = ScreenW();
+    msgRect.size.width = cd_ScreenW();
     msgRect.size.height = msgContentHeight;
     self.msgContent_right.frame = msgRect;
     
     // 更新气泡的高度和宽度
     CGRect bubbleRec = self.bubbleImage_right.frame;
-    bubbleRec.origin.x = ScreenW() - (data.bubbleWidth + _headImage_right.width) - data.chatConfig.messageMargin * 2 + data.chatConfig.bubbleShareAngleWidth;
+    bubbleRec.origin.x = cd_ScreenW() - (data.bubbleWidth + _headImage_right.cd_width) - data.chatConfig.messageMargin * 2 + data.chatConfig.bubbleShareAngleWidth;
     bubbleRec.origin.y = data.userName.length == 0 ? data.chatConfig.messageMargin : data.chatConfig.nickNameHeight;
     bubbleRec.size.width = data.bubbleWidth;
     if (data.userName.length == 0) {
@@ -302,7 +302,7 @@
 }
 
 #pragma mark 设置消息data
--(void)configCellByData:(CDChatMessage)data table:(CDChatList *)table{
+-(void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table{
     
     self.backgroundColor = data.chatConfig.msgBackGroundColor;
     
@@ -324,7 +324,7 @@
             if (data.userThumImage) {
                 _headImage_left.image = data.userThumImage;
             } else if (data.userThumImageURL) {
-                [_headImage_left aat_setImageWithURL:[NSURL URLWithString:data.userThumImageURL] placeholderImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
+                [_headImage_left sd_setImageWithURL:[NSURL URLWithString:data.userThumImageURL] placeholderImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
             } else {
                 [_headImage_left setImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
             }
@@ -332,7 +332,7 @@
             if (data.userThumImage) {
                 _headImage_right.image = data.userThumImage;
             } else if (data.userThumImageURL) {
-                [_headImage_right aat_setImageWithURL:[NSURL URLWithString:data.userThumImageURL] placeholderImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
+                [_headImage_right sd_setImageWithURL:[NSURL URLWithString:data.userThumImageURL] placeholderImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
             } else {
                 [_headImage_right setImage:ChatHelpr.share.imageDic[ChatHelpr.share.config.icon_head]];
             }
@@ -354,12 +354,12 @@
         date = [NSDate dateWithTimeIntervalSince1970:[data.createTime doubleValue] * 0.001];
     }
     self.timeLabel.text = [self checkDateDisplay:date msg:data];
-    CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(ScreenW(), data.chatConfig.msgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
+    CGSize textSize = [self.timeLabel.text boundingRectWithSize:CGSizeMake(cd_ScreenW(), data.chatConfig.msgTimeH) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.timeLabel.font} context:nil].size;
     if (textSize.height < data.chatConfig.msgTimeH) {
         textSize.height = data.chatConfig.msgTimeH;
     }
     [_timeLabel setFrame:CGRectMake(0, 0, textSize.width + data.chatConfig.sysInfoPadding * 2, textSize.height)];
-    _timeLabel.center = CGPointMake(ScreenW() / 2, data.chatConfig.msgTimeH / 2);
+    _timeLabel.center = CGPointMake(cd_ScreenW() / 2, data.chatConfig.msgTimeH / 2);
     
     if (data.isLeft) {
         [self updateMsgContentFrame_left:data];
