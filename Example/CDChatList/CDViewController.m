@@ -35,6 +35,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+
+    // 初始化聊天界面
     BOOL isIphoneX = ScreenH >= 812;
     CDChatListView *list = [[CDChatListView alloc] initWithFrame:CGRectMake(0,
                                                                             NaviH,
@@ -44,6 +46,7 @@
     self.listView = list;
     [self.view addSubview:list];
     
+    // 初始化输入框
     CTInputView *input = [[CTInputView alloc] initWithFrame:CGRectMake(0,
                                                                        list.cd_bottom,
                                                                        ScreenW,
@@ -52,7 +55,8 @@
     self.msginputView = input;
     [self.view addSubview:input];
     
-    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
+    // 加载本地聊天消息
+    NSString *jsonPath = [NSBundle.mainBundle pathForResource:@"messageHistory" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
     NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
     NSMutableArray <CDMessageModel *>*msgs = [NSMutableArray arrayWithCapacity:array.count];
@@ -66,8 +70,6 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-   
-    self.listView.msgArr = @[];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
@@ -174,7 +176,9 @@
     model.msgType = CDMessageTypeImage;
     model.msg = info[UIImagePickerControllerMediaURL];
     model.msgState = CDMessageStateSending;
-    model.messageId = [NSString dateTimeStamp];
+    UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
+    double timeInter = recordTime;
+    model.messageId = [NSString stringWithFormat:@"%0.3f" ,timeInter] ;
     [[SDImageCache sharedImageCache] storeImage:img forKey:model.messageId completion:nil];
     [self.listView addMessagesToBottom:@[model]];
 

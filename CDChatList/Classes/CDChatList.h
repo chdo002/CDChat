@@ -44,8 +44,6 @@ FOUNDATION_EXPORT const unsigned char CDChatListVersionString[];
 #import "CDSystemTableViewCell.h"
 #import "CDTextTableViewCell.h"
 #import "CDMessageModel.h"
-#import "AATHUD.h"
-#import "NSString+Extend.h"
 #import "UITool.h"
 #import "CDChatListView.h"
 #import "CTInputBoxDrawer.h"

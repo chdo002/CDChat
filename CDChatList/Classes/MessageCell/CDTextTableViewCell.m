@@ -63,25 +63,22 @@
 }
 
 -(void)configText_Left:(CDChatMessage)data{
-    CGRect bubbleRec = self.bubbleImage_left.frame;
     
     // 给label复制文字内容
     self.textContent_left.data = data.textlayout;
     CGRect textRect = self.textContent_left.frame;
-    textRect.size.width = bubbleRec.size.width - data.chatConfig.bubbleSharpAnglehorizInset - data.chatConfig.bubbleRoundAnglehorizInset;
-    textRect.size.height = data.textlayout.height;
+    textRect.origin = CGPointMake(data.chatConfig.bubbleRoundAnglehorizInset + data.chatConfig.bubbleShareAngleWidth, data.chatConfig.bubbleRoundAnglehorizInset);
+    textRect.size = data.textlayout.contents.size;
     self.textContent_left.frame = textRect;
 }
 
 -(void)configText_Right:(CDChatMessage)data{
-    
-    CGRect bubbleRec = self.bubbleImage_right.frame;
-    
+
     // 给label复制文字内容
     self.textContent_right.data = data.textlayout;
     CGRect textRect = self.textContent_right.frame;
-    textRect.size.width = bubbleRec.size.width - data.chatConfig.bubbleSharpAnglehorizInset - data.chatConfig.bubbleRoundAnglehorizInset;
-    textRect.size.height = data.textlayout.height;
+    textRect.origin = CGPointMake(data.chatConfig.bubbleRoundAnglehorizInset, data.chatConfig.bubbleRoundAnglehorizInset);
+    textRect.size = data.textlayout.contents.size;
     self.textContent_right.frame = textRect;
 }
 

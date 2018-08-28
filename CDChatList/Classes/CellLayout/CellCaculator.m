@@ -23,33 +23,12 @@
 -(instancetype)init{
     self = [super init];
     self.calcuGroup = dispatch_group_create();
-    self.serialQueue = dispatch_queue_create("serialQueue_CellCaculator",DISPATCH_QUEUE_SERIAL);
+    self.serialQueue = dispatch_queue_create("cdchatlist_serialQueue_CellCaculator",DISPATCH_QUEUE_SERIAL);
     return self;
 }
 
 -(void)caculatorAllCellHeight: (CDChatMessageArray)msgArr
          callBackOnMainThread: (void(^)(CGFloat))completeBlock{
-    
-//    for (int i = 0; i < msgArr.count; i++) {
-//
-//        dispatch_group_async(groupp, controlQueue, ^{
-//            dispatch_semaphore_wait(semdd, DISPATCH_TIME_FOREVER);
-//            dispatch_group_async(groupp, calQueue, ^{
-//                [self fetchCellHeight:i of:msgArr];
-//                dispatch_semaphore_signal(semdd);
-//            });
-//        });
-//    }
-//
-//    dispatch_group_notify(groupp, calQueue, ^{
-//        CGFloat totalHeight = 0.0f;
-//        for (CDChatMessage msg in msgArr) {
-//            totalHeight = totalHeight + msg.cellHeight;
-//        }
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            completeBlock(totalHeight);
-//        });
-//    });
     
     for (int i = 0; i < msgArr.count; i++) {
         dispatch_async(self.serialQueue, ^{
@@ -63,7 +42,9 @@
         for (CDChatMessage msg in msgArr) {
             totalHeight = totalHeight + msg.cellHeight;
         }
-        completeBlock(totalHeight);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           completeBlock(totalHeight);
+        });
     });
 }
 
@@ -76,6 +57,11 @@
     if (data.cellHeight && data.textlayout) {
         return data.cellHeight;
     }
+    
+    // 检查消息data中是否含有气泡配置
+    data.chatConfig = data.chatConfig ?: [[ChatConfiguration alloc] init];
+    data.ctDataconfig = data.ctDataconfig.textSize == 0 ? [CTData defaultConfig] : data.ctDataconfig;
+    
     
     //     计算高度
     // 和上一条信息对比判断cell上是否显示时间label
@@ -258,7 +244,6 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
     float audioTimeinSecs = ceilf(reultTime);
     // res: 0.5...1 ,  从0.5 趋近于 1, 在audioTimeinSecs = 14秒左右res到达1 调整2.71828可控制速度
     float res = (1 / (0.14 + (pow(1.71828, -audioTimeinSecs))));
-    NSLog(@"\nac:%f\nceil:%f\nres:%f",reultTime,audioTimeinSecs,res);
     msg.audioTime = audioTimeinSecs;
     msg.audioTime = msg.audioTime > 0 ? msg.audioTime : 1;
     return CGSizeMake(cd_ScreenW() * 0.015 + res * 22, msg.chatConfig.messageContentH);
@@ -268,18 +253,16 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
 -(CGSize)sizeForAudioMessage:(CDChatMessage)msgData{
     
     
-    //     从内存取  因为AVURLAsset 无法从data初始化，先不读取内存 以后看是否可以调用私有方法
+    //     从内存取消息音频  因为AVURLAsset无法从data初始化，先不读取内存
     //    NSData *data = (NSData *)[[AATImageCache sharedImageCache] imageFromMemoryCacheForKey:msgData.messageId];
     
-    //    从本地取,如果是自己发的会通过messageId缓存， messageId
-    //    if (!data) {
+    //  从本地取消息音频,如果是自己发的会通过messageId缓存
     NSString *key = [NSString stringWithFormat:@"%@.%@",msgData.messageId, msgData.audioSufix];
     NSString *path = [[SDImageCache sharedImageCache] defaultCachePathForKey:key];
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wundeclared-selector"
     NSData *data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:key];
-    //    }
     // 通过msg取缓存
     if (!data) {
         path = [[SDImageCache sharedImageCache] defaultCachePathForKey:msgData.msg];

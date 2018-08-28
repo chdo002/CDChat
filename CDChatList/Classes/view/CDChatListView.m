@@ -63,6 +63,7 @@ typedef enum : NSUInteger {
     [self registerClass:[CDImageTableViewCell class] forCellReuseIdentifier:@"imagecell"];
     [self registerClass:[CDSystemTableViewCell class] forCellReuseIdentifier:@"syscell"];
     [self registerClass:[CDAudioTableViewCell class] forCellReuseIdentifier:@"audiocell"];
+    
     // 下拉loading视图
     CGRect rect = CGRectMake(0, -LoadingH, cd_ScreenW(), LoadingH);
     UIActivityIndicatorView *indicatr = [[UIActivityIndicatorView alloc] initWithFrame:rect];
@@ -134,7 +135,9 @@ static UIWindow *topWindow_;
             // 下载图片完成通知
             [self updateMessage:msgData];
         } else {
-            NSLog(@"下载图片%@出现问题%@",msgData.messageId,noti.userInfo);
+            if (isChatListDebug){
+                NSLog(@"[CDChatList] 下载图片%@出现问题%@",msgData.messageId,noti.userInfo);
+            }
         }
     } else if ([noti.name isEqualToString:CHATLISTCLICKMSGEVENTNOTIFICATION]) {
         
@@ -164,7 +167,6 @@ static UIWindow *topWindow_;
 -(void)setMsgArr:(CDChatMessageArray)msgArr{
     
     [self configTableData:msgArr completeBlock:^(CGFloat totalHeight){
-        self.loadHeaderState = CDHeaderLoadStateNoraml;
         CGFloat newTopInset = LoadingH + self->originInset;
         CGFloat left = self.contentInset.left;
         CGFloat right = self.contentInset.right;
@@ -174,6 +176,7 @@ static UIWindow *topWindow_;
         if (totalHeight < self.frame.size.height - newTopInset - bottom) {
             [self setContentOffset:CGPointZero];
         }
+        self.loadHeaderState = CDHeaderLoadStateNoraml;
     }];
 }
 

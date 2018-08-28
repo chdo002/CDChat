@@ -206,9 +206,9 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 /**
  获得自定义气泡高度
  
- @param msg <#msg description#>
- @param list <#list description#>
- @return <#return value description#>
+ @param msg 消息
+ @param list list description
+ @return 自定义气泡size
  */
 -(CGSize)chatlistSizeForMsg:(CDChatMessage)msg ofList:(CDChatListView *)list;
 

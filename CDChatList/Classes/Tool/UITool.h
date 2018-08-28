@@ -8,8 +8,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "AATHUD.h"
-#import "NSString+Extend.h"
 
 // 系统版本号
 double CDDeviceSystemVersion(void);

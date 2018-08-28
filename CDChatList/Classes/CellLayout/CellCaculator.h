@@ -30,7 +30,7 @@
  */
 -(CGFloat)fetchCellHeight:(NSUInteger)index of:(CDChatMessageArray)msgArr;
 
--(CGSize) sizeForTextMessage:(CDChatMessage)msgData;
+-(CGSize)sizeForTextMessage:(CDChatMessage)msgData;
 
 @end
 

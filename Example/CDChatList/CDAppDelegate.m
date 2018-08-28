@@ -8,12 +8,12 @@
 
 #import "CDAppDelegate.h"
 #import <CDChatList/CDChatList.h>
+#import <objc/runtime.h>
 
 @implementation CDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
     // 配置聊天列表环境
     ChatHelpr.share.config.environment = 1;
     // 聊天页面图片资源配置
