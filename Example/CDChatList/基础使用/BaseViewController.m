@@ -1,47 +1,46 @@
 //
-//  CDViewController.m
-//  CDChatList
+//  BaseViewController.m
+//  CDChatList_Example
 //
-//  Created by chdo002 on 03/20/2018.
-//  Copyright (c) 2018 chdo002. All rights reserved.
+//  Created by chdo on 2018/8/30.
+//  Copyright © 2018年 chdo002. All rights reserved.
 //
 
-#import "CDViewController.h"
 #import <GDPerformanceView/GDPerformanceMonitor.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "MsgPicViewController.h"
+#import "BaseViewController.h"
+#import "BaseMsgModel.h"
+#import "CDChatList.h"
 
 #define StatusH [[UIApplication sharedApplication] statusBarFrame].size.height
 #define NaviH (44 + StatusH)
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 
-@interface CDViewController ()<ChatListProtocol,CTInputViewProtocol,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface BaseViewController ()
+<ChatListProtocol,
+CTInputViewProtocol,
+UINavigationControllerDelegate,
+UIImagePickerControllerDelegate>
 @property(nonatomic, weak)CDChatListView *listView;
 @property(nonatomic, weak)CTInputView *msginputView;
 @end
 
-@implementation CDViewController
+@implementation BaseViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     [[GDPerformanceMonitor sharedInstance] startMonitoringWithConfiguration:^(UILabel *textLabel) {
         textLabel.font = [UIFont systemFontOfSize:10];
         textLabel.numberOfLines = 1;
     }];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-
     // 初始化聊天界面
     BOOL isIphoneX = ScreenH >= 812;
     CDChatListView *list = [[CDChatListView alloc] initWithFrame:CGRectMake(0,
                                                                             NaviH,
                                                                             ScreenW,
-                                                            ScreenH - NaviH - CTInputViewHeight - (isIphoneX ? StatusH : 0))];
+                                                                            ScreenH - NaviH - CTInputViewHeight - (isIphoneX ? StatusH : 0))];
     list.msgDelegate = self;
     self.listView = list;
     [self.view addSubview:list];
@@ -69,23 +68,6 @@
     self.listView.msgArr = msgs;
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
-        NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-        NSMutableArray <CDMessageModel *>*msgs = [NSMutableArray arrayWithCapacity:array.count];
-        NSInteger autoInc = 1;
-        for (NSDictionary *dic in array) {
-            CDMessageModel *model = [[CDMessageModel alloc] init:dic];
-            model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
-            [msgs addObject:model];
-        }
-        self.listView.msgArr = msgs;
-    });
-    
-}
 
 #pragma mark ChatListProtocol
 
@@ -97,10 +79,10 @@
 - (void)chatlistClickMsgEvent:(ChatListInfo *)listInfo {
     switch (listInfo.eventType) {
         case ChatClickEventTypeIMAGE:
-            {
-                CGRect newe =  [listInfo.containerView.superview convertRect:listInfo.containerView.frame toView:self.view];
-                [MsgPicViewController addToRootViewController:listInfo.image ofMsgId:listInfo.msgModel.messageId in:newe from:self.listView.msgArr];
-            }
+        {
+            CGRect newe =  [listInfo.containerView.superview convertRect:listInfo.containerView.frame toView:self.view];
+            [MsgPicViewController addToRootViewController:listInfo.image ofMsgId:listInfo.msgModel.messageId in:newe from:self.listView.msgArr];
+        }
             break;
         case ChatClickEventTypeTEXT:
             
@@ -108,6 +90,7 @@
     }
 }
 
+// 下拉加载更多
 - (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray,BOOL))finnished {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory" ofType:@"json"];
@@ -127,14 +110,7 @@
 #pragma mark CTInputViewProtocol
 
 - (void)inputViewPopAudioath:(NSURL *)path {
-//    CDMessageModel *model = [[CDMessageModel alloc] init];
-//    model.msg = @"fsdfdf";
-//    model.msgType = CDMessageTypeAudio;
-//    model.isLeft = YES;
-//    [self.listView addMessagesToBottom:@[model]];
-//    
-//    
-//    
+    
     // 此处会存到内存和本地， 内存地址不会加密，本地地址会加密
     NSData *data = [NSData dataWithContentsOfURL:path];
     
@@ -148,7 +124,7 @@
         mode.msgType = CDMessageTypeAudio;
         mode.msgState = CDMessageStateNormal;
         mode.msg = [path absoluteString];
-        //        mode.isLeft = arc4random() % 2 == 1;
+        mode.isLeft = arc4random() % 2 == 1;
         mode.createTime = createTtime;
         mode.messageId = createTtime;
         mode.audioSufix = sufix;
@@ -156,6 +132,7 @@
         
     }];
 }
+
 
 - (void)inputViewPopCommand:(NSString *)string {
     UIImagePickerController *imagePick = [[UIImagePickerController alloc] init];
@@ -181,7 +158,7 @@
     model.messageId = [NSString stringWithFormat:@"%0.3f" ,timeInter] ;
     [[SDImageCache sharedImageCache] storeImage:img forKey:model.messageId completion:nil];
     [self.listView addMessagesToBottom:@[model]];
-
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         model.msgState = CDMessageStateNormal;
         [self.listView updateMessage:model];
@@ -205,7 +182,7 @@
                                           inset_bot,
                                           self.listView.contentInset.right);
     [self.listView setContentInset:inset];
-    [self.listView relayoutTable:YES ];
+    [self.listView relayoutTable:YES];
 }
 
 @end

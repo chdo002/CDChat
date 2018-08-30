@@ -41,10 +41,13 @@
 
 @synthesize audioTime;
 
-@synthesize ctDataconfig;
-
 @synthesize userName;
 
+@synthesize ctDataconfig;
+
+@synthesize chatConfig;
+
+@synthesize reuseIdentifierForCustomeCell;
 
 -(instancetype)init:(NSDictionary *)dic{
     self = [super init];
@@ -54,10 +57,11 @@
     if (dic[@"isLeft"]) {
         self.isLeft = [dic[@"isLeft"] integerValue];
     }
+    
+    if (dic[@""]) {
+        
+    }
+    
     return self;
 }
-
-
-@synthesize chatConfig;
-
 @end

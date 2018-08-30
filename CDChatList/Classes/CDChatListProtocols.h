@@ -102,6 +102,11 @@ typedef enum : NSUInteger {
  */
 @property (strong, nonatomic) NSString *userThumImageURL;
 
+#pragma mark 自定义配置或可选配置
+
+// 自定义cell的重用cellID 当消息为自定义类型时，通过reuseIdentifierForCustomeCell 复用自定义cell
+@property (nonatomic, strong) NSString *reuseIdentifierForCustomeCell;
+
 /**
  cell自定义配置，可选
  */
@@ -168,7 +173,7 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
 @class ChatListInfo;
 @protocol ChatListProtocol <NSObject>
 
-@optional
+@required
 /**
  消息列表请求加载更多消息
  
@@ -177,7 +182,7 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
  */
 -(void)chatlistLoadMoreMsg: (CDChatMessage)topMessage
                   callback: (void(^)(CDChatMessageArray, BOOL))finnished;
-
+@optional
 /**
  消息中的点击事件
  
@@ -201,8 +206,9 @@ typedef NSArray<CDChatMessage>* CDChatMessageArray;
  @param msg 消息模型，
  可通过msg中modalInfo的信息判断自定义cell类型
  */
--(Class)chatlistCustomeCellForMsg:(CDChatMessage)msg ofList:(CDChatListView *)list; // availabel 0.0.3
+//-(Class)chatlistCustomeCellForMsg:(CDChatMessage)msg ofList:(CDChatListView *)list; // availabel 0.0.3 ... deprecated 0.2.1
 
+-(NSDictionary <NSString *, Class>*)chatlistCustomeCellsAndClasses;
 /**
  获得自定义气泡高度
  

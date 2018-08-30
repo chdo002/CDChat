@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* CDAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* CDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* CDViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -28,8 +27,12 @@
 		E9B02A182060EFBC00A22541 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A172060EFBC00A22541 /* Expression.bundle */; };
 		E9B02A1B2060F28100A22541 /* InputViewBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */; };
 		E9B1D32620F8B4AC00A16C0A /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = E9B1D32520F8B4AC00A16C0A /* CHANGELOG.md */; };
+		E9C91FA42136C1E5005E6449 /* CustomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C91FA32136C1E5005E6449 /* CustomeViewController.m */; };
+		E9C91FA82136C53A005E6449 /* CustomeMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C91FA72136C53A005E6449 /* CustomeMsgCell.m */; };
+		E9C91FAC2136C980005E6449 /* messageHistory_custom.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C91FAB2136C980005E6449 /* messageHistory_custom.json */; };
+		E9C91FB421378C62005E6449 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C91FB321378C62005E6449 /* BaseViewController.m */; };
+		E9C91FB721378E4D005E6449 /* BaseMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C91FB621378E4D005E6449 /* BaseMsgModel.m */; };
 		E9E488402095B15F007E619C /* MsgPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E4883F2095B15F007E619C /* MsgPicViewController.m */; };
-		E9FC2CE020C7B2B10064A243 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FC2CDF20C7B2B10064A243 /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +60,6 @@
 		6003F59B195388D20070C39A /* CDChatList-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDChatList-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* CDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* CDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* CDChatList_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDChatList_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -77,10 +78,17 @@
 		E9B02A172060EFBC00A22541 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InputViewBundle.bundle; sourceTree = "<group>"; };
 		E9B1D32520F8B4AC00A16C0A /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		E9C91FA22136C1E5005E6449 /* CustomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomeViewController.h; sourceTree = "<group>"; };
+		E9C91FA32136C1E5005E6449 /* CustomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomeViewController.m; sourceTree = "<group>"; };
+		E9C91FA62136C53A005E6449 /* CustomeMsgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomeMsgCell.h; sourceTree = "<group>"; };
+		E9C91FA72136C53A005E6449 /* CustomeMsgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomeMsgCell.m; sourceTree = "<group>"; };
+		E9C91FAB2136C980005E6449 /* messageHistory_custom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageHistory_custom.json; sourceTree = "<group>"; };
+		E9C91FB221378C62005E6449 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		E9C91FB321378C62005E6449 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		E9C91FB521378E4D005E6449 /* BaseMsgModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseMsgModel.h; sourceTree = "<group>"; };
+		E9C91FB621378E4D005E6449 /* BaseMsgModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseMsgModel.m; sourceTree = "<group>"; };
 		E9E4883E2095B15F007E619C /* MsgPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgPicViewController.h; sourceTree = "<group>"; };
 		E9E4883F2095B15F007E619C /* MsgPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgPicViewController.m; sourceTree = "<group>"; };
-		E9FC2CDE20C7B2B10064A243 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		E9FC2CDF20C7B2B10064A243 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		FD2F9DE9351C9A0D9D52388A /* Pods-CDChatList_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,10 +160,8 @@
 				6003F59C195388D20070C39A /* CDAppDelegate.h */,
 				6003F59D195388D20070C39A /* CDAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* CDViewController.h */,
-				6003F5A6195388D20070C39A /* CDViewController.m */,
-				E9FC2CDE20C7B2B10064A243 /* TestViewController.h */,
-				E9FC2CDF20C7B2B10064A243 /* TestViewController.m */,
+				E9C91FAA2136C7D6005E6449 /* 基础使用 */,
+				E9C91FA92136C545005E6449 /* 自定义消息类型 */,
 				E9E488412095B167007E619C /* msgview */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -222,9 +228,32 @@
 			children = (
 				E9B02A1A2060F28100A22541 /* InputViewBundle.bundle */,
 				E9B02A172060EFBC00A22541 /* Expression.bundle */,
-				E9AC85882062072A002025DF /* messageHistory.json */,
 			);
 			name = resource;
+			sourceTree = "<group>";
+		};
+		E9C91FA92136C545005E6449 /* 自定义消息类型 */ = {
+			isa = PBXGroup;
+			children = (
+				E9C91FAB2136C980005E6449 /* messageHistory_custom.json */,
+				E9C91FA22136C1E5005E6449 /* CustomeViewController.h */,
+				E9C91FA32136C1E5005E6449 /* CustomeViewController.m */,
+				E9C91FA62136C53A005E6449 /* CustomeMsgCell.h */,
+				E9C91FA72136C53A005E6449 /* CustomeMsgCell.m */,
+			);
+			path = "自定义消息类型";
+			sourceTree = "<group>";
+		};
+		E9C91FAA2136C7D6005E6449 /* 基础使用 */ = {
+			isa = PBXGroup;
+			children = (
+				E9AC85882062072A002025DF /* messageHistory.json */,
+				E9C91FB221378C62005E6449 /* BaseViewController.h */,
+				E9C91FB321378C62005E6449 /* BaseViewController.m */,
+				E9C91FB521378E4D005E6449 /* BaseMsgModel.h */,
+				E9C91FB621378E4D005E6449 /* BaseMsgModel.m */,
+			);
+			path = "基础使用";
 			sourceTree = "<group>";
 		};
 		E9E488412095B167007E619C /* msgview */ = {
@@ -322,6 +351,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E9AC85892062072A002025DF /* messageHistory.json in Resources */,
+				E9C91FAC2136C980005E6449 /* messageHistory_custom.json in Resources */,
 				E9B1D32620F8B4AC00A16C0A /* CHANGELOG.md in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E9B02A1B2060F28100A22541 /* InputViewBundle.bundle in Resources */,
@@ -409,10 +439,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* CDViewController.m in Sources */,
+				E9C91FB421378C62005E6449 /* BaseViewController.m in Sources */,
+				E9C91FB721378E4D005E6449 /* BaseMsgModel.m in Sources */,
+				E9C91FA42136C1E5005E6449 /* CustomeViewController.m in Sources */,
+				E9C91FA82136C53A005E6449 /* CustomeMsgCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E9E488402095B15F007E619C /* MsgPicViewController.m in Sources */,
-				E9FC2CE020C7B2B10064A243 /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

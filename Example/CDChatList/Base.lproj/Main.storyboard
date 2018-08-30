@@ -20,15 +20,15 @@
                         <sections>
                             <tableViewSection id="kh2-WV-gPI">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Y2R-0K-xzd" rowHeight="53" style="IBUITableViewCellStyleDefault" id="jlu-mE-Brf">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="53"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Y2R-0K-xzd" rowHeight="58" style="IBUITableViewCellStyleDefault" id="jlu-mE-Brf">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jlu-mE-Brf" id="d69-wR-vRB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="消息收发" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y2R-0K-xzd">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="52.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="基本类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y2R-0K-xzd">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="57.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -38,6 +38,26 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="Saf-Ss-jWS" kind="show" id="njx-sS-d7k"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="jqX-cF-JuL" rowHeight="62" style="IBUITableViewCellStyleDefault" id="VqI-12-1SU">
+                                        <rect key="frame" x="0.0" y="93" width="375" height="62"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VqI-12-1SU" id="0aj-9R-mHi">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="自定义1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jqX-cF-JuL">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="61.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BSg-F1-Rso" kind="show" id="cY5-7r-ReL"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -52,12 +72,30 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lS8-Zf-ndn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="230.73463268365819"/>
+            <point key="canvasLocation" x="932" y="544.67766116941539"/>
         </scene>
-        <!--View Controller-->
+        <!--Custome View Controller-->
+        <scene sceneID="K3B-Kn-nBE">
+            <objects>
+                <viewController id="BSg-F1-Rso" customClass="CustomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NXK-0D-J2i"/>
+                        <viewControllerLayoutGuide type="bottom" id="FqW-RM-N5y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IQh-d7-tqT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzg-tk-NaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="922"/>
+        </scene>
+        <!--Base View Controller-->
         <scene sceneID="YFb-no-xUI">
             <objects>
-                <viewController id="Saf-Ss-jWS" customClass="CDViewController" sceneMemberID="viewController">
+                <viewController id="Saf-Ss-jWS" customClass="BaseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QeT-cy-VjG"/>
                         <viewControllerLayoutGuide type="bottom" id="Bi5-3y-yKR"/>
@@ -70,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8R-Ug-FUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1728.8" y="230.73463268365819"/>
+            <point key="canvasLocation" x="2038" y="231"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q4p-Hz-mY5">
@@ -88,7 +126,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Vq-bd-uYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="231"/>
+            <point key="canvasLocation" x="105" y="545"/>
         </scene>
     </scenes>
 </document>

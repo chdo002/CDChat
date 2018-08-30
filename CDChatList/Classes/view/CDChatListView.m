@@ -157,6 +157,16 @@ static UIWindow *topWindow_;
     }
 }
 
+-(void)setMsgDelegate:(id<ChatListProtocol>)msgDelegate{
+    _msgDelegate = msgDelegate;
+    if ([msgDelegate respondsToSelector:@selector(chatlistCustomeCellsAndClasses)]) {
+        NSDictionary *idAndClsDic = [msgDelegate chatlistCustomeCellsAndClasses];
+        for (NSString *reuseIdenty in idAndClsDic.allKeys) {
+            [self registerClass:idAndClsDic[reuseIdenty] forCellReuseIdentifier:reuseIdenty];
+        }
+    }
+}
+
 #pragma mark 数据源变动
 
 /**
@@ -329,6 +339,7 @@ static UIWindow *topWindow_;
         // 当前最旧消息传给代理，调用获取上一段旧消息的方法
         CDChatMessage lastMsg = _msgArr.firstObject;
         if (![self.msgDelegate respondsToSelector:@selector(chatlistLoadMoreMsg: callback:)]) {
+            self.loadHeaderState = CDHeaderLoadStateNoraml;
             return;
         }
         
@@ -405,6 +416,11 @@ static UIWindow *topWindow_;
         case CDMessageTypeAudio:
             cellType = @"audiocell";
             break;
+        case CDMessageTypeCustome:
+        {
+            cellType = data.reuseIdentifierForCustomeCell;
+            break;
+        }
         default:
             cellType = @"textcell";
             break;
