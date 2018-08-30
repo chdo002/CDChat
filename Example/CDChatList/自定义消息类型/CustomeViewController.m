@@ -24,8 +24,26 @@
 
 @implementation CustomeViewController
 
+- (void)setUpCustomBubble {
+    UIImage *leftBubble = [UIImage imageNamed:@"buble_left" inBundle:nil compatibleWithTraitCollection:nil];
+    UIImage *rigthBubble = [UIImage imageNamed:@"bubble_right" inBundle:nil compatibleWithTraitCollection:nil];
+    UIImage *leftBubble_mask = [UIImage imageNamed:@"bubble_left_mask" inBundle:nil compatibleWithTraitCollection:nil];
+    UIImage *rigthBubble_mask = [UIImage imageNamed:@"bubble_right_mask" inBundle:nil compatibleWithTraitCollection:nil];
+    
+    NSMutableDictionary *resDic = [NSMutableDictionary dictionaryWithDictionary:ChatHelpr.share.imageDic];
+    resDic[ChatHelpr.share.config.left_box] = [leftBubble resizableImageWithCapInsets:UIEdgeInsetsMake(16, 16, 16, 16) resizingMode:UIImageResizingModeStretch];
+    resDic[ChatHelpr.share.config.right_box] = [rigthBubble resizableImageWithCapInsets:UIEdgeInsetsMake(16, 16, 16, 16) resizingMode:UIImageResizingModeStretch];
+    resDic[ChatHelpr.share.config.bg_mask_left] = [leftBubble_mask resizableImageWithCapInsets:UIEdgeInsetsMake(16, 16, 16, 16) resizingMode:UIImageResizingModeStretch];
+    resDic[ChatHelpr.share.config.bg_mask_right] = [rigthBubble_mask resizableImageWithCapInsets:UIEdgeInsetsMake(16, 16, 16, 16) resizingMode:UIImageResizingModeStretch];
+    ChatHelpr.share.imageDic = resDic;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setUpCustomBubble];
+    
+    
     
     BOOL isIphoneX = ScreenH >= 812;
     CDChatListView *list = [[CDChatListView alloc] initWithFrame:CGRectMake(0,
@@ -44,6 +62,15 @@
     for (NSDictionary *dic in array) {
         CDMessageModel *model = [[CDMessageModel alloc] init:dic];
         model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
+        if (model.isLeft) {
+            CTDataConfig config = [CTData defaultConfig];
+            config.textColor = [UIColor blackColor].CGColor;
+            model.ctDataconfig = config;
+        } else {
+            CTDataConfig config = [CTData defaultConfig];
+            config.textColor = [UIColor whiteColor].CGColor;
+            model.ctDataconfig = config;
+        }
         [msgs addObject:model];
     }
     list.msgArr = msgs;
@@ -63,6 +90,25 @@
 }
 
 - (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray, BOOL))finnished {
+    
+}
+
+- (void)dealloc
+{
+    
+    NSMutableDictionary<NSString *,UIImage *> *originImageDic = [ChatImageDrawer defaultImageDic];
+    
+    UIImage *leftBubble = originImageDic[@"left_box"];
+    UIImage *rigthBubble = originImageDic[@"right_box"];
+    UIImage *leftBubble_mask = originImageDic[@"bg_mask_left"];
+    UIImage *rigthBubble_mask = originImageDic[@"bg_mask_right"];
+    
+    NSMutableDictionary *resDic = [NSMutableDictionary dictionaryWithDictionary:ChatHelpr.share.imageDic];
+    resDic[ChatHelpr.share.config.left_box] = leftBubble;
+    resDic[ChatHelpr.share.config.right_box] = rigthBubble;
+    resDic[ChatHelpr.share.config.bg_mask_left] = leftBubble_mask;
+    resDic[ChatHelpr.share.config.bg_mask_right] = rigthBubble_mask;
+    ChatHelpr.share.imageDic = resDic;
     
 }
 

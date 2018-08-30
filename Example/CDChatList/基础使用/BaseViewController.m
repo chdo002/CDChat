@@ -102,6 +102,7 @@ UIImagePickerControllerDelegate>
             BaseMsgModel *model = [[BaseMsgModel alloc] init];
             model.msg = array[0][@"msg"];
             model.msgType = CDMessageTypeImage;
+            model.userThumImage = [UIImage imageNamed:@"thum"];
             [arr addObject:model];
         }
         finnished(arr,YES);
