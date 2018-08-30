@@ -15,24 +15,35 @@
   
   {
   "msg":"https://coding.net/u/chdo/p/CDResource/git/raw/master/wallpaper/down3.jpeg",
-  "msgType":1
+  "msgType":1,
+  "userThumImageURL":"http://img3.imgtn.bdimg.com/it/u=730508988,1060832757&fm=200&gp=0.jpg",
+  "isLeft":1,
   },
   
   {
   "msg":"https://coding.net/u/chdo/p/CDResource/git/raw/master/wallpaper/down4.jpeg",
-  "msgType":1
+  "msgType":1,
+  "userName":"消息类型默认是文字，图片类型消息需要设定",
+  "userThumImageURL":"http://img4.imgtn.bdimg.com/it/u=3504790867,267919701&fm=200&gp=0.jpg",
+  "isLeft":1,
   },
   
   {
-  "msg":"asfdsfoijasijfioajfoisjfoisjfiosjfoisjfosifjois"
+  "msg":"头像、用户名可自定义设置，不设置则为默认为空",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1495899655,520147013&fm=200&gp=0.jpg",
+  "userName":"用户名。。。",
+  "isLeft":1,
   },
   
   {
-  "msg":"这是文字消息"
+  "msg":"头像、用户名可自定义设置，不设置则为默认为空",
+  "userName":"用户名。。。"
   },
   
   {
-  "msg":"asfdsfoijasijfioajfoisjfoisjfiosjfoisjfosifjois"
+  "msg":"头像、用户名可自定义设置，不设置则为默认为空",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1495899655,520147013&fm=200&gp=0.jpg"
   }
   
   ]
+

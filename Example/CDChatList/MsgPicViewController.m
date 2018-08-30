@@ -48,8 +48,12 @@
     [msgVc.view addSubview:currentImg];
     msgVc.imgView = currentImg;
     
-    UIPanGestureRecognizer *panges = [[UIPanGestureRecognizer alloc] initWithTarget:msgVc action:@selector(panAction:)];
-    [currentImg addGestureRecognizer:panges];
+    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc] initWithTarget:msgVc action:@selector(panAction:)];
+    [currentImg addGestureRecognizer:panGes];
+    
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:msgVc action:@selector(tapAction:)];
+    [currentImg addGestureRecognizer:tapGes];
+    
     currentImg.userInteractionEnabled = YES;
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         currentImg.frame = msgVc.view.bounds;
@@ -59,57 +63,18 @@
         //        [msgVc didMoveToParentViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
     }];
 }
-
-//-(void)willMoveToParentViewController:(UIViewController *)parent{
-//    scrol = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    scrol.backgroundColor = [UIColor clearColor];
-//    [self.view addSubview:scrol];
-//    scrol.alwaysBounceHorizontal = YES;
-//    scrol.alwaysBounceVertical = YES;
-//    scrol.pagingEnabled = YES;
-//
-//    uint cot = 0;
-//    CGPoint offset = CGPointZero;
-//    for (CDChatMessage msg in self.msgs) {
-//        if (msg.msgType != CDMessageTypeImage) {
-//            continue;
-//        }
-//        UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth * cot, 0, ScreenWidth, ScreenHeight)];
-//        img.contentMode = UIViewContentModeScaleAspectFit;
-//        [img sd_setImageWithURL:[NSURL URLWithString:msg.msg] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//        }];
-//        [scrol addSubview:img];
-//        if ([msg.messageId isEqualToString:self.msgId]){
-//            offset = CGPointMake(img.origin.x, 0);
-//        }
-//        cot++;
-//    }
-//    scrol.contentSize = CGSizeMake(ScreenWidth, 0);
-//    [scrol setHidden:YES];
-////    [scrol setContentOffset:offset];
-//    [scrol addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-//}
-//
-//-(void)didMoveToParentViewController:(UIViewController *)parent{
-//    [scrol setHidden:NO];
-//}
-
-
-//-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-//    if ([keyPath isEqualToString:@"contentOffset"]) {
-////        CGFloat offsetY = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue.y;
-////        CGFloat offsetY_lod = ((NSValue *)change[NSKeyValueChangeOldKey]).CGPointValue.y;
-//
-////        NSLog(@"%f -- %f", offsetY, offsetY_lod);
-//
-////        if (offsetY < 0){
-////            CGFloat transY = ABS(offsetY / ScreenHeight);
-////            if (transY > 0.02) {
-////                self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-////            }
-////        }
-//    }
-//}
+-(void)tapAction:(UITapGestureRecognizer *)ges{
+    if (ges.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.imgView.transform = CGAffineTransformIdentity;
+            self.view.alpha = 0;
+            self.imgView.frame = self->originRect;
+            
+        } completion:^(BOOL finished) {
+            [self removeFromParentViewController];
+        }];
+    }
+}
 
 -(void)panAction:(UIPanGestureRecognizer *)ges{
     switch (ges.state) {

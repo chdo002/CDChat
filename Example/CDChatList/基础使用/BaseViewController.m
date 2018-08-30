@@ -58,10 +58,10 @@ UIImagePickerControllerDelegate>
     NSString *jsonPath = [NSBundle.mainBundle pathForResource:@"messageHistory" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
     NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    NSMutableArray <CDMessageModel *>*msgs = [NSMutableArray arrayWithCapacity:array.count];
+    NSMutableArray <BaseMsgModel *>*msgs = [NSMutableArray arrayWithCapacity:array.count];
     NSInteger autoInc = 1;
     for (NSDictionary *dic in array) {
-        CDMessageModel *model = [[CDMessageModel alloc] init:dic];
+        BaseMsgModel *model = [[BaseMsgModel alloc] init:dic];
         model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
         [msgs addObject:model];
     }
@@ -99,8 +99,9 @@ UIImagePickerControllerDelegate>
         
         NSMutableArray *arr = [NSMutableArray arrayWithCapacity:5];
         for (int i = 0; i<11; i++) {
-            CDMessageModel *model = [[CDMessageModel alloc] init];
+            BaseMsgModel *model = [[BaseMsgModel alloc] init];
             model.msg = array[0][@"msg"];
+            model.msgType = CDMessageTypeImage;
             [arr addObject:model];
         }
         finnished(arr,YES);
@@ -164,7 +165,7 @@ UIImagePickerControllerDelegate>
         [self.listView updateMessage:model];
     });
 }
-
+// 输入框输出文字
 - (void)inputViewPopSttring:(NSString *)string {
     CDMessageModel *model = [[CDMessageModel alloc] init];
     model.msg = string;
@@ -172,6 +173,7 @@ UIImagePickerControllerDelegate>
     [self.listView addMessagesToBottom:@[model]];
 }
 
+// 当输入框frame变化是，会回调此方法
 - (void)inputViewWillUpdateFrame:(CGRect)newFrame animateDuration:(double)duration animateOption:(NSInteger)opti {
     //  当输入框因为多行文本变高时，listView需要做响应变化
     BOOL isIphoneX = ScreenH >= 812;
@@ -185,4 +187,8 @@ UIImagePickerControllerDelegate>
     [self.listView relayoutTable:YES];
 }
 
+
+-(BOOL)canBecomeFirstResponder{
+    return YES;
+}
 @end

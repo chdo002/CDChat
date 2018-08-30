@@ -394,8 +394,12 @@ static UIWindow *topWindow_;
 
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
     BOOL res = [super pointInside:point withEvent:event];
-    if ([self.msgDelegate respondsToSelector:@selector(chatlistBecomeFirstResponder)]) {
+    if (res && [self.msgDelegate respondsToSelector:@selector(chatlistBecomeFirstResponder)]) {
         [self.msgDelegate chatlistBecomeFirstResponder];
+    }
+    
+    if (self.loadHeaderState == CDHeaderLoadStateInitializting) {
+        self.loadHeaderState = CDHeaderLoadStateNoraml;
     }
     return res;
 }

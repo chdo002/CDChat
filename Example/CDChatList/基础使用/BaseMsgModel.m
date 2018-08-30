@@ -53,16 +53,27 @@
 -(instancetype)init:(NSDictionary *)dic{
     self = [super init];
     
-    unsigned int propertyCount = 0;
-    objc_property_t *propertys = class_copyPropertyList([self class], &propertyCount);
-    for (int i = 0; i < propertyCount; i ++) {
-        objc_property_t property = propertys[i];
-        
-        // 字段名
-        const char * propertyName = property_getName(property);
-        NSString *name = [NSString stringWithUTF8String: propertyName];
-        NSLog(@"属性名： %@",name);
+    
+    if (dic) {
+        unsigned int propertyCount = 0;
+        objc_property_t *propertys = class_copyPropertyList([self class], &propertyCount);
+        for (int i = 0; i < propertyCount; i ++) {
+            objc_property_t property = propertys[i];
+            
+            // 字段名
+            const char * propertyName = property_getName(property);
+            NSString *name = [NSString stringWithUTF8String: propertyName];
+            id val = dic[name];
+            if ([val isKindOfClass:NSNumber.class]) {
+                
+            }
+            if (val) {
+                [self setValue:val forKey:name];
+            }
+        }
     }
+    
+    
     
     return self;
 }
