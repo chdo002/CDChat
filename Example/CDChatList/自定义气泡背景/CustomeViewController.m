@@ -8,8 +8,6 @@
 
 #import "CustomeViewController.h"
 #import "CDChatList.h"
-#import "CustomeMsgCell.h"
-
 #define StatusH [[UIApplication sharedApplication] statusBarFrame].size.height
 #define NaviH (44 + StatusH)
 #define ScreenW [UIScreen mainScreen].bounds.size.width
@@ -41,9 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 设置自定义气泡背景
     [self setUpCustomBubble];
-    
-    
     
     BOOL isIphoneX = ScreenH >= 812;
     CDChatListView *list = [[CDChatListView alloc] initWithFrame:CGRectMake(0,
@@ -77,17 +74,6 @@
     
 }
 
--(NSDictionary<NSString *,Class> *)chatlistCustomeCellsAndClasses{
-    return @{CustomeMsgCellReuseId: CustomeMsgCell.class};
-}
-
--(CGSize)chatlistSizeForMsg:(CDChatMessage)msg ofList:(CDChatListView *)list{
-    CGSize cellSize = CGSizeZero;
-    if ([msg.reuseIdentifierForCustomeCell isEqualToString:CustomeMsgCellReuseId]) {
-        
-    }
-    return cellSize;
-}
 
 - (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray, BOOL))finnished {
     

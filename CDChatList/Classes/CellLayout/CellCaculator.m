@@ -196,14 +196,20 @@ CGSize caculateImageSize140By140(UIImage *image, CDChatMessage msgData) {
         if (msgData.msgState != CDMessageStateSendFaild) {
             msgData.msgState = CDMessageStateDownloading;
         }
+        
+        __weak typeof(self) ws = self;
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:msgData.msg] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
                 msgData.msgState = CDMessageStateDownloadFaild;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
-                                                                    object:msgData
-                                                                  userInfo:error.userInfo];
+                
+                [ws.list updateMessage:msgData];
+                
+                if (isChatListDebug){
+                    NSLog(@"[CDChatList] 下载图片出现问题%@",error.localizedDescription);
+                }
+                
             } else {
                 
                 CGSize size = caculateImageSize140By140(image,msgData);
@@ -214,9 +220,7 @@ CGSize caculateImageSize140By140(UIImage *image, CDChatMessage msgData) {
                 CGFloat height = size.height;
                 msgData.cellHeight = height + (msgData.willDisplayTime ? msgData.chatConfig.msgTimeH : 0);
                 msgData.msgState = CDMessageStateNormal;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
-                                                                    object:msgData
-                                                                  userInfo:nil];
+                [ws.list updateMessage:msgData];
             }
         }];
         return defaulutSize;
@@ -283,14 +287,15 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
         if (msgData.msgState != CDMessageStateSendFaild) {
             msgData.msgState = CDMessageStateDownloading;
         }
-        
+        __weak typeof(self) ws = self;
         [[[NSURLSession sharedSession] downloadTaskWithURL:[NSURL URLWithString:msgData.msg] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
             if(error){
                 msgData.msgState = CDMessageStateDownloadFaild;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
-                                                                    object:msgData
-                                                                  userInfo:error.userInfo];
+                [ws.list updateMessage:msgData];
+                if (isChatListDebug){
+                    NSLog(@"[CDChatList] 下载音频出现问题%@",error.localizedDescription);
+                }
             } else {
                 
                 NSData *data = [NSData dataWithContentsOfURL:location];
@@ -304,9 +309,7 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
                 CGFloat height = size.height;
                 msgData.cellHeight = height + (msgData.willDisplayTime ? msgData.chatConfig.msgTimeH : 0);
                 msgData.msgState = CDMessageStateNormal;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTDOWNLOADLISTFINISH
-                                                                    object:msgData
-                                                                  userInfo:nil];
+                [ws.list updateMessage:msgData];
             }
         }] resume];
         

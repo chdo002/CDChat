@@ -73,5 +73,4 @@ typedef enum : NSUInteger {
 
 +(ChatListInfo *_Nullable)eventFromChatListInfo:(CTClickInfo *_Nullable)info;
 
--(void)sendMessage;
 @end

@@ -10,8 +10,9 @@
 #import "CDChatListView.h"
 #import "CDLabel.h"
 #import "ChatHelpr.h"
+#import "ChatListInfo.h"
 
-@interface CDTextTableViewCell()
+@interface CDTextTableViewCell()<CDLabelDelegate>
 
 /**
  左侧文字label
@@ -34,17 +35,36 @@
     // 左侧气泡中添加label
     self.textContent_left = [[CDLabel alloc] init];
     self.textContent_left.frame = CGRectZero;
+    self.textContent_left.labelDelegate = self;
     [self.bubbleImage_left addSubview:self.textContent_left];
     self.bubbleImage_left.clipsToBounds = NO;
     
     // 右侧气泡中添加label
     self.textContent_right = [[CDLabel alloc] init];
     self.textContent_right.frame = CGRectZero;
+    self.textContent_right.labelDelegate = self;
     [self.bubbleImage_right addSubview:self.textContent_right];
     self.bubbleImage_right.clipsToBounds = NO;
     
     return self;
 }
+
+#pragma mark CDLabelDelegate
+
+-(void)labelDidSelectText:(CTLinkData *)link{
+    ChatListInfo *info = [ChatListInfo new];
+    info.eventType = ChatClickEventTypeTEXT;
+    info.msgText = self.msgModal.msg;
+    info.containerView = self;
+    info.clickedText = link.title;
+    info.clickedTextContent = link.url;
+    info.range = link.range;
+    info.msgModel = self.msgModal;
+    if ([self.tableView.msgDelegate respondsToSelector:@selector(chatlistClickMsgEvent:)]) {
+        [self.tableView.msgDelegate chatlistClickMsgEvent:info];
+    }
+}
+
 
 #pragma mark MessageCellDelegate
 

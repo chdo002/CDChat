@@ -155,7 +155,8 @@
     
     info.msgText = self.msgModal.msg;
     info.msgModel = self.msgModal;
-    [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENTNOTIFICATION object:info];
+    
+    [self.tableView.msgDelegate chatlistClickMsgEvent:info];
 }
 
 @end

@@ -32,7 +32,9 @@
 		E9C91FAC2136C980005E6449 /* messageHistory_custom.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C91FAB2136C980005E6449 /* messageHistory_custom.json */; };
 		E9C91FB421378C62005E6449 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C91FB321378C62005E6449 /* BaseViewController.m */; };
 		E9C91FB721378E4D005E6449 /* BaseMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C91FB621378E4D005E6449 /* BaseMsgModel.m */; };
-		E9E488402095B15F007E619C /* MsgPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E4883F2095B15F007E619C /* MsgPicViewController.m */; };
+		E9C9201D2137FDDE005E6449 /* MsgPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C9201C2137FDDE005E6449 /* MsgPicViewController.m */; };
+		E9C9202421380646005E6449 /* CustomMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C9202321380646005E6449 /* CustomMsgViewController.m */; };
+		E9C92026213806C9005E6449 /* messageHistory_custom_msg.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C92025213806C8005E6449 /* messageHistory_custom_msg.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +89,11 @@
 		E9C91FB321378C62005E6449 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		E9C91FB521378E4D005E6449 /* BaseMsgModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseMsgModel.h; sourceTree = "<group>"; };
 		E9C91FB621378E4D005E6449 /* BaseMsgModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseMsgModel.m; sourceTree = "<group>"; };
-		E9E4883E2095B15F007E619C /* MsgPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgPicViewController.h; sourceTree = "<group>"; };
-		E9E4883F2095B15F007E619C /* MsgPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgPicViewController.m; sourceTree = "<group>"; };
+		E9C9201B2137FDDE005E6449 /* MsgPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgPicViewController.h; sourceTree = "<group>"; };
+		E9C9201C2137FDDE005E6449 /* MsgPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgPicViewController.m; sourceTree = "<group>"; };
+		E9C9202221380646005E6449 /* CustomMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMsgViewController.h; sourceTree = "<group>"; };
+		E9C9202321380646005E6449 /* CustomMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMsgViewController.m; sourceTree = "<group>"; };
+		E9C92025213806C8005E6449 /* messageHistory_custom_msg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageHistory_custom_msg.json; sourceTree = "<group>"; };
 		FD2F9DE9351C9A0D9D52388A /* Pods-CDChatList_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDChatList_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,8 +166,9 @@
 				6003F59D195388D20070C39A /* CDAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				E9C91FAA2136C7D6005E6449 /* 基础使用 */,
-				E9C91FA92136C545005E6449 /* 自定义消息类型 */,
-				E9E488412095B167007E619C /* msgview */,
+				E9C91FA92136C545005E6449 /* 自定义气泡背景 */,
+				E9C9202121380646005E6449 /* 自定义消息类型 */,
+				E9C9201A2137FDDE005E6449 /* PicView */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -232,16 +238,14 @@
 			name = resource;
 			sourceTree = "<group>";
 		};
-		E9C91FA92136C545005E6449 /* 自定义消息类型 */ = {
+		E9C91FA92136C545005E6449 /* 自定义气泡背景 */ = {
 			isa = PBXGroup;
 			children = (
 				E9C91FAB2136C980005E6449 /* messageHistory_custom.json */,
 				E9C91FA22136C1E5005E6449 /* CustomeViewController.h */,
 				E9C91FA32136C1E5005E6449 /* CustomeViewController.m */,
-				E9C91FA62136C53A005E6449 /* CustomeMsgCell.h */,
-				E9C91FA72136C53A005E6449 /* CustomeMsgCell.m */,
 			);
-			path = "自定义消息类型";
+			path = "自定义气泡背景";
 			sourceTree = "<group>";
 		};
 		E9C91FAA2136C7D6005E6449 /* 基础使用 */ = {
@@ -256,13 +260,25 @@
 			path = "基础使用";
 			sourceTree = "<group>";
 		};
-		E9E488412095B167007E619C /* msgview */ = {
+		E9C9201A2137FDDE005E6449 /* PicView */ = {
 			isa = PBXGroup;
 			children = (
-				E9E4883E2095B15F007E619C /* MsgPicViewController.h */,
-				E9E4883F2095B15F007E619C /* MsgPicViewController.m */,
+				E9C9201B2137FDDE005E6449 /* MsgPicViewController.h */,
+				E9C9201C2137FDDE005E6449 /* MsgPicViewController.m */,
 			);
-			name = msgview;
+			path = PicView;
+			sourceTree = "<group>";
+		};
+		E9C9202121380646005E6449 /* 自定义消息类型 */ = {
+			isa = PBXGroup;
+			children = (
+				E9C92025213806C8005E6449 /* messageHistory_custom_msg.json */,
+				E9C9202221380646005E6449 /* CustomMsgViewController.h */,
+				E9C9202321380646005E6449 /* CustomMsgViewController.m */,
+				E9C91FA62136C53A005E6449 /* CustomeMsgCell.h */,
+				E9C91FA72136C53A005E6449 /* CustomeMsgCell.m */,
+			);
+			path = "自定义消息类型";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +367,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E9AC85892062072A002025DF /* messageHistory.json in Resources */,
+				E9C92026213806C9005E6449 /* messageHistory_custom_msg.json in Resources */,
 				E9C91FAC2136C980005E6449 /* messageHistory_custom.json in Resources */,
 				E9B1D32620F8B4AC00A16C0A /* CHANGELOG.md in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -400,6 +417,7 @@
 				"${BUILT_PRODUCTS_DIR}/CDLabel/CDLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/GDPerformanceView/GDPerformanceView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -407,6 +425,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -442,9 +461,10 @@
 				E9C91FB421378C62005E6449 /* BaseViewController.m in Sources */,
 				E9C91FB721378E4D005E6449 /* BaseMsgModel.m in Sources */,
 				E9C91FA42136C1E5005E6449 /* CustomeViewController.m in Sources */,
+				E9C9201D2137FDDE005E6449 /* MsgPicViewController.m in Sources */,
+				E9C9202421380646005E6449 /* CustomMsgViewController.m in Sources */,
 				E9C91FA82136C53A005E6449 /* CustomeMsgCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				E9E488402095B15F007E619C /* MsgPicViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

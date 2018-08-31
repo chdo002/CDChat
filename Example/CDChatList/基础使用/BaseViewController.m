@@ -11,6 +11,7 @@
 #import "BaseViewController.h"
 #import "BaseMsgModel.h"
 #import "CDChatList.h"
+#import "UIView+Toast.h"
 
 #define StatusH [[UIApplication sharedApplication] statusBarFrame].size.height
 #define NaviH (44 + StatusH)
@@ -62,7 +63,16 @@ UIImagePickerControllerDelegate>
     NSInteger autoInc = 1;
     for (NSDictionary *dic in array) {
         BaseMsgModel *model = [[BaseMsgModel alloc] init:dic];
-        model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
+        if ([model.messageId isEqualToString:@"this is special"]) {
+            CTDataConfig config = [CTData defaultConfig];
+            config.matchLink = NO;
+            config.matchEmail = NO;
+            config.matchEmoji = NO;
+            config.matchPhone = NO;
+            model.ctDataconfig = config;
+        } else {
+            model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
+        }
         [msgs addObject:model];
     }
     self.listView.msgArr = msgs;
@@ -85,7 +95,7 @@ UIImagePickerControllerDelegate>
         }
             break;
         case ChatClickEventTypeTEXT:
-            
+            [self.view makeToast:listInfo.clickedText duration:0.4 position:CSToastPositionBottom];
             break;
     }
 }

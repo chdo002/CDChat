@@ -76,11 +76,6 @@ typedef enum : NSUInteger {
     self.caculator = [[CellCaculator alloc] init];
     self.caculator.list = self;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTDOWNLOADLISTFINISH object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CHATLISTCLICKMSGEVENTNOTIFICATION object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CTCLICKMSGEVENTNOTIFICATION object:nil];
     return self;
 }
 // 防止用户将scrollsToTop改为YES
@@ -123,38 +118,6 @@ static UIWindow *topWindow_;
 -(void)topWindowClick
 {
     [self scrollRectToVisible:CGRectMake(0, originInset, 1, 1) animated:YES];
-}
-
-#pragma mark 通知
--(void)receiveNotification:(NSNotification *)noti{
-    
-    if ([noti.name isEqualToString:CHATLISTDOWNLOADLISTFINISH]) {
-        
-        CDChatMessage msgData = noti.object;
-        if (!noti.userInfo) {
-            // 下载图片完成通知
-            [self updateMessage:msgData];
-        } else {
-            if (isChatListDebug){
-                NSLog(@"[CDChatList] 下载图片%@出现问题%@",msgData.messageId,noti.userInfo);
-            }
-        }
-    } else if ([noti.name isEqualToString:CHATLISTCLICKMSGEVENTNOTIFICATION]) {
-        
-        // 点击消息中可点击区域的通知
-        ChatListInfo *info = noti.object;
-        if (info.eventType == ChatClickEventTypeIMAGE){
-            if ([self.msgDelegate respondsToSelector:@selector(chatlistClickMsgEvent:)]) {
-                [self.msgDelegate chatlistClickMsgEvent:info];
-            }
-        }
-    } else if ([noti.name isEqualToString:CTCLICKMSGEVENTNOTIFICATION]){
-        CTClickInfo *info = noti.object;
-        ChatListInfo *chatInfo = [ChatListInfo eventFromChatListInfo:info];
-        if (chatInfo){
-            [self.msgDelegate chatlistClickMsgEvent:chatInfo];
-        }
-    }
 }
 
 -(void)setMsgDelegate:(id<ChatListProtocol>)msgDelegate{

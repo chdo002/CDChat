@@ -31,7 +31,4 @@
     return newInfo;
 }
 
--(void)sendMessage{
-    [[NSNotificationCenter defaultCenter] postNotificationName:CHATLISTCLICKMSGEVENTNOTIFICATION object:self];
-}
 @end

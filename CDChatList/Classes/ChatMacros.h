@@ -16,12 +16,6 @@
 #define Environment ChatHelpr.share.config.environment
 #define isChatListDebug [ChatHelpr.share.config isDebug]
 
-// 消息中图片下载完成的通知
-#define CHATLISTDOWNLOADLISTFINISH @"CDCHATLISTDOWNLOADLISTFINISH"
-
-// 点击消息中可点击区域的通知
-#define CHATLISTCLICKMSGEVENTNOTIFICATION @"CHATLISTCLICKMSGEVENTNOTIFICATION"
-
 
 #endif /* CDChatMacro_h */
 

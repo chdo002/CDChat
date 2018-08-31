@@ -10,4 +10,14 @@
 NSString *const CustomeMsgCellReuseId = @"CustomeMsgCellReuseId";
 @implementation CustomeMsgCell
 
+-(void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table{
+    [super configCellByData:data table:table];
+    if (data.isLeft) {
+        
+    } else {
+        
+    }
+}
+
+
 @end
