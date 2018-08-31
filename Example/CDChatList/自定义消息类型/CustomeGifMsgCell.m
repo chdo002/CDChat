@@ -24,24 +24,23 @@ NSString *const CustomeMsgCellReuseId = @"CustomeMsgCellReuseId";
 
 -(void)configCellByData:(CDChatMessage)data table:(CDChatListView *)table{
     [super configCellByData:data table:table];
+    
     if (data.isLeft) {
-//        CGRect textRect = self.gifImageView_left.frame;
-//        textRect.origin = CGPointMake(data.chatConfig.bubbleRoundAnglehorizInset + data.chatConfig.bubbleShareAngleWidth, data.chatConfig.bubbleRoundAnglehorizInset);
-//        textRect.size = data.textlayout.contents.size;
+        
         self.gifImageView_left.frame = self.bubbleImage_left.frame;
+        __weak typeof(self) ws = self;
         [self.gifImageView_left sd_setImageWithURL:[NSURL URLWithString:data.msg] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-
+            [ws.tableView reloadData];
         }];
-
+        
     } else {
-
-//        CGRect textRect = self.gifImageView_right.frame;
-//        textRect.origin = CGPointMake(data.chatConfig.bubbleRoundAnglehorizInset, data.chatConfig.bubbleRoundAnglehorizInset);
-//        textRect.size = data.textlayout.contents.size;
+        
         self.gifImageView_right.frame = self.bubbleImage_right.frame;
+        __weak typeof(self) ws = self;
         [self.gifImageView_right sd_setImageWithURL:[NSURL URLWithString:data.msg] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-
+            [ws.tableView reloadData];
         }];
+        
     }
 }
 
