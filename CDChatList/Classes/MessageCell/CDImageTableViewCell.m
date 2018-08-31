@@ -155,8 +155,13 @@
     
     info.msgText = self.msgModal.msg;
     info.msgModel = self.msgModal;
-    
-    [self.tableView.msgDelegate chatlistClickMsgEvent:info];
+    if ([self.tableView.msgDelegate respondsToSelector:@selector(chatlistClickMsgEvent:)]) {
+        [self.tableView.msgDelegate chatlistClickMsgEvent:info];
+    } else {
+#ifdef DEBUG
+      NSLog(@"[CDChatList] chatlistClickMsgEvent未实现，不能响应点击事件");
+#endif
+    }
 }
 
 @end

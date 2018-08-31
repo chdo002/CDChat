@@ -8,7 +8,7 @@
 
 #import "CustomMsgViewController.h"
 #import "CDChatList.h"
-#import "CustomeMsgCell.h"
+#import "CustomeGifMsgCell.h"
 #define StatusH [[UIApplication sharedApplication] statusBarFrame].size.height
 #define NaviH (44 + StatusH)
 #define ScreenW [UIScreen mainScreen].bounds.size.width
@@ -38,6 +38,9 @@
     for (NSDictionary *dic in array) {
         CDMessageModel *model = [[CDMessageModel alloc] init:dic];
         model.messageId = [NSString stringWithFormat:@"%ld",(long)autoInc++];
+        if (model.msgType == CDMessageTypeCustome) {
+            model.reuseIdentifierForCustomeCell = CustomeMsgCellReuseId;
+        }
         [msgs addObject:model];
     }
     list.msgArr = msgs;
@@ -46,13 +49,13 @@
 
 
 -(NSDictionary<NSString *,Class> *)chatlistCustomeCellsAndClasses{
-    return @{CustomeMsgCellReuseId: CustomeMsgCell.class};
+    return @{CustomeMsgCellReuseId: CustomeGifMsgCell.class};
 }
 
 -(CGSize)chatlistSizeForMsg:(CDChatMessage)msg ofList:(CDChatListView *)list{
     CGSize cellSize = CGSizeZero;
     if ([msg.reuseIdentifierForCustomeCell isEqualToString:CustomeMsgCellReuseId]) {
-        cellSize = CGSizeMake(200, 100);
+        cellSize = CGSizeMake(200, 200);
     }
     return cellSize;
 }

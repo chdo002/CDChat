@@ -66,6 +66,7 @@
         } else {
             CTDataConfig config = [CTData defaultConfig];
             config.textColor = [UIColor whiteColor].CGColor;
+            config.clickStrColor = [UIColor whiteColor].CGColor;
             model.ctDataconfig = config;
         }
         [msgs addObject:model];
@@ -76,7 +77,21 @@
 
 
 - (void)chatlistLoadMoreMsg:(CDChatMessage)topMessage callback:(void (^)(CDChatMessageArray, BOOL))finnished {
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"messageHistory_custom" ofType:@"json"];
+        NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:5];
+        for (int i = 0; i<11; i++) {
+            CDMessageModel *model = [[CDMessageModel alloc] init];
+            model.msg = array[0][@"msg"];
+            model.msgType = CDMessageTypeImage;
+//            model.userThumImage = [UIImage imageNamed:@"thum"];
+            [arr addObject:model];
+        }
+        finnished(arr,YES);
+    });
 }
 
 - (void)dealloc

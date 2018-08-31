@@ -95,7 +95,7 @@ UIImagePickerControllerDelegate>
         }
             break;
         case ChatClickEventTypeTEXT:
-            [self.view makeToast:listInfo.clickedText duration:0.4 position:CSToastPositionBottom];
+            [self.view makeToast:listInfo.clickedText duration:0.5 position:CSToastPositionCenter];
             break;
     }
 }

@@ -106,6 +106,12 @@
             return [self sizeForSysInfoMessage:data];
         case CDMessageTypeAudio:
             return [self sizeForAudioMessage:data];
+        case CDMessageTypeCustome:
+            if ([self.list.msgDelegate respondsToSelector:@selector(chatlistSizeForMsg:ofList:)]) {
+                return [self.list.msgDelegate chatlistSizeForMsg:data ofList:self.list];
+            } else {
+                return CGSizeMake(150, 170);
+            }
         default:
             return CGSizeMake(150, 170);
     }
@@ -203,13 +209,10 @@ CGSize caculateImageSize140By140(UIImage *image, CDChatMessage msgData) {
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
                 msgData.msgState = CDMessageStateDownloadFaild;
-                
                 [ws.list updateMessage:msgData];
-                
-                if (isChatListDebug){
-                    NSLog(@"[CDChatList] 下载图片出现问题%@",error.localizedDescription);
-                }
-                
+#ifdef DEBUG
+                NSLog(@"[CDChatList] 下载图片出现问题%@",error.localizedDescription);
+#endif
             } else {
                 
                 CGSize size = caculateImageSize140By140(image,msgData);
@@ -293,9 +296,9 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
             if(error){
                 msgData.msgState = CDMessageStateDownloadFaild;
                 [ws.list updateMessage:msgData];
-                if (isChatListDebug){
-                    NSLog(@"[CDChatList] 下载音频出现问题%@",error.localizedDescription);
-                }
+#ifdef DEBUG
+                NSLog(@"[CDChatList] 下载音频出现问题%@",error.localizedDescription);
+#endif
             } else {
                 
                 NSData *data = [NSData dataWithContentsOfURL:location];

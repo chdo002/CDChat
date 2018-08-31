@@ -12,13 +12,17 @@
   },
   
   {
-  "msg":"可以识别：\n 1.表情[微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][白眼][流汗][骷髅][快哭了][嘴唇]\n 2.链接: wwww.github.com,https://wwww.github.com\n 3.邮箱：1107661983@qq.com\n 4.号码： 15619297898",
+  "msg":"可以识别：\n 1.表情: [微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][白眼][流汗][骷髅][快哭了][嘴唇]\n 2.链接: wwww.github.com,https://wwww.github.com\n 3.邮箱：1107661983@qq.com\n 4.号码： 15619297898",
   "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg"
   },
   {
-  "msg":"也可以不识别：\n 1.表情[微笑]\n 2.链接: wwww.github.com,https://wwww.github.com\n 3.邮箱：1107661983@qq.com\n 4.号码： 15619297898",
+  "msg":"也可以不识别：\n 1.表情: [微笑]\n 2.链接: wwww.github.com,https://wwww.github.com\n 3.邮箱：1107661983@qq.com\n 4.号码： 15619297898",
   "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   "messageId":"this is special"
+  },
+  {
+  "msg":"这是系统消息类型",
+  "msgType":3
   },
   {
   "msg":"https://coding.net/u/chdo/p/CDResource/git/raw/master/wallpaper/down3.jpeg",
@@ -37,8 +41,8 @@
   
   {
   "msg":"头像、用户名可自定义设置，不设置则为默认为空",
-  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1495899655,520147013&fm=200&gp=0.jpg",
   "userName":"用户名。。。",
+  "userThumImageURL":"http://img4.imgtn.bdimg.com/it/u=3504790867,267919701&fm=200&gp=0.jpg",
   "isLeft":1,
   },
   
@@ -49,7 +53,7 @@
   
   {
   "msg":"头像、用户名可自定义设置，不设置则为默认为空",
-  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1495899655,520147013&fm=200&gp=0.jpg"
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg"
   }
   
   ]
