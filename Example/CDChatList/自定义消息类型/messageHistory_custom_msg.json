@@ -1,33 +1,51 @@
  [
   {
   "msg":"https://coding.net/u/chdo/p/CDResource/git/raw/master/wallpaper/down2.jpeg",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   "msgType":1
   },{
-  "msg":"[微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了]美国当地时间星期日晚上十点，Uber 一辆正在测试的自动驾驶 SUV 在亚利桑那州 Temp 市发生交通事故，撞上了一名正在过马路的行人，行人在送往医院后不治身亡。目前，警方已经要求 Uber 暂停其自动驾驶项目。[嘴唇][蛋糕][微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了][嘴唇][蛋糕][微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了][嘴唇][蛋糕][微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了][嘴唇][蛋糕]"
+  "msg":"[微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了]美国当地时间星期日晚上十点，Uber 一辆正在测试的自动驾驶 SUV 在亚利桑那州 Temp 市发生交通事故，撞上了一名正在过马路的行人，行人在送往医院后不治身亡。目前，警方已经要求 Uber 暂停其自动驾驶项目。[嘴唇][蛋糕][微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了][嘴唇][蛋糕][微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了][嘴唇][蛋糕][微笑][得意][流泪][发呆][调皮][发怒][白眼][流汗][骷髅][快哭了][嘴唇][蛋糕]",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   },{
   "msg":"https://coding.net/u/chdo/p/CDResource/git/raw/master/wallpaper/down3.jpeg",
   "msgType":1,
-  "isLeft": 1
+  "isLeft": 1,
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   },{
   "msg":"https://coding.net/u/chdo/p/CDResource/git/raw/master/wallpaper/down3.jpeg",
-  "msgType":1
+  "msgType":1,
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   },{
-  "msg":"http://img.soogif.com/tKfb8AePf4hiwR70Jks0L2eMI9bSJ32C.gif_s400x0",
+  "msg":"g3",
   "msgType":4,
   "isLeft":1,
+  "reuseIdentifierForCustomeCell":"CustomeMsgCellReuseId",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   },{
   "msg":"https://coding.net/u/chdo/p/CDResource/git/raw/master/wallpaper/down4.jpeg",
-  "msgType":1
+  "msgType":1,
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   },{
   "msg":"asfdsfoijasijfioajfoisjfoisjfiosjfoisjfosifjois",
   "msgType":0,
   "isLeft":1,
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   },{
-  "msg":"http://img.soogif.com/QHAESCYVcGXu0Oghc1EFsu8WsyL2L4bI.gif_s400x0",
+  "msg":"g2",
   "msgType":4,
+  "reuseIdentifierForCustomeCell":"CustomeMsgCellReuseId",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   },{
-  "msg":"http://img.soogif.com/gSj6vbcUHDSLb3frNVt4BbFZlLiXW0tC.gif_s400x0",
+  "msg":"g1",
   "msgType":4,
   "isLeft":1,
+  "reuseIdentifierForCustomeCell":"CustomeMsgCellReuseId",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
+  },{
+  "msg":"这是一条新闻",
+  "msgType":4,
+  "isLeft":1,
+  "reuseIdentifierForCustomeCell":"CustomNewsCellReuseId",
+  "userThumImageURL":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1555162835,2120770057&fm=27&gp=0.jpg",
   }
   ]

@@ -10,5 +10,8 @@
 #import "CDChatList.h"
 
 @interface BaseMsgModel : NSObject<MessageModalProtocal>
+
+@property(nonatomic, strong) id cacheGif;
+
 -(instancetype)init:(NSDictionary *)dic;
 @end

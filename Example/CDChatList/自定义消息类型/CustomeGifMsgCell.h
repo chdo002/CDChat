@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "CDBaseMsgCell.h"
- #import "FLAnimatedImageView+WebCache.h"
+#import <YYImage/YYImage.h>
+#import "FLAnimatedImageView+WebCache.h"
 
 extern NSString *const CustomeMsgCellReuseId;
 
 // 自定义Gif类型的消息
 @interface CustomeGifMsgCell : CDBaseMsgCell
-@property(nonatomic, strong) FLAnimatedImageView *gifImageView_left;
-@property(nonatomic, strong) FLAnimatedImageView *gifImageView_right;
+@property(nonatomic, strong) YYAnimatedImageView *gifImageView_left;
+@property(nonatomic, strong) YYAnimatedImageView *gifImageView_right;
 @end

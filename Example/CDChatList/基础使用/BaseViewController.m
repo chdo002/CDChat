@@ -136,7 +136,6 @@ UIImagePickerControllerDelegate>
         mode.msgType = CDMessageTypeAudio;
         mode.msgState = CDMessageStateNormal;
         mode.msg = [path absoluteString];
-        mode.isLeft = arc4random() % 2 == 1;
         mode.createTime = createTtime;
         mode.messageId = createTtime;
         mode.audioSufix = sufix;
