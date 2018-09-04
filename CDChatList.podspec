@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CDChatList'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'Awesome chatlist component for iOS.'
   s.homepage         = 'https://github.com/chdo002/CDChatList'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
