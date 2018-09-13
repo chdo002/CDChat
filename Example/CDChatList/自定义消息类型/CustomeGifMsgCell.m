@@ -8,6 +8,7 @@
 
 #import "CustomeGifMsgCell.h"
 #import "BaseMsgModel.h"
+
 NSString *const CustomeMsgCellReuseId = @"CustomeMsgCellReuseId";
 @implementation CustomeGifMsgCell
 

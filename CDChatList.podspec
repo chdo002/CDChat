@@ -18,10 +18,17 @@ Pod::Spec.new do |s|
   #s.subspec 'CDLabel' do |label|
   #  label.source_files = 'CDChatList/Classes/CDLabel/**/*.{h,m}'
   #end
+  
+  s.resource_bundles = {
+      'CDInputViewBundle' => ['CDChatList/Assets/CDInputViewBundle/*'],
+      'CDExpression' => ['CDChatList/Assets/CDExpression/*']
+  }
 
   s.subspec 'CDChatInputBox' do |input|
     input.source_files = 'CDChatList/Classes/CDChatInputBox/**/*.{h,m}'
   end
+  
+  
   
   s.dependency 'SDWebImage'
   s.dependency 'CDLabel', '0.1.0'

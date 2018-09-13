@@ -26,4 +26,7 @@
  */
 @property(nonatomic, strong) NSArray<Class> *customMsgCell; //自定义消息cell
 
+
+-(void)configDefaultResource;
+
 @end

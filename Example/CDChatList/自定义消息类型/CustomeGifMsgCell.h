@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CDBaseMsgCell.h"
 #import <YYImage/YYImage.h>
-#import "FLAnimatedImageView+WebCache.h"
 
 extern NSString *const CustomeMsgCellReuseId;
 

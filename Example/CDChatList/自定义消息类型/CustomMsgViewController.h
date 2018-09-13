@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FLAnimatedImageView+WebCache.h"
+
 
 @interface CustomMsgViewController : UIViewController
 
