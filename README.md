@@ -6,9 +6,8 @@
 [![Platform](https://img.shields.io/cocoapods/p/CDChatList.svg?style=flat)](http://cocoapods.org/pods/CDChatList)
 
 
-
- <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static1.jpg" width="150"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/1313.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static3.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static4.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static5.jpg" width="150">
-
+<img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static1.jpg" width="150"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/1313.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static3.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static4.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static5.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
 高性能的聊天页面解决方案
 对聊天列表的高度封装，可灵活配置页面样式
@@ -182,8 +181,22 @@ CDChatList会将视图控制器automaticallyAdjustsScrollViewInsets及contentIns
 }
 ```
 
+#### 自定义消息气泡扩展
 
+  通过实现下列两个方法实现自定义消息气泡的扩展，具体可见demo
 
-## TODO
+```
+-(NSDictionary<NSString *,Class> *)chatlistCustomeCellsAndClasses{
+    return @{CustomeMsgCellReuseId: CustomeGifMsgCell.class, CustomNewsCellReuseId:CustomNewsCell.class};
+}
+```
 
-- 自定义消息气泡扩展
+```
+-(CGSize)chatlistSizeForMsg:(CDChatMessage)msg ofList:(CDChatListView *)list{
+
+    CGSize cellSize = CGSizeMake(200, 100);
+    // ... 处理各种自定义类型消息的大小
+    return cellSize;
+}
+
+```
