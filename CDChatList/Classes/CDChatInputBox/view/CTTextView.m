@@ -46,16 +46,25 @@
     return _placeholderView;
 }
 
-- (void)setMaxNumberOfLines:(NSUInteger)maxNumberOfLines
-{
-    _maxNumberOfLines = maxNumberOfLines;
-    
+//- (void)setMaxNumberOfLines:(NSUInteger)maxNumberOfLines
+//{
+//    _maxNumberOfLines = maxNumberOfLines;
+//
+//    /**
+//     *  根据最大的行数计算textView的最大高度
+//     *  计算最大高度 = (每行高度 * 总行数 + 文字上下间距)
+//     */
+//    _maxTextH = ceil(self.font.lineHeight * maxNumberOfLines + self.textContainerInset.top + self.textContainerInset.bottom);
+//
+//}
+
+- (void)setMaxNumberOfInputLines:(NSUInteger)maxNumberOfInputLines{
+    _maxNumberOfInputLines = maxNumberOfInputLines;
     /**
      *  根据最大的行数计算textView的最大高度
      *  计算最大高度 = (每行高度 * 总行数 + 文字上下间距)
      */
-    _maxTextH = ceil(self.font.lineHeight * maxNumberOfLines + self.textContainerInset.top + self.textContainerInset.bottom);
-    
+    _maxTextH = ceil(self.font.lineHeight * maxNumberOfInputLines + self.textContainerInset.top + self.textContainerInset.bottom);
 }
 
 - (void)setCornerRadius:(NSUInteger)cornerRadius

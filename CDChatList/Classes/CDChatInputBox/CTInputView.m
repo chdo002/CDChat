@@ -100,6 +100,7 @@ static UIColor *InputHexColor(int hexColor){
     CTTextView *textView = [[CTTextView alloc] initWithFrame:config.inputViewRect];
     textView.font = config.stringFont;
     self.textView = textView;
+    textView.maxNumberOfInputLines = 5;
     self.textView.returnKeyType = UIReturnKeySend;
     self.textView.delegate = self;
     [self addSubview:textView];

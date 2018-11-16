@@ -24,7 +24,7 @@ typedef void(^CM_textHeightChangedBlock)(NSString *text,CGFloat textHeight);
 /**
  *  textView最大行数
  */
-@property (nonatomic, assign) NSUInteger maxNumberOfLines;
+@property (nonatomic, assign) NSUInteger maxNumberOfInputLines;
 
 /**
  *  文字高度改变block → 文字高度改变会自动调用
