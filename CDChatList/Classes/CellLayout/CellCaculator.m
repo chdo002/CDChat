@@ -12,6 +12,8 @@
 #import "ChatHelpr.h"
 #import "UITool.h"
 #import <AVFoundation/AVFoundation.h>
+#import <SDWebImage/SDWebImageDownloader.h>
+#import <SDWebImage/SDImageCache.h>
 #import "SDImageCache+ChatCaculator.h"
 
 @interface CellCaculator()
@@ -265,21 +267,21 @@ CGSize caculateAudioCellSize(CDChatMessage msg, NSString *path) {
     
     //  从本地取消息音频,如果是自己发的会通过messageId缓存
     NSString *key = [NSString stringWithFormat:@"%@.%@",msgData.messageId, msgData.audioSufix];
-    NSString *path = [[SDImageCache sharedImageCache] defaultCachePathForKey:key];
+//    NSString *path = [[SDImageCache sharedImageCache] defaultCachePathForKey:key];
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wundeclared-selector"
     NSData *data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:key];
     // 通过msg取缓存
-    if (!data) {
-        path = [[SDImageCache sharedImageCache] defaultCachePathForKey:msgData.msg];
-        
-        data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:msgData.msg];
-    }
+//    if (!data) {
+//        path = [[SDImageCache sharedImageCache] defaultCachePathForKey:msgData.msg];
+//
+//        data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:msgData.msg];
+//    }
 #pragma clang diagnostic pop
     
     if (data) {
-        return caculateAudioCellSize(msgData,path);
+        return caculateAudioCellSize(msgData,@"");
     } else {
         
         CGSize defaulutSize = CGSizeMake(cd_ScreenW() * 0.4, msgData.chatConfig.messageContentH);

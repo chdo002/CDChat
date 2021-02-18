@@ -183,6 +183,7 @@ static UIWindow *topWindow_;
     CGPoint contentOffset = self.contentOffset;
     BOOL needAdjust = cellOffset < contentOffset.y;
     
+#warning 这里在图片下载失败时，有死循环
     [self reloadData];
     
     if (needAdjust) {

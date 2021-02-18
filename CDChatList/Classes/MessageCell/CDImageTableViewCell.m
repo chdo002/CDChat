@@ -50,8 +50,8 @@
     self.imageContent_left.backgroundColor = [UIColor lightGrayColor];
     [self.msgContent_left insertSubview:self.imageContent_left
                            belowSubview:self.bubbleImage_left];
-    [self.msgContent_left sd_setShowActivityIndicatorView:YES];
-    [self.msgContent_left sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    [self.msgContent_left sd_setShowActivityIndicatorView:YES];
+//    [self.msgContent_left sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     // 点击手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapContent:)];
@@ -70,8 +70,8 @@
     self.imageContent_right.backgroundColor = CDHexColor(0x808080);
     [self.msgContent_right insertSubview:self.imageContent_right
                             belowSubview:self.bubbleImage_right];
-    [self.msgContent_right sd_setShowActivityIndicatorView:YES];
-    [self.msgContent_right sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    [self.msgContent_right sd_setShowActivityIndicatorView:YES];
+//    [self.msgContent_right sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     // 点击手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapContent:)];

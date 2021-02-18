@@ -414,7 +414,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CDChatList/CDChatList.framework",
 				"${BUILT_PRODUCTS_DIR}/CDLabel/CDLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/GDPerformanceView/GDPerformanceView.framework",
@@ -435,7 +435,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CDChatList_Example/Pods-CDChatList_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E6FCACC3A6CB8040EFF90EC4 /* [CP] Check Pods Manifest.lock */ = {
