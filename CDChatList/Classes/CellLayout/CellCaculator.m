@@ -211,7 +211,8 @@ CGSize caculateImageSize140By140(UIImage *image, CDChatMessage msgData) {
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if(error){
                 msgData.msgState = CDMessageStateDownloadFaild;
-                [ws.list updateMessage:msgData];
+                // 防止出现 循环下载
+//                [ws.list updateMessage:msgData];
 #ifdef DEBUG
                 NSLog(@"[CDChatList] 下载图片出现问题%@",error.localizedDescription);
 #endif
