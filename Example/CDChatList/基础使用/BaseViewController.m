@@ -176,7 +176,7 @@ UIImagePickerControllerDelegate>
     });
 }
 // 输入框输出文字
-- (void)inputViewPopSttring:(NSString *)string {
+- (void)inputViewPopString:(NSString *)string {
     CDMessageModel *model = [[CDMessageModel alloc] init];
     model.msg = string;
     // 加入列表UI

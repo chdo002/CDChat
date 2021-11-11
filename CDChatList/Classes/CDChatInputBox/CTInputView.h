@@ -12,7 +12,7 @@
 
 -(void)inputViewWillUpdateFrame:(CGRect)newFrame animateDuration:(double)duration animateOption:(NSInteger)opti;
 // 输出文字
--(void)inputViewPopSttring:(NSString *)string; //
+-(void)inputViewPopString:(NSString *)string; //
 // 输出命令
 -(void)inputViewPopCommand:(NSString *)string; //
 // 输出音频

@@ -355,8 +355,8 @@ static UIColor *InputHexColor(int hexColor){
 
 -(void)emojiKeyboardSelectSend{
     NSString *plainStr = [EmojiTextAttachment getPlainString: [self.textView.attributedText copy]];
-    if ([self.delegate respondsToSelector:@selector(inputViewPopSttring:)]) {
-        [self.delegate inputViewPopSttring:plainStr];
+    if ([self.delegate respondsToSelector:@selector(inputViewPopString:)]) {
+        [self.delegate inputViewPopString:plainStr];
     }
     self.textView.text = @"";
     [self.textView textDidChange];
