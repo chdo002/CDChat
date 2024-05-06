@@ -6,8 +6,8 @@
 [![Platform](https://img.shields.io/cocoapods/p/CDChatList.svg?style=flat)](http://cocoapods.org/pods/CDChatList)
 
 
-<img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static1.jpg" width="150"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/1313.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static3.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static4.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static5.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<img src="https://github.com/chdo002/CDChatList/blob/master/images/default.png?raw=true" width="150"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://github.com/chdo002/CDChatList/blob/master/images/custom.png?raw=true" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/chdo002/CDChatList/blob/master/images/custom2.png?raw=true" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static4.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://coding.net/u/chdo/p/CDResource/git/raw/master/static5.jpg" width="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
 高性能的聊天页面解决方案
 对聊天列表的高度封装，可灵活配置页面样式
